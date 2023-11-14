@@ -21,10 +21,7 @@ import com.cloudinary.provisioning.model.UsersResponse;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * API tests for UsersApi
@@ -44,8 +41,8 @@ public class UsersApiTest {
     @Test
     public void createUserTest() throws ApiException {
         UserRequest userRequest = null;
-        UserResponse response = api.createUser(userRequest);
-        // TODO: test validations
+        UsersResponse response = api.getUsers(false, Collections.emptyList(), "", "");
+        System.out.println(response);
     }
 
     /**

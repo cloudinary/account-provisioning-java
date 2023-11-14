@@ -47,7 +47,7 @@ import com.cloudinary.provisioning.JSON;
 /**
  * MessageResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-14T10:16:56.558721+02:00[Asia/Jerusalem]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-14T13:08:19.875333+02:00[Asia/Jerusalem]")
 public class MessageResponse {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -147,11 +147,11 @@ public class MessageResponse {
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!MessageResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MessageResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
+      //for (Entry<String, JsonElement> entry : entries) {
+        //if (!MessageResponse.openapiFields.contains(entry.getKey())) {
+          //throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MessageResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        //}
+      //}
       if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }

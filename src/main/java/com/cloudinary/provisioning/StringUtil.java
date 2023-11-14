@@ -16,7 +16,7 @@ package com.cloudinary.provisioning;
 import java.util.Collection;
 import java.util.Iterator;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-14T10:16:56.558721+02:00[Asia/Jerusalem]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-14T13:08:19.875333+02:00[Asia/Jerusalem]")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

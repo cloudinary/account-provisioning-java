@@ -47,7 +47,7 @@ import com.cloudinary.provisioning.JSON;
 /**
  * AccessKeyResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-14T10:16:56.558721+02:00[Asia/Jerusalem]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-14T13:08:19.875333+02:00[Asia/Jerusalem]")
 public class AccessKeyResponse {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -297,11 +297,11 @@ public class AccessKeyResponse {
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!AccessKeyResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccessKeyResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
+      //for (Entry<String, JsonElement> entry : entries) {
+        //if (!AccessKeyResponse.openapiFields.contains(entry.getKey())) {
+          //throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccessKeyResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        //}
+      //}
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }

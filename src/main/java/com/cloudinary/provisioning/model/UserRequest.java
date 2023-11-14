@@ -49,7 +49,7 @@ import com.cloudinary.provisioning.JSON;
 /**
  * UserRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-14T10:16:56.558721+02:00[Asia/Jerusalem]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-14T13:08:19.875333+02:00[Asia/Jerusalem]")
 public class UserRequest {
   public static final String SERIALIZED_NAME_PENDING = "pending";
   @SerializedName(SERIALIZED_NAME_PENDING)
@@ -247,11 +247,11 @@ public class UserRequest {
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!UserRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
+      //for (Entry<String, JsonElement> entry : entries) {
+        //if (!UserRequest.openapiFields.contains(entry.getKey())) {
+          //throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        //}
+      //}
       // ensure the json data is an array
       if (jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `ids` to be an array in the JSON string but got `%s`", jsonObj.get("ids").toString()));

@@ -30,6 +30,7 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.URLConnection;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -43,7 +44,7 @@ import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
-import org.threeten.bp.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -94,7 +95,7 @@ public class ApiClient {
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
 
-        setCloudinaryUrl(null);
+        setCloudinaryAccountUrl(null);
     }
 
     /**
@@ -350,16 +351,16 @@ public class ApiClient {
     }
 
 
-   public void setCloudinaryUrl(String cloudinaryUrl) {
+   public void setCloudinaryAccountUrl(String cloudinaryUrl) {
         if (cloudinaryUrl == null) {
-            cloudinaryUrl = System.getProperty("CLOUDINARY_URL", System.getenv("CLOUDINARY_URL"));
+            cloudinaryUrl = System.getProperty("CLOUDINARY_ACCOUNT_URL", System.getenv("CLOUDINARY_ACCOUNT_URL"));
         }
         if (cloudinaryUrl != null) {
             Map config = parseConfigUrl(cloudinaryUrl);
             HttpBasicAuth basicAuth = (HttpBasicAuth)  getAuthentication("basicAuth");
             basicAuth.setUsername((String) config.get("api_key"));
             basicAuth.setPassword((String) config.get("api_secret"));
-            updateBasePath((String) config.get("cloud_name"));
+            updateBasePath((String) config.get("account_id"));
         }
     }
 
@@ -1474,29 +1475,27 @@ public class ApiClient {
         return "";
     }
 
-    protected Map parseConfigUrl(String cloudinaryUrl) {
+    protected Map parseConfigUrl(String cloudinaryAccountUrl) {
         Map params = new HashMap();
-        URI cloudinaryUri = URI.create(cloudinaryUrl);
-        if (cloudinaryUri.getScheme() == null || !cloudinaryUri.getScheme().equalsIgnoreCase("cloudinary")) {
-            throw new IllegalArgumentException("Invalid CLOUDINARY_URL scheme. Expecting to start with 'cloudinary://'");
+        URI cloudinaryAccountUri = URI.create(cloudinaryAccountUrl);
+        if (cloudinaryAccountUri.getScheme() == null || !cloudinaryAccountUri.getScheme().equalsIgnoreCase("account")) {
+            throw new IllegalArgumentException("Invalid CLOUDINARY_ACCOUNT_URL scheme. Expecting to start with 'account://'");
         }
-        params.put("cloud_name", cloudinaryUri.getHost());
-        if (cloudinaryUri.getUserInfo() != null) {
-            String[] creds = cloudinaryUri.getUserInfo().split(":");
+        params.put("account_id", cloudinaryAccountUri.getHost());
+        if (cloudinaryAccountUri.getUserInfo() != null) {
+            String[] creds = cloudinaryAccountUri.getUserInfo().split(":");
             params.put("api_key", creds[0]);
             if (creds.length > 1) {
                 params.put("api_secret", creds[1]);
             }
         }
-        params.put("private_cdn", !StringUtils.isEmpty(cloudinaryUri.getPath()));
-        params.put("secure_distribution", cloudinaryUri.getPath());
-        updateMapfromURI(params, cloudinaryUri);
+        updateMapfromURI(params, cloudinaryAccountUri);
         return params;
     }
 
-    private void updateMapfromURI(Map params, URI cloudinaryUri) {
-        if (cloudinaryUri.getQuery() != null) {
-            for (String param : cloudinaryUri.getQuery().split("&")) {
+    private void updateMapfromURI(Map params, URI cloudinaryAccountUri) {
+        if (cloudinaryAccountUri.getQuery() != null) {
+            for (String param : cloudinaryAccountUri.getQuery().split("&")) {
                 String[] keyValue = param.split("=");
                 try {
                     final String value = URLDecoder.decode(keyValue[1], "ASCII");
@@ -1534,10 +1533,10 @@ public class ApiClient {
 
     private void updateBasePath(String cloudName) {
         StringBuffer sb = new StringBuffer();
-        Pattern p = Pattern.compile("(\\/v\\d+)\\/(\\w+)");
+        Pattern p = Pattern.compile("/accounts/(.+)");
         Matcher m = p.matcher(getBasePath());
         if (m.find()) {
-            String matchedString = m.group(2);
+            String matchedString = m.group(1);
             if (matchedString != null) {
                 m.appendTail(sb);
                 String result = sb.toString().replace(matchedString,cloudName);

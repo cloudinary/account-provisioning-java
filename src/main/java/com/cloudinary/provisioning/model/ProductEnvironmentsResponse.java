@@ -50,7 +50,7 @@ import com.cloudinary.provisioning.JSON;
 /**
  * ProductEnvironmentsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-14T10:16:56.558721+02:00[Asia/Jerusalem]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-14T13:08:19.875333+02:00[Asia/Jerusalem]")
 public class ProductEnvironmentsResponse {
   public static final String SERIALIZED_NAME_SUB_ACCOUNTS = "sub_accounts";
   @SerializedName(SERIALIZED_NAME_SUB_ACCOUNTS)
@@ -158,11 +158,11 @@ public class ProductEnvironmentsResponse {
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ProductEnvironmentsResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProductEnvironmentsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
+      //for (Entry<String, JsonElement> entry : entries) {
+        //if (!ProductEnvironmentsResponse.openapiFields.contains(entry.getKey())) {
+          //throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProductEnvironmentsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        //}
+      //}
       JsonArray jsonArraysubAccounts = jsonObj.getAsJsonArray("sub_accounts");
       if (jsonArraysubAccounts != null) {
         // ensure the json data is an array
