@@ -1,0 +1,1023 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: support@cloudinary.com
+    name: Cloudinary Support
+    url: https://support.cloudinary.com
+  description: "Accounts with provisioning API access can create and manage their\
+    \ **product environments**, **users** and **user groups** using the RESTful Provisioning\
+    \ API. \n\nProvisioning API access is available [upon request](https://cloudinary.com/contact?plan=enterprise)\
+    \ for accounts on an [Enterprise plan](https://cloudinary.com/pricing#pricing-enterprise).\n"
+  termsOfService: https://cloudinary.com/tou
+  title: Cloudinary Provisioning API
+  version: 0.0.1
+  x-sdk-package-name: account-provisioning
+servers:
+- url: "https://api.cloudinary.com/v1_1/provisioning/accounts/{accountId}"
+  variables:
+    accountId:
+      default: ACCOUNT_ID
+      description: Your Account ID.
+security:
+- basicAuth: []
+tags:
+- description: |
+    Manage the product environments (sub-accounts) of your main account.
+  externalDocs:
+    description: Learn more about product environments management.
+    url: https://cloudinary.com/documentation/provisioning_api#product_environments
+  name: Environments
+- description: |
+    Manage the users for your account.
+  name: Users
+- description: |
+    Manage the groups for the users in your account
+  name: User Groups
+- description: "Manage the access keys, which include an API key and secret pair,\
+    \ for your product environment (sub-account).\n"
+  name: Access Keys
+paths:
+  /sub_accounts:
+    get:
+      description: Retrieve an array of product environments.
+      externalDocs:
+        description: Learn more about getting product environments.
+        url: https://cloudinary.com/documentation/provisioning_api#get_product_environments
+      operationId: getProductEnvironments
+      parameters:
+      - description: Whether to return enabled (true) or disabled (false) product
+          environments. Default all environments.
+        example: true
+        explode: true
+        in: query
+        name: enabled
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: A list of up to 100 product environment IDs.
+        explode: true
+        in: query
+        name: ids
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Returns product environments where the name begins with the specified
+          case-insensitive string.
+        example: product
+        explode: true
+        in: query
+        name: prefix
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                sub_accounts:
+                - cloud_name: product1
+                  name: Product1 Application
+                  enabled: true
+                  id: abcde1fghij2klmno3pqrst4uvwxy5z
+                  api_access_keys:
+                  - key: "123456789012345"
+                    secret: asdf1JKL2xyz3ABc4s3c5reT01DfaKe
+                  created_at: 2016-09-27T08:00:16Z
+                - cloud_name: product2
+                  name: Product2 Application
+                  enabled: true
+                  id: 0aaaaa1bbbbb2ccccc3ddddd4eeeee5f
+                  api_access_keys:
+                  - key: "543210987654321"
+                    secret: T415i5mYs3cr3TkeYN0tR3a77y0o0
+                  created_at: 2016-03-15T11:44:48Z
+              schema:
+                $ref: '#/components/schemas/ProductEnvironmentsResponse'
+          description: Successful operation
+      summary: Get product environments
+      tags:
+      - Environments
+      x-accepts: application/json
+    post:
+      description: Create a new product environment.
+      operationId: createProductEnvironment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductEnvironmentRequest'
+        description: Product environment details
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductEnvironmentResponse'
+          description: Product environment created successfully
+      summary: Create product environment
+      tags:
+      - Environments
+      x-content-type: application/json
+      x-accepts: application/json
+  /sub_accounts/{sub_account_id}:
+    delete:
+      description: Delete a specific product environment.
+      operationId: deleteProductEnvironment
+      parameters:
+      - explode: false
+        in: path
+        name: sub_account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResponse'
+          description: Product environment deleted successfully
+      summary: Delete product environment
+      tags:
+      - Environments
+      x-accepts: application/json
+    get:
+      description: Retrieve a specific product environment.
+      operationId: getProductEnvironment
+      parameters:
+      - explode: false
+        in: path
+        name: sub_account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductEnvironmentResponse'
+          description: Successful operation
+      summary: Get product environment
+      tags:
+      - Environments
+      x-accepts: application/json
+    put:
+      description: Update the details of a product environment.
+      operationId: updateProductEnvironment
+      parameters:
+      - explode: false
+        in: path
+        name: sub_account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductEnvironmentRequest'
+        description: Updated product environment details
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductEnvironmentResponse'
+          description: Product environment updated successfully
+      summary: Update product environment
+      tags:
+      - Environments
+      x-content-type: application/json
+      x-accepts: application/json
+  /users:
+    get:
+      description: Retrieve an array of users.
+      operationId: getUsers
+      parameters:
+      - description: Whether to return pending users. Default false (all users)
+        explode: true
+        in: query
+        name: pending
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: A list of up to 100 user IDs.
+        explode: true
+        in: query
+        name: ids
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Returns users where the name begins with the specified case-insensitive
+          string.
+        explode: true
+        in: query
+        name: prefix
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Only returns users who have access to the specified account.
+        explode: true
+        in: query
+        name: sub_account_id
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersResponse'
+          description: Successful operation
+      summary: Get users
+      tags:
+      - Users
+      x-accepts: application/json
+    post:
+      description: Create a new user.
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+        description: User details
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+          description: User created successfully
+      summary: Create user
+      tags:
+      - Users
+      x-content-type: application/json
+      x-accepts: application/json
+  /users/{user_id}:
+    delete:
+      description: Delete a specific user.
+      operationId: deleteUser
+      parameters:
+      - explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResponse'
+          description: User deleted successfully
+      summary: Delete user
+      tags:
+      - Users
+      x-accepts: application/json
+    get:
+      description: Retrieve a specific user.
+      operationId: getUser
+      parameters:
+      - explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+          description: Successful operation
+      summary: Get user
+      tags:
+      - Users
+      x-accepts: application/json
+    put:
+      description: Update the details of a user.
+      operationId: updateUser
+      parameters:
+      - explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+        description: Updated user details
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+          description: User updated successfully
+      summary: Update user
+      tags:
+      - Users
+      x-content-type: application/json
+      x-accepts: application/json
+  /user_groups:
+    get:
+      description: Retrieve an array of all user groups in the account.
+      operationId: getUserGroups
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroupsResponse'
+          description: Successful operation
+      summary: Get User Groups
+      tags:
+      - User Groups
+      x-accepts: application/json
+    post:
+      description: Create a new user group for the account.
+      operationId: createUserGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserGroupRequest'
+        description: User group details
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroupResponse'
+          description: User group created successfully
+      summary: Create User Group
+      tags:
+      - User Groups
+      x-content-type: application/json
+      x-accepts: application/json
+  /user_groups/{group_id}:
+    delete:
+      description: Delete a user group with the specified ID.
+      operationId: deleteUserGroup
+      parameters:
+      - explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResponse'
+          description: User group deleted successfully
+      summary: Delete User Group
+      tags:
+      - User Groups
+      x-accepts: application/json
+    get:
+      description: Retrieve a specific user group.
+      operationId: getUserGroup
+      parameters:
+      - explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroupResponse'
+          description: Successful operation
+      summary: Get User Group
+      tags:
+      - User Groups
+      x-accepts: application/json
+    put:
+      description: Update the name of a specified user group.
+      operationId: updateUserGroup
+      parameters:
+      - explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserGroupRequest'
+        description: Updated user group details
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroupResponse'
+          description: User group updated successfully
+      summary: Update User Group
+      tags:
+      - User Groups
+      x-content-type: application/json
+      x-accepts: application/json
+  /user_groups/{group_id}/users:
+    get:
+      description: Retrieve the users in the group with the specified ID.
+      operationId: getUsersInUserGroup
+      parameters:
+      - explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroupUsersResponse'
+          description: Successful operation
+      summary: Get Users in User Group
+      tags:
+      - User Groups
+      x-accepts: application/json
+  /user_groups/{group_id}/users/{user_id}:
+    delete:
+      description: Remove a user from a group with the specified ID.
+      operationId: removeUserFromUserGroup
+      parameters:
+      - explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroupUserResponse'
+          description: User removed from group successfully
+      summary: Remove User from User Group
+      tags:
+      - User Groups
+      x-accepts: application/json
+    post:
+      description: Add a user to a group with the specified ID.
+      operationId: addUserToUserGroup
+      parameters:
+      - explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroupUserResponse'
+          description: User added to group successfully
+      summary: Add User to User Group
+      tags:
+      - User Groups
+      x-accepts: application/json
+  /sub_accounts/{sub_account_id}/access_keys:
+    get:
+      description: Retrieve an array of all access keys for a product environment.
+      operationId: getAccessKeys
+      parameters:
+      - explode: false
+        in: path
+        name: sub_account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: How many entries to display on each page.
+        explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Which page to return (maximum pages 100). Default All pages are
+          returned.
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Which response parameter to sort by. Possible values api_key,\
+          \ created_at, name, enabled."
+        explode: true
+        in: query
+        name: sort_by
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Control the order of returned keys. Possible values desc (default),\
+          \ asc."
+        explode: true
+        in: query
+        name: sort_order
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessKeysResponse'
+          description: Successful operation
+      summary: Get access keys
+      tags:
+      - Access Keys
+      x-accepts: application/json
+    post:
+      description: Generate a new access key.
+      operationId: generateAccessKey
+      parameters:
+      - explode: false
+        in: path
+        name: sub_account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessKeyRequest'
+        description: Access key details
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessKeyResponse'
+          description: Access key created successfully
+      summary: Generate an access key
+      tags:
+      - Access Keys
+      x-content-type: application/json
+      x-accepts: application/json
+  /sub_accounts/{sub_account_id}/access_keys/{key}:
+    put:
+      description: Update the name and/or status of an existing access key.
+      operationId: updateAccessKey
+      parameters:
+      - explode: false
+        in: path
+        name: sub_account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessKeyUpdateRequest'
+        description: Access key details for update
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessKeyResponse'
+          description: Access key updated successfully
+      summary: Update an access key
+      tags:
+      - Access Keys
+      x-content-type: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    ProductEnvironmentsResponse:
+      example:
+        sub_accounts:
+        - api_access_keys:
+          - updated_at: updated_at
+            api_key: api_key
+            name: name
+            created_at: created_at
+            api_secret: api_secret
+            enabled: true
+          - updated_at: updated_at
+            api_key: api_key
+            name: name
+            created_at: created_at
+            api_secret: api_secret
+            enabled: true
+          cloud_name: cloud_name
+          name: name
+          created_at: created_at
+          id: id
+          enabled: true
+        - api_access_keys:
+          - updated_at: updated_at
+            api_key: api_key
+            name: name
+            created_at: created_at
+            api_secret: api_secret
+            enabled: true
+          - updated_at: updated_at
+            api_key: api_key
+            name: name
+            created_at: created_at
+            api_secret: api_secret
+            enabled: true
+          cloud_name: cloud_name
+          name: name
+          created_at: created_at
+          id: id
+          enabled: true
+      properties:
+        sub_accounts:
+          items:
+            $ref: '#/components/schemas/ProductEnvironmentResponse'
+          type: array
+      type: object
+    ProductEnvironmentRequest:
+      example:
+        prefix: prefix
+        ids:
+        - ids
+        - ids
+        enabled: true
+      properties:
+        enabled:
+          type: boolean
+        ids:
+          items:
+            type: string
+          type: array
+        prefix:
+          type: string
+      type: object
+    ProductEnvironmentResponse:
+      example:
+        api_access_keys:
+        - updated_at: updated_at
+          api_key: api_key
+          name: name
+          created_at: created_at
+          api_secret: api_secret
+          enabled: true
+        - updated_at: updated_at
+          api_key: api_key
+          name: name
+          created_at: created_at
+          api_secret: api_secret
+          enabled: true
+        cloud_name: cloud_name
+        name: name
+        created_at: created_at
+        id: id
+        enabled: true
+      properties:
+        cloud_name:
+          type: string
+        name:
+          type: string
+        enabled:
+          type: boolean
+        id:
+          type: string
+        api_access_keys:
+          items:
+            $ref: '#/components/schemas/AccessKeyResponse'
+          type: array
+        created_at:
+          type: string
+      type: object
+    UsersResponse:
+      example:
+        users:
+        - role: role
+          last_login: last_login
+          pending: true
+          name: name
+          created_at: created_at
+          groups:
+          - groups
+          - groups
+          all_sub_accounts: true
+          id: id
+          email: email
+          enabled: true
+          sub_account_ids: sub_account_ids
+        - role: role
+          last_login: last_login
+          pending: true
+          name: name
+          created_at: created_at
+          groups:
+          - groups
+          - groups
+          all_sub_accounts: true
+          id: id
+          email: email
+          enabled: true
+          sub_account_ids: sub_account_ids
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/UserResponse'
+          type: array
+      type: object
+    UserRequest:
+      example:
+        prefix: prefix
+        pending: true
+        ids:
+        - ids
+        - ids
+        sub_account_id: sub_account_id
+      properties:
+        pending:
+          type: boolean
+        ids:
+          items:
+            type: string
+          type: array
+        prefix:
+          type: string
+        sub_account_id:
+          type: string
+      type: object
+    UserResponse:
+      example:
+        role: role
+        last_login: last_login
+        pending: true
+        name: name
+        created_at: created_at
+        groups:
+        - groups
+        - groups
+        all_sub_accounts: true
+        id: id
+        email: email
+        enabled: true
+        sub_account_ids: sub_account_ids
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+        email:
+          type: string
+        pending:
+          type: boolean
+        enabled:
+          type: boolean
+        created_at:
+          type: string
+        last_login:
+          type: string
+        all_sub_accounts:
+          type: boolean
+        groups:
+          items:
+            type: string
+          type: array
+        sub_account_ids:
+          type: string
+      type: object
+    UserGroupsResponse:
+      example:
+        user_groups:
+        - name: name
+          id: id
+        - name: name
+          id: id
+      properties:
+        user_groups:
+          items:
+            $ref: '#/components/schemas/UserGroup'
+          type: array
+      type: object
+    UserGroupResponse:
+      example:
+        name: name
+        id: id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      type: object
+    UserGroupUsersResponse:
+      example:
+        users:
+        - name: name
+          id: id
+          email: email
+        - name: name
+          id: id
+          email: email
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+      type: object
+    UserGroupUserResponse:
+      example:
+        name: name
+        id: id
+        email: email
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+      type: object
+    UserGroup:
+      example:
+        name: name
+        id: id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      type: object
+    User:
+      example:
+        name: name
+        id: id
+        email: email
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+      type: object
+    UserGroupRequest:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+      type: object
+    UserGroupUserRequest:
+      properties:
+        user_id:
+          type: string
+      type: object
+    AccessKeysResponse:
+      example:
+        total: 0
+        access_keys:
+        - updated_at: updated_at
+          api_key: api_key
+          name: name
+          created_at: created_at
+          api_secret: api_secret
+          enabled: true
+        - updated_at: updated_at
+          api_key: api_key
+          name: name
+          created_at: created_at
+          api_secret: api_secret
+          enabled: true
+      properties:
+        access_keys:
+          items:
+            $ref: '#/components/schemas/AccessKeyResponse'
+          type: array
+        total:
+          type: integer
+      type: object
+    AccessKeyRequest:
+      example:
+        name: name
+        enabled: true
+      properties:
+        name:
+          type: string
+        enabled:
+          type: boolean
+      type: object
+    AccessKeyResponse:
+      example:
+        updated_at: updated_at
+        api_key: api_key
+        name: name
+        created_at: created_at
+        api_secret: api_secret
+        enabled: true
+      properties:
+        name:
+          type: string
+        api_key:
+          type: string
+        api_secret:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+        enabled:
+          type: boolean
+      type: object
+    AccessKeyUpdateRequest:
+      example:
+        name: name
+        enabled: true
+      properties:
+        name:
+          type: string
+        enabled:
+          type: boolean
+      type: object
+    MessageResponse:
+      example:
+        message: message
+      properties:
+        message:
+          type: string
+      type: object
+  securitySchemes:
+    basicAuth:
+      scheme: basic
+      type: http
+
