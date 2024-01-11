@@ -1,6 +1,6 @@
 
 
-# MessageResponse
+# ErrorResponseError
 
 
 ## Properties

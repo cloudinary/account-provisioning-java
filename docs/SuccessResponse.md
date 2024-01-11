@@ -1,13 +1,13 @@
 
 
-# UserGroupUserRequest
+# SuccessResponse
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**userId** | **String** |  |  [optional] |
+|**message** | **String** |  |  [optional] |
 
 
 

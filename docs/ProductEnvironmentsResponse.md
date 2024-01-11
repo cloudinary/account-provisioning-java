@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**subAccounts** | [**List&lt;ProductEnvironmentResponse&gt;**](ProductEnvironmentResponse.md) |  |  [optional] |
+|**subAccounts** | [**List&lt;ProductEnvironment&gt;**](ProductEnvironment.md) |  |  [optional] |
 
 
 

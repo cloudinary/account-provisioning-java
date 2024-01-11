@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**accessKeys** | [**List&lt;AccessKeyResponse&gt;**](AccessKeyResponse.md) |  |  [optional] |
-|**total** | **Integer** |  |  [optional] |
+|**accessKeys** | [**List&lt;AccessKey&gt;**](AccessKey.md) | The list of the access keys. |  [optional] |
+|**total** | **Integer** | Total number of the access keys. |  [optional] |
 
 
 

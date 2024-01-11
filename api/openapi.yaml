@@ -9,8 +9,8 @@ info:
     \ API. \n\nProvisioning API access is available [upon request](https://cloudinary.com/contact?plan=enterprise)\
     \ for accounts on an [Enterprise plan](https://cloudinary.com/pricing#pricing-enterprise).\n"
   termsOfService: https://cloudinary.com/tou
-  title: Cloudinary Provisioning API
-  version: 0.0.1
+  title: Cloudinary Account Provisioning API
+  version: 0.0.2
   x-sdk-package-name: account-provisioning
 servers:
 - url: "https://api.cloudinary.com/v1_1/provisioning/accounts/{accountId}"
@@ -26,27 +26,38 @@ tags:
   externalDocs:
     description: Learn more about product environments management.
     url: https://cloudinary.com/documentation/provisioning_api#product_environments
-  name: Environments
+  name: Product Environments
+- description: "Manage the access keys, which include an API key and secret pair,\
+    \ for your product environment (sub-account).\n"
+  externalDocs:
+    description: Learn more about access keys management.
+    url: https://cloudinary.com/documentation/provisioning_api#access_keys
+  name: Access Keys
 - description: |
     Manage the users for your account.
+  externalDocs:
+    description: Learn more about users management.
+    url: https://cloudinary.com/documentation/provisioning_api#users
   name: Users
 - description: |
     Manage the groups for the users in your account
+  externalDocs:
+    description: Learn more about user groups management.
+    url: https://cloudinary.com/documentation/provisioning_api#user_groups
   name: User Groups
-- description: "Manage the access keys, which include an API key and secret pair,\
-    \ for your product environment (sub-account).\n"
-  name: Access Keys
 paths:
   /sub_accounts:
     get:
-      description: Retrieve an array of product environments.
+      description: "Return an array of all product environments, or if conditions\
+        \ are specified, \nreturn the relevant product environments.\n"
       externalDocs:
         description: Learn more about getting product environments.
         url: https://cloudinary.com/documentation/provisioning_api#get_product_environments
       operationId: getProductEnvironments
       parameters:
-      - description: Whether to return enabled (true) or disabled (false) product
-          environments. Default all environments.
+      - description: "Whether to only return enabled product environments (true) or\
+          \ disabled product environments (false). \n**Default**: all product environments\
+          \ are returned (both enabled and disabled).\n"
         example: true
         explode: true
         in: query
@@ -55,7 +66,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: A list of up to 100 product environment IDs.
+      - description: "A list of up to 100 product environment IDs. When provided,\
+          \ other parameters are ignored."
         explode: true
         in: query
         name: ids
@@ -79,33 +91,65 @@ paths:
         "200":
           content:
             application/json:
-              example:
-                sub_accounts:
-                - cloud_name: product1
-                  name: Product1 Application
-                  enabled: true
-                  id: abcde1fghij2klmno3pqrst4uvwxy5z
-                  api_access_keys:
-                  - key: "123456789012345"
-                    secret: asdf1JKL2xyz3ABc4s3c5reT01DfaKe
-                  created_at: 2016-09-27T08:00:16Z
-                - cloud_name: product2
-                  name: Product2 Application
-                  enabled: true
-                  id: 0aaaaa1bbbbb2ccccc3ddddd4eeeee5f
-                  api_access_keys:
-                  - key: "543210987654321"
-                    secret: T415i5mYs3cr3TkeYN0tR3a77y0o0
-                  created_at: 2016-03-15T11:44:48Z
+              examples:
+                ProductEnvironments:
+                  $ref: '#/components/examples/ProductEnvironments'
               schema:
                 $ref: '#/components/schemas/ProductEnvironmentsResponse'
-          description: Successful operation
+          description: Successful operation.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Already exists.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
       summary: Get product environments
       tags:
-      - Environments
+      - Product Environments
       x-accepts: application/json
     post:
-      description: Create a new product environment.
+      description: |
+        Create a new product environment. Any users that have access to all product environments will also automatically
+        have access to the new product environment.
+      externalDocs:
+        description: Learn more about creating product environments.
+        url: https://cloudinary.com/documentation/provisioning_api#create_product_environment
       operationId: createProductEnvironment
       requestBody:
         content:
@@ -113,24 +157,66 @@ paths:
             schema:
               $ref: '#/components/schemas/ProductEnvironmentRequest'
         description: Product environment details
+        required: true
       responses:
-        "201":
+        "200":
+          content:
+            application/json:
+              examples:
+                ProductEnvironment3:
+                  $ref: '#/components/examples/ProductEnvironment3'
+              schema:
+                $ref: '#/components/schemas/ProductEnvironment'
+          description: Product environment created successfully
+        "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProductEnvironmentResponse'
-          description: Product environment created successfully
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Already exists.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
       summary: Create product environment
       tags:
-      - Environments
+      - Product Environments
       x-content-type: application/json
       x-accepts: application/json
   /sub_accounts/{sub_account_id}:
     delete:
       description: Delete a specific product environment.
+      externalDocs:
+        description: Learn more about deleting product environments.
+        url: https://cloudinary.com/documentation/provisioning_api#delete_product_environment
       operationId: deleteProductEnvironment
       parameters:
-      - explode: false
+      - description: The ID of the product environment.
+        example: abcde1fghij2klmno3pqrst4uvwxy5z
+        explode: false
         in: path
         name: sub_account_id
         required: true
@@ -142,17 +228,58 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MessageResponse'
+                $ref: '#/components/schemas/SuccessResponse'
           description: Product environment deleted successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
       summary: Delete product environment
       tags:
-      - Environments
+      - Product Environments
       x-accepts: application/json
     get:
       description: Retrieve a specific product environment.
+      externalDocs:
+        description: Learn more about retrieving specific product environments.
+        url: https://cloudinary.com/documentation/provisioning_api#get_product_environment
       operationId: getProductEnvironment
       parameters:
-      - explode: false
+      - description: The ID of the product environment.
+        example: abcde1fghij2klmno3pqrst4uvwxy5z
+        explode: false
         in: path
         name: sub_account_id
         required: true
@@ -163,18 +290,58 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                ProductEnvironment1:
+                  $ref: '#/components/examples/ProductEnvironment1'
+                ProductEnvironment2:
+                  $ref: '#/components/examples/ProductEnvironment2'
               schema:
-                $ref: '#/components/schemas/ProductEnvironmentResponse'
+                $ref: '#/components/schemas/ProductEnvironment'
           description: Successful operation
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
       summary: Get product environment
       tags:
-      - Environments
+      - Product Environments
       x-accepts: application/json
     put:
       description: Update the details of a product environment.
+      externalDocs:
+        description: Learn more about updating product environments.
+        url: https://cloudinary.com/documentation/provisioning_api#update_product_environment
       operationId: updateProductEnvironment
       parameters:
-      - explode: false
+      - description: The ID of the product environment.
+        example: abcde1fghij2klmno3pqrst4uvwxy5z
+        explode: false
         in: path
         name: sub_account_id
         required: true
@@ -185,364 +352,148 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductEnvironmentRequest'
+              $ref: '#/components/schemas/ProductEnvironmentUpdateRequest'
         description: Updated product environment details
       responses:
         "200":
           content:
             application/json:
+              examples:
+                ProductEnvironment1:
+                  $ref: '#/components/examples/ProductEnvironment1'
               schema:
-                $ref: '#/components/schemas/ProductEnvironmentResponse'
+                $ref: '#/components/schemas/ProductEnvironment'
           description: Product environment updated successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Already exists.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
       summary: Update product environment
       tags:
-      - Environments
+      - Product Environments
       x-content-type: application/json
-      x-accepts: application/json
-  /users:
-    get:
-      description: Retrieve an array of users.
-      operationId: getUsers
-      parameters:
-      - description: Whether to return pending users. Default false (all users)
-        explode: true
-        in: query
-        name: pending
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - description: A list of up to 100 user IDs.
-        explode: true
-        in: query
-        name: ids
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      - description: Returns users where the name begins with the specified case-insensitive
-          string.
-        explode: true
-        in: query
-        name: prefix
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Only returns users who have access to the specified account.
-        explode: true
-        in: query
-        name: sub_account_id
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UsersResponse'
-          description: Successful operation
-      summary: Get users
-      tags:
-      - Users
-      x-accepts: application/json
-    post:
-      description: Create a new user.
-      operationId: createUser
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserRequest'
-        description: User details
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserResponse'
-          description: User created successfully
-      summary: Create user
-      tags:
-      - Users
-      x-content-type: application/json
-      x-accepts: application/json
-  /users/{user_id}:
-    delete:
-      description: Delete a specific user.
-      operationId: deleteUser
-      parameters:
-      - explode: false
-        in: path
-        name: user_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MessageResponse'
-          description: User deleted successfully
-      summary: Delete user
-      tags:
-      - Users
-      x-accepts: application/json
-    get:
-      description: Retrieve a specific user.
-      operationId: getUser
-      parameters:
-      - explode: false
-        in: path
-        name: user_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserResponse'
-          description: Successful operation
-      summary: Get user
-      tags:
-      - Users
-      x-accepts: application/json
-    put:
-      description: Update the details of a user.
-      operationId: updateUser
-      parameters:
-      - explode: false
-        in: path
-        name: user_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserRequest'
-        description: Updated user details
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserResponse'
-          description: User updated successfully
-      summary: Update user
-      tags:
-      - Users
-      x-content-type: application/json
-      x-accepts: application/json
-  /user_groups:
-    get:
-      description: Retrieve an array of all user groups in the account.
-      operationId: getUserGroups
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGroupsResponse'
-          description: Successful operation
-      summary: Get User Groups
-      tags:
-      - User Groups
-      x-accepts: application/json
-    post:
-      description: Create a new user group for the account.
-      operationId: createUserGroup
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserGroupRequest'
-        description: User group details
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGroupResponse'
-          description: User group created successfully
-      summary: Create User Group
-      tags:
-      - User Groups
-      x-content-type: application/json
-      x-accepts: application/json
-  /user_groups/{group_id}:
-    delete:
-      description: Delete a user group with the specified ID.
-      operationId: deleteUserGroup
-      parameters:
-      - explode: false
-        in: path
-        name: group_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MessageResponse'
-          description: User group deleted successfully
-      summary: Delete User Group
-      tags:
-      - User Groups
-      x-accepts: application/json
-    get:
-      description: Retrieve a specific user group.
-      operationId: getUserGroup
-      parameters:
-      - explode: false
-        in: path
-        name: group_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGroupResponse'
-          description: Successful operation
-      summary: Get User Group
-      tags:
-      - User Groups
-      x-accepts: application/json
-    put:
-      description: Update the name of a specified user group.
-      operationId: updateUserGroup
-      parameters:
-      - explode: false
-        in: path
-        name: group_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserGroupRequest'
-        description: Updated user group details
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGroupResponse'
-          description: User group updated successfully
-      summary: Update User Group
-      tags:
-      - User Groups
-      x-content-type: application/json
-      x-accepts: application/json
-  /user_groups/{group_id}/users:
-    get:
-      description: Retrieve the users in the group with the specified ID.
-      operationId: getUsersInUserGroup
-      parameters:
-      - explode: false
-        in: path
-        name: group_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGroupUsersResponse'
-          description: Successful operation
-      summary: Get Users in User Group
-      tags:
-      - User Groups
-      x-accepts: application/json
-  /user_groups/{group_id}/users/{user_id}:
-    delete:
-      description: Remove a user from a group with the specified ID.
-      operationId: removeUserFromUserGroup
-      parameters:
-      - explode: false
-        in: path
-        name: group_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: user_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGroupUserResponse'
-          description: User removed from group successfully
-      summary: Remove User from User Group
-      tags:
-      - User Groups
-      x-accepts: application/json
-    post:
-      description: Add a user to a group with the specified ID.
-      operationId: addUserToUserGroup
-      parameters:
-      - explode: false
-        in: path
-        name: group_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: user_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGroupUserResponse'
-          description: User added to group successfully
-      summary: Add User to User Group
-      tags:
-      - User Groups
       x-accepts: application/json
   /sub_accounts/{sub_account_id}/access_keys:
+    delete:
+      description: Delete a specific access key by name.
+      externalDocs:
+        description: Learn more about deleting access keys.
+        url: https://cloudinary.com/documentation/provisioning_api#delete_an_access_key
+      operationId: deleteAccessKeyByName
+      parameters:
+      - description: The ID of the product environment.
+        example: abcde1fghij2klmno3pqrst4uvwxy5z
+        explode: false
+        in: path
+        name: sub_account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The access key name.
+        example: main_key
+        explode: true
+        in: query
+        name: name
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+          description: Access Key deleted successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Delete access key by name
+      tags:
+      - Access Keys
+      x-accepts: application/json
     get:
       description: Retrieve an array of all access keys for a product environment.
+      externalDocs:
+        description: Learn more about retrieving access keys.
+        url: https://cloudinary.com/documentation/provisioning_api#get_access_keys
       operationId: getAccessKeys
       parameters:
-      - explode: false
+      - description: The ID of the product environment.
+        example: abcde1fghij2klmno3pqrst4uvwxy5z
+        explode: false
         in: path
         name: sub_account_id
         required: true
@@ -557,49 +508,92 @@ paths:
         schema:
           type: integer
         style: form
-      - description: Which page to return (maximum pages 100). Default All pages are
-          returned.
+      - description: "Which page to return (maximum pages 100). **Default**: All pages\
+          \ are returned.\n"
         explode: true
         in: query
         name: page
         required: false
         schema:
+          maximum: 100
           type: integer
         style: form
-      - description: "Which response parameter to sort by. Possible values api_key,\
-          \ created_at, name, enabled."
+      - description: "Which response parameter to sort by. **Possible values**: `api_key`,\
+          \ `created_at`, `name`, `enabled`.\n"
+        example: created_at
         explode: true
         in: query
         name: sort_by
         required: false
         schema:
+          enum:
+          - api_key
+          - created_at
+          - name
+          - enabled
           type: string
         style: form
-      - description: "Control the order of returned keys. Possible values desc (default),\
-          \ asc."
+      - description: "Control the order of returned keys. **Possible values**: `desc`\
+          \ (default), `asc`.\n"
+        example: asc
         explode: true
         in: query
         name: sort_order
         required: false
         schema:
+          enum:
+          - desc
+          - asc
           type: string
         style: form
       responses:
         "200":
           content:
             application/json:
+              examples:
+                AccessKeys:
+                  $ref: '#/components/examples/AccessKeys'
               schema:
                 $ref: '#/components/schemas/AccessKeysResponse'
           description: Successful operation
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
       summary: Get access keys
       tags:
       - Access Keys
       x-accepts: application/json
     post:
       description: Generate a new access key.
+      externalDocs:
+        description: Learn more about generating access keys.
+        url: https://cloudinary.com/documentation/provisioning_api#generate_an_access_key
       operationId: generateAccessKey
       parameters:
-      - explode: false
+      - description: The ID of the product environment.
+        example: abcde1fghij2klmno3pqrst4uvwxy5z
+        explode: false
         in: path
         name: sub_account_id
         required: true
@@ -613,30 +607,154 @@ paths:
               $ref: '#/components/schemas/AccessKeyRequest'
         description: Access key details
       responses:
-        "201":
+        "200":
+          content:
+            application/json:
+              examples:
+                MainAccessKey:
+                  $ref: '#/components/examples/MainAccessKey'
+              schema:
+                $ref: '#/components/schemas/AccessKey'
+          description: Access key created successfully
+        "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccessKeyResponse'
-          description: Access key created successfully
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Already exists.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
       summary: Generate an access key
       tags:
       - Access Keys
       x-content-type: application/json
       x-accepts: application/json
   /sub_accounts/{sub_account_id}/access_keys/{key}:
-    put:
-      description: Update the name and/or status of an existing access key.
-      operationId: updateAccessKey
+    delete:
+      description: Delete a specific access key.
+      externalDocs:
+        description: Learn more about deleting access keys.
+        url: https://cloudinary.com/documentation/provisioning_api#delete_an_access_key
+      operationId: deleteAccessKey
       parameters:
-      - explode: false
+      - description: The ID of the product environment.
+        example: abcde1fghij2klmno3pqrst4uvwxy5z
+        explode: false
         in: path
         name: sub_account_id
         required: true
         schema:
           type: string
         style: simple
-      - explode: false
+      - description: The access key (api key).
+        example: "814814814814814"
+        explode: false
+        in: path
+        name: key
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+          description: Access Key deleted successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Delete access key
+      tags:
+      - Access Keys
+      x-accepts: application/json
+    put:
+      description: Update the name and/or status of an existing access key.
+      externalDocs:
+        description: Learn more about updating access keys.
+        url: https://cloudinary.com/documentation/provisioning_api#update_an_access_key
+      operationId: updateAccessKey
+      parameters:
+      - description: The ID of the product environment.
+        example: abcde1fghij2klmno3pqrst4uvwxy5z
+        explode: false
+        in: path
+        name: sub_account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The access key (api key).
+        example: "814814814814814"
+        explode: false
         in: path
         name: key
         required: true
@@ -653,122 +771,1515 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                MainAccessKey:
+                  $ref: '#/components/examples/MainAccessKey'
               schema:
-                $ref: '#/components/schemas/AccessKeyResponse'
+                $ref: '#/components/schemas/AccessKey'
           description: Access key updated successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Already exists.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
       summary: Update an access key
       tags:
       - Access Keys
       x-content-type: application/json
       x-accepts: application/json
+  /users:
+    get:
+      description: "Returns an array of all users in the account, or if conditions\
+        \ are specified, returns the relevant users.\n"
+      externalDocs:
+        description: Learn more about retrieving users.
+        url: https://cloudinary.com/documentation/provisioning_api#get_users
+      operationId: getUsers
+      parameters:
+      - description: "Whether to return pending users. **Default**: `false` (all users)\n"
+        example: false
+        explode: true
+        in: query
+        name: pending
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "A list of up to 100 user IDs.  When provided, other parameters\
+          \ are ignored."
+        explode: true
+        in: query
+        name: ids
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 100
+          type: array
+        style: form
+      - description: Returns users where the name begins with the specified case-insensitive
+          string.
+        example: john
+        explode: true
+        in: query
+        name: prefix
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Only returns users who have access to the specified account.
+        explode: true
+        in: query
+        name: sub_account_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Specifies a date range for last login.
+        explode: true
+        in: query
+        name: last_login
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: "All last logins after this date, given in the format: yyyy-mm-dd.\n"
+        example: 2023-01-01
+        explode: true
+        in: query
+        name: from
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: "All last logins before this date, given in the format: yyyy-mm-dd.\n"
+        example: 2024-12-31
+        explode: true
+        in: query
+        name: to
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: "Whether to return users who last logged in within the specified\
+          \ date range (include) or those who didn't\nlast log in within the range\
+          \ (exclude). **Possible values**: `include`, `exclude`. **Default**: `include`.\n"
+        explode: true
+        in: query
+        name: union_type
+        required: false
+        schema:
+          enum:
+          - include
+          - exclude
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Users:
+                  $ref: '#/components/examples/Users'
+              schema:
+                $ref: '#/components/schemas/UsersResponse'
+          description: Successful operation
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Get users
+      tags:
+      - Users
+      x-accepts: application/json
+    post:
+      description: Create a new user.
+      externalDocs:
+        description: Learn more about creating users.
+        url: https://cloudinary.com/documentation/provisioning_api#create_user
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createUser_request'
+        description: User details
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                UserJohn:
+                  $ref: '#/components/examples/UserJohn'
+              schema:
+                $ref: '#/components/schemas/User'
+          description: User created successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Already exists.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Create user
+      tags:
+      - Users
+      x-content-type: application/json
+      x-accepts: application/json
+  /users/{user_id}:
+    delete:
+      description: Delete a specific user.
+      externalDocs:
+        description: Learn more about deleting a specific user.
+        url: https://cloudinary.com/documentation/provisioning_api#delete_user
+      operationId: deleteUser
+      parameters:
+      - description: The ID of the user.
+        example: 0abed8dfcc039ea05e2a1d494fd442
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+          description: User deleted successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Delete user
+      tags:
+      - Users
+      x-accepts: application/json
+    get:
+      description: Retrieve a specific user.
+      externalDocs:
+        description: Learn more about retrieving a specific user.
+        url: https://cloudinary.com/documentation/provisioning_api#get_user
+      operationId: getUser
+      parameters:
+      - description: The ID of the user.
+        example: 0abed8dfcc039ea05e2a1d494fd442
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                UserFooBar:
+                  $ref: '#/components/examples/UserFooBar'
+              schema:
+                $ref: '#/components/schemas/User'
+          description: Successful operation
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Get user
+      tags:
+      - Users
+      x-accepts: application/json
+    put:
+      description: Update the details of a user.
+      externalDocs:
+        description: Learn more about updating a specific user.
+        url: https://cloudinary.com/documentation/provisioning_api#update_user
+      operationId: updateUser
+      parameters:
+      - description: The ID of the user.
+        example: 0abed8dfcc039ea05e2a1d494fd442
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+        description: Updated user details
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                UserJohn:
+                  $ref: '#/components/examples/UserJohn'
+              schema:
+                $ref: '#/components/schemas/User'
+          description: User updated successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Already exists.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Update user
+      tags:
+      - Users
+      x-content-type: application/json
+      x-accepts: application/json
+  /user_groups:
+    get:
+      description: Retrieve an array of all user groups in the account.
+      externalDocs:
+        description: Learn more about retrieving user groups.
+        url: https://cloudinary.com/documentation/provisioning_api#get_user_groups
+      operationId: getUserGroups
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                UserGroups:
+                  $ref: '#/components/examples/UserGroups'
+              schema:
+                $ref: '#/components/schemas/UserGroupsResponse'
+          description: Successful operation
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Get User Groups
+      tags:
+      - User Groups
+      x-accepts: application/json
+    post:
+      description: Create a new user group for the account.
+      externalDocs:
+        description: Learn more about creating user groups.
+        url: https://cloudinary.com/documentation/provisioning_api#create_user_group
+      operationId: createUserGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserGroupRequest'
+        description: User group details
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                UserGroupDesigners:
+                  $ref: '#/components/examples/UserGroup1'
+              schema:
+                $ref: '#/components/schemas/UserGroup'
+          description: User group created successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Already exists.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Create User Group
+      tags:
+      - User Groups
+      x-content-type: application/json
+      x-accepts: application/json
+  /user_groups/{group_id}:
+    delete:
+      description: Delete a user group with the specified ID.
+      externalDocs:
+        description: Learn more about deleting a specific user group.
+        url: https://cloudinary.com/documentation/provisioning_api#delete_user_group
+      operationId: deleteUserGroup
+      parameters:
+      - description: The ID of the user group.
+        example: 7f08f1f1fc910bf1f25274aef11d27
+        explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+          description: User group deleted successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Delete User Group
+      tags:
+      - User Groups
+      x-accepts: application/json
+    get:
+      description: Retrieve a specific user group.
+      externalDocs:
+        description: Learn more about retrieving a specific user group.
+        url: https://cloudinary.com/documentation/provisioning_api#get_user_group
+      operationId: getUserGroup
+      parameters:
+      - description: The ID of the user group.
+        example: 7f08f1f1fc910bf1f25274aef11d27
+        explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                UserGroup1:
+                  $ref: '#/components/examples/UserGroup1'
+              schema:
+                $ref: '#/components/schemas/UserGroup'
+          description: Successful operation
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Get User Group
+      tags:
+      - User Groups
+      x-accepts: application/json
+    put:
+      description: Update the name of a specified user group.
+      externalDocs:
+        description: Learn more about updating a specific user group.
+        url: https://cloudinary.com/documentation/provisioning_api#update_user_group
+      operationId: updateUserGroup
+      parameters:
+      - description: The ID of the user group.
+        example: 7f08f1f1fc910bf1f25274aef11d27
+        explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            examples:
+              UserGroupDesigners:
+                $ref: '#/components/examples/UserGroupDesigners'
+            schema:
+              $ref: '#/components/schemas/UserGroupRequest'
+        description: Updated user group details
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserGroup'
+          description: User group updated successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Already exists.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Update User Group
+      tags:
+      - User Groups
+      x-content-type: application/json
+      x-accepts: application/json
+  /user_groups/{group_id}/users:
+    get:
+      description: Retrieve the users in the group with the specified ID.
+      externalDocs:
+        description: Learn more about retrieving users in a specific user group.
+        url: https://cloudinary.com/documentation/provisioning_api#get_user_group_users
+      operationId: getUsersInUserGroup
+      parameters:
+      - description: The ID of the user group.
+        example: 7f08f1f1fc910bf1f25274aef11d27
+        explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                UserGroupUsers:
+                  $ref: '#/components/examples/UserGroupUsers'
+              schema:
+                $ref: '#/components/schemas/UserGroupUsersResponse'
+          description: Successful operation
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Get Users in User Group
+      tags:
+      - User Groups
+      x-accepts: application/json
+  /user_groups/{group_id}/users/{user_id}:
+    delete:
+      description: Remove a user from a group with the specified ID.
+      externalDocs:
+        description: Learn more about removing users from a specific user group.
+        url: https://cloudinary.com/documentation/provisioning_api#remove_user_from_group
+      operationId: removeUserFromUserGroup
+      parameters:
+      - description: The ID of the user group.
+        example: 7f08f1f1fc910bf1f25274aef11d27
+        explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The ID of the user.
+        example: 0abed8dfcc039ea05e2a1d494fd442
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                UserGroupUsers:
+                  $ref: '#/components/examples/UserGroupUsersNoJohn'
+              schema:
+                $ref: '#/components/schemas/UserGroupUsersResponse'
+          description: User removed from group successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Remove User from User Group
+      tags:
+      - User Groups
+      x-accepts: application/json
+    post:
+      description: Add a user to a group with the specified ID.
+      externalDocs:
+        description: Learn more about adding users to a specific user group.
+        url: https://cloudinary.com/documentation/provisioning_api#add_user_to_group
+      operationId: addUserToUserGroup
+      parameters:
+      - description: The ID of the user group.
+        example: 7f08f1f1fc910bf1f25274aef11d27
+        explode: false
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The ID of the user.
+        example: 0abed8dfcc039ea05e2a1d494fd442
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                UserGroupUsers:
+                  $ref: '#/components/examples/UserGroupUsers'
+              schema:
+                $ref: '#/components/schemas/UserGroupUser'
+          description: User added to group successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              example:
+                error:
+                  message: Invalid credentials
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization required.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not allowed.
+        "404":
+          content:
+            application/json:
+              example:
+                error:
+                  message: not found
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Already exists.
+        "420":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Max usage rate exceeded.
+      summary: Add User to User Group
+      tags:
+      - User Groups
+      x-accepts: application/json
 components:
+  examples:
+    ProductEnvironment1:
+      summary: Product environment sample response 1
+      value:
+        cloud_name: product1
+        name: Product1 Application
+        enabled: true
+        id: abcde1fghij2klmno3pqrst4uvwxy5z
+        api_access_keys:
+        - key: "123456789012345"
+          secret: asdf1JKL2xyz3ABc4s3c5reT01DfaKez
+          enabled: true
+        created_at: 2016-09-27T08:00:16Z
+    ProductEnvironment2:
+      summary: Product environment sample response 2
+      value:
+        cloud_name: product2
+        name: Product2 Application
+        enabled: true
+        id: 0aaaaa1bbbbb2ccccc3ddddd4eeeee5f
+        api_access_keys:
+        - key: "543210987654321"
+          secret: T415i5mYs3cr3TkeYN0tR3a77y0o0
+          enabled: true
+        created_at: 2016-03-15T11:44:48Z
+    ProductEnvironment3:
+      summary: Product environment sample response 3
+      value:
+        cloud_name: product3
+        name: Product3 Application
+        enabled: false
+        id: 555asdf0000zxcvb3456qwerty
+        api_access_keys:
+        - key: "135792468054321"
+          secret: w4aTi5Y0u6k3YN0773lL1nGyUt0Da8
+          enabled: true
+        created_at: 2016-09-27T11:15:35Z
+    ProductEnvironments:
+      summary: Get product environments sample response
+      value:
+        sub_accounts:
+        - cloud_name: product1
+          name: Product1 Application
+          enabled: true
+          id: abcde1fghij2klmno3pqrst4uvwxy5z
+          api_access_keys:
+          - key: "123456789012345"
+            secret: asdf1JKL2xyz3ABc4s3c5reT01DfaKez
+            enabled: true
+          created_at: 2016-09-27T08:00:16Z
+        - cloud_name: product2
+          name: Product2 Application
+          enabled: true
+          id: 0aaaaa1bbbbb2ccccc3ddddd4eeeee5f
+          api_access_keys:
+          - key: "543210987654321"
+            secret: T415i5mYs3cr3TkeYN0tR3a77y0o0
+            enabled: true
+          created_at: 2016-03-15T11:44:48Z
+    MainAccessKey:
+      summary: Access key sample value
+      value:
+        name: main_key
+        api_key: "814814814814814"
+        api_secret: QcsQcsQcsQcsQcsQcsQcsQcsQcs
+        created_at: 2022-03-15T11:44:48Z
+        updated_at: 2023-08-10T09:23:45Z
+        enabled: true
+    AccessKeys:
+      summary: Get access keys sample response
+      value:
+        access_keys:
+        - name: main_key
+          api_key: "814814814814814"
+          api_secret: QcsQcsQcsQcsQcsQcsQcsQcsQcs
+          created_at: 2022-03-15T11:44:48Z
+          updated_at: 2023-08-10T09:23:45Z
+          enabled: true
+        - name: secondary_key
+          api_key: "418418418418418"
+          api_secret: scQscQscQscQscQscQscQscQscQ
+          created_at: 2023-09-10T09:23:45Z
+          updated_at: 2023-09-10T09:45:57Z
+          enabled: false
+        total: 2
+    UserJohn:
+      summary: User details example
+      value:
+        id: 0abed8dfcc039ea05e2a1d494fd442
+        name: John
+        role: technical_admin
+        email: john@example.com
+        pending: true
+        enabled: true
+        created_at: 2020-09-03T13:33:25Z
+        all_sub_accounts: true
+        groups: []
+    UserFooBar:
+      summary: User details example
+      value:
+        id: 7f08f1f1fc910bf1f25274aef11d27
+        name: foobar
+        role: master_admin
+        email: email@domain.com
+        pending: true
+        enabled: true
+        created_at: 2019-09-12T11:53:57Z
+        last_login: 2022-01-11T15:11:04Z
+        all_sub_accounts: false
+        groups: []
+        sub_account_ids:
+        - 555asdf0000zxcvb3456qwerty
+    Users:
+      summary: Get users sample response
+      value:
+        users:
+        - id: 139147faa12ce11f22cfaffa84b307
+          name: john_smith
+          role: media_library_user
+          email: john_smith@example.com
+          pending: true
+          enabled: true
+          created_at: 2020-01-13T05:16:06Z
+          last_login: 2022-01-11T15:11:04Z
+          all_sub_accounts: true
+        - id: 28c84b2aa7924a5e64f949b5403981
+          name: john_jones
+          role: master_admin
+          email: john_jones@example.com
+          pending: true
+          enabled: true
+          created_at: 2019-01-13T05:16:05Z
+          last_login: 2021-11-12T15:11:02Z
+          all_sub_accounts: true
+    UserGroup1:
+      summary: User group example
+      value:
+        id: 7f08f1f1fc910bf1f25274aef11d27
+        name: user_group_1
+    UserGroupDesigners:
+      summary: User group example
+      value:
+        id: 7f08f1f1fc910bf1f25274aef11d27
+        name: Designers
+    UserGroups:
+      summary: Get user groups example
+      value:
+        user_groups:
+        - id: 7f08f1f1fc910bf1f25274aef11d27
+          name: user_group_1
+        - id: 1cc3808888154263ac1e5eb2e5c52d61
+          name: user_group_2
+    UserGroupUsers:
+      summary: User group users example
+      value:
+        users:
+        - id: 0abed8dfcc039ea05e2a1d494fd442
+          name: John
+          email: john@example.com
+    UserGroupUsersNoJohn:
+      summary: User group users example
+      value:
+        users: []
+  parameters:
+    subAccountId:
+      description: The ID of the product environment.
+      example: abcde1fghij2klmno3pqrst4uvwxy5z
+      explode: false
+      in: path
+      name: sub_account_id
+      required: true
+      schema:
+        type: string
+      style: simple
+    accessKey:
+      description: The access key (api key).
+      example: "814814814814814"
+      explode: false
+      in: path
+      name: key
+      required: true
+      schema:
+        type: string
+      style: simple
+    userId:
+      description: The ID of the user.
+      example: 0abed8dfcc039ea05e2a1d494fd442
+      explode: false
+      in: path
+      name: user_id
+      required: true
+      schema:
+        type: string
+      style: simple
+    userGroupId:
+      description: The ID of the user group.
+      example: 7f08f1f1fc910bf1f25274aef11d27
+      explode: false
+      in: path
+      name: group_id
+      required: true
+      schema:
+        type: string
+      style: simple
+  responses:
+    "200OK":
+      description: Successful.
+    "400BadRequest":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad request.
+    "401Unauthorized":
+      content:
+        application/json:
+          example:
+            error:
+              message: Invalid credentials
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Authorization required.
+    "403NotAllowed":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Not allowed.
+    "404NotFound":
+      content:
+        application/json:
+          example:
+            error:
+              message: not found
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Not found.
+    "409AlreadyExists":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Already exists.
+    "420MaxUsageRateExceeded":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Max usage rate exceeded.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unexpected error
   schemas:
+    ProductEnvironmentRequest:
+      example:
+        base_sub_account_id: 0aaaaa1bbbbb2ccccc3ddddd4eeeee5f
+        cloud_name: product3
+        name: Product3 Application
+        custom_attributes: "{}"
+      properties:
+        name:
+          description: The display name for the product environment.
+          example: Product3 Application
+          type: string
+        cloud_name:
+          description: "The Cloudinary cloud name (optional, default is auto-generated)."
+          example: product3
+          type: string
+        base_sub_account_id:
+          description: The ID of another product environment to copy settings from
+            (optional).
+          example: 0aaaaa1bbbbb2ccccc3ddddd4eeeee5f
+          type: string
+        custom_attributes:
+          description: Custom attributes associated with the product environment (optional).
+          type: object
+      required:
+      - name
+      type: object
+    ProductEnvironmentUpdateRequest:
+      example:
+        cloud_name: product3
+        name: Product3 Application
+        enabled: true
+        custom_attributes: "{}"
+      properties:
+        name:
+          description: The display name for the product environment.
+          example: Product3 Application
+          type: string
+        cloud_name:
+          description: "The Cloudinary cloud name. An error is returned if the requested\
+            \ name already exists.\n**Note**: Can only be changed for accounts with\
+            \ fewer than 1000 images.\n"
+          example: product3
+          type: string
+        custom_attributes:
+          description: Custom attributes associated with the product environment.
+          type: object
+        enabled:
+          description: "Whether the product environment is enabled. **Default**: true.\n"
+          type: boolean
+      type: object
     ProductEnvironmentsResponse:
       example:
         sub_accounts:
         - api_access_keys:
-          - updated_at: updated_at
-            api_key: api_key
-            name: name
-            created_at: created_at
-            api_secret: api_secret
+          - secret: secret
+            key: key
             enabled: true
-          - updated_at: updated_at
-            api_key: api_key
-            name: name
-            created_at: created_at
-            api_secret: api_secret
+          - secret: secret
+            key: key
             enabled: true
           cloud_name: cloud_name
           name: name
-          created_at: created_at
+          created_at: 2000-01-23T04:56:07.000+00:00
           id: id
           enabled: true
         - api_access_keys:
-          - updated_at: updated_at
-            api_key: api_key
-            name: name
-            created_at: created_at
-            api_secret: api_secret
+          - secret: secret
+            key: key
             enabled: true
-          - updated_at: updated_at
-            api_key: api_key
-            name: name
-            created_at: created_at
-            api_secret: api_secret
+          - secret: secret
+            key: key
             enabled: true
           cloud_name: cloud_name
           name: name
-          created_at: created_at
+          created_at: 2000-01-23T04:56:07.000+00:00
           id: id
           enabled: true
       properties:
         sub_accounts:
           items:
-            $ref: '#/components/schemas/ProductEnvironmentResponse'
+            $ref: '#/components/schemas/ProductEnvironment'
           type: array
       type: object
-    ProductEnvironmentRequest:
-      example:
-        prefix: prefix
-        ids:
-        - ids
-        - ids
-        enabled: true
-      properties:
-        enabled:
-          type: boolean
-        ids:
-          items:
-            type: string
-          type: array
-        prefix:
-          type: string
-      type: object
-    ProductEnvironmentResponse:
+    ProductEnvironment:
+      description: Product Environment
       example:
         api_access_keys:
-        - updated_at: updated_at
-          api_key: api_key
-          name: name
-          created_at: created_at
-          api_secret: api_secret
+        - secret: secret
+          key: key
           enabled: true
-        - updated_at: updated_at
-          api_key: api_key
-          name: name
-          created_at: created_at
-          api_secret: api_secret
+        - secret: secret
+          key: key
           enabled: true
         cloud_name: cloud_name
         name: name
-        created_at: created_at
+        created_at: 2000-01-23T04:56:07.000+00:00
         id: id
         enabled: true
       properties:
         cloud_name:
           type: string
         name:
+          description: The name of the product environment.
           type: string
         enabled:
+          description: Whether the product environment is enabled or disabled.
           type: boolean
         id:
+          description: The ID of the product environment.
           type: string
         api_access_keys:
+          description: The list of the product environment's access keys.
           items:
-            $ref: '#/components/schemas/AccessKeyResponse'
+            $ref: '#/components/schemas/ApiAccessKey'
           type: array
         created_at:
+          description: The date when the product environment was created.
+          format: date-time
           type: string
+      type: object
+    AccessKeyRequest:
+      example:
+        name: main_key
+        enabled: true
+      properties:
+        name:
+          description: The name of the access key.
+          example: main_key
+          type: string
+        enabled:
+          description: Whether the access key is enabled or disabled.
+          example: true
+          type: boolean
+      type: object
+    AccessKeyUpdateRequest:
+      example:
+        dedicated_for: webhooks
+        name: main_key
+        enabled: true
+      properties:
+        name:
+          description: The name of the access key.
+          example: main_key
+          type: string
+        enabled:
+          description: Whether the access key is enabled or disabled.
+          example: true
+          type: boolean
+        dedicated_for:
+          description: "Designates the access key for a specific purpose while allowing\
+            \ it to be used for other purposes, as well. \nThis action replaces any\
+            \ previously assigned key. **Possible values**: `webhooks`\n"
+          enum:
+          - webhooks
+          example: webhooks
+          type: string
+      type: object
+    AccessKeysResponse:
+      example:
+        total: 0
+        access_keys:
+        - updated_at: 2000-01-23T04:56:07.000+00:00
+          api_key: api_key
+          name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
+          api_secret: api_secret
+          enabled: true
+        - updated_at: 2000-01-23T04:56:07.000+00:00
+          api_key: api_key
+          name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
+          api_secret: api_secret
+          enabled: true
+      properties:
+        access_keys:
+          description: The list of the access keys.
+          items:
+            $ref: '#/components/schemas/AccessKey'
+          type: array
+        total:
+          description: Total number of the access keys.
+          type: integer
+      type: object
+    AccessKey:
+      example:
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        api_key: api_key
+        name: name
+        created_at: 2000-01-23T04:56:07.000+00:00
+        api_secret: api_secret
+        enabled: true
+      properties:
+        name:
+          description: The name of the access key.
+          type: string
+        api_key:
+          description: The API key.
+          type: string
+        api_secret:
+          description: The API secret.
+          format: password
+          type: string
+        created_at:
+          description: The date when the access key was created.
+          format: date-time
+          type: string
+        updated_at:
+          description: The date when the access key was last updated.
+          format: date-time
+          type: string
+        enabled:
+          description: Whether the access key is enabled or disabled.
+          type: boolean
+      type: object
+    ApiAccessKey:
+      description: Brief details of a single API Access Key.
+      example:
+        secret: secret
+        key: key
+        enabled: true
+      properties:
+        key:
+          description: The API key.
+          type: string
+        secret:
+          description: The API secret.
+          format: password
+          type: string
+        enabled:
+          description: Whether the access key is enabled or disabled.
+          type: boolean
+      type: object
+    UserRequest:
+      example:
+        role: technical_admin
+        name: John
+        email: john@example.com
+        enabled: true
+        sub_account_ids:
+        - sub_account_ids
+        - sub_account_ids
+      properties:
+        name:
+          description: The user's name.
+          example: John
+          format: email
+          type: string
+        email:
+          description: "A unique email address, which serves as the login name and\
+            \ notification address."
+          example: john@example.com
+          type: string
+        role:
+          description: The role to assign.
+          enum:
+          - master_admin
+          - admin
+          - billing
+          - technical_admin
+          - reports
+          - media_library_admin
+          - media_library_user
+          example: technical_admin
+          type: string
+        sub_account_ids:
+          description: "A list of product environment IDs that this user can access.\
+            \ Ignored if the role is `master_admin`. \n**Default**: all product environments.\n"
+          items:
+            type: string
+          type: array
+        enabled:
+          description: "Whether the user is enabled. **Default**: true.\n"
+          example: true
+          type: boolean
       type: object
     UsersResponse:
       example:
         users:
         - role: role
-          last_login: last_login
+          last_login: 2000-01-23T04:56:07.000+00:00
           pending: true
           name: name
-          created_at: created_at
+          created_at: 2000-01-23T04:56:07.000+00:00
           groups:
           - groups
           - groups
@@ -778,10 +2289,10 @@ components:
           enabled: true
           sub_account_ids: sub_account_ids
         - role: role
-          last_login: last_login
+          last_login: 2000-01-23T04:56:07.000+00:00
           pending: true
           name: name
-          created_at: created_at
+          created_at: 2000-01-23T04:56:07.000+00:00
           groups:
           - groups
           - groups
@@ -793,36 +2304,17 @@ components:
       properties:
         users:
           items:
-            $ref: '#/components/schemas/UserResponse'
+            $ref: '#/components/schemas/User'
           type: array
       type: object
-    UserRequest:
-      example:
-        prefix: prefix
-        pending: true
-        ids:
-        - ids
-        - ids
-        sub_account_id: sub_account_id
-      properties:
-        pending:
-          type: boolean
-        ids:
-          items:
-            type: string
-          type: array
-        prefix:
-          type: string
-        sub_account_id:
-          type: string
-      type: object
-    UserResponse:
+    User:
+      description: User details.
       example:
         role: role
-        last_login: last_login
+        last_login: 2000-01-23T04:56:07.000+00:00
         pending: true
         name: name
-        created_at: created_at
+        created_at: 2000-01-23T04:56:07.000+00:00
         groups:
         - groups
         - groups
@@ -833,28 +2325,50 @@ components:
         sub_account_ids: sub_account_ids
       properties:
         id:
+          description: The user's ID.
           type: string
         name:
+          description: The user's name.
           type: string
         role:
+          description: The user's role.
           type: string
         email:
+          description: The user's email.
+          format: email
           type: string
         pending:
+          description: Whether the user is pending.
           type: boolean
         enabled:
+          description: Whether the user is enabled.
           type: boolean
         created_at:
+          description: The date when the user was created.
+          format: date-time
           type: string
         last_login:
+          description: The date when the user was last logged in.
+          format: date-time
           type: string
         all_sub_accounts:
           type: boolean
         groups:
+          description: The list of user groups.
           items:
             type: string
           type: array
         sub_account_ids:
+          description: The list of the product environments IDs.
+          type: string
+      type: object
+    UserGroupRequest:
+      example:
+        name: Designers
+      properties:
+        name:
+          description: The user group's name.
+          example: Designers
           type: string
       type: object
     UserGroupsResponse:
@@ -866,19 +2380,10 @@ components:
           id: id
       properties:
         user_groups:
+          description: A list of user groups.
           items:
             $ref: '#/components/schemas/UserGroup'
           type: array
-      type: object
-    UserGroupResponse:
-      example:
-        name: name
-        id: id
-      properties:
-        id:
-          type: string
-        name:
-          type: string
       type: object
     UserGroupUsersResponse:
       example:
@@ -891,129 +2396,66 @@ components:
           email: email
       properties:
         users:
+          description: A list of user group users.
           items:
-            $ref: '#/components/schemas/User'
+            $ref: '#/components/schemas/UserGroupUser'
           type: array
-      type: object
-    UserGroupUserResponse:
-      example:
-        name: name
-        id: id
-        email: email
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        email:
-          type: string
       type: object
     UserGroup:
+      description: User group.
       example:
         name: name
         id: id
       properties:
         id:
+          description: The user group's ID.
           type: string
         name:
+          description: The user group's name.
           type: string
       type: object
-    User:
+    UserGroupUser:
+      description: User group user.
       example:
         name: name
         id: id
         email: email
       properties:
         id:
+          description: The user's ID.
           type: string
         name:
+          description: The user's name.
           type: string
         email:
+          description: The user's email.
+          format: email
           type: string
       type: object
-    UserGroupRequest:
+    SuccessResponse:
       example:
-        name: name
-      properties:
-        name:
-          type: string
-      type: object
-    UserGroupUserRequest:
-      properties:
-        user_id:
-          type: string
-      type: object
-    AccessKeysResponse:
-      example:
-        total: 0
-        access_keys:
-        - updated_at: updated_at
-          api_key: api_key
-          name: name
-          created_at: created_at
-          api_secret: api_secret
-          enabled: true
-        - updated_at: updated_at
-          api_key: api_key
-          name: name
-          created_at: created_at
-          api_secret: api_secret
-          enabled: true
-      properties:
-        access_keys:
-          items:
-            $ref: '#/components/schemas/AccessKeyResponse'
-          type: array
-        total:
-          type: integer
-      type: object
-    AccessKeyRequest:
-      example:
-        name: name
-        enabled: true
-      properties:
-        name:
-          type: string
-        enabled:
-          type: boolean
-      type: object
-    AccessKeyResponse:
-      example:
-        updated_at: updated_at
-        api_key: api_key
-        name: name
-        created_at: created_at
-        api_secret: api_secret
-        enabled: true
-      properties:
-        name:
-          type: string
-        api_key:
-          type: string
-        api_secret:
-          type: string
-        created_at:
-          type: string
-        updated_at:
-          type: string
-        enabled:
-          type: boolean
-      type: object
-    AccessKeyUpdateRequest:
-      example:
-        name: name
-        enabled: true
-      properties:
-        name:
-          type: string
-        enabled:
-          type: boolean
-      type: object
-    MessageResponse:
-      example:
-        message: message
+        message: ok
       properties:
         message:
+          example: ok
+          type: string
+      type: object
+    ErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorResponse_error'
+      type: object
+    createUser_request:
+      allOf:
+      - $ref: '#/components/schemas/UserRequest'
+      required:
+      - email
+      - name
+      - role
+    ErrorResponse_error:
+      properties:
+        message:
+          example: error
           type: string
       type: object
   securitySchemes:

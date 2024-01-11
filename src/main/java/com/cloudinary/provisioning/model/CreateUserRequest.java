@@ -15,6 +15,7 @@ package com.cloudinary.provisioning.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.cloudinary.provisioning.model.UserRequest;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,10 +48,10 @@ import java.util.Set;
 import com.cloudinary.provisioning.JSON;
 
 /**
- * UserRequest
+ * CreateUserRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-11T08:16:23.973898+02:00[Asia/Jerusalem]")
-public class UserRequest {
+public class CreateUserRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -128,10 +129,10 @@ public class UserRequest {
   @SerializedName(SERIALIZED_NAME_ENABLED)
   private Boolean enabled;
 
-  public UserRequest() { 
+  public CreateUserRequest() { 
   }
 
-  public UserRequest name(String name) {
+  public CreateUserRequest name(String name) {
     
     this.name = name;
     return this;
@@ -141,8 +142,8 @@ public class UserRequest {
    * The user&#39;s name.
    * @return name
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "John", value = "The user's name.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "John", required = true, value = "The user's name.")
 
   public String getName() {
     return name;
@@ -154,7 +155,7 @@ public class UserRequest {
   }
 
 
-  public UserRequest email(String email) {
+  public CreateUserRequest email(String email) {
     
     this.email = email;
     return this;
@@ -164,8 +165,8 @@ public class UserRequest {
    * A unique email address, which serves as the login name and notification address.
    * @return email
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "john@example.com", value = "A unique email address, which serves as the login name and notification address.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "john@example.com", required = true, value = "A unique email address, which serves as the login name and notification address.")
 
   public String getEmail() {
     return email;
@@ -177,7 +178,7 @@ public class UserRequest {
   }
 
 
-  public UserRequest role(RoleEnum role) {
+  public CreateUserRequest role(RoleEnum role) {
     
     this.role = role;
     return this;
@@ -187,8 +188,8 @@ public class UserRequest {
    * The role to assign.
    * @return role
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "technical_admin", value = "The role to assign.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "technical_admin", required = true, value = "The role to assign.")
 
   public RoleEnum getRole() {
     return role;
@@ -200,13 +201,13 @@ public class UserRequest {
   }
 
 
-  public UserRequest subAccountIds(List<String> subAccountIds) {
+  public CreateUserRequest subAccountIds(List<String> subAccountIds) {
     
     this.subAccountIds = subAccountIds;
     return this;
   }
 
-  public UserRequest addSubAccountIdsItem(String subAccountIdsItem) {
+  public CreateUserRequest addSubAccountIdsItem(String subAccountIdsItem) {
     if (this.subAccountIds == null) {
       this.subAccountIds = new ArrayList<>();
     }
@@ -231,7 +232,7 @@ public class UserRequest {
   }
 
 
-  public UserRequest enabled(Boolean enabled) {
+  public CreateUserRequest enabled(Boolean enabled) {
     
     this.enabled = enabled;
     return this;
@@ -263,12 +264,12 @@ public class UserRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserRequest userRequest = (UserRequest) o;
-    return Objects.equals(this.name, userRequest.name) &&
-        Objects.equals(this.email, userRequest.email) &&
-        Objects.equals(this.role, userRequest.role) &&
-        Objects.equals(this.subAccountIds, userRequest.subAccountIds) &&
-        Objects.equals(this.enabled, userRequest.enabled);
+    CreateUserRequest createUserRequest = (CreateUserRequest) o;
+    return Objects.equals(this.name, createUserRequest.name) &&
+        Objects.equals(this.email, createUserRequest.email) &&
+        Objects.equals(this.role, createUserRequest.role) &&
+        Objects.equals(this.subAccountIds, createUserRequest.subAccountIds) &&
+        Objects.equals(this.enabled, createUserRequest.enabled);
   }
 
   @Override
@@ -279,7 +280,7 @@ public class UserRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserRequest {\n");
+    sb.append("class CreateUserRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
@@ -315,30 +316,40 @@ public class UserRequest {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("email");
+    openapiRequiredFields.add("role");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to UserRequest
+  * @throws IOException if the JSON Object is invalid with respect to CreateUserRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (UserRequest.openapiRequiredFields.isEmpty()) {
+        if (CreateUserRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UserRequest is not found in the empty JSON string", UserRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateUserRequest is not found in the empty JSON string", CreateUserRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       //for (Entry<String, JsonElement> entry : entries) {
-        //if (!UserRequest.openapiFields.contains(entry.getKey())) {
-          //throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        //if (!CreateUserRequest.openapiFields.contains(entry.getKey())) {
+          //throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateUserRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         //}
       //}
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : CreateUserRequest.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -358,22 +369,22 @@ public class UserRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UserRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UserRequest' and its subtypes
+       if (!CreateUserRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateUserRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UserRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UserRequest.class));
+       final TypeAdapter<CreateUserRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateUserRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UserRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateUserRequest>() {
            @Override
-           public void write(JsonWriter out, UserRequest value) throws IOException {
+           public void write(JsonWriter out, CreateUserRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public UserRequest read(JsonReader in) throws IOException {
+           public CreateUserRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -384,18 +395,18 @@ public class UserRequest {
   }
 
  /**
-  * Create an instance of UserRequest given an JSON string
+  * Create an instance of CreateUserRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of UserRequest
-  * @throws IOException if the JSON string is invalid with respect to UserRequest
+  * @return An instance of CreateUserRequest
+  * @throws IOException if the JSON string is invalid with respect to CreateUserRequest
   */
-  public static UserRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UserRequest.class);
+  public static CreateUserRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateUserRequest.class);
   }
 
  /**
-  * Convert an instance of UserRequest to an JSON string
+  * Convert an instance of CreateUserRequest to an JSON string
   *
   * @return JSON string
   */

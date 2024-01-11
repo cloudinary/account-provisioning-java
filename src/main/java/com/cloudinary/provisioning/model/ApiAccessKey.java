@@ -15,7 +15,6 @@ package com.cloudinary.provisioning.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.cloudinary.provisioning.model.UserGroup;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,45 +45,92 @@ import java.util.Set;
 import com.cloudinary.provisioning.JSON;
 
 /**
- * UserGroupsResponse
+ * Brief details of a single API Access Key.
  */
+@ApiModel(description = "Brief details of a single API Access Key.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-11T08:16:23.973898+02:00[Asia/Jerusalem]")
-public class UserGroupsResponse {
-  public static final String SERIALIZED_NAME_USER_GROUPS = "user_groups";
-  @SerializedName(SERIALIZED_NAME_USER_GROUPS)
-  private List<UserGroup> userGroups = null;
+public class ApiAccessKey {
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
+  private String key;
 
-  public UserGroupsResponse() { 
+  public static final String SERIALIZED_NAME_SECRET = "secret";
+  @SerializedName(SERIALIZED_NAME_SECRET)
+  private String secret;
+
+  public static final String SERIALIZED_NAME_ENABLED = "enabled";
+  @SerializedName(SERIALIZED_NAME_ENABLED)
+  private Boolean enabled;
+
+  public ApiAccessKey() { 
   }
 
-  public UserGroupsResponse userGroups(List<UserGroup> userGroups) {
+  public ApiAccessKey key(String key) {
     
-    this.userGroups = userGroups;
-    return this;
-  }
-
-  public UserGroupsResponse addUserGroupsItem(UserGroup userGroupsItem) {
-    if (this.userGroups == null) {
-      this.userGroups = new ArrayList<>();
-    }
-    this.userGroups.add(userGroupsItem);
+    this.key = key;
     return this;
   }
 
    /**
-   * A list of user groups.
-   * @return userGroups
+   * The API key.
+   * @return key
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of user groups.")
+  @ApiModelProperty(value = "The API key.")
 
-  public List<UserGroup> getUserGroups() {
-    return userGroups;
+  public String getKey() {
+    return key;
   }
 
 
-  public void setUserGroups(List<UserGroup> userGroups) {
-    this.userGroups = userGroups;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+
+  public ApiAccessKey secret(String secret) {
+    
+    this.secret = secret;
+    return this;
+  }
+
+   /**
+   * The API secret.
+   * @return secret
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The API secret.")
+
+  public String getSecret() {
+    return secret;
+  }
+
+
+  public void setSecret(String secret) {
+    this.secret = secret;
+  }
+
+
+  public ApiAccessKey enabled(Boolean enabled) {
+    
+    this.enabled = enabled;
+    return this;
+  }
+
+   /**
+   * Whether the access key is enabled or disabled.
+   * @return enabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether the access key is enabled or disabled.")
+
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
 
@@ -99,20 +143,24 @@ public class UserGroupsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserGroupsResponse userGroupsResponse = (UserGroupsResponse) o;
-    return Objects.equals(this.userGroups, userGroupsResponse.userGroups);
+    ApiAccessKey apiAccessKey = (ApiAccessKey) o;
+    return Objects.equals(this.key, apiAccessKey.key) &&
+        Objects.equals(this.secret, apiAccessKey.secret) &&
+        Objects.equals(this.enabled, apiAccessKey.enabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userGroups);
+    return Objects.hash(key, secret, enabled);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserGroupsResponse {\n");
-    sb.append("    userGroups: ").append(toIndentedString(userGroups)).append("\n");
+    sb.append("class ApiAccessKey {\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -135,7 +183,9 @@ public class UserGroupsResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("user_groups");
+    openapiFields.add("key");
+    openapiFields.add("secret");
+    openapiFields.add("enabled");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -145,35 +195,29 @@ public class UserGroupsResponse {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to UserGroupsResponse
+  * @throws IOException if the JSON Object is invalid with respect to ApiAccessKey
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (UserGroupsResponse.openapiRequiredFields.isEmpty()) {
+        if (ApiAccessKey.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UserGroupsResponse is not found in the empty JSON string", UserGroupsResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiAccessKey is not found in the empty JSON string", ApiAccessKey.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       //for (Entry<String, JsonElement> entry : entries) {
-        //if (!UserGroupsResponse.openapiFields.contains(entry.getKey())) {
-          //throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserGroupsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        //if (!ApiAccessKey.openapiFields.contains(entry.getKey())) {
+          //throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiAccessKey` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         //}
       //}
-      JsonArray jsonArrayuserGroups = jsonObj.getAsJsonArray("user_groups");
-      if (jsonArrayuserGroups != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("user_groups").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `user_groups` to be an array in the JSON string but got `%s`", jsonObj.get("user_groups").toString()));
-        }
-
-        // validate the optional field `user_groups` (array)
-        for (int i = 0; i < jsonArrayuserGroups.size(); i++) {
-          UserGroup.validateJsonObject(jsonArrayuserGroups.get(i).getAsJsonObject());
-        };
+      if (jsonObj.get("key") != null && !jsonObj.get("key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+      }
+      if (jsonObj.get("secret") != null && !jsonObj.get("secret").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret").toString()));
       }
   }
 
@@ -181,22 +225,22 @@ public class UserGroupsResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UserGroupsResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UserGroupsResponse' and its subtypes
+       if (!ApiAccessKey.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ApiAccessKey' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UserGroupsResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UserGroupsResponse.class));
+       final TypeAdapter<ApiAccessKey> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ApiAccessKey.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UserGroupsResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<ApiAccessKey>() {
            @Override
-           public void write(JsonWriter out, UserGroupsResponse value) throws IOException {
+           public void write(JsonWriter out, ApiAccessKey value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public UserGroupsResponse read(JsonReader in) throws IOException {
+           public ApiAccessKey read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -207,18 +251,18 @@ public class UserGroupsResponse {
   }
 
  /**
-  * Create an instance of UserGroupsResponse given an JSON string
+  * Create an instance of ApiAccessKey given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of UserGroupsResponse
-  * @throws IOException if the JSON string is invalid with respect to UserGroupsResponse
+  * @return An instance of ApiAccessKey
+  * @throws IOException if the JSON string is invalid with respect to ApiAccessKey
   */
-  public static UserGroupsResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UserGroupsResponse.class);
+  public static ApiAccessKey fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ApiAccessKey.class);
   }
 
  /**
-  * Convert an instance of UserGroupsResponse to an JSON string
+  * Convert an instance of ApiAccessKey to an JSON string
   *
   * @return JSON string
   */

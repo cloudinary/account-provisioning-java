@@ -7,9 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**enabled** | **Boolean** |  |  [optional] |
-|**ids** | **List&lt;String&gt;** |  |  [optional] |
-|**prefix** | **String** |  |  [optional] |
+|**name** | **String** | The display name for the product environment. |  |
+|**cloudName** | **String** | The Cloudinary cloud name (optional, default is auto-generated). |  [optional] |
+|**baseSubAccountId** | **String** | The ID of another product environment to copy settings from (optional). |  [optional] |
+|**customAttributes** | **Object** | Custom attributes associated with the product environment (optional). |  [optional] |
 
 
 

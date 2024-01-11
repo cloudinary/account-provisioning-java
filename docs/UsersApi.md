@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createUser
 
-> UserResponse createUser(userRequest)
+> User createUser(createUserRequest)
 
 Create user
 
@@ -36,9 +36,9 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UsersApi apiInstance = new UsersApi(apiClient);
-        UserRequest userRequest = new UserRequest(); // UserRequest | User details
+        CreateUserRequest createUserRequest = new CreateUserRequest(); // CreateUserRequest | User details
         try {
-            UserResponse result = apiInstance.createUser(userRequest);
+            User result = apiInstance.createUser(createUserRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#createUser");
@@ -56,11 +56,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userRequest** | [**UserRequest**](UserRequest.md)| User details | [optional]
+ **createUserRequest** | [**CreateUserRequest**](CreateUserRequest.md)| User details | [optional]
 
 ### Return type
 
-[**UserResponse**](UserResponse.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -75,12 +75,18 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | User created successfully |  -  |
+| **200** | User created successfully |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **404** | Not found. |  -  |
+| **409** | Already exists. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## deleteUser
 
-> MessageResponse deleteUser(userId)
+> SuccessResponse deleteUser(userId)
 
 Delete user
 
@@ -102,9 +108,9 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UsersApi apiInstance = new UsersApi(apiClient);
-        String userId = "userId_example"; // String | 
+        String userId = "0abed8dfcc039ea05e2a1d494fd442"; // String | The ID of the user.
         try {
-            MessageResponse result = apiInstance.deleteUser(userId);
+            SuccessResponse result = apiInstance.deleteUser(userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#deleteUser");
@@ -122,11 +128,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  |
+ **userId** | **String**| The ID of the user. |
 
 ### Return type
 
-[**MessageResponse**](MessageResponse.md)
+[**SuccessResponse**](SuccessResponse.md)
 
 ### Authorization
 
@@ -142,11 +148,16 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | User deleted successfully |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **404** | Not found. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## getUser
 
-> UserResponse getUser(userId)
+> User getUser(userId)
 
 Get user
 
@@ -168,9 +179,9 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UsersApi apiInstance = new UsersApi(apiClient);
-        String userId = "userId_example"; // String | 
+        String userId = "0abed8dfcc039ea05e2a1d494fd442"; // String | The ID of the user.
         try {
-            UserResponse result = apiInstance.getUser(userId);
+            User result = apiInstance.getUser(userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getUser");
@@ -188,11 +199,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  |
+ **userId** | **String**| The ID of the user. |
 
 ### Return type
 
-[**UserResponse**](UserResponse.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -208,15 +219,18 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **401** | Authorization required. |  -  |
+| **404** | Not found. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## getUsers
 
-> UsersResponse getUsers(pending, ids, prefix, subAccountId)
+> UsersResponse getUsers(pending, ids, prefix, subAccountId, lastLogin, from, to, unionType)
 
 Get users
 
-Retrieve an array of users.
+Returns an array of all users in the account, or if conditions are specified, returns the relevant users. 
 
 ### Example
 
@@ -234,12 +248,16 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UsersApi apiInstance = new UsersApi(apiClient);
-        Boolean pending = true; // Boolean | Whether to return pending users. Default false (all users)
-        List<String> ids = Arrays.asList(); // List<String> | A list of up to 100 user IDs.
-        String prefix = "prefix_example"; // String | Returns users where the name begins with the specified case-insensitive string.
+        Boolean pending = false; // Boolean | Whether to return pending users. **Default**: `false` (all users) 
+        List<String> ids = Arrays.asList(); // List<String> | A list of up to 100 user IDs.  When provided, other parameters are ignored.
+        String prefix = "john"; // String | Returns users where the name begins with the specified case-insensitive string.
         String subAccountId = "subAccountId_example"; // String | Only returns users who have access to the specified account.
+        Boolean lastLogin = true; // Boolean | Specifies a date range for last login.
+        LocalDate from = LocalDate.parse("2023-01-01"); // LocalDate | All last logins after this date, given in the format: yyyy-mm-dd. 
+        LocalDate to = LocalDate.parse("2024-12-31"); // LocalDate | All last logins before this date, given in the format: yyyy-mm-dd. 
+        String unionType = "include"; // String | Whether to return users who last logged in within the specified date range (include) or those who didn't last log in within the range (exclude). **Possible values**: `include`, `exclude`. **Default**: `include`. 
         try {
-            UsersResponse result = apiInstance.getUsers(pending, ids, prefix, subAccountId);
+            UsersResponse result = apiInstance.getUsers(pending, ids, prefix, subAccountId, lastLogin, from, to, unionType);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getUsers");
@@ -257,10 +275,14 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pending** | **Boolean**| Whether to return pending users. Default false (all users) | [optional]
- **ids** | [**List&lt;String&gt;**](String.md)| A list of up to 100 user IDs. | [optional]
+ **pending** | **Boolean**| Whether to return pending users. **Default**: &#x60;false&#x60; (all users)  | [optional]
+ **ids** | [**List&lt;String&gt;**](String.md)| A list of up to 100 user IDs.  When provided, other parameters are ignored. | [optional]
  **prefix** | **String**| Returns users where the name begins with the specified case-insensitive string. | [optional]
  **subAccountId** | **String**| Only returns users who have access to the specified account. | [optional]
+ **lastLogin** | **Boolean**| Specifies a date range for last login. | [optional]
+ **from** | **LocalDate**| All last logins after this date, given in the format: yyyy-mm-dd.  | [optional]
+ **to** | **LocalDate**| All last logins before this date, given in the format: yyyy-mm-dd.  | [optional]
+ **unionType** | **String**| Whether to return users who last logged in within the specified date range (include) or those who didn&#39;t last log in within the range (exclude). **Possible values**: &#x60;include&#x60;, &#x60;exclude&#x60;. **Default**: &#x60;include&#x60;.  | [optional] [enum: include, exclude]
 
 ### Return type
 
@@ -280,11 +302,14 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **401** | Authorization required. |  -  |
+| **404** | Not found. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## updateUser
 
-> UserResponse updateUser(userId, userRequest)
+> User updateUser(userId, userRequest)
 
 Update user
 
@@ -306,10 +331,10 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UsersApi apiInstance = new UsersApi(apiClient);
-        String userId = "userId_example"; // String | 
+        String userId = "0abed8dfcc039ea05e2a1d494fd442"; // String | The ID of the user.
         UserRequest userRequest = new UserRequest(); // UserRequest | Updated user details
         try {
-            UserResponse result = apiInstance.updateUser(userId, userRequest);
+            User result = apiInstance.updateUser(userId, userRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#updateUser");
@@ -327,12 +352,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  |
+ **userId** | **String**| The ID of the user. |
  **userRequest** | [**UserRequest**](UserRequest.md)| Updated user details | [optional]
 
 ### Return type
 
-[**UserResponse**](UserResponse.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -348,4 +373,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | User updated successfully |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **404** | Not found. |  -  |
+| **409** | Already exists. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 

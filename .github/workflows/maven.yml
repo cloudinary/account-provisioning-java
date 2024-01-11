@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build Cloudinary Provisioning API
+    name: Build Cloudinary Account Provisioning API
     runs-on: ubuntu-latest
     strategy:
       matrix:

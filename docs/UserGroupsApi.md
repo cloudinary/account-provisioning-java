@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## addUserToUserGroup
 
-> UserGroupUserResponse addUserToUserGroup(groupId, userId)
+> UserGroupUser addUserToUserGroup(groupId, userId)
 
 Add User to User Group
 
@@ -39,10 +39,10 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UserGroupsApi apiInstance = new UserGroupsApi(apiClient);
-        String groupId = "groupId_example"; // String | 
-        String userId = "userId_example"; // String | 
+        String groupId = "7f08f1f1fc910bf1f25274aef11d27"; // String | The ID of the user group.
+        String userId = "0abed8dfcc039ea05e2a1d494fd442"; // String | The ID of the user.
         try {
-            UserGroupUserResponse result = apiInstance.addUserToUserGroup(groupId, userId);
+            UserGroupUser result = apiInstance.addUserToUserGroup(groupId, userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserGroupsApi#addUserToUserGroup");
@@ -60,12 +60,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  |
- **userId** | **String**|  |
+ **groupId** | **String**| The ID of the user group. |
+ **userId** | **String**| The ID of the user. |
 
 ### Return type
 
-[**UserGroupUserResponse**](UserGroupUserResponse.md)
+[**UserGroupUser**](UserGroupUser.md)
 
 ### Authorization
 
@@ -80,12 +80,18 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | User added to group successfully |  -  |
+| **200** | User added to group successfully |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **404** | Not found. |  -  |
+| **409** | Already exists. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## createUserGroup
 
-> UserGroupResponse createUserGroup(userGroupRequest)
+> UserGroup createUserGroup(userGroupRequest)
 
 Create User Group
 
@@ -109,7 +115,7 @@ public class Example {
         UserGroupsApi apiInstance = new UserGroupsApi(apiClient);
         UserGroupRequest userGroupRequest = new UserGroupRequest(); // UserGroupRequest | User group details
         try {
-            UserGroupResponse result = apiInstance.createUserGroup(userGroupRequest);
+            UserGroup result = apiInstance.createUserGroup(userGroupRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserGroupsApi#createUserGroup");
@@ -131,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserGroupResponse**](UserGroupResponse.md)
+[**UserGroup**](UserGroup.md)
 
 ### Authorization
 
@@ -146,12 +152,18 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | User group created successfully |  -  |
+| **200** | User group created successfully |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **404** | Not found. |  -  |
+| **409** | Already exists. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## deleteUserGroup
 
-> MessageResponse deleteUserGroup(groupId)
+> SuccessResponse deleteUserGroup(groupId)
 
 Delete User Group
 
@@ -173,9 +185,9 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UserGroupsApi apiInstance = new UserGroupsApi(apiClient);
-        String groupId = "groupId_example"; // String | 
+        String groupId = "7f08f1f1fc910bf1f25274aef11d27"; // String | The ID of the user group.
         try {
-            MessageResponse result = apiInstance.deleteUserGroup(groupId);
+            SuccessResponse result = apiInstance.deleteUserGroup(groupId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserGroupsApi#deleteUserGroup");
@@ -193,11 +205,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  |
+ **groupId** | **String**| The ID of the user group. |
 
 ### Return type
 
-[**MessageResponse**](MessageResponse.md)
+[**SuccessResponse**](SuccessResponse.md)
 
 ### Authorization
 
@@ -213,11 +225,16 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | User group deleted successfully |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **404** | Not found. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## getUserGroup
 
-> UserGroupResponse getUserGroup(groupId)
+> UserGroup getUserGroup(groupId)
 
 Get User Group
 
@@ -239,9 +256,9 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UserGroupsApi apiInstance = new UserGroupsApi(apiClient);
-        String groupId = "groupId_example"; // String | 
+        String groupId = "7f08f1f1fc910bf1f25274aef11d27"; // String | The ID of the user group.
         try {
-            UserGroupResponse result = apiInstance.getUserGroup(groupId);
+            UserGroup result = apiInstance.getUserGroup(groupId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserGroupsApi#getUserGroup");
@@ -259,11 +276,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  |
+ **groupId** | **String**| The ID of the user group. |
 
 ### Return type
 
-[**UserGroupResponse**](UserGroupResponse.md)
+[**UserGroup**](UserGroup.md)
 
 ### Authorization
 
@@ -279,6 +296,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **401** | Authorization required. |  -  |
+| **404** | Not found. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## getUserGroups
@@ -341,6 +361,9 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **401** | Authorization required. |  -  |
+| **404** | Not found. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## getUsersInUserGroup
@@ -367,7 +390,7 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UserGroupsApi apiInstance = new UserGroupsApi(apiClient);
-        String groupId = "groupId_example"; // String | 
+        String groupId = "7f08f1f1fc910bf1f25274aef11d27"; // String | The ID of the user group.
         try {
             UserGroupUsersResponse result = apiInstance.getUsersInUserGroup(groupId);
             System.out.println(result);
@@ -387,7 +410,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  |
+ **groupId** | **String**| The ID of the user group. |
 
 ### Return type
 
@@ -407,11 +430,14 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **401** | Authorization required. |  -  |
+| **404** | Not found. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## removeUserFromUserGroup
 
-> UserGroupUserResponse removeUserFromUserGroup(groupId, userId)
+> UserGroupUsersResponse removeUserFromUserGroup(groupId, userId)
 
 Remove User from User Group
 
@@ -433,10 +459,10 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UserGroupsApi apiInstance = new UserGroupsApi(apiClient);
-        String groupId = "groupId_example"; // String | 
-        String userId = "userId_example"; // String | 
+        String groupId = "7f08f1f1fc910bf1f25274aef11d27"; // String | The ID of the user group.
+        String userId = "0abed8dfcc039ea05e2a1d494fd442"; // String | The ID of the user.
         try {
-            UserGroupUserResponse result = apiInstance.removeUserFromUserGroup(groupId, userId);
+            UserGroupUsersResponse result = apiInstance.removeUserFromUserGroup(groupId, userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserGroupsApi#removeUserFromUserGroup");
@@ -454,12 +480,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  |
- **userId** | **String**|  |
+ **groupId** | **String**| The ID of the user group. |
+ **userId** | **String**| The ID of the user. |
 
 ### Return type
 
-[**UserGroupUserResponse**](UserGroupUserResponse.md)
+[**UserGroupUsersResponse**](UserGroupUsersResponse.md)
 
 ### Authorization
 
@@ -475,11 +501,16 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | User removed from group successfully |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **404** | Not found. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## updateUserGroup
 
-> UserGroupResponse updateUserGroup(groupId, userGroupRequest)
+> UserGroup updateUserGroup(groupId, userGroupRequest)
 
 Update User Group
 
@@ -501,10 +532,10 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UserGroupsApi apiInstance = new UserGroupsApi(apiClient);
-        String groupId = "groupId_example"; // String | 
+        String groupId = "7f08f1f1fc910bf1f25274aef11d27"; // String | The ID of the user group.
         UserGroupRequest userGroupRequest = new UserGroupRequest(); // UserGroupRequest | Updated user group details
         try {
-            UserGroupResponse result = apiInstance.updateUserGroup(groupId, userGroupRequest);
+            UserGroup result = apiInstance.updateUserGroup(groupId, userGroupRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserGroupsApi#updateUserGroup");
@@ -522,12 +553,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **String**|  |
+ **groupId** | **String**| The ID of the user group. |
  **userGroupRequest** | [**UserGroupRequest**](UserGroupRequest.md)| Updated user group details | [optional]
 
 ### Return type
 
-[**UserGroupResponse**](UserGroupResponse.md)
+[**UserGroup**](UserGroup.md)
 
 ### Authorization
 
@@ -543,4 +574,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | User group updated successfully |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **404** | Not found. |  -  |
+| **409** | Already exists. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 

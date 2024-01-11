@@ -1,24 +1,24 @@
-# EnvironmentsApi
+# ProductEnvironmentsApi
 
 All URIs are relative to *https://api.cloudinary.com/v1_1/provisioning/accounts/ACCOUNT_ID*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createProductEnvironment**](EnvironmentsApi.md#createProductEnvironment) | **POST** /sub_accounts | Create product environment
-[**deleteProductEnvironment**](EnvironmentsApi.md#deleteProductEnvironment) | **DELETE** /sub_accounts/{sub_account_id} | Delete product environment
-[**getProductEnvironment**](EnvironmentsApi.md#getProductEnvironment) | **GET** /sub_accounts/{sub_account_id} | Get product environment
-[**getProductEnvironments**](EnvironmentsApi.md#getProductEnvironments) | **GET** /sub_accounts | Get product environments
-[**updateProductEnvironment**](EnvironmentsApi.md#updateProductEnvironment) | **PUT** /sub_accounts/{sub_account_id} | Update product environment
+[**createProductEnvironment**](ProductEnvironmentsApi.md#createProductEnvironment) | **POST** /sub_accounts | Create product environment
+[**deleteProductEnvironment**](ProductEnvironmentsApi.md#deleteProductEnvironment) | **DELETE** /sub_accounts/{sub_account_id} | Delete product environment
+[**getProductEnvironment**](ProductEnvironmentsApi.md#getProductEnvironment) | **GET** /sub_accounts/{sub_account_id} | Get product environment
+[**getProductEnvironments**](ProductEnvironmentsApi.md#getProductEnvironments) | **GET** /sub_accounts | Get product environments
+[**updateProductEnvironment**](ProductEnvironmentsApi.md#updateProductEnvironment) | **PUT** /sub_accounts/{sub_account_id} | Update product environment
 
 
 
 ## createProductEnvironment
 
-> ProductEnvironmentResponse createProductEnvironment(productEnvironmentRequest)
+> ProductEnvironment createProductEnvironment(productEnvironmentRequest)
 
 Create product environment
 
-Create a new product environment.
+Create a new product environment. Any users that have access to all product environments will also automatically have access to the new product environment. 
 
 ### Example
 
@@ -29,19 +29,19 @@ import com.cloudinary.provisioning.ApiException;
 import com.cloudinary.provisioning.Configuration;
 import com.cloudinary.provisioning.auth.*;
 import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.EnvironmentsApi;
+import com.cloudinary.provisioning.api.ProductEnvironmentsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
-        EnvironmentsApi apiInstance = new EnvironmentsApi(apiClient);
+        ProductEnvironmentsApi apiInstance = new ProductEnvironmentsApi(apiClient);
         ProductEnvironmentRequest productEnvironmentRequest = new ProductEnvironmentRequest(); // ProductEnvironmentRequest | Product environment details
         try {
-            ProductEnvironmentResponse result = apiInstance.createProductEnvironment(productEnvironmentRequest);
+            ProductEnvironment result = apiInstance.createProductEnvironment(productEnvironmentRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling EnvironmentsApi#createProductEnvironment");
+            System.err.println("Exception when calling ProductEnvironmentsApi#createProductEnvironment");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -56,11 +56,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **productEnvironmentRequest** | [**ProductEnvironmentRequest**](ProductEnvironmentRequest.md)| Product environment details | [optional]
+ **productEnvironmentRequest** | [**ProductEnvironmentRequest**](ProductEnvironmentRequest.md)| Product environment details |
 
 ### Return type
 
-[**ProductEnvironmentResponse**](ProductEnvironmentResponse.md)
+[**ProductEnvironment**](ProductEnvironment.md)
 
 ### Authorization
 
@@ -75,12 +75,17 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Product environment created successfully |  -  |
+| **200** | Product environment created successfully |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **409** | Already exists. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## deleteProductEnvironment
 
-> MessageResponse deleteProductEnvironment(subAccountId)
+> SuccessResponse deleteProductEnvironment(subAccountId)
 
 Delete product environment
 
@@ -95,19 +100,19 @@ import com.cloudinary.provisioning.ApiException;
 import com.cloudinary.provisioning.Configuration;
 import com.cloudinary.provisioning.auth.*;
 import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.EnvironmentsApi;
+import com.cloudinary.provisioning.api.ProductEnvironmentsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
-        EnvironmentsApi apiInstance = new EnvironmentsApi(apiClient);
-        String subAccountId = "subAccountId_example"; // String | 
+        ProductEnvironmentsApi apiInstance = new ProductEnvironmentsApi(apiClient);
+        String subAccountId = "abcde1fghij2klmno3pqrst4uvwxy5z"; // String | The ID of the product environment.
         try {
-            MessageResponse result = apiInstance.deleteProductEnvironment(subAccountId);
+            SuccessResponse result = apiInstance.deleteProductEnvironment(subAccountId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling EnvironmentsApi#deleteProductEnvironment");
+            System.err.println("Exception when calling ProductEnvironmentsApi#deleteProductEnvironment");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -122,11 +127,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subAccountId** | **String**|  |
+ **subAccountId** | **String**| The ID of the product environment. |
 
 ### Return type
 
-[**MessageResponse**](MessageResponse.md)
+[**SuccessResponse**](SuccessResponse.md)
 
 ### Authorization
 
@@ -142,11 +147,16 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Product environment deleted successfully |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **404** | Not found. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## getProductEnvironment
 
-> ProductEnvironmentResponse getProductEnvironment(subAccountId)
+> ProductEnvironment getProductEnvironment(subAccountId)
 
 Get product environment
 
@@ -161,19 +171,19 @@ import com.cloudinary.provisioning.ApiException;
 import com.cloudinary.provisioning.Configuration;
 import com.cloudinary.provisioning.auth.*;
 import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.EnvironmentsApi;
+import com.cloudinary.provisioning.api.ProductEnvironmentsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
-        EnvironmentsApi apiInstance = new EnvironmentsApi(apiClient);
-        String subAccountId = "subAccountId_example"; // String | 
+        ProductEnvironmentsApi apiInstance = new ProductEnvironmentsApi(apiClient);
+        String subAccountId = "abcde1fghij2klmno3pqrst4uvwxy5z"; // String | The ID of the product environment.
         try {
-            ProductEnvironmentResponse result = apiInstance.getProductEnvironment(subAccountId);
+            ProductEnvironment result = apiInstance.getProductEnvironment(subAccountId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling EnvironmentsApi#getProductEnvironment");
+            System.err.println("Exception when calling ProductEnvironmentsApi#getProductEnvironment");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -188,11 +198,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subAccountId** | **String**|  |
+ **subAccountId** | **String**| The ID of the product environment. |
 
 ### Return type
 
-[**ProductEnvironmentResponse**](ProductEnvironmentResponse.md)
+[**ProductEnvironment**](ProductEnvironment.md)
 
 ### Authorization
 
@@ -208,6 +218,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful operation |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **404** | Not found. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## getProductEnvironments
@@ -216,7 +230,7 @@ Name | Type | Description  | Notes
 
 Get product environments
 
-Retrieve an array of product environments.
+Return an array of all product environments, or if conditions are specified,  return the relevant product environments. 
 
 ### Example
 
@@ -227,21 +241,21 @@ import com.cloudinary.provisioning.ApiException;
 import com.cloudinary.provisioning.Configuration;
 import com.cloudinary.provisioning.auth.*;
 import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.EnvironmentsApi;
+import com.cloudinary.provisioning.api.ProductEnvironmentsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
-        EnvironmentsApi apiInstance = new EnvironmentsApi(apiClient);
-        Boolean enabled = true; // Boolean | Whether to return enabled (true) or disabled (false) product environments. Default all environments.
-        List<String> ids = Arrays.asList(); // List<String> | A list of up to 100 product environment IDs.
+        ProductEnvironmentsApi apiInstance = new ProductEnvironmentsApi(apiClient);
+        Boolean enabled = true; // Boolean | Whether to only return enabled product environments (true) or disabled product environments (false).  **Default**: all product environments are returned (both enabled and disabled). 
+        List<String> ids = Arrays.asList(); // List<String> | A list of up to 100 product environment IDs. When provided, other parameters are ignored.
         String prefix = "product"; // String | Returns product environments where the name begins with the specified case-insensitive string.
         try {
             ProductEnvironmentsResponse result = apiInstance.getProductEnvironments(enabled, ids, prefix);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling EnvironmentsApi#getProductEnvironments");
+            System.err.println("Exception when calling ProductEnvironmentsApi#getProductEnvironments");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -256,8 +270,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enabled** | **Boolean**| Whether to return enabled (true) or disabled (false) product environments. Default all environments. | [optional]
- **ids** | [**List&lt;String&gt;**](String.md)| A list of up to 100 product environment IDs. | [optional]
+ **enabled** | **Boolean**| Whether to only return enabled product environments (true) or disabled product environments (false).  **Default**: all product environments are returned (both enabled and disabled).  | [optional]
+ **ids** | [**List&lt;String&gt;**](String.md)| A list of up to 100 product environment IDs. When provided, other parameters are ignored. | [optional]
  **prefix** | **String**| Returns product environments where the name begins with the specified case-insensitive string. | [optional]
 
 ### Return type
@@ -277,12 +291,18 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful operation |  -  |
+| **200** | Successful operation. |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **404** | Not found. |  -  |
+| **409** | Already exists. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
 
 ## updateProductEnvironment
 
-> ProductEnvironmentResponse updateProductEnvironment(subAccountId, productEnvironmentRequest)
+> ProductEnvironment updateProductEnvironment(subAccountId, productEnvironmentUpdateRequest)
 
 Update product environment
 
@@ -297,20 +317,20 @@ import com.cloudinary.provisioning.ApiException;
 import com.cloudinary.provisioning.Configuration;
 import com.cloudinary.provisioning.auth.*;
 import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.EnvironmentsApi;
+import com.cloudinary.provisioning.api.ProductEnvironmentsApi;
 
 public class Example {
     public static void main(String[] args) {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
-        EnvironmentsApi apiInstance = new EnvironmentsApi(apiClient);
-        String subAccountId = "subAccountId_example"; // String | 
-        ProductEnvironmentRequest productEnvironmentRequest = new ProductEnvironmentRequest(); // ProductEnvironmentRequest | Updated product environment details
+        ProductEnvironmentsApi apiInstance = new ProductEnvironmentsApi(apiClient);
+        String subAccountId = "abcde1fghij2klmno3pqrst4uvwxy5z"; // String | The ID of the product environment.
+        ProductEnvironmentUpdateRequest productEnvironmentUpdateRequest = new ProductEnvironmentUpdateRequest(); // ProductEnvironmentUpdateRequest | Updated product environment details
         try {
-            ProductEnvironmentResponse result = apiInstance.updateProductEnvironment(subAccountId, productEnvironmentRequest);
+            ProductEnvironment result = apiInstance.updateProductEnvironment(subAccountId, productEnvironmentUpdateRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling EnvironmentsApi#updateProductEnvironment");
+            System.err.println("Exception when calling ProductEnvironmentsApi#updateProductEnvironment");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -325,12 +345,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subAccountId** | **String**|  |
- **productEnvironmentRequest** | [**ProductEnvironmentRequest**](ProductEnvironmentRequest.md)| Updated product environment details | [optional]
+ **subAccountId** | **String**| The ID of the product environment. |
+ **productEnvironmentUpdateRequest** | [**ProductEnvironmentUpdateRequest**](ProductEnvironmentUpdateRequest.md)| Updated product environment details | [optional]
 
 ### Return type
 
-[**ProductEnvironmentResponse**](ProductEnvironmentResponse.md)
+[**ProductEnvironment**](ProductEnvironment.md)
 
 ### Authorization
 
@@ -346,4 +366,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Product environment updated successfully |  -  |
+| **400** | Bad request. |  -  |
+| **401** | Authorization required. |  -  |
+| **403** | Not allowed. |  -  |
+| **404** | Not found. |  -  |
+| **409** | Already exists. |  -  |
+| **420** | Max usage rate exceeded. |  -  |
 
