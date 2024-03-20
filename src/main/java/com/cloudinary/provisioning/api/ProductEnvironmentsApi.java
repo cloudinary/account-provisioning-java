@@ -39,7 +39,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ProductEnvironmentsApi {
     private ApiClient localVarApiClient;
@@ -144,15 +143,12 @@ public class ProductEnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createProductEnvironmentValidateBeforeCall(ProductEnvironmentRequest productEnvironmentRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'productEnvironmentRequest' is set
         if (productEnvironmentRequest == null) {
             throw new ApiException("Missing the required parameter 'productEnvironmentRequest' when calling createProductEnvironment(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createProductEnvironmentCall(productEnvironmentRequest, _callback);
-        return localVarCall;
+        return createProductEnvironmentCall(productEnvironmentRequest, _callback);
 
     }
 
@@ -269,7 +265,7 @@ public class ProductEnvironmentsApi {
 
         // create path and map variables
         String localVarPath = "/sub_accounts/{sub_account_id}"
-            .replaceAll("\\{" + "sub_account_id" + "\\}", localVarApiClient.escapeString(subAccountId.toString()));
+            .replace("{" + "sub_account_id" + "}", localVarApiClient.escapeString(subAccountId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -286,7 +282,6 @@ public class ProductEnvironmentsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -299,15 +294,12 @@ public class ProductEnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteProductEnvironmentValidateBeforeCall(String subAccountId, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'subAccountId' is set
         if (subAccountId == null) {
             throw new ApiException("Missing the required parameter 'subAccountId' when calling deleteProductEnvironment(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteProductEnvironmentCall(subAccountId, _callback);
-        return localVarCall;
+        return deleteProductEnvironmentCall(subAccountId, _callback);
 
     }
 
@@ -423,7 +415,7 @@ public class ProductEnvironmentsApi {
 
         // create path and map variables
         String localVarPath = "/sub_accounts/{sub_account_id}"
-            .replaceAll("\\{" + "sub_account_id" + "\\}", localVarApiClient.escapeString(subAccountId.toString()));
+            .replace("{" + "sub_account_id" + "}", localVarApiClient.escapeString(subAccountId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -440,7 +432,6 @@ public class ProductEnvironmentsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -453,15 +444,12 @@ public class ProductEnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProductEnvironmentValidateBeforeCall(String subAccountId, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'subAccountId' is set
         if (subAccountId == null) {
             throw new ApiException("Missing the required parameter 'subAccountId' when calling getProductEnvironment(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getProductEnvironmentCall(subAccountId, _callback);
-        return localVarCall;
+        return getProductEnvironmentCall(subAccountId, _callback);
 
     }
 
@@ -606,7 +594,6 @@ public class ProductEnvironmentsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -619,10 +606,7 @@ public class ProductEnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProductEnvironmentsValidateBeforeCall(Boolean enabled, List<String> ids, String prefix, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getProductEnvironmentsCall(enabled, ids, prefix, _callback);
-        return localVarCall;
+        return getProductEnvironmentsCall(enabled, ids, prefix, _callback);
 
     }
 
@@ -750,7 +734,7 @@ public class ProductEnvironmentsApi {
 
         // create path and map variables
         String localVarPath = "/sub_accounts/{sub_account_id}"
-            .replaceAll("\\{" + "sub_account_id" + "\\}", localVarApiClient.escapeString(subAccountId.toString()));
+            .replace("{" + "sub_account_id" + "}", localVarApiClient.escapeString(subAccountId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -780,15 +764,12 @@ public class ProductEnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProductEnvironmentValidateBeforeCall(String subAccountId, ProductEnvironmentUpdateRequest productEnvironmentUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'subAccountId' is set
         if (subAccountId == null) {
             throw new ApiException("Missing the required parameter 'subAccountId' when calling updateProductEnvironment(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateProductEnvironmentCall(subAccountId, productEnvironmentUpdateRequest, _callback);
-        return localVarCall;
+        return updateProductEnvironmentCall(subAccountId, productEnvironmentUpdateRequest, _callback);
 
     }
 

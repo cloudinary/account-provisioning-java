@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createUser
 
-> User createUser(createUserRequest)
+> User createUser(userRequest)
 
 Create user
 
@@ -36,9 +36,9 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UsersApi apiInstance = new UsersApi(apiClient);
-        CreateUserRequest createUserRequest = new CreateUserRequest(); // CreateUserRequest | User details
+        UserRequest userRequest = new UserRequest(); // UserRequest | User details
         try {
-            User result = apiInstance.createUser(createUserRequest);
+            User result = apiInstance.createUser(userRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#createUser");
@@ -56,7 +56,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createUserRequest** | [**CreateUserRequest**](CreateUserRequest.md)| User details | [optional]
+ **userRequest** | [**UserRequest**](UserRequest.md)| User details | [optional]
 
 ### Return type
 

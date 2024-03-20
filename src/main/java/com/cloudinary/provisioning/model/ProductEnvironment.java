@@ -14,18 +14,16 @@
 package com.cloudinary.provisioning.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.cloudinary.provisioning.model.ApiAccessKey;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -38,12 +36,16 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.cloudinary.provisioning.JSON;
@@ -51,8 +53,7 @@ import com.cloudinary.provisioning.JSON;
 /**
  * Product Environment
  */
-@ApiModel(description = "Product Environment")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-11T08:16:23.973898+02:00[Asia/Jerusalem]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-11T15:07:12.707879+02:00[Asia/Jerusalem]")
 public class ProductEnvironment {
   public static final String SERIALIZED_NAME_CLOUD_NAME = "cloud_name";
   @SerializedName(SERIALIZED_NAME_CLOUD_NAME)
@@ -72,17 +73,16 @@ public class ProductEnvironment {
 
   public static final String SERIALIZED_NAME_API_ACCESS_KEYS = "api_access_keys";
   @SerializedName(SERIALIZED_NAME_API_ACCESS_KEYS)
-  private List<ApiAccessKey> apiAccessKeys = null;
+  private List<ApiAccessKey> apiAccessKeys;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
 
-  public ProductEnvironment() { 
+  public ProductEnvironment() {
   }
 
   public ProductEnvironment cloudName(String cloudName) {
-    
     this.cloudName = cloudName;
     return this;
   }
@@ -92,12 +92,9 @@ public class ProductEnvironment {
    * @return cloudName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public String getCloudName() {
     return cloudName;
   }
-
 
   public void setCloudName(String cloudName) {
     this.cloudName = cloudName;
@@ -105,7 +102,6 @@ public class ProductEnvironment {
 
 
   public ProductEnvironment name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -115,12 +111,9 @@ public class ProductEnvironment {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the product environment.")
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -128,7 +121,6 @@ public class ProductEnvironment {
 
 
   public ProductEnvironment enabled(Boolean enabled) {
-    
     this.enabled = enabled;
     return this;
   }
@@ -138,12 +130,9 @@ public class ProductEnvironment {
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether the product environment is enabled or disabled.")
-
   public Boolean getEnabled() {
     return enabled;
   }
-
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
@@ -151,7 +140,6 @@ public class ProductEnvironment {
 
 
   public ProductEnvironment id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -161,12 +149,9 @@ public class ProductEnvironment {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the product environment.")
-
   public String getId() {
     return id;
   }
-
 
   public void setId(String id) {
     this.id = id;
@@ -174,7 +159,6 @@ public class ProductEnvironment {
 
 
   public ProductEnvironment apiAccessKeys(List<ApiAccessKey> apiAccessKeys) {
-    
     this.apiAccessKeys = apiAccessKeys;
     return this;
   }
@@ -192,12 +176,9 @@ public class ProductEnvironment {
    * @return apiAccessKeys
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list of the product environment's access keys.")
-
   public List<ApiAccessKey> getApiAccessKeys() {
     return apiAccessKeys;
   }
-
 
   public void setApiAccessKeys(List<ApiAccessKey> apiAccessKeys) {
     this.apiAccessKeys = apiAccessKeys;
@@ -205,7 +186,6 @@ public class ProductEnvironment {
 
 
   public ProductEnvironment createdAt(OffsetDateTime createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -215,17 +195,58 @@ public class ProductEnvironment {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The date when the product environment was created.")
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
-
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the ProductEnvironment instance itself
+   */
+  public ProductEnvironment putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
 
   @Override
@@ -242,12 +263,13 @@ public class ProductEnvironment {
         Objects.equals(this.enabled, productEnvironment.enabled) &&
         Objects.equals(this.id, productEnvironment.id) &&
         Objects.equals(this.apiAccessKeys, productEnvironment.apiAccessKeys) &&
-        Objects.equals(this.createdAt, productEnvironment.createdAt);
+        Objects.equals(this.createdAt, productEnvironment.createdAt)&&
+        Objects.equals(this.additionalProperties, productEnvironment.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudName, name, enabled, id, apiAccessKeys, createdAt);
+    return Objects.hash(cloudName, name, enabled, id, apiAccessKeys, createdAt, additionalProperties);
   }
 
   @Override
@@ -260,6 +282,7 @@ public class ProductEnvironment {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    apiAccessKeys: ").append(toIndentedString(apiAccessKeys)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -294,47 +317,40 @@ public class ProductEnvironment {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ProductEnvironment
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ProductEnvironment
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ProductEnvironment.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ProductEnvironment.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProductEnvironment is not found in the empty JSON string", ProductEnvironment.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      //for (Entry<String, JsonElement> entry : entries) {
-        //if (!ProductEnvironment.openapiFields.contains(entry.getKey())) {
-          //throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProductEnvironment` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        //}
-      //}
-      if (jsonObj.get("cloud_name") != null && !jsonObj.get("cloud_name").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("cloud_name") != null && !jsonObj.get("cloud_name").isJsonNull()) && !jsonObj.get("cloud_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cloud_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cloud_name").toString()));
       }
-      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      JsonArray jsonArrayapiAccessKeys = jsonObj.getAsJsonArray("api_access_keys");
-      if (jsonArrayapiAccessKeys != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("api_access_keys").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `api_access_keys` to be an array in the JSON string but got `%s`", jsonObj.get("api_access_keys").toString()));
-        }
+      if (jsonObj.get("api_access_keys") != null && !jsonObj.get("api_access_keys").isJsonNull()) {
+        JsonArray jsonArrayapiAccessKeys = jsonObj.getAsJsonArray("api_access_keys");
+        if (jsonArrayapiAccessKeys != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("api_access_keys").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `api_access_keys` to be an array in the JSON string but got `%s`", jsonObj.get("api_access_keys").toString()));
+          }
 
-        // validate the optional field `api_access_keys` (array)
-        for (int i = 0; i < jsonArrayapiAccessKeys.size(); i++) {
-          ApiAccessKey.validateJsonObject(jsonArrayapiAccessKeys.get(i).getAsJsonObject());
-        };
+          // validate the optional field `api_access_keys` (array)
+          for (int i = 0; i < jsonArrayapiAccessKeys.size(); i++) {
+            ApiAccessKey.validateJsonElement(jsonArrayapiAccessKeys.get(i));
+          };
+        }
       }
   }
 
@@ -353,14 +369,52 @@ public class ProductEnvironment {
            @Override
            public void write(JsonWriter out, ProductEnvironment value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
            @Override
            public ProductEnvironment read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             ProductEnvironment instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format("The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();

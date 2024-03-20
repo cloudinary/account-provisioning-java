@@ -13,8 +13,9 @@
 
 package com.cloudinary.provisioning.api;
 
+import com.cloudinary.provisioning.ApiClient;
 import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.model.CreateUserRequest;
+import com.cloudinary.provisioning.Configuration;
 import com.cloudinary.provisioning.model.ErrorResponse;
 import java.time.LocalDate;
 import com.cloudinary.provisioning.model.SuccessResponse;
@@ -24,10 +25,7 @@ import com.cloudinary.provisioning.model.UsersResponse;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * API tests for UsersApi
@@ -46,9 +44,25 @@ public class UsersApiTest {
      */
     @Test
     public void createUserTest() throws ApiException {
-        CreateUserRequest createUserRequest = null;
-        User response = api.createUser(createUserRequest);
-        // TODO: test validations
+        ApiClient apiClient = Configuration.getDefaultApiClient();
+        // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
+        UsersApi apiInstance = new UsersApi(apiClient);
+        UserRequest createUserRequest = new UserRequest(); // CreateUserRequest | User details
+        createUserRequest.setEmail("tes27111x2@gmail.com");
+        createUserRequest.setName("test");
+        createUserRequest.setEnabled(true);
+        createUserRequest.setSubAccountIds(Arrays.asList("7b81a7d89f520870ea005c1c5eb0e6"));
+        createUserRequest.setRole(UserRequest.RoleEnum.ADMIN);
+        try {
+            User result = apiInstance.createUser(createUserRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#createUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
 
     /**

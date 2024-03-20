@@ -39,7 +39,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class AccessKeysApi {
     private ApiClient localVarApiClient;
@@ -116,8 +115,8 @@ public class AccessKeysApi {
 
         // create path and map variables
         String localVarPath = "/sub_accounts/{sub_account_id}/access_keys/{key}"
-            .replaceAll("\\{" + "sub_account_id" + "\\}", localVarApiClient.escapeString(subAccountId.toString()))
-            .replaceAll("\\{" + "key" + "\\}", localVarApiClient.escapeString(key.toString()));
+            .replace("{" + "sub_account_id" + "}", localVarApiClient.escapeString(subAccountId.toString()))
+            .replace("{" + "key" + "}", localVarApiClient.escapeString(key.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -134,7 +133,6 @@ public class AccessKeysApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -147,20 +145,17 @@ public class AccessKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteAccessKeyValidateBeforeCall(String subAccountId, String key, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'subAccountId' is set
         if (subAccountId == null) {
             throw new ApiException("Missing the required parameter 'subAccountId' when calling deleteAccessKey(Async)");
         }
-        
+
         // verify the required parameter 'key' is set
         if (key == null) {
             throw new ApiException("Missing the required parameter 'key' when calling deleteAccessKey(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteAccessKeyCall(subAccountId, key, _callback);
-        return localVarCall;
+        return deleteAccessKeyCall(subAccountId, key, _callback);
 
     }
 
@@ -281,7 +276,7 @@ public class AccessKeysApi {
 
         // create path and map variables
         String localVarPath = "/sub_accounts/{sub_account_id}/access_keys"
-            .replaceAll("\\{" + "sub_account_id" + "\\}", localVarApiClient.escapeString(subAccountId.toString()));
+            .replace("{" + "sub_account_id" + "}", localVarApiClient.escapeString(subAccountId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -302,7 +297,6 @@ public class AccessKeysApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -315,20 +309,17 @@ public class AccessKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteAccessKeyByNameValidateBeforeCall(String subAccountId, String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'subAccountId' is set
         if (subAccountId == null) {
             throw new ApiException("Missing the required parameter 'subAccountId' when calling deleteAccessKeyByName(Async)");
         }
-        
+
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteAccessKeyByName(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteAccessKeyByNameCall(subAccountId, name, _callback);
-        return localVarCall;
+        return deleteAccessKeyByNameCall(subAccountId, name, _callback);
 
     }
 
@@ -450,7 +441,7 @@ public class AccessKeysApi {
 
         // create path and map variables
         String localVarPath = "/sub_accounts/{sub_account_id}/access_keys"
-            .replaceAll("\\{" + "sub_account_id" + "\\}", localVarApiClient.escapeString(subAccountId.toString()));
+            .replace("{" + "sub_account_id" + "}", localVarApiClient.escapeString(subAccountId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -480,15 +471,12 @@ public class AccessKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call generateAccessKeyValidateBeforeCall(String subAccountId, AccessKeyRequest accessKeyRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'subAccountId' is set
         if (subAccountId == null) {
             throw new ApiException("Missing the required parameter 'subAccountId' when calling generateAccessKey(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = generateAccessKeyCall(subAccountId, accessKeyRequest, _callback);
-        return localVarCall;
+        return generateAccessKeyCall(subAccountId, accessKeyRequest, _callback);
 
     }
 
@@ -613,7 +601,7 @@ public class AccessKeysApi {
 
         // create path and map variables
         String localVarPath = "/sub_accounts/{sub_account_id}/access_keys"
-            .replaceAll("\\{" + "sub_account_id" + "\\}", localVarApiClient.escapeString(subAccountId.toString()));
+            .replace("{" + "sub_account_id" + "}", localVarApiClient.escapeString(subAccountId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -646,7 +634,6 @@ public class AccessKeysApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -659,15 +646,12 @@ public class AccessKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAccessKeysValidateBeforeCall(String subAccountId, Integer pageSize, Integer page, String sortBy, String sortOrder, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'subAccountId' is set
         if (subAccountId == null) {
             throw new ApiException("Missing the required parameter 'subAccountId' when calling getAccessKeys(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getAccessKeysCall(subAccountId, pageSize, page, sortBy, sortOrder, _callback);
-        return localVarCall;
+        return getAccessKeysCall(subAccountId, pageSize, page, sortBy, sortOrder, _callback);
 
     }
 
@@ -793,8 +777,8 @@ public class AccessKeysApi {
 
         // create path and map variables
         String localVarPath = "/sub_accounts/{sub_account_id}/access_keys/{key}"
-            .replaceAll("\\{" + "sub_account_id" + "\\}", localVarApiClient.escapeString(subAccountId.toString()))
-            .replaceAll("\\{" + "key" + "\\}", localVarApiClient.escapeString(key.toString()));
+            .replace("{" + "sub_account_id" + "}", localVarApiClient.escapeString(subAccountId.toString()))
+            .replace("{" + "key" + "}", localVarApiClient.escapeString(key.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -824,20 +808,17 @@ public class AccessKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAccessKeyValidateBeforeCall(String subAccountId, String key, AccessKeyUpdateRequest accessKeyUpdateRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'subAccountId' is set
         if (subAccountId == null) {
             throw new ApiException("Missing the required parameter 'subAccountId' when calling updateAccessKey(Async)");
         }
-        
+
         // verify the required parameter 'key' is set
         if (key == null) {
             throw new ApiException("Missing the required parameter 'key' when calling updateAccessKey(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateAccessKeyCall(subAccountId, key, accessKeyUpdateRequest, _callback);
-        return localVarCall;
+        return updateAccessKeyCall(subAccountId, key, accessKeyUpdateRequest, _callback);
 
     }
 

@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.cloudinary.provisioning.model.CreateUserRequest;
 import com.cloudinary.provisioning.model.ErrorResponse;
 import java.time.LocalDate;
 import com.cloudinary.provisioning.model.SuccessResponse;
@@ -40,7 +39,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class UsersApi {
     private ApiClient localVarApiClient;
@@ -81,7 +79,7 @@ public class UsersApi {
 
     /**
      * Build call for createUser
-     * @param createUserRequest User details (optional)
+     * @param userRequest User details (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -99,7 +97,7 @@ public class UsersApi {
      * Learn more about creating users.
      * @see <a href="https://cloudinary.com/documentation/provisioning_api#create_user">Create user Documentation</a>
      */
-    public okhttp3.Call createUserCall(CreateUserRequest createUserRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createUserCall(UserRequest userRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -113,7 +111,7 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createUserRequest;
+        Object localVarPostBody = userRequest;
 
         // create path and map variables
         String localVarPath = "/users";
@@ -145,18 +143,15 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createUserValidateBeforeCall(CreateUserRequest createUserRequest, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = createUserCall(createUserRequest, _callback);
-        return localVarCall;
+    private okhttp3.Call createUserValidateBeforeCall(UserRequest userRequest, final ApiCallback _callback) throws ApiException {
+        return createUserCall(userRequest, _callback);
 
     }
 
     /**
      * Create user
      * Create a new user.
-     * @param createUserRequest User details (optional)
+     * @param userRequest User details (optional)
      * @return User
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -173,15 +168,15 @@ public class UsersApi {
      * Learn more about creating users.
      * @see <a href="https://cloudinary.com/documentation/provisioning_api#create_user">Create user Documentation</a>
      */
-    public User createUser(CreateUserRequest createUserRequest) throws ApiException {
-        ApiResponse<User> localVarResp = createUserWithHttpInfo(createUserRequest);
+    public User createUser(UserRequest userRequest) throws ApiException {
+        ApiResponse<User> localVarResp = createUserWithHttpInfo(userRequest);
         return localVarResp.getData();
     }
 
     /**
      * Create user
      * Create a new user.
-     * @param createUserRequest User details (optional)
+     * @param userRequest User details (optional)
      * @return ApiResponse&lt;User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -198,8 +193,8 @@ public class UsersApi {
      * Learn more about creating users.
      * @see <a href="https://cloudinary.com/documentation/provisioning_api#create_user">Create user Documentation</a>
      */
-    public ApiResponse<User> createUserWithHttpInfo(CreateUserRequest createUserRequest) throws ApiException {
-        okhttp3.Call localVarCall = createUserValidateBeforeCall(createUserRequest, null);
+    public ApiResponse<User> createUserWithHttpInfo(UserRequest userRequest) throws ApiException {
+        okhttp3.Call localVarCall = createUserValidateBeforeCall(userRequest, null);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -207,7 +202,7 @@ public class UsersApi {
     /**
      * Create user (asynchronously)
      * Create a new user.
-     * @param createUserRequest User details (optional)
+     * @param userRequest User details (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -225,9 +220,9 @@ public class UsersApi {
      * Learn more about creating users.
      * @see <a href="https://cloudinary.com/documentation/provisioning_api#create_user">Create user Documentation</a>
      */
-    public okhttp3.Call createUserAsync(CreateUserRequest createUserRequest, final ApiCallback<User> _callback) throws ApiException {
+    public okhttp3.Call createUserAsync(UserRequest userRequest, final ApiCallback<User> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createUserValidateBeforeCall(createUserRequest, _callback);
+        okhttp3.Call localVarCall = createUserValidateBeforeCall(userRequest, _callback);
         Type localVarReturnType = new TypeToken<User>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -269,7 +264,7 @@ public class UsersApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_id}"
-            .replaceAll("\\{" + "user_id" + "\\}", localVarApiClient.escapeString(userId.toString()));
+            .replace("{" + "user_id" + "}", localVarApiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -286,7 +281,6 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -299,15 +293,12 @@ public class UsersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteUserValidateBeforeCall(String userId, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling deleteUser(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteUserCall(userId, _callback);
-        return localVarCall;
+        return deleteUserCall(userId, _callback);
 
     }
 
@@ -422,7 +413,7 @@ public class UsersApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_id}"
-            .replaceAll("\\{" + "user_id" + "\\}", localVarApiClient.escapeString(userId.toString()));
+            .replace("{" + "user_id" + "}", localVarApiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -439,7 +430,6 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -452,15 +442,12 @@ public class UsersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getUserValidateBeforeCall(String userId, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling getUser(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getUserCall(userId, _callback);
-        return localVarCall;
+        return getUserCall(userId, _callback);
 
     }
 
@@ -624,7 +611,6 @@ public class UsersApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -637,10 +623,7 @@ public class UsersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getUsersValidateBeforeCall(Boolean pending, List<String> ids, String prefix, String subAccountId, Boolean lastLogin, LocalDate from, LocalDate to, String unionType, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getUsersCall(pending, ids, prefix, subAccountId, lastLogin, from, to, unionType, _callback);
-        return localVarCall;
+        return getUsersCall(pending, ids, prefix, subAccountId, lastLogin, from, to, unionType, _callback);
 
     }
 
@@ -774,7 +757,7 @@ public class UsersApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_id}"
-            .replaceAll("\\{" + "user_id" + "\\}", localVarApiClient.escapeString(userId.toString()));
+            .replace("{" + "user_id" + "}", localVarApiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -804,15 +787,12 @@ public class UsersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateUserValidateBeforeCall(String userId, UserRequest userRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling updateUser(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateUserCall(userId, userRequest, _callback);
-        return localVarCall;
+        return updateUserCall(userId, userRequest, _callback);
 
     }
 

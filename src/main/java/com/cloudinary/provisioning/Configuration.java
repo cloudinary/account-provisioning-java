@@ -13,8 +13,10 @@
 
 package com.cloudinary.provisioning;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-11T08:16:23.973898+02:00[Asia/Jerusalem]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-11T15:07:12.707879+02:00[Asia/Jerusalem]")
 public class Configuration {
+    public static final String VERSION = "0.0.1";
+
     private static ApiClient defaultApiClient = new ApiClient();
 
     /**

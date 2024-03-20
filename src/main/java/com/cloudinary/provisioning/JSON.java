@@ -87,34 +87,33 @@ public class JSON {
     }
 
     {
-        gson = createGson()
-            .registerTypeAdapter(Date.class, dateTypeAdapter)
-            .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
-            .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
-            .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
-            .registerTypeAdapter(byte[].class, byteArrayAdapter)
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.AccessKey.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.AccessKeyRequest.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.AccessKeyUpdateRequest.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.AccessKeysResponse.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ApiAccessKey.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.CreateUserRequest.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ErrorResponse.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ErrorResponseError.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ProductEnvironment.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ProductEnvironmentRequest.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ProductEnvironmentUpdateRequest.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ProductEnvironmentsResponse.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.SuccessResponse.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.User.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserGroup.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserGroupRequest.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserGroupUser.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserGroupUsersResponse.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserGroupsResponse.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserRequest.CustomTypeAdapterFactory())
-            .registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UsersResponse.CustomTypeAdapterFactory())
-            .create();
+        GsonBuilder gsonBuilder = createGson();
+        gsonBuilder.registerTypeAdapter(Date.class, dateTypeAdapter);
+        gsonBuilder.registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter);
+        gsonBuilder.registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter);
+        gsonBuilder.registerTypeAdapter(LocalDate.class, localDateTypeAdapter);
+        gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.AccessKey.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.AccessKeyRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.AccessKeyUpdateRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.AccessKeysResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ApiAccessKey.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ErrorResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ErrorResponseError.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ProductEnvironment.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ProductEnvironmentRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ProductEnvironmentUpdateRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.ProductEnvironmentsResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.SuccessResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.User.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserGroup.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserGroupRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserGroupUser.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserGroupUsersResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserGroupsResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UserRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cloudinary.provisioning.model.UsersResponse.CustomTypeAdapterFactory());
+        gson = gsonBuilder.create();
     }
 
     /**
