@@ -2,8 +2,6 @@ name: Publish to SonaType
 
 on:
   push:
-    branches:
-      - "*.*.*"
 
 jobs:
 
