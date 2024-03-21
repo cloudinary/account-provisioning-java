@@ -2,7 +2,10 @@
 .gitignore
 .openapi-generator-ignore
 .travis.yml
+API_VERSION
 README.md
+TEMPLATE_VERSION
+VERSION
 api/openapi.yaml
 build.gradle
 build.sbt
@@ -12,6 +15,7 @@ docs/AccessKeyUpdateRequest.md
 docs/AccessKeysApi.md
 docs/AccessKeysResponse.md
 docs/ApiAccessKey.md
+docs/CreateUserRequest.md
 docs/ErrorResponse.md
 docs/ErrorResponseError.md
 docs/ProductEnvironment.md
@@ -66,6 +70,7 @@ src/main/java/com/cloudinary/provisioning/model/AccessKeyRequest.java
 src/main/java/com/cloudinary/provisioning/model/AccessKeyUpdateRequest.java
 src/main/java/com/cloudinary/provisioning/model/AccessKeysResponse.java
 src/main/java/com/cloudinary/provisioning/model/ApiAccessKey.java
+src/main/java/com/cloudinary/provisioning/model/CreateUserRequest.java
 src/main/java/com/cloudinary/provisioning/model/ErrorResponse.java
 src/main/java/com/cloudinary/provisioning/model/ErrorResponseError.java
 src/main/java/com/cloudinary/provisioning/model/ProductEnvironment.java
@@ -90,6 +95,7 @@ src/test/java/com/cloudinary/provisioning/model/AccessKeyTest.java
 src/test/java/com/cloudinary/provisioning/model/AccessKeyUpdateRequestTest.java
 src/test/java/com/cloudinary/provisioning/model/AccessKeysResponseTest.java
 src/test/java/com/cloudinary/provisioning/model/ApiAccessKeyTest.java
+src/test/java/com/cloudinary/provisioning/model/CreateUserRequestTest.java
 src/test/java/com/cloudinary/provisioning/model/ErrorResponseErrorTest.java
 src/test/java/com/cloudinary/provisioning/model/ErrorResponseTest.java
 src/test/java/com/cloudinary/provisioning/model/ProductEnvironmentRequestTest.java

@@ -13,6 +13,7 @@
 
 package com.cloudinary.provisioning.model;
 
+import com.cloudinary.provisioning.model.UserRequest;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,22 +22,24 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for UserGroupRequest
+ * Model tests for CreateUserRequest
  */
-public class UserGroupRequestTest {
-    private final UserGroupRequest model = new UserGroupRequest();
+public class CreateUserRequestTest {
+    private final CreateUserRequest model = new CreateUserRequest();
 
     /**
-     * Model tests for UserGroupRequest
+     * Model tests for CreateUserRequest
      */
     @Test
-    public void testUserGroupRequest() {
-        // TODO: test UserGroupRequest
+    public void testCreateUserRequest() {
+        // TODO: test CreateUserRequest
     }
 
     /**
@@ -45,6 +48,38 @@ public class UserGroupRequestTest {
     @Test
     public void nameTest() {
         // TODO: test name
+    }
+
+    /**
+     * Test the property 'email'
+     */
+    @Test
+    public void emailTest() {
+        // TODO: test email
+    }
+
+    /**
+     * Test the property 'role'
+     */
+    @Test
+    public void roleTest() {
+        // TODO: test role
+    }
+
+    /**
+     * Test the property 'subAccountIds'
+     */
+    @Test
+    public void subAccountIdsTest() {
+        // TODO: test subAccountIds
+    }
+
+    /**
+     * Test the property 'enabled'
+     */
+    @Test
+    public void enabledTest() {
+        // TODO: test enabled
     }
 
 }

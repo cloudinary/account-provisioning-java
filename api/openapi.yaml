@@ -10,7 +10,7 @@ info:
     \ for accounts on an [Enterprise plan](https://cloudinary.com/pricing#pricing-enterprise).\n"
   termsOfService: https://cloudinary.com/tou
   title: Cloudinary Account Provisioning API
-  version: 0.0.2
+  version: 0.0.4
   x-sdk-package-name: account-provisioning
 servers:
 - url: "https://api.cloudinary.com/v1_1/provisioning/accounts/{accountId}"
@@ -27,8 +27,8 @@ tags:
     description: Learn more about product environments management.
     url: https://cloudinary.com/documentation/provisioning_api#product_environments
   name: Product Environments
-- description: |
-    Manage the access keys, which include an API key and secret pair, for your product environment (sub-account).
+- description: "Manage the access keys, which include an API key and secret pair,\
+    \ for your product environment (sub-account).\n"
   externalDocs:
     description: Learn more about access keys management.
     url: https://cloudinary.com/documentation/provisioning_api#access_keys
@@ -142,6 +142,7 @@ paths:
       summary: Get product environments
       tags:
       - Product Environments
+      x-cld-use-for-readme: true
       x-accepts: application/json
     post:
       description: |
@@ -508,8 +509,8 @@ paths:
         schema:
           type: integer
         style: form
-      - description: |
-          Which page to return (maximum pages 100). **Default**: All pages are returned.
+      - description: "Which page to return (maximum pages 100). **Default**: All pages\
+          \ are returned.\n"
         explode: true
         in: query
         name: page
@@ -518,8 +519,8 @@ paths:
           maximum: 100
           type: integer
         style: form
-      - description: |
-          Which response parameter to sort by. **Possible values**: `api_key`, `created_at`, `name`, `enabled`.
+      - description: "Which response parameter to sort by. **Possible values**: `api_key`,\
+          \ `created_at`, `name`, `enabled`.\n"
         example: created_at
         explode: true
         in: query
@@ -533,8 +534,8 @@ paths:
           - enabled
           type: string
         style: form
-      - description: |
-          Control the order of returned keys. **Possible values**: `desc` (default), `asc`.
+      - description: "Control the order of returned keys. **Possible values**: `desc`\
+          \ (default), `asc`.\n"
         example: asc
         explode: true
         in: query
@@ -826,15 +827,14 @@ paths:
       x-accepts: application/json
   /users:
     get:
-      description: |
-        Returns an array of all users in the account, or if conditions are specified, returns the relevant users.
+      description: "Returns an array of all users in the account, or if conditions\
+        \ are specified, returns the relevant users.\n"
       externalDocs:
         description: Learn more about retrieving users.
         url: https://cloudinary.com/documentation/provisioning_api#get_users
       operationId: getUsers
       parameters:
-      - description: |
-          Whether to return pending users. **Default**: `false` (all users)
+      - description: "Whether to return pending users. **Default**: `false` (all users)\n"
         example: false
         explode: true
         in: query
@@ -881,8 +881,7 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: |
-          All last logins after this date, given in the format: yyyy-mm-dd.
+      - description: "All last logins after this date, given in the format: yyyy-mm-dd.\n"
         example: 2023-01-01
         explode: true
         in: query
@@ -892,8 +891,7 @@ paths:
           format: date
           type: string
         style: form
-      - description: |
-          All last logins before this date, given in the format: yyyy-mm-dd.
+      - description: "All last logins before this date, given in the format: yyyy-mm-dd.\n"
         example: 2024-12-31
         explode: true
         in: query
@@ -903,9 +901,9 @@ paths:
           format: date
           type: string
         style: form
-      - description: |
-          Whether to return users who last logged in within the specified date range (include) or those who didn't
-          last log in within the range (exclude). **Possible values**: `include`, `exclude`. **Default**: `include`.
+      - description: "Whether to return users who last logged in within the specified\
+          \ date range (include) or those who didn't\nlast log in within the range\
+          \ (exclude). **Possible values**: `include`, `exclude`. **Default**: `include`.\n"
         explode: true
         in: query
         name: union_type
@@ -964,12 +962,7 @@ paths:
         content:
           application/json:
             schema:
-              allOf:
-              - $ref: '#/components/schemas/UserRequest'
-              required:
-              - email
-              - name
-              - role
+              $ref: '#/components/schemas/createUser_request'
         description: User details
       responses:
         "200":
@@ -2043,17 +2036,16 @@ components:
           example: Product3 Application
           type: string
         cloud_name:
-          description: |
-            The Cloudinary cloud name. An error is returned if the requested name already exists.
-            **Note**: Can only be changed for accounts with fewer than 1000 images.
+          description: "The Cloudinary cloud name. An error is returned if the requested\
+            \ name already exists.\n**Note**: Can only be changed for accounts with\
+            \ fewer than 1000 images.\n"
           example: product3
           type: string
         custom_attributes:
           description: Custom attributes associated with the product environment.
           type: object
         enabled:
-          description: |
-            Whether the product environment is enabled. **Default**: true.
+          description: "Whether the product environment is enabled. **Default**: true.\n"
           type: boolean
       type: object
     ProductEnvironmentsResponse:
@@ -2277,8 +2269,7 @@ components:
             type: string
           type: array
         enabled:
-          description: |
-            Whether the user is enabled. **Default**: true.
+          description: "Whether the user is enabled. **Default**: true.\n"
           example: true
           type: boolean
       type: object
@@ -2455,6 +2446,13 @@ components:
         error:
           $ref: '#/components/schemas/ErrorResponse_error'
       type: object
+    createUser_request:
+      allOf:
+      - $ref: '#/components/schemas/UserRequest'
+      required:
+      - email
+      - name
+      - role
     ErrorResponse_error:
       properties:
         message:

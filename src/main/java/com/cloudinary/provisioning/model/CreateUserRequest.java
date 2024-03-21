@@ -15,6 +15,7 @@ package com.cloudinary.provisioning.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.cloudinary.provisioning.model.UserRequest;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +24,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,28 +48,40 @@ import java.util.Set;
 import com.cloudinary.provisioning.JSON;
 
 /**
- * AccessKeyUpdateRequest
+ * CreateUserRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-21T10:41:15.583548Z[Etc/UTC]")
-public class AccessKeyUpdateRequest {
+public class CreateUserRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_ENABLED = "enabled";
-  @SerializedName(SERIALIZED_NAME_ENABLED)
-  private Boolean enabled;
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
 
   /**
-   * Designates the access key for a specific purpose while allowing it to be used for other purposes, as well.  This action replaces any previously assigned key. **Possible values**: &#x60;webhooks&#x60; 
+   * The role to assign.
    */
-  @JsonAdapter(DedicatedForEnum.Adapter.class)
-  public enum DedicatedForEnum {
-    WEBHOOKS("webhooks");
+  @JsonAdapter(RoleEnum.Adapter.class)
+  public enum RoleEnum {
+    MASTER_ADMIN("master_admin"),
+    
+    ADMIN("admin"),
+    
+    BILLING("billing"),
+    
+    TECHNICAL_ADMIN("technical_admin"),
+    
+    REPORTS("reports"),
+    
+    MEDIA_LIBRARY_ADMIN("media_library_admin"),
+    
+    MEDIA_LIBRARY_USER("media_library_user");
 
     private String value;
 
-    DedicatedForEnum(String value) {
+    RoleEnum(String value) {
       this.value = value;
     }
 
@@ -79,8 +94,8 @@ public class AccessKeyUpdateRequest {
       return String.valueOf(value);
     }
 
-    public static DedicatedForEnum fromValue(String value) {
-      for (DedicatedForEnum b : DedicatedForEnum.values()) {
+    public static RoleEnum fromValue(String value) {
+      for (RoleEnum b : RoleEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -88,39 +103,47 @@ public class AccessKeyUpdateRequest {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 
-    public static class Adapter extends TypeAdapter<DedicatedForEnum> {
+    public static class Adapter extends TypeAdapter<RoleEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final DedicatedForEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final RoleEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public DedicatedForEnum read(final JsonReader jsonReader) throws IOException {
+      public RoleEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return DedicatedForEnum.fromValue(value);
+        return RoleEnum.fromValue(value);
       }
     }
   }
 
-  public static final String SERIALIZED_NAME_DEDICATED_FOR = "dedicated_for";
-  @SerializedName(SERIALIZED_NAME_DEDICATED_FOR)
-  private DedicatedForEnum dedicatedFor;
+  public static final String SERIALIZED_NAME_ROLE = "role";
+  @SerializedName(SERIALIZED_NAME_ROLE)
+  private RoleEnum role;
 
-  public AccessKeyUpdateRequest() { 
+  public static final String SERIALIZED_NAME_SUB_ACCOUNT_IDS = "sub_account_ids";
+  @SerializedName(SERIALIZED_NAME_SUB_ACCOUNT_IDS)
+  private List<String> subAccountIds = null;
+
+  public static final String SERIALIZED_NAME_ENABLED = "enabled";
+  @SerializedName(SERIALIZED_NAME_ENABLED)
+  private Boolean enabled;
+
+  public CreateUserRequest() { 
   }
 
-  public AccessKeyUpdateRequest name(String name) {
+  public CreateUserRequest name(String name) {
     
     this.name = name;
     return this;
   }
 
    /**
-   * The name of the access key.
+   * The user&#39;s name.
    * @return name
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "main_key", value = "The name of the access key.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "John", required = true, value = "The user's name.")
 
   public String getName() {
     return name;
@@ -132,18 +155,95 @@ public class AccessKeyUpdateRequest {
   }
 
 
-  public AccessKeyUpdateRequest enabled(Boolean enabled) {
+  public CreateUserRequest email(String email) {
+    
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * A unique email address, which serves as the login name and notification address.
+   * @return email
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "john@example.com", required = true, value = "A unique email address, which serves as the login name and notification address.")
+
+  public String getEmail() {
+    return email;
+  }
+
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
+  public CreateUserRequest role(RoleEnum role) {
+    
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * The role to assign.
+   * @return role
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "technical_admin", required = true, value = "The role to assign.")
+
+  public RoleEnum getRole() {
+    return role;
+  }
+
+
+  public void setRole(RoleEnum role) {
+    this.role = role;
+  }
+
+
+  public CreateUserRequest subAccountIds(List<String> subAccountIds) {
+    
+    this.subAccountIds = subAccountIds;
+    return this;
+  }
+
+  public CreateUserRequest addSubAccountIdsItem(String subAccountIdsItem) {
+    if (this.subAccountIds == null) {
+      this.subAccountIds = new ArrayList<>();
+    }
+    this.subAccountIds.add(subAccountIdsItem);
+    return this;
+  }
+
+   /**
+   * A list of product environment IDs that this user can access. Ignored if the role is &#x60;master_admin&#x60;.  **Default**: all product environments. 
+   * @return subAccountIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of product environment IDs that this user can access. Ignored if the role is `master_admin`.  **Default**: all product environments. ")
+
+  public List<String> getSubAccountIds() {
+    return subAccountIds;
+  }
+
+
+  public void setSubAccountIds(List<String> subAccountIds) {
+    this.subAccountIds = subAccountIds;
+  }
+
+
+  public CreateUserRequest enabled(Boolean enabled) {
     
     this.enabled = enabled;
     return this;
   }
 
    /**
-   * Whether the access key is enabled or disabled.
+   * Whether the user is enabled. **Default**: true. 
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "Whether the access key is enabled or disabled.")
+  @ApiModelProperty(example = "true", value = "Whether the user is enabled. **Default**: true. ")
 
   public Boolean getEnabled() {
     return enabled;
@@ -152,29 +252,6 @@ public class AccessKeyUpdateRequest {
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
-  }
-
-
-  public AccessKeyUpdateRequest dedicatedFor(DedicatedForEnum dedicatedFor) {
-    
-    this.dedicatedFor = dedicatedFor;
-    return this;
-  }
-
-   /**
-   * Designates the access key for a specific purpose while allowing it to be used for other purposes, as well.  This action replaces any previously assigned key. **Possible values**: &#x60;webhooks&#x60; 
-   * @return dedicatedFor
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "webhooks", value = "Designates the access key for a specific purpose while allowing it to be used for other purposes, as well.  This action replaces any previously assigned key. **Possible values**: `webhooks` ")
-
-  public DedicatedForEnum getDedicatedFor() {
-    return dedicatedFor;
-  }
-
-
-  public void setDedicatedFor(DedicatedForEnum dedicatedFor) {
-    this.dedicatedFor = dedicatedFor;
   }
 
   /**
@@ -188,7 +265,7 @@ public class AccessKeyUpdateRequest {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public AccessKeyUpdateRequest putAdditionalProperty(String key, Object value) {
+  public CreateUserRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -222,25 +299,29 @@ public class AccessKeyUpdateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AccessKeyUpdateRequest accessKeyUpdateRequest = (AccessKeyUpdateRequest) o;
-    return Objects.equals(this.name, accessKeyUpdateRequest.name) &&
-        Objects.equals(this.enabled, accessKeyUpdateRequest.enabled) &&
-        Objects.equals(this.dedicatedFor, accessKeyUpdateRequest.dedicatedFor)&&
-        Objects.equals(this.additionalProperties, accessKeyUpdateRequest.additionalProperties);
+    CreateUserRequest createUserRequest = (CreateUserRequest) o;
+    return Objects.equals(this.name, createUserRequest.name) &&
+        Objects.equals(this.email, createUserRequest.email) &&
+        Objects.equals(this.role, createUserRequest.role) &&
+        Objects.equals(this.subAccountIds, createUserRequest.subAccountIds) &&
+        Objects.equals(this.enabled, createUserRequest.enabled)&&
+        Objects.equals(this.additionalProperties, createUserRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, enabled, dedicatedFor, additionalProperties);
+    return Objects.hash(name, email, role, subAccountIds, enabled, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AccessKeyUpdateRequest {\n");
+    sb.append("class CreateUserRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    subAccountIds: ").append(toIndentedString(subAccountIds)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    dedicatedFor: ").append(toIndentedString(dedicatedFor)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -265,32 +346,51 @@ public class AccessKeyUpdateRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
+    openapiFields.add("email");
+    openapiFields.add("role");
+    openapiFields.add("sub_account_ids");
     openapiFields.add("enabled");
-    openapiFields.add("dedicated_for");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("email");
+    openapiRequiredFields.add("role");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AccessKeyUpdateRequest
+  * @throws IOException if the JSON Object is invalid with respect to CreateUserRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (AccessKeyUpdateRequest.openapiRequiredFields.isEmpty()) {
+        if (CreateUserRequest.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AccessKeyUpdateRequest is not found in the empty JSON string", AccessKeyUpdateRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateUserRequest is not found in the empty JSON string", CreateUserRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : CreateUserRequest.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if (jsonObj.get("dedicated_for") != null && !jsonObj.get("dedicated_for").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dedicated_for` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dedicated_for").toString()));
+      if (jsonObj.get("email") != null && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if (jsonObj.get("role") != null && !jsonObj.get("role").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      }
+      // ensure the json data is an array
+      if (jsonObj.get("sub_account_ids") != null && !jsonObj.get("sub_account_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sub_account_ids` to be an array in the JSON string but got `%s`", jsonObj.get("sub_account_ids").toString()));
       }
   }
 
@@ -298,16 +398,16 @@ public class AccessKeyUpdateRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AccessKeyUpdateRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AccessKeyUpdateRequest' and its subtypes
+       if (!CreateUserRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateUserRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AccessKeyUpdateRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AccessKeyUpdateRequest.class));
+       final TypeAdapter<CreateUserRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateUserRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AccessKeyUpdateRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateUserRequest>() {
            @Override
-           public void write(JsonWriter out, AccessKeyUpdateRequest value) throws IOException {
+           public void write(JsonWriter out, CreateUserRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -330,11 +430,11 @@ public class AccessKeyUpdateRequest {
            }
 
            @Override
-           public AccessKeyUpdateRequest read(JsonReader in) throws IOException {
+           public CreateUserRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             AccessKeyUpdateRequest instance = thisAdapter.fromJsonTree(jsonObj);
+             CreateUserRequest instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -359,18 +459,18 @@ public class AccessKeyUpdateRequest {
   }
 
  /**
-  * Create an instance of AccessKeyUpdateRequest given an JSON string
+  * Create an instance of CreateUserRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of AccessKeyUpdateRequest
-  * @throws IOException if the JSON string is invalid with respect to AccessKeyUpdateRequest
+  * @return An instance of CreateUserRequest
+  * @throws IOException if the JSON string is invalid with respect to CreateUserRequest
   */
-  public static AccessKeyUpdateRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AccessKeyUpdateRequest.class);
+  public static CreateUserRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateUserRequest.class);
   }
 
  /**
-  * Convert an instance of AccessKeyUpdateRequest to an JSON string
+  * Convert an instance of CreateUserRequest to an JSON string
   *
   * @return JSON string
   */
