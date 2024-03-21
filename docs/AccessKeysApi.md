@@ -24,12 +24,12 @@ Delete a specific access key.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.AccessKeysApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.AccessKeysApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -97,12 +97,12 @@ Delete a specific access key by name.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.AccessKeysApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.AccessKeysApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -170,12 +170,12 @@ Generate a new access key.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.AccessKeysApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.AccessKeysApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -244,12 +244,12 @@ Retrieve an array of all access keys for a product environment.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.AccessKeysApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.AccessKeysApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -321,12 +321,12 @@ Update the name and/or status of an existing access key.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.AccessKeysApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.AccessKeysApi;
 
 public class Example {
     public static void main(String[] args) {

@@ -24,12 +24,12 @@ Create a new product environment. Any users that have access to all product envi
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.ProductEnvironmentsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.ProductEnvironmentsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -95,12 +95,12 @@ Delete a specific product environment.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.ProductEnvironmentsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.ProductEnvironmentsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -166,12 +166,12 @@ Retrieve a specific product environment.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.ProductEnvironmentsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.ProductEnvironmentsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -236,12 +236,12 @@ Return an array of all product environments, or if conditions are specified,  re
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.ProductEnvironmentsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.ProductEnvironmentsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -312,12 +312,12 @@ Update the details of a product environment.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.ProductEnvironmentsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.ProductEnvironmentsApi;
 
 public class Example {
     public static void main(String[] args) {

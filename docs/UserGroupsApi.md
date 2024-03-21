@@ -27,12 +27,12 @@ Add a user to a group with the specified ID.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UserGroupsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UserGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -101,12 +101,12 @@ Create a new user group for the account.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UserGroupsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UserGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -173,12 +173,12 @@ Delete a user group with the specified ID.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UserGroupsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UserGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -244,12 +244,12 @@ Retrieve a specific user group.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UserGroupsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UserGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -313,12 +313,12 @@ Retrieve an array of all user groups in the account.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UserGroupsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UserGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -378,12 +378,12 @@ Retrieve the users in the group with the specified ID.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UserGroupsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UserGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -447,12 +447,12 @@ Remove a user from a group with the specified ID.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UserGroupsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UserGroupsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -520,12 +520,12 @@ Update the name of a specified user group.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UserGroupsApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UserGroupsApi;
 
 public class Example {
     public static void main(String[] args) {

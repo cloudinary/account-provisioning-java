@@ -24,12 +24,12 @@ Create a new user.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UsersApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -96,12 +96,12 @@ Delete a specific user.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UsersApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -167,12 +167,12 @@ Retrieve a specific user.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UsersApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -236,12 +236,12 @@ Returns an array of all users in the account, or if conditions are specified, re
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UsersApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -319,12 +319,12 @@ Update the details of a user.
 
 ```java
 // Import classes:
-import com.cloudinary.provisioning.ApiClient;
-import com.cloudinary.provisioning.ApiException;
-import com.cloudinary.provisioning.Configuration;
-import com.cloudinary.provisioning.auth.*;
-import com.cloudinary.provisioning.models.*;
-import com.cloudinary.provisioning.api.UsersApi;
+import com.cloudinary.account.provisioning.ApiClient;
+import com.cloudinary.account.provisioning.ApiException;
+import com.cloudinary.account.provisioning.Configuration;
+import com.cloudinary.account.provisioning.auth.*;
+import com.cloudinary.account.provisioning.models.*;
+import com.cloudinary.account.provisioning.api.UsersApi;
 
 public class Example {
     public static void main(String[] args) {
