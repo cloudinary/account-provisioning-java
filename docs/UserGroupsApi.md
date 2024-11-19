@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ## getUserGroup
 
-> UserGroup getUserGroup(groupId)
+> UserGroup getUserGroup(groupId, extendedDetails)
 
 Get User Group
 
@@ -257,8 +257,9 @@ public class Example {
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UserGroupsApi apiInstance = new UserGroupsApi(apiClient);
         String groupId = "7f08f1f1fc910bf1f25274aef11d27"; // String | The ID of the user group.
+        Boolean extendedDetails = true; // Boolean | Whether to only return extended (true) or basic information about the group (false).  **Default**: false. 
         try {
-            UserGroup result = apiInstance.getUserGroup(groupId);
+            UserGroup result = apiInstance.getUserGroup(groupId, extendedDetails);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserGroupsApi#getUserGroup");
@@ -277,6 +278,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **groupId** | **String**| The ID of the user group. |
+ **extendedDetails** | **Boolean**| Whether to only return extended (true) or basic information about the group (false).  **Default**: false.  | [optional]
 
 ### Return type
 
@@ -303,7 +305,7 @@ Name | Type | Description  | Notes
 
 ## getUserGroups
 
-> UserGroupsResponse getUserGroups()
+> UserGroupsResponse getUserGroups(extendedDetails)
 
 Get User Groups
 
@@ -325,8 +327,9 @@ public class Example {
         ApiClient apiClient = Configuration.getDefaultApiClient();
         // If you don't supply cloudinary url through apiClient.setCloudinaryUrl("Cloudinary url"> it'll be taken from environment variable
         UserGroupsApi apiInstance = new UserGroupsApi(apiClient);
+        Boolean extendedDetails = true; // Boolean | Whether to only return extended (true) or basic information about the group (false).  **Default**: false. 
         try {
-            UserGroupsResponse result = apiInstance.getUserGroups();
+            UserGroupsResponse result = apiInstance.getUserGroups(extendedDetails);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserGroupsApi#getUserGroups");
@@ -341,7 +344,10 @@ public class Example {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **extendedDetails** | **Boolean**| Whether to only return extended (true) or basic information about the group (false).  **Default**: false.  | [optional]
 
 ### Return type
 

@@ -7,11 +7,24 @@ info:
   description: "Accounts with provisioning API access can create and manage their\
     \ **product environments**, **users** and **user groups** using the RESTful Provisioning\
     \ API. \n\nProvisioning API access is available [upon request](https://cloudinary.com/contact?plan=enterprise)\
-    \ for accounts on an [Enterprise plan](https://cloudinary.com/pricing#pricing-enterprise).\n"
+    \ for accounts on an [Enterprise plan](https://cloudinary.com/pricing#pricing-enterprise).\n\
+    \nThe API uses **Basic Authentication** over HTTPS. Your **Provisioning Key**\
+    \ and **Provisioning Secret** are used for the authentication. These credentials\
+    \ (as well as your ACCOUNT_ID) are located in the [Cloudinary Console](https://console.cloudinary.com/pm)\
+    \ under **Settings > Account > Provisioning API Access**, or they can be obtained\
+    \ from the provisioning environment variable available on your Cloudinary Console\
+    \ [Dashboard](https://console.cloudinary.com/pm/developer-dashboard).\n\nThe Provisioning\
+    \ API has dedicated SDKs for the following languages:\n\n* [JavaScript](https://github.com/cloudinary/account-provisioning-js)\n\
+    * [PHP](https://github.com/cloudinary/account-provisioning-php)\n* [Java](https://github.com/cloudinary/account-provisioning-java)\n\
+    \nUseful links:\n* [Provisioning API reference (Classic)](https://cloudinary.com/documentation/provisioning_api_1)\n"
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
   termsOfService: https://cloudinary.com/tou
   title: Cloudinary Account Provisioning API
-  version: 0.0.4
-  x-sdk-package-name: account-provisioning
+  version: 0.1.2
+  x-cld-module-context: account
+  x-cld-module-name: account-provisioning
 servers:
 - url: "https://api.cloudinary.com/v1_1/provisioning/accounts/{accountId}"
   variables:
@@ -71,6 +84,16 @@ paths:
         explode: true
         in: query
         name: ids
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: A list of up to 100 product environment cloud names.
+        explode: true
+        in: query
+        name: cloud_names
         required: false
         schema:
           items:
@@ -855,6 +878,18 @@ paths:
           maxItems: 100
           type: array
         style: form
+      - description: "A list of up to 100 user Emails.  When provided, other parameters\
+          \ are ignored."
+        explode: true
+        in: query
+        name: emails
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 100
+          type: array
+        style: form
       - description: Returns users where the name begins with the specified case-insensitive
           string.
         example: john
@@ -913,6 +948,45 @@ paths:
           - include
           - exclude
           type: string
+        style: form
+      - description: "Control the order of returned users. **Possible values**: `desc`\
+          \ (default), `asc`.\n"
+        explode: true
+        in: query
+        name: sort_order
+        required: false
+        schema:
+          enum:
+          - desc
+          - asc
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sort_by
+        required: false
+        schema:
+          enum:
+          - name
+          - role
+          - status
+          - activity
+          - created_at
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          type: integer
         style: form
       responses:
         "200":
@@ -1225,6 +1299,17 @@ paths:
         description: Learn more about retrieving user groups.
         url: https://cloudinary.com/documentation/provisioning_api#get_user_groups
       operationId: getUserGroups
+      parameters:
+      - description: "Whether to only return extended (true) or basic information\
+          \ about the group (false). \n**Default**: false.\n"
+        example: true
+        explode: true
+        in: query
+        name: extended_details
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -1232,6 +1317,8 @@ paths:
               examples:
                 UserGroups:
                   $ref: '#/components/examples/UserGroups'
+                UserGroupsExtendedDetails:
+                  $ref: '#/components/examples/UserGroupsExtendedDetails'
               schema:
                 $ref: '#/components/schemas/UserGroupsResponse'
           description: Successful operation
@@ -1281,7 +1368,7 @@ paths:
             application/json:
               examples:
                 UserGroupDesigners:
-                  $ref: '#/components/examples/UserGroup1'
+                  $ref: '#/components/examples/UserGroupDesigners'
               schema:
                 $ref: '#/components/schemas/UserGroup'
           description: User group created successfully
@@ -1412,13 +1499,25 @@ paths:
         schema:
           type: string
         style: simple
+      - description: "Whether to only return extended (true) or basic information\
+          \ about the group (false). \n**Default**: false.\n"
+        example: true
+        explode: true
+        in: query
+        name: extended_details
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
             application/json:
               examples:
-                UserGroup1:
-                  $ref: '#/components/examples/UserGroup1'
+                UserGroupDesigners:
+                  $ref: '#/components/examples/UserGroupDesigners'
+                UserGroupDesignersExtendedDetails:
+                  $ref: '#/components/examples/UserGroupDesignersExtendedDetails'
               schema:
                 $ref: '#/components/schemas/UserGroup'
           description: Successful operation
@@ -1470,8 +1569,8 @@ paths:
         content:
           application/json:
             examples:
-              UserGroupDesigners:
-                $ref: '#/components/examples/UserGroupDesigners'
+              UserGroupDesignersRequest:
+                $ref: '#/components/examples/UserGroupDesignersRequest'
             schema:
               $ref: '#/components/schemas/UserGroupRequest'
         description: Updated user group details
@@ -1479,6 +1578,9 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                UserGroupUpdate:
+                  $ref: '#/components/examples/UserGroupUpdate'
               schema:
                 $ref: '#/components/schemas/UserGroup'
           description: User group updated successfully
@@ -1690,8 +1792,8 @@ paths:
           content:
             application/json:
               examples:
-                UserGroupUsers:
-                  $ref: '#/components/examples/UserGroupUsers'
+                UserGroupUserJohn:
+                  $ref: '#/components/examples/UserGroupUserJohn'
               schema:
                 $ref: '#/components/schemas/UserGroupUser'
           description: User added to group successfully
@@ -1755,6 +1857,7 @@ components:
           secret: asdf1JKL2xyz3ABc4s3c5reT01DfaKez
           enabled: true
         created_at: 2016-09-27T08:00:16Z
+        updated_at: 2016-09-27T08:00:16Z
     ProductEnvironment2:
       summary: Product environment sample response 2
       value:
@@ -1767,6 +1870,7 @@ components:
           secret: T415i5mYs3cr3TkeYN0tR3a77y0o0
           enabled: true
         created_at: 2016-03-15T11:44:48Z
+        updated_at: 2016-03-15T11:44:48Z
     ProductEnvironment3:
       summary: Product environment sample response 3
       value:
@@ -1779,6 +1883,7 @@ components:
           secret: w4aTi5Y0u6k3YN0773lL1nGyUt0Da8
           enabled: true
         created_at: 2016-09-27T11:15:35Z
+        updated_at: 2016-09-27T11:15:35Z
     ProductEnvironments:
       summary: Get product environments sample response
       value:
@@ -1792,6 +1897,7 @@ components:
             secret: asdf1JKL2xyz3ABc4s3c5reT01DfaKez
             enabled: true
           created_at: 2016-09-27T08:00:16Z
+          updated_at: 2016-09-27T08:00:16Z
         - cloud_name: product2
           name: Product2 Application
           enabled: true
@@ -1801,6 +1907,7 @@ components:
             secret: T415i5mYs3cr3TkeYN0tR3a77y0o0
             enabled: true
           created_at: 2016-03-15T11:44:48Z
+          updated_at: 2016-03-15T11:44:48Z
     MainAccessKey:
       summary: Access key sample value
       value:
@@ -1837,8 +1944,13 @@ components:
         pending: true
         enabled: true
         created_at: 2020-09-03T13:33:25Z
+        updated_at: 2020-09-03T13:33:25Z
         all_sub_accounts: true
-        groups: []
+        groups:
+        - id: 7f08f1f1fc910bf1f25274aef11d27
+          name: user_group_1
+        - id: 1cc3808888154263ac1e5eb2e5c52d61
+          name: user_group_2
     UserFooBar:
       summary: User details example
       value:
@@ -1849,11 +1961,11 @@ components:
         pending: true
         enabled: true
         created_at: 2019-09-12T11:53:57Z
+        updated_at: 2019-09-12T11:53:57Z
         last_login: 2022-01-11T15:11:04Z
         all_sub_accounts: false
         groups: []
-        sub_account_ids:
-        - 555asdf0000zxcvb3456qwerty
+        sub_account_ids: 555asdf0000zxcvb3456qwerty
     Users:
       summary: Get users sample response
       value:
@@ -1865,6 +1977,7 @@ components:
           pending: true
           enabled: true
           created_at: 2020-01-13T05:16:06Z
+          updated_at: 2020-01-13T05:16:06Z
           last_login: 2022-01-11T15:11:04Z
           all_sub_accounts: true
         - id: 28c84b2aa7924a5e64f949b5403981
@@ -1874,18 +1987,37 @@ components:
           pending: true
           enabled: true
           created_at: 2019-01-13T05:16:05Z
+          updated_at: 2019-01-13T05:16:05Z
           last_login: 2021-11-12T15:11:02Z
           all_sub_accounts: true
-    UserGroup1:
-      summary: User group example
-      value:
-        id: 7f08f1f1fc910bf1f25274aef11d27
-        name: user_group_1
     UserGroupDesigners:
       summary: User group example
       value:
         id: 7f08f1f1fc910bf1f25274aef11d27
         name: Designers
+    UserGroupDesignersExtendedDetails:
+      summary: User group extended details example
+      value:
+        id: 7f08f1f1fc910bf1f25274aef11d27
+        name: Designers
+        users:
+        - id: 0abed8dfcc039ea05e2a1d494fd442
+          name: John Doe
+          email: john.doe@example.com
+        - id: asdf1234uiopjkl7890wernmjlcaeg
+          name: Harry Potts
+          email: harry.potts@example.com
+        created_at: 2016-09-27T08:00:16Z
+        updated_at: 2016-09-27T08:00:16Z
+    UserGroupDesignersRequest:
+      summary: User group update example
+      value:
+        name: Designers and Creatives
+    UserGroupUpdate:
+      summary: User group update example
+      value:
+        id: 7f08f1f1fc910bf1f25274aef11d27
+        name: Designers and Creatives
     UserGroups:
       summary: Get user groups example
       value:
@@ -1894,6 +2026,38 @@ components:
           name: user_group_1
         - id: 1cc3808888154263ac1e5eb2e5c52d61
           name: user_group_2
+    UserGroupsExtendedDetails:
+      summary: Get user groups extended details example
+      value:
+        user_groups:
+        - id: 7f08f1f1fc910bf1f25274aef11d27
+          name: user_group_1
+          users:
+          - id: 0abed8dfcc039ea05e2a1d494fd442
+            name: John Doe
+            email: john.doe@example.com
+          - id: asdf1234uiopjkl7890wernmjlcaeg
+            name: Harry Potts
+            email: harry.potts@example.com
+          created_at: 2016-09-27T08:00:16Z
+          updated_at: 2016-09-27T08:00:16Z
+        - id: 1cc3808888154263ac1e5eb2e5c52d61
+          name: user_group_2
+          users:
+          - id: asdl23uioejafmckowpuafdaghjajw
+            name: Beth Poppins
+            email: beth.poppins@example.com
+          - id: iwejfjiwl83882kkswionvnnlxloow
+            name: Mike Smith
+            email: mike.smith@example.com
+          created_at: 2016-09-27T08:00:16Z
+          updated_at: 2016-09-27T08:00:16Z
+    UserGroupUserJohn:
+      summary: User group user example
+      value:
+        id: 0abed8dfcc039ea05e2a1d494fd442
+        name: John Doe
+        email: john.doe@example.com
     UserGroupUsers:
       summary: User group users example
       value:
@@ -1946,9 +2110,18 @@ components:
       schema:
         type: string
       style: simple
+    userGroupExtendedDetails:
+      description: "Whether to only return extended (true) or basic information about\
+        \ the group (false). \n**Default**: false.\n"
+      example: true
+      explode: true
+      in: query
+      name: extended_details
+      required: false
+      schema:
+        type: boolean
+      style: form
   responses:
-    "200OK":
-      description: Successful.
     "400BadRequest":
       content:
         application/json:
@@ -1991,12 +2164,6 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
       description: Max usage rate exceeded.
-    default:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-      description: Unexpected error
   schemas:
     ProductEnvironmentRequest:
       example:
@@ -2058,6 +2225,7 @@ components:
           - secret: secret
             key: key
             enabled: true
+          updated_at: 2000-01-23T04:56:07.000+00:00
           cloud_name: cloud_name
           name: name
           created_at: 2000-01-23T04:56:07.000+00:00
@@ -2070,6 +2238,7 @@ components:
           - secret: secret
             key: key
             enabled: true
+          updated_at: 2000-01-23T04:56:07.000+00:00
           cloud_name: cloud_name
           name: name
           created_at: 2000-01-23T04:56:07.000+00:00
@@ -2091,6 +2260,7 @@ components:
         - secret: secret
           key: key
           enabled: true
+        updated_at: 2000-01-23T04:56:07.000+00:00
         cloud_name: cloud_name
         name: name
         created_at: 2000-01-23T04:56:07.000+00:00
@@ -2115,6 +2285,10 @@ components:
           type: array
         created_at:
           description: The date when the product environment was created.
+          format: date-time
+          type: string
+        updated_at:
+          description: The date when the product environment was last updated.
           format: date-time
           type: string
       type: object
@@ -2277,26 +2451,32 @@ components:
       example:
         users:
         - role: role
+          updated_at: 2000-01-23T04:56:07.000+00:00
           last_login: 2000-01-23T04:56:07.000+00:00
           pending: true
           name: name
           created_at: 2000-01-23T04:56:07.000+00:00
           groups:
-          - groups
-          - groups
+          - name: name
+            id: id
+          - name: name
+            id: id
           all_sub_accounts: true
           id: id
           email: email
           enabled: true
           sub_account_ids: sub_account_ids
         - role: role
+          updated_at: 2000-01-23T04:56:07.000+00:00
           last_login: 2000-01-23T04:56:07.000+00:00
           pending: true
           name: name
           created_at: 2000-01-23T04:56:07.000+00:00
           groups:
-          - groups
-          - groups
+          - name: name
+            id: id
+          - name: name
+            id: id
           all_sub_accounts: true
           id: id
           email: email
@@ -2312,13 +2492,16 @@ components:
       description: User details.
       example:
         role: role
+        updated_at: 2000-01-23T04:56:07.000+00:00
         last_login: 2000-01-23T04:56:07.000+00:00
         pending: true
         name: name
         created_at: 2000-01-23T04:56:07.000+00:00
         groups:
-        - groups
-        - groups
+        - name: name
+          id: id
+        - name: name
+          id: id
         all_sub_accounts: true
         id: id
         email: email
@@ -2348,6 +2531,10 @@ components:
           description: The date when the user was created.
           format: date-time
           type: string
+        updated_at:
+          description: The date when the user was last updated.
+          format: date-time
+          type: string
         last_login:
           description: The date when the user was last logged in.
           format: date-time
@@ -2357,7 +2544,7 @@ components:
         groups:
           description: The list of user groups.
           items:
-            type: string
+            $ref: '#/components/schemas/UserGroupSummary'
           type: array
         sub_account_ids:
           description: The list of the product environments IDs.
@@ -2365,20 +2552,44 @@ components:
       type: object
     UserGroupRequest:
       example:
+        extended_details: false
         name: Designers
       properties:
         name:
           description: The user group's name.
           example: Designers
           type: string
+        extended_details:
+          description: "Whether to only return extended (true) or basic information\
+            \ about the group (false). \n**Default**: false.\n"
+          example: false
+          type: boolean
       type: object
     UserGroupsResponse:
       example:
         user_groups:
-        - name: name
+        - updated_at: 2000-01-23T04:56:07.000+00:00
+          name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
           id: id
-        - name: name
+          users:
+          - name: name
+            id: id
+            email: email
+          - name: name
+            id: id
+            email: email
+        - updated_at: 2000-01-23T04:56:07.000+00:00
+          name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
           id: id
+          users:
+          - name: name
+            id: id
+            email: email
+          - name: name
+            id: id
+            email: email
       properties:
         user_groups:
           description: A list of user groups.
@@ -2402,8 +2613,8 @@ components:
             $ref: '#/components/schemas/UserGroupUser'
           type: array
       type: object
-    UserGroup:
-      description: User group.
+    UserGroupSummary:
+      description: User group summary.
       example:
         name: name
         id: id
@@ -2413,6 +2624,47 @@ components:
           type: string
         name:
           description: The user group's name.
+          type: string
+      type: object
+    UserGroup:
+      description: User group.
+      example:
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        name: name
+        created_at: 2000-01-23T04:56:07.000+00:00
+        id: id
+        users:
+        - name: name
+          id: id
+          email: email
+        - name: name
+          id: id
+          email: email
+      properties:
+        id:
+          description: The user group's ID.
+          type: string
+        name:
+          description: The user group's name.
+          type: string
+        users:
+          description: |
+            A list of user group users.
+            Only returned in extended_details.
+          items:
+            $ref: '#/components/schemas/UserGroupUser'
+          type: array
+        created_at:
+          description: |
+            The date when the user group was created.
+            Only returned in extended_details.
+          format: date-time
+          type: string
+        updated_at:
+          description: |
+            The date when the user group was last updated.
+            Only returned in extended_details.
+          format: date-time
           type: string
       type: object
     UserGroupUser:

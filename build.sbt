@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.cloudinary.account.provisioning",
     name := "cloudinary-account-provisioning",
-    version := "0.0.3",
+    version := "0.1.0",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

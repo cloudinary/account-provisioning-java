@@ -14,6 +14,7 @@ Product Environment
 |**id** | **String** | The ID of the product environment. |  [optional] |
 |**apiAccessKeys** | [**List&lt;ApiAccessKey&gt;**](ApiAccessKey.md) | The list of the product environment&#39;s access keys. |  [optional] |
 |**createdAt** | **OffsetDateTime** | The date when the product environment was created. |  [optional] |
+|**updatedAt** | **OffsetDateTime** | The date when the product environment was last updated. |  [optional] |
 
 
 

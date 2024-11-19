@@ -15,9 +15,10 @@ User details.
 |**pending** | **Boolean** | Whether the user is pending. |  [optional] |
 |**enabled** | **Boolean** | Whether the user is enabled. |  [optional] |
 |**createdAt** | **OffsetDateTime** | The date when the user was created. |  [optional] |
+|**updatedAt** | **OffsetDateTime** | The date when the user was last updated. |  [optional] |
 |**lastLogin** | **OffsetDateTime** | The date when the user was last logged in. |  [optional] |
 |**allSubAccounts** | **Boolean** |  |  [optional] |
-|**groups** | **List&lt;String&gt;** | The list of user groups. |  [optional] |
+|**groups** | [**List&lt;UserGroupSummary&gt;**](UserGroupSummary.md) | The list of user groups. |  [optional] |
 |**subAccountIds** | **String** | The list of the product environments IDs. |  [optional] |
 
 

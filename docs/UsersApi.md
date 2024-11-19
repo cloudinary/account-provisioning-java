@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 ## getUsers
 
-> UsersResponse getUsers(pending, ids, prefix, subAccountId, lastLogin, from, to, unionType)
+> UsersResponse getUsers(pending, ids, emails, prefix, subAccountId, lastLogin, from, to, unionType, sortOrder, sortBy, page, pageSize)
 
 Get users
 
@@ -250,14 +250,19 @@ public class Example {
         UsersApi apiInstance = new UsersApi(apiClient);
         Boolean pending = false; // Boolean | Whether to return pending users. **Default**: `false` (all users) 
         List<String> ids = Arrays.asList(); // List<String> | A list of up to 100 user IDs.  When provided, other parameters are ignored.
+        List<String> emails = Arrays.asList(); // List<String> | A list of up to 100 user Emails.  When provided, other parameters are ignored.
         String prefix = "john"; // String | Returns users where the name begins with the specified case-insensitive string.
         String subAccountId = "subAccountId_example"; // String | Only returns users who have access to the specified account.
         Boolean lastLogin = true; // Boolean | Specifies a date range for last login.
         LocalDate from = LocalDate.parse("2023-01-01"); // LocalDate | All last logins after this date, given in the format: yyyy-mm-dd. 
         LocalDate to = LocalDate.parse("2024-12-31"); // LocalDate | All last logins before this date, given in the format: yyyy-mm-dd. 
         String unionType = "include"; // String | Whether to return users who last logged in within the specified date range (include) or those who didn't last log in within the range (exclude). **Possible values**: `include`, `exclude`. **Default**: `include`. 
+        String sortOrder = "desc"; // String | Control the order of returned users. **Possible values**: `desc` (default), `asc`. 
+        String sortBy = "name"; // String | 
+        Integer page = 56; // Integer | 
+        Integer pageSize = 56; // Integer | 
         try {
-            UsersResponse result = apiInstance.getUsers(pending, ids, prefix, subAccountId, lastLogin, from, to, unionType);
+            UsersResponse result = apiInstance.getUsers(pending, ids, emails, prefix, subAccountId, lastLogin, from, to, unionType, sortOrder, sortBy, page, pageSize);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getUsers");
@@ -277,12 +282,17 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pending** | **Boolean**| Whether to return pending users. **Default**: &#x60;false&#x60; (all users)  | [optional]
  **ids** | [**List&lt;String&gt;**](String.md)| A list of up to 100 user IDs.  When provided, other parameters are ignored. | [optional]
+ **emails** | [**List&lt;String&gt;**](String.md)| A list of up to 100 user Emails.  When provided, other parameters are ignored. | [optional]
  **prefix** | **String**| Returns users where the name begins with the specified case-insensitive string. | [optional]
  **subAccountId** | **String**| Only returns users who have access to the specified account. | [optional]
  **lastLogin** | **Boolean**| Specifies a date range for last login. | [optional]
  **from** | **LocalDate**| All last logins after this date, given in the format: yyyy-mm-dd.  | [optional]
  **to** | **LocalDate**| All last logins before this date, given in the format: yyyy-mm-dd.  | [optional]
  **unionType** | **String**| Whether to return users who last logged in within the specified date range (include) or those who didn&#39;t last log in within the range (exclude). **Possible values**: &#x60;include&#x60;, &#x60;exclude&#x60;. **Default**: &#x60;include&#x60;.  | [optional] [enum: include, exclude]
+ **sortOrder** | **String**| Control the order of returned users. **Possible values**: &#x60;desc&#x60; (default), &#x60;asc&#x60;.  | [optional] [enum: desc, asc]
+ **sortBy** | **String**|  | [optional] [enum: name, role, status, activity, created_at]
+ **page** | **Integer**|  | [optional]
+ **pageSize** | **Integer**|  | [optional]
 
 ### Return type
 

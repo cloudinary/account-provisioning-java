@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 ## getProductEnvironments
 
-> ProductEnvironmentsResponse getProductEnvironments(enabled, ids, prefix)
+> ProductEnvironmentsResponse getProductEnvironments(enabled, ids, cloudNames, prefix)
 
 Get product environments
 
@@ -250,9 +250,10 @@ public class Example {
         ProductEnvironmentsApi apiInstance = new ProductEnvironmentsApi(apiClient);
         Boolean enabled = true; // Boolean | Whether to only return enabled product environments (true) or disabled product environments (false).  **Default**: all product environments are returned (both enabled and disabled). 
         List<String> ids = Arrays.asList(); // List<String> | A list of up to 100 product environment IDs. When provided, other parameters are ignored.
+        List<String> cloudNames = Arrays.asList(); // List<String> | A list of up to 100 product environment cloud names.
         String prefix = "product"; // String | Returns product environments where the name begins with the specified case-insensitive string.
         try {
-            ProductEnvironmentsResponse result = apiInstance.getProductEnvironments(enabled, ids, prefix);
+            ProductEnvironmentsResponse result = apiInstance.getProductEnvironments(enabled, ids, cloudNames, prefix);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProductEnvironmentsApi#getProductEnvironments");
@@ -272,6 +273,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enabled** | **Boolean**| Whether to only return enabled product environments (true) or disabled product environments (false).  **Default**: all product environments are returned (both enabled and disabled).  | [optional]
  **ids** | [**List&lt;String&gt;**](String.md)| A list of up to 100 product environment IDs. When provided, other parameters are ignored. | [optional]
+ **cloudNames** | [**List&lt;String&gt;**](String.md)| A list of up to 100 product environment cloud names. | [optional]
  **prefix** | **String**| Returns product environments where the name begins with the specified case-insensitive string. | [optional]
 
 ### Return type

@@ -1,3 +1,4 @@
+../code-samples/java.yml
 .github/workflows/maven.yml
 .gitignore
 .openapi-generator-ignore
@@ -27,6 +28,7 @@ docs/SuccessResponse.md
 docs/User.md
 docs/UserGroup.md
 docs/UserGroupRequest.md
+docs/UserGroupSummary.md
 docs/UserGroupUser.md
 docs/UserGroupUsersResponse.md
 docs/UserGroupsApi.md
@@ -81,6 +83,7 @@ src/main/java/com/cloudinary/account/provisioning/model/SuccessResponse.java
 src/main/java/com/cloudinary/account/provisioning/model/User.java
 src/main/java/com/cloudinary/account/provisioning/model/UserGroup.java
 src/main/java/com/cloudinary/account/provisioning/model/UserGroupRequest.java
+src/main/java/com/cloudinary/account/provisioning/model/UserGroupSummary.java
 src/main/java/com/cloudinary/account/provisioning/model/UserGroupUser.java
 src/main/java/com/cloudinary/account/provisioning/model/UserGroupUsersResponse.java
 src/main/java/com/cloudinary/account/provisioning/model/UserGroupsResponse.java
@@ -104,6 +107,7 @@ src/test/java/com/cloudinary/account/provisioning/model/ProductEnvironmentUpdate
 src/test/java/com/cloudinary/account/provisioning/model/ProductEnvironmentsResponseTest.java
 src/test/java/com/cloudinary/account/provisioning/model/SuccessResponseTest.java
 src/test/java/com/cloudinary/account/provisioning/model/UserGroupRequestTest.java
+src/test/java/com/cloudinary/account/provisioning/model/UserGroupSummaryTest.java
 src/test/java/com/cloudinary/account/provisioning/model/UserGroupTest.java
 src/test/java/com/cloudinary/account/provisioning/model/UserGroupUserTest.java
 src/test/java/com/cloudinary/account/provisioning/model/UserGroupUsersResponseTest.java

@@ -15,7 +15,6 @@ package com.cloudinary.account.provisioning.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.cloudinary.account.provisioning.model.AccessKey;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,8 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,72 +45,65 @@ import java.util.Set;
 import com.cloudinary.account.provisioning.JSON;
 
 /**
- * AccessKeysResponse
+ * User group summary.
  */
+@ApiModel(description = "User group summary.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-19T16:44:42.106539Z[Etc/UTC]")
-public class AccessKeysResponse {
-  public static final String SERIALIZED_NAME_ACCESS_KEYS = "access_keys";
-  @SerializedName(SERIALIZED_NAME_ACCESS_KEYS)
-  private List<AccessKey> accessKeys = null;
+public class UserGroupSummary {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
-  public static final String SERIALIZED_NAME_TOTAL = "total";
-  @SerializedName(SERIALIZED_NAME_TOTAL)
-  private Integer total;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public AccessKeysResponse() { 
+  public UserGroupSummary() { 
   }
 
-  public AccessKeysResponse accessKeys(List<AccessKey> accessKeys) {
+  public UserGroupSummary id(String id) {
     
-    this.accessKeys = accessKeys;
-    return this;
-  }
-
-  public AccessKeysResponse addAccessKeysItem(AccessKey accessKeysItem) {
-    if (this.accessKeys == null) {
-      this.accessKeys = new ArrayList<>();
-    }
-    this.accessKeys.add(accessKeysItem);
+    this.id = id;
     return this;
   }
 
    /**
-   * The list of the access keys.
-   * @return accessKeys
+   * The user group&#39;s ID.
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list of the access keys.")
+  @ApiModelProperty(value = "The user group's ID.")
 
-  public List<AccessKey> getAccessKeys() {
-    return accessKeys;
+  public String getId() {
+    return id;
   }
 
 
-  public void setAccessKeys(List<AccessKey> accessKeys) {
-    this.accessKeys = accessKeys;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
-  public AccessKeysResponse total(Integer total) {
+  public UserGroupSummary name(String name) {
     
-    this.total = total;
+    this.name = name;
     return this;
   }
 
    /**
-   * Total number of the access keys.
-   * @return total
+   * The user group&#39;s name.
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total number of the access keys.")
+  @ApiModelProperty(value = "The user group's name.")
 
-  public Integer getTotal() {
-    return total;
+  public String getName() {
+    return name;
   }
 
 
-  public void setTotal(Integer total) {
-    this.total = total;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -127,7 +117,7 @@ public class AccessKeysResponse {
    * Set the additional (undeclared) property with the specified name and value.
    * If the property does not already exist, create it otherwise replace it.
    */
-  public AccessKeysResponse putAdditionalProperty(String key, Object value) {
+  public UserGroupSummary putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -161,23 +151,23 @@ public class AccessKeysResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AccessKeysResponse accessKeysResponse = (AccessKeysResponse) o;
-    return Objects.equals(this.accessKeys, accessKeysResponse.accessKeys) &&
-        Objects.equals(this.total, accessKeysResponse.total)&&
-        Objects.equals(this.additionalProperties, accessKeysResponse.additionalProperties);
+    UserGroupSummary userGroupSummary = (UserGroupSummary) o;
+    return Objects.equals(this.id, userGroupSummary.id) &&
+        Objects.equals(this.name, userGroupSummary.name)&&
+        Objects.equals(this.additionalProperties, userGroupSummary.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeys, total, additionalProperties);
+    return Objects.hash(id, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AccessKeysResponse {\n");
-    sb.append("    accessKeys: ").append(toIndentedString(accessKeys)).append("\n");
-    sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("class UserGroupSummary {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -201,8 +191,8 @@ public class AccessKeysResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("access_keys");
-    openapiFields.add("total");
+    openapiFields.add("id");
+    openapiFields.add("name");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -212,27 +202,21 @@ public class AccessKeysResponse {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AccessKeysResponse
+  * @throws IOException if the JSON Object is invalid with respect to UserGroupSummary
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (AccessKeysResponse.openapiRequiredFields.isEmpty()) {
+        if (UserGroupSummary.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AccessKeysResponse is not found in the empty JSON string", AccessKeysResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UserGroupSummary is not found in the empty JSON string", UserGroupSummary.openapiRequiredFields.toString()));
         }
       }
-      JsonArray jsonArrayaccessKeys = jsonObj.getAsJsonArray("access_keys");
-      if (jsonArrayaccessKeys != null) {
-        // ensure the json data is an array
-        if (!jsonObj.get("access_keys").isJsonArray()) {
-          throw new IllegalArgumentException(String.format("Expected the field `access_keys` to be an array in the JSON string but got `%s`", jsonObj.get("access_keys").toString()));
-        }
-
-        // validate the optional field `access_keys` (array)
-        for (int i = 0; i < jsonArrayaccessKeys.size(); i++) {
-          AccessKey.validateJsonObject(jsonArrayaccessKeys.get(i).getAsJsonObject());
-        };
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if (jsonObj.get("name") != null && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }
 
@@ -240,16 +224,16 @@ public class AccessKeysResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AccessKeysResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AccessKeysResponse' and its subtypes
+       if (!UserGroupSummary.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UserGroupSummary' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AccessKeysResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AccessKeysResponse.class));
+       final TypeAdapter<UserGroupSummary> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UserGroupSummary.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AccessKeysResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<UserGroupSummary>() {
            @Override
-           public void write(JsonWriter out, AccessKeysResponse value) throws IOException {
+           public void write(JsonWriter out, UserGroupSummary value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additonal properties
@@ -272,11 +256,11 @@ public class AccessKeysResponse {
            }
 
            @Override
-           public AccessKeysResponse read(JsonReader in) throws IOException {
+           public UserGroupSummary read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              // store additional fields in the deserialized instance
-             AccessKeysResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             UserGroupSummary instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -301,18 +285,18 @@ public class AccessKeysResponse {
   }
 
  /**
-  * Create an instance of AccessKeysResponse given an JSON string
+  * Create an instance of UserGroupSummary given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of AccessKeysResponse
-  * @throws IOException if the JSON string is invalid with respect to AccessKeysResponse
+  * @return An instance of UserGroupSummary
+  * @throws IOException if the JSON string is invalid with respect to UserGroupSummary
   */
-  public static AccessKeysResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AccessKeysResponse.class);
+  public static UserGroupSummary fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UserGroupSummary.class);
   }
 
  /**
-  * Convert an instance of AccessKeysResponse to an JSON string
+  * Convert an instance of UserGroupSummary to an JSON string
   *
   * @return JSON string
   */

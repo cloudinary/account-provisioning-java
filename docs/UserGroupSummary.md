@@ -1,14 +1,15 @@
 
 
-# UserGroupRequest
+# UserGroupSummary
 
+User group summary.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**id** | **String** | The user group&#39;s ID. |  [optional] |
 |**name** | **String** | The user group&#39;s name. |  [optional] |
-|**extendedDetails** | **Boolean** | Whether to only return extended (true) or basic information about the group (false).  **Default**: false.  |  [optional] |
 
 
 
