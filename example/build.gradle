@@ -1,0 +1,28 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 11
+}
+
+dependencies {
+    implementation 'com.cloudinary.account.provisioning:cloudinary-account-provisioning:0.2.0'
+}
+
+application {
+    mainClass = 'example.Application'
+}
+
+run {
+    standardInput = System.in
+}

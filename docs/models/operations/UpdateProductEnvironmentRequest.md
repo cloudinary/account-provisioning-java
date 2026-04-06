@@ -1,0 +1,9 @@
+# UpdateProductEnvironmentRequest
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `subAccountId`                                                                                | *String*                                                                                      | :heavy_check_mark:                                                                            | The ID of the product environment.                                                            | abcde1fghij2klmno3pqrst4uvwxy5z                                                               |
+| `productEnvironmentUpdateRequest`                                                             | [ProductEnvironmentUpdateRequest](../../models/components/ProductEnvironmentUpdateRequest.md) | :heavy_check_mark:                                                                            | Product environment details to update.                                                        |                                                                                               |

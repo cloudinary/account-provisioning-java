@@ -1,0 +1,41 @@
+---
+description: Speakeasy SDK generation configuration and workflow conventions
+globs: .speakeasy/**/*.yaml
+alwaysApply: false
+---
+
+# Speakeasy SDK Configuration
+
+## Customization layers (per [Speakeasy docs](https://www.speakeasy.com/docs/sdks/customize/basics))
+
+1. **OpenAPI overlays** (`.speakeasy/speakeasy-modifications-overlay.yaml`) — schema-level changes
+2. **`gen.yaml`** (`.speakeasy/gen.yaml`) — generation config (naming, params, env vars, etc.)
+3. **SDK hooks** (`src/main/java/com/cloudinary/account/provisioning/hooks/`) — custom auth, request/response transforms
+4. **Custom code** — Speakeasy's 3-way merge preserves edits across regenerations (`persistentEdits`)
+
+## gen.yaml
+
+Key Java settings:
+- `maxMethodParams: 1` — all operations use request objects for clarity
+- `envVarPrefix: CLOUDINARY` — env var auto-loading for security and globals
+- `groupID: com.cloudinary.account.provisioning`
+- `artifactID: cloudinary-account-provisioning`
+- `packageName: com.cloudinary.account.provisioning`
+- `flattenGlobalSecurity: true`, `clientServerStatusCodesAsErrors: true`
+- `templateVersion: v2`
+
+## workflow.yaml
+
+- `.speakeasy/workflow.yaml` at root
+- Publishes to Maven Central via OSSRH (requires `ossrh_username`, `ossrh_password`, `java_gpg_secret_key`, `java_gpg_passphrase` secrets)
+
+## Publishing (pr mode)
+
+- `sdk_generation.yaml` generates SDK and opens a PR (`mode: pr`)
+- `sdk_publish.yaml` publishes when the PR merges (push to main + gen.lock change)
+
+## Committing changes
+
+- **Separate generated from non-generated files**: commit config/scripts/custom code independently from Speakeasy-generated code
+- Use `chore:` prefix for non-release commits (won't trigger publish)
+- Generated code changes should come through the Speakeasy PR workflow, not manual commits

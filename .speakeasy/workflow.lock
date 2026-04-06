@@ -1,0 +1,44 @@
+speakeasyVersion: 1.761.1
+sources:
+    Cloudinary-Provisioning-OAS:
+        sourceNamespace: cloudinary-provisioning
+        sourceRevisionDigest: sha256:e2fd5f6aa6b9fa1e5db8e0b8730ab4ba03eab339533987917f9fcd1b17b98d27
+        sourceBlobDigest: sha256:ab6edeae93ec2d1ec61d5a5e88231cc8c57e93b249c107c193b82f7f750f8808
+        tags:
+            - latest
+            - 0.2.1
+targets:
+    cloudinary:
+        source: Cloudinary-Provisioning-OAS
+        sourceNamespace: cloudinary-provisioning
+        sourceRevisionDigest: sha256:e2fd5f6aa6b9fa1e5db8e0b8730ab4ba03eab339533987917f9fcd1b17b98d27
+        sourceBlobDigest: sha256:ab6edeae93ec2d1ec61d5a5e88231cc8c57e93b249c107c193b82f7f750f8808
+        codeSamplesNamespace: cloudinary-provisioning-java-code-samples
+        codeSamplesRevisionDigest: sha256:52be39236b8c664c2f35f07c8651979aec76a54d33f99421712a34009f6d3c69
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Cloudinary-Provisioning-OAS:
+            inputs:
+                - location: https://cloudinary.github.io/api-schemas/provisioning/schema.yml
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+                - location: https://cloudinary.github.io/api-schemas/overlays/security-scheme-account-overlay.yaml
+                - location: https://cloudinary.github.io/api-schemas/permissions/overlays/additional-properties-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/cloudinary/cloudinary/cloudinary-provisioning
+    targets:
+        cloudinary:
+            target: java
+            source: Cloudinary-Provisioning-OAS
+            publish:
+                java:
+                    ossrhUsername: $ossrh_username
+                    ossrhPassword: $ossrh_password
+                    gpgSecretKey: $java_gpg_secret_key
+                    gpgPassPhrase: $java_gpg_passphrase
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/cloudinary/cloudinary/cloudinary-provisioning-java-code-samples
+                blocking: true

@@ -1,0 +1,85 @@
+configVersion: 2.0.0
+generation:
+  sdkClassName: CldProvisioning
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    nameResolutionFeb2025: false
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+    securityFeb2025: true
+    sharedErrorComponentsApr2025: true
+    sharedNestedComponentsJan2026: true
+    nameOverrideFeb2026: true
+  auth:
+    oAuth2ClientCredentialsEnabled: true
+    oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
+  sdkHooksConfigAccess: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  versioningStrategy: automatic
+  persistentEdits: {}
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
+java:
+  version: 0.2.0
+  additionalDependencies: []
+  additionalPlugins: []
+  artifactID: cloudinary-account-provisioning
+  asyncMode: enabled
+  baseErrorName: CldProvisioningException
+  clientServerStatusCodesAsErrors: true
+  companyEmail: info@cloudinary.com
+  companyName: Cloudinary
+  companyURL: https://www.cloudinary.com
+  defaultErrorName: SDKException
+  description: Java SDK for the Cloudinary Account Provisioning and Permissions APIs.
+  enableCustomCodeRegions: false
+  enableFormatting: false
+  enableSlf4jLogging: false
+  enableStreamingUploads: false
+  envVarPrefix: CLOUDINARY
+  explicitDocImports: false
+  flattenGlobalSecurity: true
+  forwardCompatibleEnumsByDefault: false
+  forwardCompatibleUnionsByDefault: "false"
+  generateOptionalUnionAccessors: false
+  generateSpringBootStarter: true
+  generateUnionDocs: false
+  githubURL: https://github.com/cloudinary/account-provisioning-java
+  groupID: com.cloudinary.account.provisioning
+  imports:
+    option: openapi
+    paths:
+      callbacks: models/callbacks
+      errors: models/errors
+      operations: models/operations
+      shared: models/components
+      webhooks: models/webhooks
+  inferUnionDiscriminators: false
+  inputModelSuffix: input
+  languageVersion: 11
+  license:
+    name: The MIT License (MIT)
+    shortName: MIT
+    url: https://mit-license.org/
+  maxMethodParams: 1
+  multipartArrayFormat: standard
+  nullFriendlyParameters: false
+  operationScopedParams: true
+  outputModelSuffix: output
+  packageName: com.cloudinary.account.provisioning
+  prefixModeMethodNames: false
+  projectName: cloudinary-account-provisioning
+  respectTitlesForPrimitiveUnionMembers: false
+  showSetterGetterTypesInDocs: false
+  templateVersion: v2
+  unionStrategy: populated-fields

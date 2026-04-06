@@ -1,0 +1,14 @@
+# UserGroup
+
+User group.
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `id`                                                                                      | *Optional\<String>*                                                                       | :heavy_minus_sign:                                                                        | The user group's ID.                                                                      |
+| `name`                                                                                    | *Optional\<String>*                                                                       | :heavy_minus_sign:                                                                        | The user group's name.                                                                    |
+| `users`                                                                                   | List\<[UserGroupUser](../../models/components/UserGroupUser.md)>                          | :heavy_minus_sign:                                                                        | A list of user group users.<br/>Only returned in extended_details.<br/>                   |
+| `createdAt`                                                                               | [OffsetDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html) | :heavy_minus_sign:                                                                        | The date when the user group was created.<br/>Only returned in extended_details.<br/>     |
+| `updatedAt`                                                                               | [OffsetDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html) | :heavy_minus_sign:                                                                        | The date when the user group was last updated.<br/>Only returned in extended_details.<br/> |
