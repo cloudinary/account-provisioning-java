@@ -1,0 +1,13 @@
+# RoleAssignment
+
+A role assignment with optional scope and policy parameters.
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `id`                                                                       | *String*                                                                   | :heavy_check_mark:                                                         | The role ID.                                                               | media_library_admin                                                        |
+| `scopeId`                                                                  | *Optional\<String>*                                                        | :heavy_minus_sign:                                                         | The scope (product environment) ID the role applies to.                    |                                                                            |
+| `policyParameters`                                                         | [Optional\<PolicyParameters>](../../models/components/PolicyParameters.md) | :heavy_minus_sign:                                                         | Optional content-scope policy parameters.                                  |                                                                            |
+| `additionalProperties`                                                     | Map\<String, *Object*>                                                     | :heavy_minus_sign:                                                         | N/A                                                                        |                                                                            |

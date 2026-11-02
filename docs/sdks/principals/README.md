@@ -147,6 +147,7 @@ import com.cloudinary.account.provisioning.models.errors.PermissionsErrorRespons
 import com.cloudinary.account.provisioning.models.operations.UpdatePrincipalRolesResponse;
 import java.lang.Exception;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
 
@@ -170,8 +171,8 @@ public class Application {
                     RoleToManage.builder()
                         .id("marketing_content_contributor_1357fhe")
                         .scopeId("975l29lz02jt0836fhwi")
-                        .policyParameters(RoleToManagePolicyParameters.builder()
-                            .build())
+                        .policyParameters(Map.ofEntries(
+                        ))
                         .build()))
                 .build();
 
@@ -195,6 +196,7 @@ import com.cloudinary.account.provisioning.models.errors.PermissionsErrorRespons
 import com.cloudinary.account.provisioning.models.operations.UpdatePrincipalRolesResponse;
 import java.lang.Exception;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
 
@@ -218,8 +220,8 @@ public class Application {
                     RoleToManage.builder()
                         .id("marketing_content_contributor_1357fhe")
                         .scopeId("975l29lz02jt0836fhwi")
-                        .policyParameters(RoleToManagePolicyParameters.builder()
-                            .build())
+                        .policyParameters(Map.ofEntries(
+                        ))
                         .build()))
                 .build();
 
@@ -450,6 +452,7 @@ import com.cloudinary.account.provisioning.models.errors.PermissionsErrorRespons
 import com.cloudinary.account.provisioning.models.operations.InspectMultipleResponse;
 import java.lang.Exception;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
 
@@ -479,8 +482,8 @@ public class Application {
                         .id("a382ltieo893jhioqpg8urp")
                         .build()))
                 .scopeId("975l29lz02jt0836fhwi")
-                .policyParameters(InspectRequestPolicyParameters.builder()
-                    .build())
+                .policyParameters(Map.ofEntries(
+                    Map.entry("folder_id", "asdfjkl12347890")))
                 .build();
 
         InspectMultipleResponse res = sdk.principals().inspectMultiple()

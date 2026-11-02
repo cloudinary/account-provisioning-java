@@ -1,23 +1,27 @@
 lockVersion: 2.0.0
 id: 6ab59f2f-8cd5-47cf-8356-542608eea151
 management:
-  docChecksum: 6d3050008a4d912a12a94764301c4664
-  docVersion: 0.2.1
-  speakeasyVersion: 1.761.1
-  generationVersion: 2.879.6
-  releaseVersion: 0.2.0
-  configChecksum: 7cc4a01558978e6319a0190d8307c509
+  docChecksum: 06e584edae38e745e2d5cffd13c0338c
+  docVersion: 0.2.2
+  speakeasyVersion: 1.805.0
+  generationVersion: 2.954.8
+  releaseVersion: 0.3.0
+  configChecksum: 008bbb1aaf905d3c535003a2a0a6d5c2
+  repoURL: https://github.com/cloudinary/account-provisioning-java.git
+  installationURL: https://github.com/cloudinary/account-provisioning-java
   published: true
 persistentEdits:
-  generation_id: 45dec31a-2662-4ac8-a7e8-83b1706bf54a
-  pristine_commit_hash: b390c7a0764a8a98318bd23ac453a4cd07108206
-  pristine_tree_hash: 226a4b220bc63ce1df8d705b3f1ea198b7d758cc
+  generation_id: fda8dd0a-59f2-4abe-b993-942633adca90
+  pristine_commit_hash: fc60b5c3d4eaeb39f165034468454d2d3cdec455
+  pristine_tree_hash: a2795f4ab7a1071dd02008b17f884a357eeb2955
 features:
   java:
     additionalDependencies: 0.1.0
+    additionalProperties: 0.0.2
     constsAndDefaults: 0.1.3
-    core: 3.55.23
+    core: 3.57.5
     customSecuritySchemes: 0.2.0
+    deprecations: 2.81.2
     flattening: 2.81.1
     globalSecurity: 2.83.4
     globalSecurityCallbacks: 0.1.0
@@ -26,7 +30,7 @@ features:
     groups: 2.81.3
     hiddenGlobals: 0.1.0
     nameOverrides: 2.81.5
-    nullables: 0.1.0
+    nullables: 0.1.1
     sdkHooks: 1.2.0
 trackedFiles:
   .gitattributes:
@@ -39,8 +43,8 @@ trackedFiles:
     pristine_git_object: a2cf77fcf5fa7de81a5147413412e1ad1e749c25
   build.gradle:
     id: f07866736216
-    last_write_checksum: sha1:79d1551644674f8d9f68f7736cb6b35cb6c5c14c
-    pristine_git_object: 049495f713f352a668ab16f32790c6090502376c
+    last_write_checksum: sha1:0a154a761658c3dcb5ce20acfda3e0556558d855
+    pristine_git_object: 51d138cb601e80828ae1a48d5f20c5f78b237ae7
   docs/models/components/AccessKey.md:
     id: 75a46ce02d62
     last_write_checksum: sha1:4b4b8aa4778255822f6378723d39376e3a4626cc
@@ -51,8 +55,8 @@ trackedFiles:
     pristine_git_object: 43419f3587da27e02299177234e0ce8d55260e28
   docs/models/components/AccessKeyUpdateRequest.md:
     id: c75fb564626f
-    last_write_checksum: sha1:0906ab6fe11bd28dd11806a2b357f91accc890ef
-    pristine_git_object: 5f13638319b5a83b34334237a08e8c04d21bb4df
+    last_write_checksum: sha1:bd14b88d8fa6537dd326036924657bcea6496d96
+    pristine_git_object: 15af2d6ac398e1e94fd8e473e2fe81c86fa2de89
   docs/models/components/AccessKeysResponse.md:
     id: 8407a8bfa8f0
     last_write_checksum: sha1:ccb6b649cea0fc7aed517c54f960fc3b9adb7667
@@ -85,6 +89,10 @@ trackedFiles:
     id: 0b83961bed26
     last_write_checksum: sha1:569afcd334e2929e304459195ee23ad2d359ee02
     pristine_git_object: 46658e37f7c40d6ea1f63ad69620fcc0774aa427
+  docs/models/components/CreateCustomPolicy.md:
+    id: 1c16ba0dfd4a
+    last_write_checksum: sha1:8ba185dbac7d35bfadfaec9e30ee0577e4865d46
+    pristine_git_object: 69dd502768bd7f77240c49ff4383db9595be9fcb
   docs/models/components/CreateRole.md:
     id: 98702544bc9e
     last_write_checksum: sha1:0e3a1694a30229d5a8ffd38c9662398be8e6c089
@@ -97,10 +105,6 @@ trackedFiles:
     id: 75edb7f0cdbe
     last_write_checksum: sha1:046858c833922f859a0ebeabe07c80f154154293
     pristine_git_object: ba50d66a944b6ffef3f7356e202586f09445bf79
-  docs/models/components/CustomPolicy.md:
-    id: 8da5657ad4bc
-    last_write_checksum: sha1:1f5f30b4d7c8e2d2402d3af7eea060c04e3526a2
-    pristine_git_object: 0143875644cc00c396fca3f163963fa9816874cf
   docs/models/components/CustomPolicyResponse.md:
     id: 305c590c907d
     last_write_checksum: sha1:e0c3f015db24eb654e16c8a444166cc83aee6761
@@ -119,12 +123,8 @@ trackedFiles:
     pristine_git_object: a36c38ec79f077c27471cf412a5d7aeff475fa73
   docs/models/components/DedicatedFor.md:
     id: 88c64bbccd2a
-    last_write_checksum: sha1:b8d14569f90ac7cc58778223433ce9ebe3584a6a
-    pristine_git_object: 979fb9f4b32cdfb0c0aec5f72da138482ebb1cc9
-  docs/models/components/Details.md:
-    id: 4a96e879c620
-    last_write_checksum: sha1:9d68e5e29e89a26237f683024419b682a0ea51ff
-    pristine_git_object: e42f90f52c76a656115a5a68442c8ec3d2f16f47
+    last_write_checksum: sha1:7b73f7b6acc9f5d2b68830d9efbadea2b5be80c1
+    pristine_git_object: 0b268beffd2f20ecb5f49ec8b74328bfde4e8232
   docs/models/components/EffectivePoliciesResponse.md:
     id: ace252be0933
     last_write_checksum: sha1:f8872a1419e126f87bc33ba82136552ce7d94d27
@@ -147,12 +147,8 @@ trackedFiles:
     pristine_git_object: 19f5793eb399a78094814d067108b3ec9f75d34b
   docs/models/components/InspectRequest.md:
     id: 7772ecff3af4
-    last_write_checksum: sha1:318472559bfe85e29a5a234d87645c78202b6a89
-    pristine_git_object: 5dffd671ef0b0663a8c0af7a852b7e7a826b4fb2
-  docs/models/components/InspectRequestPolicyParameters.md:
-    id: 0eb9e11a57a6
-    last_write_checksum: sha1:4666e4689eec439d6a6a6bc68e230679e404ea47
-    pristine_git_object: d60c1bc376d6bcaf794bd786d0f9fcd5016d6502
+    last_write_checksum: sha1:c9fe1f2684ba500bd38244757ad46ad67c22f19e
+    pristine_git_object: 4924c5197a89e81b9c1d5400fc7bdd1308737728
   docs/models/components/ManagementTypeEnum.md:
     id: 7eef1de10203
     last_write_checksum: sha1:07419a9d8084b2dd657284405feedeef6af14405
@@ -165,6 +161,10 @@ trackedFiles:
     id: 5d8171a2e437
     last_write_checksum: sha1:e10f42dcc8b1e718998d718f6c518c96a0d781b4
     pristine_git_object: 20044d8a2ec5c6c62caed9edd34ed7318a42831c
+  docs/models/components/Operation.md:
+    id: 8fadd9849b0c
+    last_write_checksum: sha1:1e2b0f84014b2c7b6f62cc5666f988e4c09eff39
+    pristine_git_object: 7569e29fbf428970ca80fbae5746d567cfe3d542
   docs/models/components/OperationEnum.md:
     id: 89d5fa8cb17c
     last_write_checksum: sha1:47eeeff3d6d01b73d8584ddee9eed4173d7489d2
@@ -175,32 +175,28 @@ trackedFiles:
     pristine_git_object: d8331729f46a7986e7d0ff380c256163e45be3e0
   docs/models/components/PermissionsError.md:
     id: 5fe3bdcd1e1a
-    last_write_checksum: sha1:a658c01856648f3a64e4d32ade678c4d6d3a3030
-    pristine_git_object: 47b859efae17a631a4687b05bbcd714c1c5dcc10
+    last_write_checksum: sha1:08c26cd42aecdbb3e5716e04f91186450004bf93
+    pristine_git_object: 714de5b9bb3f6b98af0abd0eb3008e744f0067e9
   docs/models/components/PolicyParameters.md:
     id: 50315f4b00d9
-    last_write_checksum: sha1:0d2c534c81e90bcc4d4d2dc3b945b22299cc9f1e
-    pristine_git_object: 9fcca203c81cb22395af0a03182f4712dfa72a91
+    last_write_checksum: sha1:ef84f2b8512598ef2f4e01bd62a438441bd38185
+    pristine_git_object: 46a1da4882ccb7734cfe974e9978f11788e1f9c3
   docs/models/components/Principal.md:
     id: 64f72d05cf6b
     last_write_checksum: sha1:89b21b1c60f709b9c49e033c996805c3900ac5fd
     pristine_git_object: bb5978938af46ba01cfaa185118d133d08956f20
   docs/models/components/PrincipalResponseData.md:
     id: b8d65cfa2d1f
-    last_write_checksum: sha1:f84c664b131a7b5e8cd0346342ad49105d41ee37
-    pristine_git_object: 8dc7c14e28194cbcd93c85dc035d36519f40be59
-  docs/models/components/PrincipalResponseDataPolicyParameters.md:
-    id: ccc09cc74298
-    last_write_checksum: sha1:e0371bae546766d5379a7f404082c6661aa99dda
-    pristine_git_object: 061413455cb8c08c0f7d052968a838bd0d134e7c
+    last_write_checksum: sha1:255b2e8d807888fffce1e45f07bcb44910d884e0
+    pristine_git_object: e86384e024e47f7508e5d25ad7fba939ed2004f8
   docs/models/components/PrincipalRole.md:
     id: ba3b4259456f
     last_write_checksum: sha1:fc70c8ac113f20191ddda5d06c652a42f2757f01
     pristine_git_object: 0746743118cf9196ee2197a86ea4526a0c9f6e3a
   docs/models/components/PrincipalRolesData.md:
     id: ce4dec6e028d
-    last_write_checksum: sha1:a14652cfdce9eae1ac6bcb5906bf023ae6ea0270
-    pristine_git_object: 6d7ed37261eff6347c3103bb80dc8756a688a8d4
+    last_write_checksum: sha1:a335a6b6aeea57559db74bd3851b727d14fa9b57
+    pristine_git_object: eedef41547a4863c1c0558908762ccf154b6910b
   docs/models/components/PrincipalRolesInspectData.md:
     id: ddef85b3f53b
     last_write_checksum: sha1:926eab1d6dcc8678e6708f0f371b8f59b7f3dfd4
@@ -245,10 +241,14 @@ trackedFiles:
     id: b7dc6809a277
     last_write_checksum: sha1:db7477e6976180623ffcbbe8e0c0e118469442bc
     pristine_git_object: d2a9f670efb0ecbf79b007655b002be6183f19fb
-  docs/models/components/Role.md:
-    id: c89eff3746a7
-    last_write_checksum: sha1:fb66e4a76ea71d5e72855f2084c39c89df1f1bb9
-    pristine_git_object: 36c9afa7f97f26c35d6e65c209b709d561401abd
+  docs/models/components/RoleAssignment.md:
+    id: 7288a96f312a
+    last_write_checksum: sha1:9a51a42b7c8e61f6e3c071c77e80e0b6b6e9b8f1
+    pristine_git_object: 533afde770b2e2cb5a2d9f85ba828dfeb148be3a
+  docs/models/components/RoleManagementRequest.md:
+    id: fc05925ebb82
+    last_write_checksum: sha1:f7f0602dc33ed9d91ed98979319f53039902ee57
+    pristine_git_object: a548d809fb507b612ce0ece8ea9242a13961a6fe
   docs/models/components/RoleResponse.md:
     id: 6c42b9e4808d
     last_write_checksum: sha1:34b9319c071b3ee2421e8fda3b6c7297310e15f9
@@ -263,12 +263,8 @@ trackedFiles:
     pristine_git_object: f0fb0d6c426cc3722543aa771b33ce17cd3f5dfe
   docs/models/components/RoleToManage.md:
     id: 6a193f0121c8
-    last_write_checksum: sha1:de756449e1222bdffb65f4a36dadd415f8051cba
-    pristine_git_object: 77da84dff8bf3982b14099e863aa8fe9a4eafaeb
-  docs/models/components/RoleToManagePolicyParameters.md:
-    id: b568bf5d7794
-    last_write_checksum: sha1:dcf4377fd52542c7b44bf74f41904a8af354486f
-    pristine_git_object: bf6c4c506b3afb8eb8b8fd86f9ef8c3c4c411123
+    last_write_checksum: sha1:d43c93c5aaf2c7e101112ad38d816545faa5f8ea
+    pristine_git_object: 67dd885c931d9855d2e202179c1213626f8c0d29
   docs/models/components/RolesResponse.md:
     id: d32c3adb24ce
     last_write_checksum: sha1:56d08dfee4e0f45c1ce1b6e675269f19b6fb8ccd
@@ -309,14 +305,14 @@ trackedFiles:
     id: 55f337bad57e
     last_write_checksum: sha1:daccdd26b7e60fec90b0287fd6e4805ed812b1a3
     pristine_git_object: 1414317971a785d84c10723c410a51d194495d93
+  docs/models/components/UpdateRole.md:
+    id: 7ea4570ffe7f
+    last_write_checksum: sha1:2c70dbad516558c008399b09d0a9aa7d2381987f
+    pristine_git_object: d2bfda2c92a86a2d8adcfdaebdc3488e05f06dc3
   docs/models/components/UpdateRolePrincipal.md:
     id: 5e75167e0f48
-    last_write_checksum: sha1:03ec0e279817b119c32aa595f3e0596ea2f8c1ae
-    pristine_git_object: 927449b0c3af638c55da4be80a610c073f3a9a8d
-  docs/models/components/UpdateRolePrincipalPolicyParameters.md:
-    id: dd7aaf443c4b
-    last_write_checksum: sha1:973ee9a2e9503fbb9d56f515538fc56b6af91327
-    pristine_git_object: a07b71ff7195b33cd3d033691e5cff1f22341e9e
+    last_write_checksum: sha1:f856149ddccf4adb9fc3e33134cd7ddf785fc4ec
+    pristine_git_object: daaac0466dd90d7a3a276a2a0d930bc8a5ed638f
   docs/models/components/UpdateRolePrincipalsRequest.md:
     id: c5ef964cdf54
     last_write_checksum: sha1:6be072b3c38aaf8b125e4b6043ea3d22f08008c1
@@ -331,8 +327,8 @@ trackedFiles:
     pristine_git_object: 4fd7dc13306f9bfe83d5973be6346eb2157cca1f
   docs/models/components/UserGroupRequest.md:
     id: 5d2b07f50c00
-    last_write_checksum: sha1:20eb4b73bf18b43ac107a8b0a11c2303151c9603
-    pristine_git_object: a3cf40ccedaff3252b3a39aa58afe62b922f691d
+    last_write_checksum: sha1:e46b4d17ee614a8aa81c736d2621eb025f529b0a
+    pristine_git_object: 69132e78274da19d0ee299c8e29ef3fbdd71a53a
   docs/models/components/UserGroupSummary.md:
     id: a88187c3d9d3
     last_write_checksum: sha1:b5671b4414bd709ef494d6a7498a412ef3d2970e
@@ -353,14 +349,6 @@ trackedFiles:
     id: 2ec708291320
     last_write_checksum: sha1:6d1569e55d180009bcce4b94561bf78291789db8
     pristine_git_object: 287591f91b9f12a7cf2c2aee2bdae9a5e7fe2d42
-  docs/models/components/UserRequest.md:
-    id: e9fec5801e9b
-    last_write_checksum: sha1:3764f8d5b9876bfedfe39e671e6ccb91e49cba52
-    pristine_git_object: 121c68ed14ddd0f7f040d81ea050c8fc4417ce70
-  docs/models/components/UserRequestRole.md:
-    id: 98553b673680
-    last_write_checksum: sha1:8df2b9eed15bdd9714899f7554329bd321e86fdf
-    pristine_git_object: d140e6ce46c2f62e5be2c249907d77b65ec12e1a
   docs/models/components/UserSubAccountsResponse.md:
     id: c79153fb7f2d
     last_write_checksum: sha1:dee5171aa51534da2a156b8dfdd743140bc27fea
@@ -411,8 +399,8 @@ trackedFiles:
     pristine_git_object: 7233f8738466ac7babd21aaaa8107fea4f9cf070
   docs/models/operations/CreateUserRequestBody.md:
     id: 14bc27a15514
-    last_write_checksum: sha1:38d3d27c2c8ca4900ac1ef456714e19e27f16416
-    pristine_git_object: 933186677b9a80b4955d82c54ae2da1fe06265bc
+    last_write_checksum: sha1:2fdb83415e3b0a55573e6054b03f632eef5f5c39
+    pristine_git_object: 0ca53b81698d455c45bb62a2be71e2fde7cba4c6
   docs/models/operations/CreateUserResponse.md:
     id: 9a1334676890
     last_write_checksum: sha1:d9ec0c036e153533ffc63e569d54288e2019baaf
@@ -551,8 +539,8 @@ trackedFiles:
     pristine_git_object: f19766fd39363ed770d9228bda81b49df120af65
   docs/models/operations/GetProductEnvironmentsRequest.md:
     id: ba6d60b81197
-    last_write_checksum: sha1:f8c039ad8da613095010bced9e41332855667d27
-    pristine_git_object: 8157e9712b6aabd33543c7262e6a2306fafec45b
+    last_write_checksum: sha1:cc280fb3cb0dcb421bbf6bdbc0f7b9c31dabd5cd
+    pristine_git_object: 26a6af2b66931042ace28e204080a7ca2dcc21ea
   docs/models/operations/GetProductEnvironmentsResponse.md:
     id: 0bded3cfe6a4
     last_write_checksum: sha1:3476854fd7e55c67e966d875e1e7e48d7453006c
@@ -603,16 +591,16 @@ trackedFiles:
     pristine_git_object: 53bd2c35a9bdb929870dc04c9c12e73d574892f4
   docs/models/operations/GetUserGroupRequest.md:
     id: 4171ecb0c1fe
-    last_write_checksum: sha1:102a34e6192cb94de42aaad4816ce82e37655c6d
-    pristine_git_object: 5d1f8324d364b90effc0c5da75bdf0800bdab509
+    last_write_checksum: sha1:d83c91858a52b910c2e1391bc9122035759044a7
+    pristine_git_object: ed57bb9d2ec12286a41d8c96ca3ba1c1794b4767
   docs/models/operations/GetUserGroupResponse.md:
     id: e9ced560ab27
     last_write_checksum: sha1:a355b0b8eeddd5e3dc421fd358b11a87e2bc4298
     pristine_git_object: 7589e025cc5a72d598e584a50c042c2743fc088f
   docs/models/operations/GetUserGroupsRequest.md:
     id: 57f8f3c591c3
-    last_write_checksum: sha1:076f0244fbf8b51af55f5e8c1d042d1443a74fa4
-    pristine_git_object: a6f91c6f3a20fdde60629fa4653f2ca03775823a
+    last_write_checksum: sha1:e4d82034721eb8c6e1af1bf1ab9abd648869bcad
+    pristine_git_object: 83df169c394b28f53f287c79e42d990db658d6de
   docs/models/operations/GetUserGroupsResponse.md:
     id: 6562cb96d911
     last_write_checksum: sha1:a344e6c73f0e91dd3381d38dba2eeaada3a6b739
@@ -671,8 +659,8 @@ trackedFiles:
     pristine_git_object: 567e619c5bb979b6ef3ee19b07d318c1e41428f0
   docs/models/operations/Role.md:
     id: c8f64a823189
-    last_write_checksum: sha1:e22ce3fafd4fb6e5955612f7e13720864cecfe7d
-    pristine_git_object: 30d7f8814ab93698b8f16602fba1d97327cc8256
+    last_write_checksum: sha1:9b6da3c5900509d0c51aeb065e37a59b4d30daa9
+    pristine_git_object: d45783c1a9929eb8c16b63ee43348da5217324af
   docs/models/operations/SortBy.md:
     id: 7bdd49024e4d
     last_write_checksum: sha1:595212fb0cf7d796a4bde3e88592c0eedb30169c
@@ -723,8 +711,8 @@ trackedFiles:
     pristine_git_object: ce040d4262cf65bd7f5e3aae6965299178bbbc8b
   docs/models/operations/UpdateRoleRequest.md:
     id: ca98a1b193ef
-    last_write_checksum: sha1:ac7f778a544f6c79fa408fcf462961e347a6ce4f
-    pristine_git_object: 4e3b27bd1ed12034a852fda1665120da76ea57ec
+    last_write_checksum: sha1:e5fc472b086d093cd7c5d4ae646c9d04480d8c2c
+    pristine_git_object: d6dbaed0bc714860a8d9eba153015f1ada56987f
   docs/models/operations/UpdateRoleResponse.md:
     id: 5cafb1dc212f
     last_write_checksum: sha1:a44e2c7ea3a169024c4b4db0b092a54884727de2
@@ -739,12 +727,20 @@ trackedFiles:
     pristine_git_object: 08c42b878643f183063f5163fc027aac3d28e543
   docs/models/operations/UpdateUserRequest.md:
     id: e84850022800
-    last_write_checksum: sha1:4315c4d592b22a2990d5d89a74fb3124ade0bd60
-    pristine_git_object: 21e9eed8dba1448518d3fbbd204544d70f3cf8d6
+    last_write_checksum: sha1:08e3f250503f0e028838fbf11e70a90c88f180ac
+    pristine_git_object: 9bf9d408fc338d0e013ae0f0116e757dc7671dda
+  docs/models/operations/UpdateUserRequestBody.md:
+    id: d698cf716c12
+    last_write_checksum: sha1:49c55ea49e38be996843beecce9c1dfc6868d00a
+    pristine_git_object: 64eaafee6557f7d6a5463d57b67ed6fb28dd591b
   docs/models/operations/UpdateUserResponse.md:
     id: 54a64b6a8f40
     last_write_checksum: sha1:aeacfc57356ed44fb1385d34d89086668e0169ce
     pristine_git_object: 5ae860c7cfaa7bcc051dd028e7888e54ba1fe921
+  docs/models/operations/UpdateUserRole.md:
+    id: 7cbfd14e8c80
+    last_write_checksum: sha1:c1c3f83769bf86c45b84eb4506d8f91977967253
+    pristine_git_object: ebd31e63f6bb1284cd7b684c161713403b27ed6f
   docs/models/operations/ValidateCedarPolicyResponse.md:
     id: 2f9bfc7367c3
     last_write_checksum: sha1:53accfa0e9c380fa733ff6be4a4f08cea267db95
@@ -755,52 +751,52 @@ trackedFiles:
     pristine_git_object: 3412993ec2b07fa5e497be53ea8e9ad03d671284
   docs/sdks/billingusage/README.md:
     id: 27eae6c6f7e8
-    last_write_checksum: sha1:11fb3b2853267724f65e72a1ef71cb228555430b
-    pristine_git_object: 7b50debefc12f0598afab9e165480a5b6f12b154
+    last_write_checksum: sha1:bc24e9d27c4a180103506692aad64f24fca1f349
+    pristine_git_object: df42938b908b9f081c13428bfadba0c39144a3d6
   docs/sdks/custompolicies/README.md:
     id: dcb5fa2aa049
-    last_write_checksum: sha1:762d0e999bd0b7b0d0478b4358e3af0474b84d1b
-    pristine_git_object: 35f2daeda080844a5d60bcf1fb7cb629edfa8918
+    last_write_checksum: sha1:5b5d3f33aa27d0883f871a2bc2f91fe55fc6d3e6
+    pristine_git_object: b390e8f5f120250524990011f5f832b7ddd78ab8
   docs/sdks/effectivepolicies/README.md:
     id: 697f1a263ba6
     last_write_checksum: sha1:caeac71ca593968611b2037fd000e0806ba1d329
     pristine_git_object: fbc9f2aef1a70d1862ac3e113636c5b64adbd706
   docs/sdks/principals/README.md:
     id: e5191085ef78
-    last_write_checksum: sha1:5b3ffeaed4b0bfe80b10fefeb18175c6ef51e030
-    pristine_git_object: 72bf2ef2890fd2e7bbe4b04f4dcf23738c267433
+    last_write_checksum: sha1:c28c924c74e9fcdeffa49caf1a47fc6c0369734e
+    pristine_git_object: 27773dae4b391e6e461247c9b9f0d116b1729e68
   docs/sdks/productenvironments/README.md:
     id: 05b22c3fa791
-    last_write_checksum: sha1:f719ae7713df0ff4eb9cf4f760bfcc3cf871cf64
-    pristine_git_object: 41b860cb2473fe7df4cb9ffc7ae5ce6c814f7560
+    last_write_checksum: sha1:67fa52f1abc8ecd209e68c112b3bffbdad516875
+    pristine_git_object: 86aad073f32e138cfc0d98e2bdb7d4892fcacb4f
   docs/sdks/public/README.md:
     id: 0901bebc0d17
-    last_write_checksum: sha1:4a0e7701a39fdc45e1e022889bd20f0bd4263243
-    pristine_git_object: 0bc1de96375c1f21af8a8aabe51d193aff55b6f4
+    last_write_checksum: sha1:32d712d2bef80e24578cace02ad8cca0cd00ed83
+    pristine_git_object: 43fee144b4bd63e21ff9d5c6cbc2648a067469b0
   docs/sdks/roles/README.md:
     id: 69204c99730f
-    last_write_checksum: sha1:2cd11923281a0c4df56fbd5ca8b39099357d4325
-    pristine_git_object: c9f058be1ff6e751e9c34fe8f8c046a4da0c000c
+    last_write_checksum: sha1:dede758582f30651d652de536497385dfa66f718
+    pristine_git_object: 5aeefc401348da27b7c41e088d6c5370f0d10468
   docs/sdks/systempolicies/README.md:
     id: 850062c637e0
     last_write_checksum: sha1:1441b149b6924b84763566a48a2846d5e792f8ea
     pristine_git_object: dfee2cc364bb9acef866f254238cea7a483b3703
   docs/sdks/usergroups/README.md:
     id: 4d749df7a4f1
-    last_write_checksum: sha1:92fc847bd70d60d7ff3a15282520fe69e25cd0d7
-    pristine_git_object: a780f5b065d9010e9e77d8fe4ac7142abd062cc7
+    last_write_checksum: sha1:6b181558c8a968ca40dc02853cef6fd4445f8a60
+    pristine_git_object: c01c5633e6d3791ca22c63ba1762e5b23d042f7b
   docs/sdks/users/README.md:
     id: 5d80027045fe
-    last_write_checksum: sha1:cbb2adc70f1e10f868d1ba1d2c61351221a7182a
-    pristine_git_object: 65156b2767b936c6b1aaaeeccff718be590af5de
+    last_write_checksum: sha1:664440210e206f2020e5d800c2eb937014f297aa
+    pristine_git_object: b460201f1354a253ac110b3cdaa2a5f39c7ac2ee
   docs/utils/Blob.md:
     id: 3d9a7c4ad67a
     last_write_checksum: sha1:111d4c0c262fcdc023bf434bb61524d4ab4e64f7
     pristine_git_object: ddaa3ff1ae9a61085ad904361deb76c226f94966
   gradle.properties:
     id: 2afbb999f001
-    last_write_checksum: sha1:22e9d5fde070e718ab0e2d6de9770b5fc9e8399f
-    pristine_git_object: 02c15d0b217a02411b6a268cbfcaaca41bfd8c11
+    last_write_checksum: sha1:a71726eb945e4eb1cbe4e6c57be87c3d76347e42
+    pristine_git_object: fff134d7e13b2a0cc9e825217b0f0b4af7c0f580
   gradle/wrapper/gradle-wrapper.jar:
     id: ec27dae6e852
     last_write_checksum: sha1:f725fb1467084142d74fd7cd8eab691ab3442611
@@ -819,40 +815,12 @@ trackedFiles:
     pristine_git_object: 5eed7ee8452842305a18a4eb967442683808226a
   publishing.gradle:
     id: 0f10e722a87d
-    last_write_checksum: sha1:67084795017dc384880ffab73dff9baa0078296b
-    pristine_git_object: 7404e1df7079dfecf5dfc0d7a804854c8fb3dcab
+    last_write_checksum: sha1:2f05ba900640dbe07dbed4682ef3be9f11a1f40e
+    pristine_git_object: ee064d64e7ef888bd6b311ae3a587baa9b19e910
   settings.gradle:
     id: 05efc8b16577
-    last_write_checksum: sha1:3f7d5caedb59d14bd830d0128b56c434f8bfa942
-    pristine_git_object: a88720652e46a33d099fc061de0f016c26c1614a
-  spring/cloudinary-account-provisioning-spring-boot-autoconfigure/build.gradle:
-    id: ace841753fbb
-    last_write_checksum: sha1:af1a69ac17c24c99592c9f32b8105435c2e69aae
-    pristine_git_object: e59f0e7068a9412008e3283962dcf7932c04abac
-  ? spring/cloudinary-account-provisioning-spring-boot-autoconfigure/src/main/java/com/cloudinary/account/provisioning/CloudinaryAccountProvisioningAutoConfig.java
-  : id: ac6f12fff2a3
-    last_write_checksum: sha1:c1d2cfdc4da8b50ed499f46446d9e1618991beea
-    pristine_git_object: 8e1182b4fb0c2c051a4f81b7fff4396f26b84cf3
-  ? spring/cloudinary-account-provisioning-spring-boot-autoconfigure/src/main/java/com/cloudinary/account/provisioning/CloudinaryAccountProvisioningAutoConfigProperties.java
-  : id: 38c3c5d3baf3
-    last_write_checksum: sha1:b9e50e25904499c58de8365dfc450d4bc5169052
-    pristine_git_object: ba47233c2976e06013f2746ec41c936edeb1e7d3
-  ? spring/cloudinary-account-provisioning-spring-boot-autoconfigure/src/main/java/com/cloudinary/account/provisioning/ConditionalOnPropertyPrefix.java
-  : id: bee17f9e07d5
-    last_write_checksum: sha1:b51f5936563a38185f90248533ea89e3a14f9494
-    pristine_git_object: d980772ce34aaf1fc0ce9ad438fbb2975f0e8b9a
-  ? spring/cloudinary-account-provisioning-spring-boot-autoconfigure/src/main/java/com/cloudinary/account/provisioning/OnPropertyPrefixCondition.java
-  : id: 1f4c3275eca6
-    last_write_checksum: sha1:88d4dab4fd45bdc18c2895fcaf8d1cdef0885ee3
-    pristine_git_object: ba99c5ab9f83c2b3ff94efd943a42f0866581b45
-  ? spring/cloudinary-account-provisioning-spring-boot-autoconfigure/src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports
-  : id: fc64a8c4ee50
-    last_write_checksum: sha1:e15b93b5df73985e39f726dcb1f622ddf9ccf981
-    pristine_git_object: 0800a0fc6d83026ca1850bbe869bcd9b43b64307
-  spring/cloudinary-account-provisioning-spring-boot-starter/build.gradle:
-    id: aadb098b5f33
-    last_write_checksum: sha1:434a37c0832bae0840f44e3fa5ea2d1d7e8d8f61
-    pristine_git_object: 81cfcc03fc56c3fe29600521219985244b545724
+    last_write_checksum: sha1:562b7599d357dd8110b72b6fc298b2a61d5f289a
+    pristine_git_object: 78cc32ec6e07b71f2b8884523d0c978c119fd6a1
   src/main/java/com/cloudinary/account/provisioning/AccessKeys.java:
     id: 0a855a75efb5
     last_write_checksum: sha1:b7e5dbb067e8eca989b4e7aa728d842e711c7dc7
@@ -871,8 +839,8 @@ trackedFiles:
     pristine_git_object: 17d03bd359050c3d2f58296be5fd46c4c54b3373
   src/main/java/com/cloudinary/account/provisioning/AsyncCustomPolicies.java:
     id: 60317becad66
-    last_write_checksum: sha1:4d64902641485624afb31009437d4599d93ad31b
-    pristine_git_object: c7b77ceb056d36af8593285c1be7fba0a1d8d38d
+    last_write_checksum: sha1:32fce1698b0bbcd89b262c194f7b25f854c551a5
+    pristine_git_object: e8ef1b22725cf87f0b99a36590e020c9236477df
   src/main/java/com/cloudinary/account/provisioning/AsyncEffectivePolicies.java:
     id: 0d17517a64e7
     last_write_checksum: sha1:b89a12d645dd7db50c6e0025a257e64dedb67d4f
@@ -899,8 +867,8 @@ trackedFiles:
     pristine_git_object: 85c7f3db038ed0c6cccbd2096261b007ba4a8835
   src/main/java/com/cloudinary/account/provisioning/AsyncUserGroups.java:
     id: 55f77d3373b8
-    last_write_checksum: sha1:65d0737ce1ed36eae149e6417b2aabfe40fd1b48
-    pristine_git_object: 5afe4145bbe38407518f86b2da300c19819b1039
+    last_write_checksum: sha1:933835f331e016c19a9e33e2391357aa00d1c069
+    pristine_git_object: 6981fb5fd5bf8dae1dfb6298eeaf10efca2a03da
   src/main/java/com/cloudinary/account/provisioning/AsyncUsers.java:
     id: dcebd35dfcce
     last_write_checksum: sha1:8a5406fb8b4c928f407df64905e6728194cc93c9
@@ -911,12 +879,12 @@ trackedFiles:
     pristine_git_object: b2e1e8d57ff5a0651075f3b1cbf310511b3c6406
   src/main/java/com/cloudinary/account/provisioning/CldProvisioning.java:
     id: 06d2ee387d06
-    last_write_checksum: sha1:bc0306c3f353da34e4d90d536f77ee2bdae30c7d
-    pristine_git_object: 088c2c9458ab89ce2535fa60c5d05bc6cc3bbab4
+    last_write_checksum: sha1:fecf755e87a13bdfcdb7160fc4c2e1b2d21f979f
+    pristine_git_object: c7c16366c226959b836761c850a4b7ae0a3e3279
   src/main/java/com/cloudinary/account/provisioning/CustomPolicies.java:
     id: 6e93ec4fe149
-    last_write_checksum: sha1:a38691f6e7f736d88239b80424ca3a78e90d250b
-    pristine_git_object: 18204aaa03c18c2780af3b0a434ae0ce33670c6c
+    last_write_checksum: sha1:953575cb9e64211ac0a07de72d7549e1204a5a63
+    pristine_git_object: dd2eae09c480c6d8d2031dd5c086a386bab7152c
   src/main/java/com/cloudinary/account/provisioning/EffectivePolicies.java:
     id: b4b24e0619ea
     last_write_checksum: sha1:609750bcdb9f2f223033df31e639317d8fa152b0
@@ -939,8 +907,8 @@ trackedFiles:
     pristine_git_object: d90af7a6f38a28ec75308bb73e8cb876b7d95ca8
   src/main/java/com/cloudinary/account/provisioning/SDKConfiguration.java:
     id: 989caf3e7e90
-    last_write_checksum: sha1:2ce1d7e83b75f4ffe592972787a6e935906a6e7f
-    pristine_git_object: e193c97a52c6e5aac737db0253e42ae625cabc8b
+    last_write_checksum: sha1:9e5b34d6b5e84ddaed7563d796028bfa12c44caf
+    pristine_git_object: c5a683831f4c69ac4f8cf6413b5612c77308c82f
   src/main/java/com/cloudinary/account/provisioning/SecuritySource.java:
     id: 9f2d2dd08e17
     last_write_checksum: sha1:d29fc5a21069aa3285bca38bf6e7610672997bb4
@@ -951,8 +919,8 @@ trackedFiles:
     pristine_git_object: 3e4ea3523485e5431e980062090d508f21dbb117
   src/main/java/com/cloudinary/account/provisioning/UserGroups.java:
     id: 1672ea85c0c3
-    last_write_checksum: sha1:c74c71f0352cf554b7b2d77d491116ebfd1ac615
-    pristine_git_object: 8465e70773dc32e7673cae72cd3f470bbee79676
+    last_write_checksum: sha1:9ef2b4914fc3cf0ac18bcb057578bb09c494d34a
+    pristine_git_object: 1117fa7871d7ce59dd4c4da8131a0cc43775da49
   src/main/java/com/cloudinary/account/provisioning/Users.java:
     id: fdbc07b5a9bd
     last_write_checksum: sha1:92182d22661634e0ccb58ed45afacc4dbb5eb305
@@ -1001,6 +969,10 @@ trackedFiles:
     id: 00bdb662b70c
     last_write_checksum: sha1:01d2db4cd767903cad62ca50f5b80d43ebbdee54
     pristine_git_object: e1bbf703cca5295228436d8b1896af1773466b29
+  src/main/java/com/cloudinary/account/provisioning/models/components/CreateCustomPolicy.java:
+    id: 4e1d21d50be5
+    last_write_checksum: sha1:e002a2a1fde8413e4b2b34bb3bfb727facf111c2
+    pristine_git_object: 285821d8b711d186b9768a5146436ad2b1853531
   src/main/java/com/cloudinary/account/provisioning/models/components/CreateRole.java:
     id: 44a2bd9041f1
     last_write_checksum: sha1:cb6898f0258b4bc802873564fb63474264b12b34
@@ -1013,10 +985,6 @@ trackedFiles:
     id: 4143fc0a57f9
     last_write_checksum: sha1:c05983a24e8d1a805e4e9d921346a526d0690d37
     pristine_git_object: 16b290c66bd08c0a42c7eaf264ebb5944c1d9ff7
-  src/main/java/com/cloudinary/account/provisioning/models/components/CustomPolicy.java:
-    id: 5256c891da62
-    last_write_checksum: sha1:b8a5347a851a8d6c9a8fcf0b33c67788097d4465
-    pristine_git_object: 609895c6b4a34698d9e5bc0830a41f8e7be8fbd5
   src/main/java/com/cloudinary/account/provisioning/models/components/CustomPolicyResponse.java:
     id: 1c1a963bac68
     last_write_checksum: sha1:d415c797ab5bffb74e58f179ddfd361caed93a3b
@@ -1037,10 +1005,6 @@ trackedFiles:
     id: e0eb74e0e526
     last_write_checksum: sha1:ff970342cd9edd3a8e4f65e82cc05c1cb26a8d21
     pristine_git_object: 106fc4c00f8249c2cd835118c9fc1bac11f8c3e9
-  src/main/java/com/cloudinary/account/provisioning/models/components/Details.java:
-    id: 599b93298250
-    last_write_checksum: sha1:d6fdcd96fff33bd924e20884b9addf75d17bb3a0
-    pristine_git_object: cd67b86d46a4730f406b9ffcf23e736662442d28
   src/main/java/com/cloudinary/account/provisioning/models/components/EffectivePoliciesResponse.java:
     id: 344d715f5b9e
     last_write_checksum: sha1:2dae0c3a54ac16ecb32abb9619aa0980d24da8bb
@@ -1063,12 +1027,8 @@ trackedFiles:
     pristine_git_object: 4c301b1f161ab77f373e22740304b30047553aa3
   src/main/java/com/cloudinary/account/provisioning/models/components/InspectRequest.java:
     id: cccde402e1f9
-    last_write_checksum: sha1:13939ef27038e9fd8fda0ef0be8472b27ef61b4a
-    pristine_git_object: 71868b97b3bd15c84ce26615c785c8be43e2d104
-  src/main/java/com/cloudinary/account/provisioning/models/components/InspectRequestPolicyParameters.java:
-    id: 5a6348a660a1
-    last_write_checksum: sha1:2477983e60db4dd06667a8ce971a563d6c8429bb
-    pristine_git_object: a450f0bcb38675eb8c104558d87cb992cf8ba792
+    last_write_checksum: sha1:abc276f0a4d69d1320f512e65c478b34d1e30a65
+    pristine_git_object: aba4bfa357a58456242577f9f1da85350e3b9920
   src/main/java/com/cloudinary/account/provisioning/models/components/ManagementTypeEnum.java:
     id: 8752e7cb992f
     last_write_checksum: sha1:490648d7e83721af1f15e0bce0384517d6f50303
@@ -1081,6 +1041,10 @@ trackedFiles:
     id: 1a2c3d9d3f76
     last_write_checksum: sha1:f5928ed9def7331dea9bf9052a6554733f517537
     pristine_git_object: 4f666c9e0aea34ed28eb17cf3705d2e720791cae
+  src/main/java/com/cloudinary/account/provisioning/models/components/Operation.java:
+    id: 6f49f6b58ad5
+    last_write_checksum: sha1:38517dc0aa4bb6979435da63d225e9d2cea1a259
+    pristine_git_object: 23ef8b10c40167da0cae2ac6f58a8657d1eef944
   src/main/java/com/cloudinary/account/provisioning/models/components/OperationEnum.java:
     id: ade5cbb3b080
     last_write_checksum: sha1:2f600230e4ff2219e4baa309244152dcc64f0a8a
@@ -1091,32 +1055,28 @@ trackedFiles:
     pristine_git_object: e75f1849b521e1b5c95b5eb07d174b6f6799feaf
   src/main/java/com/cloudinary/account/provisioning/models/components/PermissionsError.java:
     id: f1b725d8e378
-    last_write_checksum: sha1:3b29e9b65b76eb9d42db685a34586ba559dca51f
-    pristine_git_object: 0553d28439e7c6ee3ccfd1da385d4d2022d6709b
+    last_write_checksum: sha1:8e34dc928f2fc239c3064d9fc4923ad93be4514b
+    pristine_git_object: 7dc7c99038dfd04627da32531d111b9245e36135
   src/main/java/com/cloudinary/account/provisioning/models/components/PolicyParameters.java:
     id: 84d8e7435117
-    last_write_checksum: sha1:0b2e456a893c5b299f9fa342b843b25fd2a68803
-    pristine_git_object: 0f4cc3e2de2276209711713bc9c299f482ccac90
+    last_write_checksum: sha1:4923d203d95d0d7a710a7138ada8e3a95a7593b6
+    pristine_git_object: 7236c05c6d04a890274eaf0638b9aca31c4868d9
   src/main/java/com/cloudinary/account/provisioning/models/components/Principal.java:
     id: 85a7b988b0ab
     last_write_checksum: sha1:3e17032e93c063e24581bed2395f590b417f72d0
     pristine_git_object: 38373133f6086464f292041618c628e49e06eb63
   src/main/java/com/cloudinary/account/provisioning/models/components/PrincipalResponseData.java:
     id: "811527677988"
-    last_write_checksum: sha1:c4885113be222225769d107d629cedbd3cfff699
-    pristine_git_object: 3bf62d0b1e2dc9cb7f2b4dde540ac3a620bc1d20
-  src/main/java/com/cloudinary/account/provisioning/models/components/PrincipalResponseDataPolicyParameters.java:
-    id: 75bf96ce229a
-    last_write_checksum: sha1:222cb4266e6dc8396d7fb8189c75fa347dbaea93
-    pristine_git_object: e9b8834ef12ab321a37c54ff10ef86e3894acb5a
+    last_write_checksum: sha1:2f005a2455132b782b8214380855618f7ca17d37
+    pristine_git_object: bf9d52eaaeb7eed9c2618edec92dc7712a2eb9d6
   src/main/java/com/cloudinary/account/provisioning/models/components/PrincipalRole.java:
     id: 1ebb0a8501a7
     last_write_checksum: sha1:6bd69759f3e1bf35df1f6aebb5495f32da7a5bb5
     pristine_git_object: 5cec6d4a64d1fa79b34460e509e7b72483f37afc
   src/main/java/com/cloudinary/account/provisioning/models/components/PrincipalRolesData.java:
     id: 3fc1d486351d
-    last_write_checksum: sha1:5ac19d72c31d5e18a6b36c96f98909d23901213c
-    pristine_git_object: 36702bb4e0c296530a06d302b7fc5d78566d8171
+    last_write_checksum: sha1:8bf662329654faf7ba5f8f7b428e4c3f35de9ca1
+    pristine_git_object: c2521352d766c789a200ca68e59dbf6a2c33ba2d
   src/main/java/com/cloudinary/account/provisioning/models/components/PrincipalRolesInspectData.java:
     id: feabc393978f
     last_write_checksum: sha1:f5c1bc6240c9dca9afb5ae406110a5c80621416e
@@ -1161,10 +1121,14 @@ trackedFiles:
     id: 99f50f18bff2
     last_write_checksum: sha1:ffc8a6e5e4ac7d999a59dfcf38abbaaf9f2ecb43
     pristine_git_object: f4a56b1d5666aa03cf3812ba08544938314d2cc3
-  src/main/java/com/cloudinary/account/provisioning/models/components/Role.java:
-    id: 495d54aff979
-    last_write_checksum: sha1:9331a773d8792807b0bff57bf27dfbf2bbf65bcb
-    pristine_git_object: 15342ccca405696fb74a12bc855c51c3b01fbb1d
+  src/main/java/com/cloudinary/account/provisioning/models/components/RoleAssignment.java:
+    id: 232f99b46a37
+    last_write_checksum: sha1:552d13755f2c54c41b73e558ce32f2c7347c3dd1
+    pristine_git_object: f7f6d4bd709e6227a096606b17e1c9fb1ace7d82
+  src/main/java/com/cloudinary/account/provisioning/models/components/RoleManagementRequest.java:
+    id: 1b9ba2c52ea3
+    last_write_checksum: sha1:acb0e8338e9db932dc7ca2395dc39db3109432f8
+    pristine_git_object: 3f55643cf0ccb152f8116069fb8580bed16a204b
   src/main/java/com/cloudinary/account/provisioning/models/components/RoleResponse.java:
     id: 3007d988ea42
     last_write_checksum: sha1:d0e5a854c66ad854ccabda1a9b369510241e6578
@@ -1179,12 +1143,8 @@ trackedFiles:
     pristine_git_object: e7b959166b27970848d6ad8bd064c5f36e17a690
   src/main/java/com/cloudinary/account/provisioning/models/components/RoleToManage.java:
     id: cd4816dc985c
-    last_write_checksum: sha1:9a763f5d3d86edbdf86be32a8958fec65a5323bc
-    pristine_git_object: 9c1a3cf829ad2561358d550969ea17e9a0615b56
-  src/main/java/com/cloudinary/account/provisioning/models/components/RoleToManagePolicyParameters.java:
-    id: 9867fef79a1d
-    last_write_checksum: sha1:8c86bd725b33e73ab2c9a1aee7b74d1de47d98aa
-    pristine_git_object: 675db4acc817fc6eec0e47802f2cb8b97fb71bbd
+    last_write_checksum: sha1:348cfed63c0373f8fd079d49cab65736da0fb319
+    pristine_git_object: b585e60205a14534e7109e707e7e6334d53c30fe
   src/main/java/com/cloudinary/account/provisioning/models/components/RolesResponse.java:
     id: 8f30328f9681
     last_write_checksum: sha1:d6f6935da935b0f9309b489eda7bff9b3cc37fd5
@@ -1225,14 +1185,14 @@ trackedFiles:
     id: e5d84ae98734
     last_write_checksum: sha1:07626831a1b7e893d281688910647c29b082cce0
     pristine_git_object: 04abc396b24048719f8d597c8a8c5d41e72c9338
+  src/main/java/com/cloudinary/account/provisioning/models/components/UpdateRole.java:
+    id: 4d60d79aa847
+    last_write_checksum: sha1:72c8ef5aa4da89fd5df1485fd0351cbcd43caac0
+    pristine_git_object: 518dfbd8aecbb28c6dde410b3a4a4bcc5843ae5a
   src/main/java/com/cloudinary/account/provisioning/models/components/UpdateRolePrincipal.java:
     id: 88d7f0ba7351
-    last_write_checksum: sha1:b009f37d8923a15239e73e183e1e959f24c95e27
-    pristine_git_object: f6bce22ea6665d281f0991c4b15e8fcfd4c41f15
-  src/main/java/com/cloudinary/account/provisioning/models/components/UpdateRolePrincipalPolicyParameters.java:
-    id: 437fd03cbcc3
-    last_write_checksum: sha1:62870bba7f6eb0f20748c94dbea99d6c145bfc5e
-    pristine_git_object: 00414ebffcd8897608ef6d4452db7e0b3fae28be
+    last_write_checksum: sha1:4095b84205e18c261c1e96616d2f080d3c5ba12b
+    pristine_git_object: cfb3baabb2c6cf29c5741f6083626b026cddf038
   src/main/java/com/cloudinary/account/provisioning/models/components/UpdateRolePrincipalsRequest.java:
     id: 02d338a3eaae
     last_write_checksum: sha1:a2ab730086aca33d7b482da1ac31b7335b27edf2
@@ -1269,14 +1229,6 @@ trackedFiles:
     id: d64f3e9649de
     last_write_checksum: sha1:d173b6fc27d7288b67213668c74eb5d8bc4c1a2b
     pristine_git_object: 6b7a7d92b8733d879b176f85e75b8026aa208b5d
-  src/main/java/com/cloudinary/account/provisioning/models/components/UserRequest.java:
-    id: 7ebbb1ebb849
-    last_write_checksum: sha1:6c98b3018e41c7268d10ba7173cd308672f2cfd0
-    pristine_git_object: 74e2bb0a5eff48fee2f7ba8ebdb2e00af171b2c0
-  src/main/java/com/cloudinary/account/provisioning/models/components/UserRequestRole.java:
-    id: 491cf9c261b0
-    last_write_checksum: sha1:087ec261cf815a38d5df955dc8eba38247f030c2
-    pristine_git_object: 939d4156d741a7d334b8c3017c9f429d583525dd
   src/main/java/com/cloudinary/account/provisioning/models/components/UserSubAccountsResponse.java:
     id: b006778fbbba
     last_write_checksum: sha1:bce102b343c8272230130b4df883872b222f2a93
@@ -1307,204 +1259,16 @@ trackedFiles:
     pristine_git_object: 6f1b4922d7551e82ff8927c66390c5de80f5360e
   src/main/java/com/cloudinary/account/provisioning/models/errors/ErrorResponse.java:
     id: 2aad5693ecec
-    last_write_checksum: sha1:79c6cd18a4640ea7ab3cd35055aef10daa00d23d
-    pristine_git_object: 95014af12dea7dee873350393e9f69944197bd64
+    last_write_checksum: sha1:651572263f2f3bf428f6ef1add3cf7c215d267a7
+    pristine_git_object: f8334b974b7a823f63183ee77ae4ea0bc16f4726
   src/main/java/com/cloudinary/account/provisioning/models/errors/PermissionsErrorResponse.java:
     id: 3f004c0fe0b5
-    last_write_checksum: sha1:3c9f950c3b8c57acdfa66269ffa6deb05d02d68f
-    pristine_git_object: bd279df545ba3e1a5016d0eb47007e752385ae0d
+    last_write_checksum: sha1:c5f77e6b8df2faea2d01e8d5456895807e7c8df5
+    pristine_git_object: d29902d3c4c3fe0b142f1e456ad374d713e255af
   src/main/java/com/cloudinary/account/provisioning/models/errors/SDKException.java:
     id: 9bcfeaea943e
     last_write_checksum: sha1:46347acc9cbab51cc474cae1c2006f3d7f87bd5b
     pristine_git_object: 055436a48482a989d0e75eea34c48e984db91368
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/AddUserToUserGroupRequestBuilder.java:
-    id: 62146d607c25
-    last_write_checksum: sha1:debf1c5a2cd310714820e2795b3a6b640e7e93ab
-    pristine_git_object: 8c22a982433552701f2e7d5afcdc678252c714b4
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/CreateCustomPolicyRequestBuilder.java:
-    id: 1564bbdc76db
-    last_write_checksum: sha1:2fee956ae7bb0b0336a6f8bd233f86b18044108b
-    pristine_git_object: 20bfbd2666a7f3d5661d4e052ce4587bf1a1126c
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/CreateProductEnvironmentRequestBuilder.java:
-    id: b67c3f92d74f
-    last_write_checksum: sha1:f9047340baa6c816990c41be9ff3c0c8d1fd002c
-    pristine_git_object: 728cf89297b0f223f0510adef3c6dba57ea5404a
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/CreateRoleRequestBuilder.java:
-    id: 378cc53252ca
-    last_write_checksum: sha1:5b191fcfec1f501c722ea2994a9b3ab84b0bcd9e
-    pristine_git_object: ad8bfa66403e9cfc363c6293b6471cb210126fb8
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/CreateUserGroupRequestBuilder.java:
-    id: acbb42eda233
-    last_write_checksum: sha1:33385aa19c447331990cc4126829dc1b862a41fa
-    pristine_git_object: 83571f6429c71401c26c5ccf45c03b733383cc1e
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/CreateUserRequestBuilder.java:
-    id: 83accca1ed2e
-    last_write_checksum: sha1:99bf9a7384bee6bccf30ae0b5605732086d9f9db
-    pristine_git_object: 7e0e03d4b68f217c0e151083a193ed055b7b9769
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/DeleteAccessKeyByNameRequestBuilder.java:
-    id: 4e3bd1faa8ef
-    last_write_checksum: sha1:083c9adc1798e2daeae7e0100ef322dd6af7485e
-    pristine_git_object: 8ab6ace9248d401d8aaf8410f678a44a938521f9
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/DeleteAccessKeyRequestBuilder.java:
-    id: 4fb9f60c6fd8
-    last_write_checksum: sha1:cf01edaa86c56971d01746ee722869f3fff50bc4
-    pristine_git_object: 93af4e0e6ef0ba8651908f18ebcf44662c52ffc9
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/DeleteCustomPolicyRequestBuilder.java:
-    id: 7c0e6f7217d2
-    last_write_checksum: sha1:822ff5fca49ca9254d5d92067e54a9232ce3e31d
-    pristine_git_object: 8dfd68dcfb07cb707b430e9c1f7ecc0e3148bf8f
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/DeleteProductEnvironmentRequestBuilder.java:
-    id: 116704c6d3d7
-    last_write_checksum: sha1:696b56eee28865edbf61ed75d85f8e90a6e82357
-    pristine_git_object: 460aab5617e4ccda5f5a10c1aa97adbd6c18d2de
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/DeleteRoleRequestBuilder.java:
-    id: 3e2e5ad00945
-    last_write_checksum: sha1:35ac8ace6ec5dcd82cd2c6cc5915a02a3a6e98c9
-    pristine_git_object: 02d9ee1676dbac26f1dd1e714aac84d3f257cbe8
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/DeleteUserGroupRequestBuilder.java:
-    id: c42e35bd728e
-    last_write_checksum: sha1:c521a352356860cfba149b824f95fc59eaab7a5e
-    pristine_git_object: cfc4b49e2feee1abf0f559ea3fcf58a885387235
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/DeleteUserRequestBuilder.java:
-    id: dd5782da9398
-    last_write_checksum: sha1:bebd68bbc355dddf032e161ab248d214e0c26bb8
-    pristine_git_object: 47e523ac6c54b15ab131ca18b86bd43c6fb38c9b
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GenerateAccessKeyRequestBuilder.java:
-    id: 69c4cd4e16f2
-    last_write_checksum: sha1:c75d1253e3fbabc3de6f8466c502b8bee98a08b0
-    pristine_git_object: eb9de72af0d63951d77ef2a17d6f7a2d41d898c2
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetAccessKeysRequestBuilder.java:
-    id: d5b57ee4491a
-    last_write_checksum: sha1:306a6665bdcb277a13634ec01fc935e749c324da
-    pristine_git_object: 6d1107a03831e635eb6ef3fa9bb510f051300581
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetBillingUsageRequestBuilder.java:
-    id: b55a81e49e11
-    last_write_checksum: sha1:2810221d8544e5fb08038690b788591bc74f66b6
-    pristine_git_object: fa37ce15b100667fa73d131e5c8d4155fb1e65d0
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetCedarSchemaRequestBuilder.java:
-    id: 56d139f29c8d
-    last_write_checksum: sha1:099eb1f4ccda37e1f381c1376a4259a87b3d9c8a
-    pristine_git_object: 7d1f69db955ef7d866c8d120ed1a56f47d2201c4
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetCustomPoliciesRequestBuilder.java:
-    id: bedd42bc6414
-    last_write_checksum: sha1:b29ad0cf13e0232001b938baf665d1ad49b34c8f
-    pristine_git_object: 66279d7008b0634e144b45245328dac7bbacf795
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetCustomPolicyRequestBuilder.java:
-    id: 1b3091dc57ff
-    last_write_checksum: sha1:43864ac36f35164813a6c3f0db668de08dffa12e
-    pristine_git_object: 91fefec8121e5f89e554e0bc57b15a00c40f78bc
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetEffectivePoliciesRequestBuilder.java:
-    id: c59836a5df63
-    last_write_checksum: sha1:976546ee5b92f80351ef1345171f846f390d1da4
-    pristine_git_object: e655cde41a3c8683d1f332267e6f46e2b72b1a70
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetGroupsForUserRequestBuilder.java:
-    id: 463646f5b499
-    last_write_checksum: sha1:52bcfd15f453a454980aa37b59004beac227b8ab
-    pristine_git_object: 216a14d90fb85c6b65400247d5968b794fc129f4
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetPrincipalRolesRequestBuilder.java:
-    id: bb704792bbe2
-    last_write_checksum: sha1:84786c2da4c3de92f955744f88e6ee99126bbd39
-    pristine_git_object: 3fc90af742e35757521eefe7bab3127e6489953c
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetProductEnvironmentRequestBuilder.java:
-    id: 6f773486ec4c
-    last_write_checksum: sha1:d199788e439b3e3becf44a9a3da0640fce4b9e49
-    pristine_git_object: 17b7a6d95c0b0357700fb3ef7c9410b0da0c3341
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetProductEnvironmentsRequestBuilder.java:
-    id: 1f507a5d47fd
-    last_write_checksum: sha1:abfdfec97cdbb315bd63d042fc1af1a84f0d5256
-    pristine_git_object: c6479add9315d44a382b08690179c6be3fc34f45
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetRolePrincipalsRequestBuilder.java:
-    id: 618b8c44c95a
-    last_write_checksum: sha1:35608eb34f989339abcba886aa91de2044043b64
-    pristine_git_object: 9ce42bc1c91894f410db371d8279295aecccca12
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetRoleRequestBuilder.java:
-    id: 3cd60eaf0de0
-    last_write_checksum: sha1:a174442b6f033372832571824ab33314bc0d83f4
-    pristine_git_object: 1121978f049df802ca9a46e95de201ef4203e4a8
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetRolesRequestBuilder.java:
-    id: b31b540e3466
-    last_write_checksum: sha1:d0cef04dde6e1d69365bce2459076047de59183b
-    pristine_git_object: 96673669eb3f8f0a7ab534c4c5e860ff5b6d4b95
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetSubAccountsForUserRequestBuilder.java:
-    id: f42cbb838726
-    last_write_checksum: sha1:0e9cf03ef353ab1ece5b50b209a8f14eac634f7e
-    pristine_git_object: 412bd159f03ebdd1b1fe48c16a5bc287a44e1c0d
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetSystemPoliciesRequestBuilder.java:
-    id: 44953c931e73
-    last_write_checksum: sha1:df00bedaebff1a2aa085dec2d20bb6e321434d4e
-    pristine_git_object: e6556f4b85a1e7cfa7b417aaddc5c48b47cc2a80
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetSystemRolesAndPoliciesCatalogRequestBuilder.java:
-    id: 8c013568841b
-    last_write_checksum: sha1:5478f0dd72e9af4989b31554bf4e6742e994aac3
-    pristine_git_object: 6cabb2d9cada9d6a218a001ec0b244a0318dbcaf
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetUserGroupRequestBuilder.java:
-    id: 247601bc5735
-    last_write_checksum: sha1:e96ac20fb217a4458789173a5a3da025f5eed4ed
-    pristine_git_object: 25517caca9a92da8a87764faadaf81b8384ab33e
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetUserGroupsRequestBuilder.java:
-    id: c1fc31913117
-    last_write_checksum: sha1:cf25cd382a305f24bd1c0b9b8d9f09e0ee87e759
-    pristine_git_object: 2700392b8e676e64fa46b44aec1f287639151fa9
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetUserRequestBuilder.java:
-    id: ff0870fd79d0
-    last_write_checksum: sha1:2f0b4c33979a172e4fc010f24155a10501486d72
-    pristine_git_object: aa810c4e03cee22cd354dec4885b22c32dab78b5
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetUsersInUserGroupRequestBuilder.java:
-    id: 50d09d259ab8
-    last_write_checksum: sha1:5784c084427efbea10801c02fd2eea7b457b27c3
-    pristine_git_object: ed07384e786e62a28cef44ea1a4ec7f3fbcc8bcf
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/GetUsersRequestBuilder.java:
-    id: 5e73155ed744
-    last_write_checksum: sha1:8481a2479bd152cd348e9af30b7e176ba42a5cdb
-    pristine_git_object: 16bd902fa6a8c65c09a948cd1b936f2fdac133fe
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/InspectMultipleRequestBuilder.java:
-    id: 9ab0a7314ede
-    last_write_checksum: sha1:19bad9ea09cb6e2286c27c2d0055ffff6e040b1d
-    pristine_git_object: dae103ae23d2e5edde6a2135c07796fdb10c8b8e
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/InspectRequestBuilder.java:
-    id: a00e4ce8406c
-    last_write_checksum: sha1:7036a18b551af2f3ecdce94330788f90be24d91d
-    pristine_git_object: b4997c22724f3bd97cb59b9317aca40d875567b3
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/RemoveUserFromUserGroupRequestBuilder.java:
-    id: e16b5850f70f
-    last_write_checksum: sha1:516c4337e2fe3a62782d52d95633248135cc34d9
-    pristine_git_object: 08d0015b5530dc0f66f71962ee3c04bcb41c5376
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/UpdateAccessKeyRequestBuilder.java:
-    id: a336caec77c0
-    last_write_checksum: sha1:c643741b8fa381c988e747b1b1ed45c7630f3307
-    pristine_git_object: ee84c4cc3eba9de8a7f17a4ef3d881585768f8ae
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/UpdateCustomPolicyRequestBuilder.java:
-    id: cdf6f7b9004f
-    last_write_checksum: sha1:aa0a0d392564d1652273fea772d9b1345f2234f5
-    pristine_git_object: ca2c0ad4286b9db38505d0ce75942fb0a931bb4f
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/UpdatePrincipalRolesRequestBuilder.java:
-    id: 7730d76c7c8f
-    last_write_checksum: sha1:722690265a399c7f0b859910b42d41488e95f9d4
-    pristine_git_object: 105dd328e7d98d602a6e97386be09dafccdc4cef
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/UpdateProductEnvironmentRequestBuilder.java:
-    id: 329d1cdbc74b
-    last_write_checksum: sha1:a1dd2bd893886220ef305811eeab5410d596951b
-    pristine_git_object: 9bb79d0af116d0e3517d8b035ca5b69e24d9cac3
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/UpdateRolePrincipalsRequestBuilder.java:
-    id: 14dc5e682338
-    last_write_checksum: sha1:dcbfeca0b10333cbe71c6a3c61e8c2b8d850e92b
-    pristine_git_object: cfb0811692e9c165d264ef0db03f948bce8c8873
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/UpdateRoleRequestBuilder.java:
-    id: 2ed551b46ae4
-    last_write_checksum: sha1:0601426161b025594af8ac56edd33385a6ca8f58
-    pristine_git_object: ccd9285fb18dc401793d3c5ef5231f6b6a57e0cc
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/UpdateUserGroupRequestBuilder.java:
-    id: aabcdd6f8a83
-    last_write_checksum: sha1:1e9c18b4ce9f6111b05f635a8b86a05e9d119b58
-    pristine_git_object: 97cb7b0b7125ad9f055445febba303549ec37c41
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/UpdateUserRequestBuilder.java:
-    id: 0763bab74e76
-    last_write_checksum: sha1:0c205a84ad619f2e6e545b899859fe2b271951ea
-    pristine_git_object: b1ca644d5b14206dd7f8561529c61315d0448110
-  src/main/java/com/cloudinary/account/provisioning/models/operations//async/ValidateCedarPolicyRequestBuilder.java:
-    id: 5418626ddbfe
-    last_write_checksum: sha1:ba1949ec95259f2590cc7d8cec57729efb977054
-    pristine_git_object: 8a73b361824d8749afcb044322e9fbadb075d302
   src/main/java/com/cloudinary/account/provisioning/models/operations/AddUserToUserGroupRequest.java:
     id: 331799f26c8e
     last_write_checksum: sha1:16bf286387ebc0ee55bd249d85b2a43be4dc7839
@@ -1519,8 +1283,8 @@ trackedFiles:
     pristine_git_object: 39e561377e4d7044420653ee8504ef992c55bcea
   src/main/java/com/cloudinary/account/provisioning/models/operations/CreateCustomPolicyRequestBuilder.java:
     id: 01a5c841d0a5
-    last_write_checksum: sha1:433fc4d274bfb2565a1287f36cf390bccf169fff
-    pristine_git_object: d24d98da18fd2cdc181fdfbb13cb9cc022fbf810
+    last_write_checksum: sha1:97fccc813a186bf6b08d78ac17834bcb92b25917
+    pristine_git_object: 4679acfd8fd8a1910662b8e92b8e1f50ed221f10
   src/main/java/com/cloudinary/account/provisioning/models/operations/CreateCustomPolicyResponse.java:
     id: 6f6a78200add
     last_write_checksum: sha1:a5426183f138c414ee6c424517c9c82d83e289a0
@@ -1551,8 +1315,8 @@ trackedFiles:
     pristine_git_object: 4a572fed0d78aeeb90e11698b4f932b5dc3cc1b0
   src/main/java/com/cloudinary/account/provisioning/models/operations/CreateUserRequestBody.java:
     id: 9a6b72562c92
-    last_write_checksum: sha1:7eacffe432296512495e92fa86a718ff8a43cc7e
-    pristine_git_object: 4246a7e2f12488d71f877c68ecc01af889d943ba
+    last_write_checksum: sha1:5ebf240a9677fc26c6ae379e15f19501d1a3ad26
+    pristine_git_object: 60cd2fce5cdcbff7a60fe200666c0523ae13d5b6
   src/main/java/com/cloudinary/account/provisioning/models/operations/CreateUserRequestBuilder.java:
     id: b39ba3576f28
     last_write_checksum: sha1:0fd1f8e879224e96c16aa40a1c22a8e0afc152bb
@@ -1943,8 +1707,8 @@ trackedFiles:
     pristine_git_object: 2c93a04aa6bbed78d3d23220a930e2f26ff1925b
   src/main/java/com/cloudinary/account/provisioning/models/operations/Role.java:
     id: 7fcac2f6b633
-    last_write_checksum: sha1:a3f16e0cc898fe9a86f740c295fcfcc7eba127ab
-    pristine_git_object: 19d0315bd93fe66895b0084f0dabe5df773af787
+    last_write_checksum: sha1:754405650d09c918f26f82c62d1e5091ff1bda59
+    pristine_git_object: ec54c5dde54f95264d8725278e6e2278880ca684
   src/main/java/com/cloudinary/account/provisioning/models/operations/SortBy.java:
     id: 568c99643d10
     last_write_checksum: sha1:61637100f84f47bf7ddeeae8fc37429813755f14
@@ -2015,8 +1779,8 @@ trackedFiles:
     pristine_git_object: f4545c7676487a668d92d5b0c3655ed33fdda0b0
   src/main/java/com/cloudinary/account/provisioning/models/operations/UpdateRoleRequest.java:
     id: 681d7826f7fd
-    last_write_checksum: sha1:b0d314685df46f5162c8933adc8511fea774f8e3
-    pristine_git_object: 10e0a960c77483f55510f66bb90e76902cc49d11
+    last_write_checksum: sha1:20398bf00e0eac2732e6e248f5267d7f2bb70ed4
+    pristine_git_object: 4575fd4830a8795de4c423fe36b1d18e8e78790d
   src/main/java/com/cloudinary/account/provisioning/models/operations/UpdateRoleRequestBuilder.java:
     id: f54393f1b9f2
     last_write_checksum: sha1:1013ec42cdebf7f60e5bf00f56ece93b256892f1
@@ -2039,8 +1803,12 @@ trackedFiles:
     pristine_git_object: d7a9e9f810a6f02fdcf6221c3d82d5442fdda186
   src/main/java/com/cloudinary/account/provisioning/models/operations/UpdateUserRequest.java:
     id: 95bc061cb5a9
-    last_write_checksum: sha1:12cf1165e229dfe55e88f5b6492c36c74379c253
-    pristine_git_object: 4c0834ec89800185112e7081c1624057f7346016
+    last_write_checksum: sha1:e67480408266fc081a98016a4be7c093db0bbbd9
+    pristine_git_object: 3e18eda50dd0b3de4963df1ae3d5136f73833fe1
+  src/main/java/com/cloudinary/account/provisioning/models/operations/UpdateUserRequestBody.java:
+    id: eaebcdd5bf04
+    last_write_checksum: sha1:640ab8f926e9107e0ce6412584e96be24cce2671
+    pristine_git_object: 1425c2853653bd606a3c53bff7c19a83771dc7a4
   src/main/java/com/cloudinary/account/provisioning/models/operations/UpdateUserRequestBuilder.java:
     id: a153fc341991
     last_write_checksum: sha1:60ce87347297dc47a1c9db489fc71156243784b2
@@ -2049,6 +1817,10 @@ trackedFiles:
     id: ec7853d26fd2
     last_write_checksum: sha1:640951956875f4dda6bdee64d417e782e3451dd4
     pristine_git_object: 620c7bc009a509acf45db8f250dcb21d191e5c7d
+  src/main/java/com/cloudinary/account/provisioning/models/operations/UpdateUserRole.java:
+    id: 13a79989caec
+    last_write_checksum: sha1:502ed1b399f285d2cd4b2243d912df2e8483bd3e
+    pristine_git_object: 300cb456c1666065f2fcded72c268bedfb283185
   src/main/java/com/cloudinary/account/provisioning/models/operations/ValidateCedarPolicyRequestBuilder.java:
     id: c21f1fa27cc8
     last_write_checksum: sha1:c2557d082a5e032cb23373a0590afe8fb633fc27
@@ -2057,386 +1829,574 @@ trackedFiles:
     id: 5604de06152a
     last_write_checksum: sha1:3640095b69b944ef050dbeb80e67248f95e362a6
     pristine_git_object: bd09d07a2919282ebf22715df30a0f9f281b2074
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/AddUserToUserGroupRequestBuilder.java:
+    id: 92a701d62a61
+    last_write_checksum: sha1:debf1c5a2cd310714820e2795b3a6b640e7e93ab
+    pristine_git_object: 8c22a982433552701f2e7d5afcdc678252c714b4
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/AddUserToUserGroupResponse.java:
     id: ad26f44adb80
     last_write_checksum: sha1:b5c1c047d5bbf1e5ad154c4e04e2193649134575
     pristine_git_object: 2c203f3a47c282bc27ebdadd06938cdccf962646
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/CreateCustomPolicyRequestBuilder.java:
+    id: 0cf8044424cf
+    last_write_checksum: sha1:3a7fe88d865eb2589d53c34c13e4a9db1d02007a
+    pristine_git_object: abc23609014585f2c82fdc7e7373a116cdadbea7
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/CreateCustomPolicyResponse.java:
     id: e8829c282682
     last_write_checksum: sha1:51c360764b7d6cb86f4f4c5e8d38b06fd95101c6
     pristine_git_object: 84dae5e5cedd03755b20ee1444c12424e8adcdf5
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/CreateProductEnvironmentRequestBuilder.java:
+    id: e994cd0ca57a
+    last_write_checksum: sha1:f9047340baa6c816990c41be9ff3c0c8d1fd002c
+    pristine_git_object: 728cf89297b0f223f0510adef3c6dba57ea5404a
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/CreateProductEnvironmentResponse.java:
     id: 8103d4522fbc
     last_write_checksum: sha1:84448569bc162b321dbdff4e9a53d36bb69e2fe7
     pristine_git_object: 59dd0a3de2fd02cd2d910e2502cb9eecd9db8ded
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/CreateRoleRequestBuilder.java:
+    id: 5b66c53d9928
+    last_write_checksum: sha1:5b191fcfec1f501c722ea2994a9b3ab84b0bcd9e
+    pristine_git_object: ad8bfa66403e9cfc363c6293b6471cb210126fb8
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/CreateRoleResponse.java:
     id: 908becb297d3
     last_write_checksum: sha1:bf047f2ea39585dda7d1087132a1be89bdcafe25
     pristine_git_object: 7ca5b613c16f74bff7551321b79e1e6e1344b516
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/CreateUserGroupRequestBuilder.java:
+    id: a9995550dd0a
+    last_write_checksum: sha1:33385aa19c447331990cc4126829dc1b862a41fa
+    pristine_git_object: 83571f6429c71401c26c5ccf45c03b733383cc1e
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/CreateUserGroupResponse.java:
     id: 834d6de252ee
     last_write_checksum: sha1:4bba669a6d906b3ff062a84828876cf0d14355de
     pristine_git_object: 81c471fbda519da0f4cf6d91b89cac5aed9da2b9
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/CreateUserRequestBuilder.java:
+    id: 424390cb73cd
+    last_write_checksum: sha1:99bf9a7384bee6bccf30ae0b5605732086d9f9db
+    pristine_git_object: 7e0e03d4b68f217c0e151083a193ed055b7b9769
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/CreateUserResponse.java:
     id: a7a9bcc45557
     last_write_checksum: sha1:8d0bdcaf315dca28448f395169e330c3f7c1d907
     pristine_git_object: 3b791d50ac1905deb445cb651a9b8daa4d10ff07
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteAccessKeyByNameRequestBuilder.java:
+    id: 13f6e09b2dad
+    last_write_checksum: sha1:083c9adc1798e2daeae7e0100ef322dd6af7485e
+    pristine_git_object: 8ab6ace9248d401d8aaf8410f678a44a938521f9
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteAccessKeyByNameResponse.java:
     id: 67d50155efaf
     last_write_checksum: sha1:29c5a6634cfbdd1a92d194ca7d839d3eda99d3bb
     pristine_git_object: 3515e4accc09ee73159234a526cb3dc84fb18b5a
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteAccessKeyRequestBuilder.java:
+    id: 8c5fc9422a10
+    last_write_checksum: sha1:cf01edaa86c56971d01746ee722869f3fff50bc4
+    pristine_git_object: 93af4e0e6ef0ba8651908f18ebcf44662c52ffc9
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteAccessKeyResponse.java:
     id: 355be3285810
     last_write_checksum: sha1:8d194785a0f7d734554a45a106b2c5d30a85e93d
     pristine_git_object: 18a7666c09ac31a8173b0c633aaa056d781ed3e7
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteCustomPolicyRequestBuilder.java:
+    id: 82083fa129a7
+    last_write_checksum: sha1:822ff5fca49ca9254d5d92067e54a9232ce3e31d
+    pristine_git_object: 8dfd68dcfb07cb707b430e9c1f7ecc0e3148bf8f
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteCustomPolicyResponse.java:
     id: 6cea377e1c93
     last_write_checksum: sha1:e6e86896670ef6626d772291ad881302d7de5c8a
     pristine_git_object: 1f9b8e29332a4bda80bb553358dce298f167d95c
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteProductEnvironmentRequestBuilder.java:
+    id: 869f2543c8bc
+    last_write_checksum: sha1:696b56eee28865edbf61ed75d85f8e90a6e82357
+    pristine_git_object: 460aab5617e4ccda5f5a10c1aa97adbd6c18d2de
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteProductEnvironmentResponse.java:
     id: 125ab3d91a41
     last_write_checksum: sha1:0c76872599837d33ae349d7a42c498dd19a1c08a
     pristine_git_object: 4772bd6474b799fdd8eec951a76de881711ced00
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteRoleRequestBuilder.java:
+    id: ec25aadca46a
+    last_write_checksum: sha1:35ac8ace6ec5dcd82cd2c6cc5915a02a3a6e98c9
+    pristine_git_object: 02d9ee1676dbac26f1dd1e714aac84d3f257cbe8
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteRoleResponse.java:
     id: ded88e1f71a7
     last_write_checksum: sha1:31ebdccf18efe3b0de873bcc3f48948ffa2d992e
     pristine_git_object: 1e9727ee0a6ed7875c7420c3c7ebecb2a1fb1b07
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteUserGroupRequestBuilder.java:
+    id: eed68f8a7476
+    last_write_checksum: sha1:c521a352356860cfba149b824f95fc59eaab7a5e
+    pristine_git_object: cfc4b49e2feee1abf0f559ea3fcf58a885387235
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteUserGroupResponse.java:
     id: 9abe6df62d69
     last_write_checksum: sha1:adfac599cec071d1bb2fc10163731923610f493b
     pristine_git_object: 698101913ad19ee42a9238bb54c47c2ccab3bb49
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteUserRequestBuilder.java:
+    id: cdafc0f522f2
+    last_write_checksum: sha1:bebd68bbc355dddf032e161ab248d214e0c26bb8
+    pristine_git_object: 47e523ac6c54b15ab131ca18b86bd43c6fb38c9b
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/DeleteUserResponse.java:
     id: cb12e25ecef1
     last_write_checksum: sha1:3978cd0b07c941e52f3a3f2bbf232aa6c6174c37
     pristine_git_object: 0faaed8c7f574c7d775c6bb265e5757c4eb7fb74
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GenerateAccessKeyRequestBuilder.java:
+    id: 26d10becc710
+    last_write_checksum: sha1:c75d1253e3fbabc3de6f8466c502b8bee98a08b0
+    pristine_git_object: eb9de72af0d63951d77ef2a17d6f7a2d41d898c2
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GenerateAccessKeyResponse.java:
     id: fa743590de13
     last_write_checksum: sha1:d52df4fb72e3e3c94b1cfc901857a2c70aaa83d2
     pristine_git_object: 8d81e4fe635d03b700414e21c70d80450947d51b
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetAccessKeysRequestBuilder.java:
+    id: e2797f1b3a75
+    last_write_checksum: sha1:306a6665bdcb277a13634ec01fc935e749c324da
+    pristine_git_object: 6d1107a03831e635eb6ef3fa9bb510f051300581
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetAccessKeysResponse.java:
     id: 2d4f98b80cee
     last_write_checksum: sha1:08b90fb1386c6cdcc5a147776f54663a9945fd09
     pristine_git_object: da13c5ab2fc6b8622a563e3c22ba250ff150e0c0
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetBillingUsageRequestBuilder.java:
+    id: 06092fb8864e
+    last_write_checksum: sha1:2810221d8544e5fb08038690b788591bc74f66b6
+    pristine_git_object: fa37ce15b100667fa73d131e5c8d4155fb1e65d0
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetBillingUsageResponse.java:
     id: ecaa1f378321
     last_write_checksum: sha1:dd534fd21a512c944f4095af918f966cdf58c530
     pristine_git_object: 10a2a2bb4fbfe9f7974a4a00b2bac025411a06b0
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetCedarSchemaRequestBuilder.java:
+    id: a23eed3a2cd0
+    last_write_checksum: sha1:099eb1f4ccda37e1f381c1376a4259a87b3d9c8a
+    pristine_git_object: 7d1f69db955ef7d866c8d120ed1a56f47d2201c4
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetCedarSchemaResponse.java:
     id: 150cbab45d5c
     last_write_checksum: sha1:5ece3c2e2a86ae83fcf299b4a2219244036f0f08
     pristine_git_object: 5cd00df1e54cee41536d4bee50131f1d651cffcb
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetCustomPoliciesRequestBuilder.java:
+    id: 5aadadd6c4e7
+    last_write_checksum: sha1:b29ad0cf13e0232001b938baf665d1ad49b34c8f
+    pristine_git_object: 66279d7008b0634e144b45245328dac7bbacf795
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetCustomPoliciesResponse.java:
     id: 0fb0c4e08687
     last_write_checksum: sha1:b4982adffc75e62651c2c98db73227acb4961645
     pristine_git_object: f40ad23359d81a80cac3a30ef0898a5c1bf1df55
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetCustomPolicyRequestBuilder.java:
+    id: 1c0380e3d2af
+    last_write_checksum: sha1:43864ac36f35164813a6c3f0db668de08dffa12e
+    pristine_git_object: 91fefec8121e5f89e554e0bc57b15a00c40f78bc
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetCustomPolicyResponse.java:
     id: 8cf6088da390
     last_write_checksum: sha1:a604a58290a444e0a9d3160bb76b06065d7a5663
     pristine_git_object: c7d1e37bf307b965f79a4c3f922d03a1017c14ba
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetEffectivePoliciesRequestBuilder.java:
+    id: 9a577c176abb
+    last_write_checksum: sha1:976546ee5b92f80351ef1345171f846f390d1da4
+    pristine_git_object: e655cde41a3c8683d1f332267e6f46e2b72b1a70
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetEffectivePoliciesResponse.java:
     id: a49426d5bf19
     last_write_checksum: sha1:9eecb8a4dec8997e8a43daff344f9a753117ceb9
     pristine_git_object: 57aaa7eafeff4f584bbccc93ac857ed38a04dd39
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetGroupsForUserRequestBuilder.java:
+    id: c371161e82ef
+    last_write_checksum: sha1:52bcfd15f453a454980aa37b59004beac227b8ab
+    pristine_git_object: 216a14d90fb85c6b65400247d5968b794fc129f4
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetGroupsForUserResponse.java:
     id: 94f49a4692cb
     last_write_checksum: sha1:287824636effac564face46c455c290ef6b331f1
     pristine_git_object: 46e11b5984c82090af8075f3500b9cb3c8938113
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetPrincipalRolesRequestBuilder.java:
+    id: f0f59946ec59
+    last_write_checksum: sha1:84786c2da4c3de92f955744f88e6ee99126bbd39
+    pristine_git_object: 3fc90af742e35757521eefe7bab3127e6489953c
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetPrincipalRolesResponse.java:
     id: 3bc2f2f26a24
     last_write_checksum: sha1:94c6f6536258e4bf401140d72f94f862c6e4b211
     pristine_git_object: 4abf823bcc5fe4362e8da498dbfd5d845f5aa134
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetProductEnvironmentRequestBuilder.java:
+    id: d5e2a8668f5c
+    last_write_checksum: sha1:d199788e439b3e3becf44a9a3da0640fce4b9e49
+    pristine_git_object: 17b7a6d95c0b0357700fb3ef7c9410b0da0c3341
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetProductEnvironmentResponse.java:
     id: aba051a2d4a1
     last_write_checksum: sha1:137c04a0ddbf2956efff9f0da91176a8296fad96
     pristine_git_object: e6d7ae697f2326f0f4dd1570422d12105d827ef6
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetProductEnvironmentsRequestBuilder.java:
+    id: 9b7de8f2291f
+    last_write_checksum: sha1:abfdfec97cdbb315bd63d042fc1af1a84f0d5256
+    pristine_git_object: c6479add9315d44a382b08690179c6be3fc34f45
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetProductEnvironmentsResponse.java:
     id: cb8d3c560458
     last_write_checksum: sha1:95ef066793c0f3c8ac788b78bcf1836e99bd6580
     pristine_git_object: 01b5c117292053d0e5ed62d9303e8a0a802129ec
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetRolePrincipalsRequestBuilder.java:
+    id: bfe039b86ae7
+    last_write_checksum: sha1:35608eb34f989339abcba886aa91de2044043b64
+    pristine_git_object: 9ce42bc1c91894f410db371d8279295aecccca12
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetRolePrincipalsResponse.java:
     id: c1a9c128af4e
     last_write_checksum: sha1:ce4e28447114dc9a882bcab5d0ea846aa178b65a
     pristine_git_object: 239bca82c2520fdaa491dadec6833648997f7755
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetRoleRequestBuilder.java:
+    id: e7b5c04e211d
+    last_write_checksum: sha1:a174442b6f033372832571824ab33314bc0d83f4
+    pristine_git_object: 1121978f049df802ca9a46e95de201ef4203e4a8
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetRoleResponse.java:
     id: 686a1c60a996
     last_write_checksum: sha1:8a3a45f0c6b50a3f1c0b1d85fedff8f6649da273
     pristine_git_object: 712966ce808e6b051dbe8b266675faddcb9be067
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetRolesRequestBuilder.java:
+    id: 8113ef3dc747
+    last_write_checksum: sha1:d0cef04dde6e1d69365bce2459076047de59183b
+    pristine_git_object: 96673669eb3f8f0a7ab534c4c5e860ff5b6d4b95
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetRolesResponse.java:
     id: d77250120bf9
     last_write_checksum: sha1:7fe92b1d58e7ac4abcb767946313c5f205eb84e1
     pristine_git_object: 4b8723879b856ff3fac735720d1ea4e4475b0dc2
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetSubAccountsForUserRequestBuilder.java:
+    id: bd5cbfd2e3f4
+    last_write_checksum: sha1:0e9cf03ef353ab1ece5b50b209a8f14eac634f7e
+    pristine_git_object: 412bd159f03ebdd1b1fe48c16a5bc287a44e1c0d
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetSubAccountsForUserResponse.java:
     id: 388001dea241
     last_write_checksum: sha1:789e2645dbd01b7fb10d00adebd5f0471e7b343a
     pristine_git_object: 67891abab174ea2c4b8a57120350a26fa412518e
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetSystemPoliciesRequestBuilder.java:
+    id: 329f3906ef3b
+    last_write_checksum: sha1:df00bedaebff1a2aa085dec2d20bb6e321434d4e
+    pristine_git_object: e6556f4b85a1e7cfa7b417aaddc5c48b47cc2a80
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetSystemPoliciesResponse.java:
     id: f90a85999dd7
     last_write_checksum: sha1:a19d09a54b608e2805064c4adbc21519f1ae178d
     pristine_git_object: cbe47ae8b7283ec72ae38882929b5b737f0d70c0
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetSystemRolesAndPoliciesCatalogRequestBuilder.java:
+    id: 8d566cfa9508
+    last_write_checksum: sha1:5478f0dd72e9af4989b31554bf4e6742e994aac3
+    pristine_git_object: 6cabb2d9cada9d6a218a001ec0b244a0318dbcaf
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetSystemRolesAndPoliciesCatalogResponse.java:
     id: 4cc0f680f61c
     last_write_checksum: sha1:178e4699d0124d0b8d357ceae689aff658719f83
     pristine_git_object: d2cce30a2b20bd216dfcd21f1bea96367e90b04b
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetUserGroupRequestBuilder.java:
+    id: 2c472a7ef186
+    last_write_checksum: sha1:e96ac20fb217a4458789173a5a3da025f5eed4ed
+    pristine_git_object: 25517caca9a92da8a87764faadaf81b8384ab33e
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetUserGroupResponse.java:
     id: e2507f947056
     last_write_checksum: sha1:cd90b6d65120a7524fc4384e58689f530e1abf14
     pristine_git_object: f5e934465e6247f77b2268189f5b846db1ad7023
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetUserGroupsRequestBuilder.java:
+    id: fdf3730f29f9
+    last_write_checksum: sha1:cf25cd382a305f24bd1c0b9b8d9f09e0ee87e759
+    pristine_git_object: 2700392b8e676e64fa46b44aec1f287639151fa9
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetUserGroupsResponse.java:
     id: 5fb5a71823dc
     last_write_checksum: sha1:8d07f0ed000d9da143cb29ba5c078b75c19a36d6
     pristine_git_object: ad072b1769488f03ea20539fdbf9e77cef614686
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetUserRequestBuilder.java:
+    id: b3da4165bdf5
+    last_write_checksum: sha1:2f0b4c33979a172e4fc010f24155a10501486d72
+    pristine_git_object: aa810c4e03cee22cd354dec4885b22c32dab78b5
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetUserResponse.java:
     id: 37ae22d9ea00
     last_write_checksum: sha1:0b2dfb135fed36085e30904df7047938b018e8c5
     pristine_git_object: f74b2c8467e8f25dd7118065784b616bdbff36f8
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetUsersInUserGroupRequestBuilder.java:
+    id: b1b8d851bab3
+    last_write_checksum: sha1:5784c084427efbea10801c02fd2eea7b457b27c3
+    pristine_git_object: ed07384e786e62a28cef44ea1a4ec7f3fbcc8bcf
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetUsersInUserGroupResponse.java:
     id: d997664262cb
     last_write_checksum: sha1:d340de54bc3850404a47dae0d1b78566669697c4
     pristine_git_object: b80ef8848575d12adcbc6444e852c3de259d8fd3
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetUsersRequestBuilder.java:
+    id: ee250ba5ba03
+    last_write_checksum: sha1:8481a2479bd152cd348e9af30b7e176ba42a5cdb
+    pristine_git_object: 16bd902fa6a8c65c09a948cd1b936f2fdac133fe
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/GetUsersResponse.java:
     id: ee0722e42151
     last_write_checksum: sha1:b63920c9685e5bfc9b6461b9581944bd0b54f96b
     pristine_git_object: c78e1d2fa195790861d835215fa31ae68d3f8397
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/InspectMultipleRequestBuilder.java:
+    id: cdf17ed1e138
+    last_write_checksum: sha1:19bad9ea09cb6e2286c27c2d0055ffff6e040b1d
+    pristine_git_object: dae103ae23d2e5edde6a2135c07796fdb10c8b8e
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/InspectMultipleResponse.java:
     id: d7a700f61a11
     last_write_checksum: sha1:148dc86d06f5335e47a8991a2f1e801e737be9f6
     pristine_git_object: 91f51ffde0f503c6ea545943b835ba3b6d355c25
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/InspectRequestBuilder.java:
+    id: 1cd6225053dc
+    last_write_checksum: sha1:7036a18b551af2f3ecdce94330788f90be24d91d
+    pristine_git_object: b4997c22724f3bd97cb59b9317aca40d875567b3
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/InspectResponse.java:
     id: 93ab26699823
     last_write_checksum: sha1:cf0e05d426461738456e0ddb9f2271320604a96b
     pristine_git_object: f5ede1ce20a39d1143c40ddf19b1b47f4f291dbf
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/RemoveUserFromUserGroupRequestBuilder.java:
+    id: c46e930708c0
+    last_write_checksum: sha1:516c4337e2fe3a62782d52d95633248135cc34d9
+    pristine_git_object: 08d0015b5530dc0f66f71962ee3c04bcb41c5376
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/RemoveUserFromUserGroupResponse.java:
     id: ab9974418543
     last_write_checksum: sha1:f20eae4251ba936b37439e77fd4a60ede9166af7
     pristine_git_object: 5f3c5ba76e7902880f3b3978a432b1cca0156698
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateAccessKeyRequestBuilder.java:
+    id: f3e11df9d956
+    last_write_checksum: sha1:c643741b8fa381c988e747b1b1ed45c7630f3307
+    pristine_git_object: ee84c4cc3eba9de8a7f17a4ef3d881585768f8ae
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateAccessKeyResponse.java:
     id: 536d92369043
     last_write_checksum: sha1:7e7aabdb2e43f9fddac72d7d2dac8894209de12e
     pristine_git_object: a5f4e016434c90952c53368ea9efd544220ad61c
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateCustomPolicyRequestBuilder.java:
+    id: c9d8efbc9d96
+    last_write_checksum: sha1:aa0a0d392564d1652273fea772d9b1345f2234f5
+    pristine_git_object: ca2c0ad4286b9db38505d0ce75942fb0a931bb4f
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateCustomPolicyResponse.java:
     id: bd65dd369d12
     last_write_checksum: sha1:11cfd04bbc54aeaf359be05de79818ba1d9f32f5
     pristine_git_object: ce76fa796af466dcfa849ffd940aafa64b5e0378
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdatePrincipalRolesRequestBuilder.java:
+    id: 64f54b49baba
+    last_write_checksum: sha1:722690265a399c7f0b859910b42d41488e95f9d4
+    pristine_git_object: 105dd328e7d98d602a6e97386be09dafccdc4cef
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdatePrincipalRolesResponse.java:
     id: 58347e46f3e3
     last_write_checksum: sha1:638c1cb4231e750a36df9f45b76a2a82e9328215
     pristine_git_object: 5d4ce3edb7b625c7f62a830bfa09926d21c4d43a
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateProductEnvironmentRequestBuilder.java:
+    id: 609ba4b7715d
+    last_write_checksum: sha1:a1dd2bd893886220ef305811eeab5410d596951b
+    pristine_git_object: 9bb79d0af116d0e3517d8b035ca5b69e24d9cac3
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateProductEnvironmentResponse.java:
     id: d345bd5747e4
     last_write_checksum: sha1:daa0af89ac8c56ba92d19190bc025f40c33d94e9
     pristine_git_object: a74aeec22a27daf6f8405faf98f2065ec78a5522
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateRolePrincipalsRequestBuilder.java:
+    id: 1ff6547fa52c
+    last_write_checksum: sha1:dcbfeca0b10333cbe71c6a3c61e8c2b8d850e92b
+    pristine_git_object: cfb0811692e9c165d264ef0db03f948bce8c8873
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateRolePrincipalsResponse.java:
     id: 1e948005a0e3
     last_write_checksum: sha1:5455bd09fdf2ca067faa7d9b803766c57e99b714
     pristine_git_object: 2eb6f659434add9e9dbd02af5ee06e0f6715011d
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateRoleRequestBuilder.java:
+    id: 1d598495ca82
+    last_write_checksum: sha1:0601426161b025594af8ac56edd33385a6ca8f58
+    pristine_git_object: ccd9285fb18dc401793d3c5ef5231f6b6a57e0cc
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateRoleResponse.java:
     id: be1484861dd4
     last_write_checksum: sha1:c0640c21f63b0a12840a7ec77228a95bd7c2da8d
     pristine_git_object: 7c07a4109952b1d113b5869b9218024bb638e1ab
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateUserGroupRequestBuilder.java:
+    id: fc19ad45e8d7
+    last_write_checksum: sha1:1e9c18b4ce9f6111b05f635a8b86a05e9d119b58
+    pristine_git_object: 97cb7b0b7125ad9f055445febba303549ec37c41
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateUserGroupResponse.java:
     id: 1f0afdb3d4e0
     last_write_checksum: sha1:52d7956a471c6a3f32ddf06f3cca2643103cb719
     pristine_git_object: 17ab1369f9ae5eca137acf9381bdf1ed23cda25a
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateUserRequestBuilder.java:
+    id: f2736eeec93a
+    last_write_checksum: sha1:0c205a84ad619f2e6e545b899859fe2b271951ea
+    pristine_git_object: b1ca644d5b14206dd7f8561529c61315d0448110
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/UpdateUserResponse.java:
     id: 108723e3c9e8
     last_write_checksum: sha1:2da9baa11ef774c7b70016869084436b90178dc7
     pristine_git_object: 388b01e5567959387b2a3ffd00a7758e98b88dc7
+  src/main/java/com/cloudinary/account/provisioning/models/operations/async/ValidateCedarPolicyRequestBuilder.java:
+    id: 510a45d62703
+    last_write_checksum: sha1:ba1949ec95259f2590cc7d8cec57729efb977054
+    pristine_git_object: 8a73b361824d8749afcb044322e9fbadb075d302
   src/main/java/com/cloudinary/account/provisioning/models/operations/async/ValidateCedarPolicyResponse.java:
     id: d1f9755b46d4
     last_write_checksum: sha1:004cf2313c2af19c41a58faf4f50a63a91e0c5c5
     pristine_git_object: 34cd97f2e6be290a2943dc858a5f25d7fc7264e1
   src/main/java/com/cloudinary/account/provisioning/operations/AddUserToUserGroup.java:
     id: aca5906a8eca
-    last_write_checksum: sha1:163076bba9f223c3b613aaa6af18d8c8b46d1b5a
-    pristine_git_object: 871b2f4b59683681a3f227117b31fd765a90bd7b
+    last_write_checksum: sha1:d5167c7e1157ee58285d95e2d2117ef9e688f416
+    pristine_git_object: 5f1f7c9f599617923dcf5491ab13efc0a1733cfc
   src/main/java/com/cloudinary/account/provisioning/operations/CreateCustomPolicy.java:
     id: 1711448d2432
-    last_write_checksum: sha1:9830f419ae994a149e60e95d4a230f5f306d3035
-    pristine_git_object: 06bd9883ae3d2e127cbd198a5742012d4e98a2fe
+    last_write_checksum: sha1:f4d78c6076f930e85fe655ad1cc9d0a162766b3f
+    pristine_git_object: 12ef7b200886c67a4f93b03ec74934e346553e96
   src/main/java/com/cloudinary/account/provisioning/operations/CreateProductEnvironment.java:
     id: 8f99db850edf
-    last_write_checksum: sha1:7baf121eccf5773f336b4aa6f0068f415da2de93
-    pristine_git_object: 0bfb34ff1deea2d449e1038c7dc52a2328a1eb66
+    last_write_checksum: sha1:1a13f04c03d61ce5e94f36d43af29ec445928ea2
+    pristine_git_object: 11c08f522f77b980d5a5ca335a22d493549957b2
   src/main/java/com/cloudinary/account/provisioning/operations/CreateRole.java:
     id: ad84899a052a
-    last_write_checksum: sha1:aa2d993ddd3a726b7031aeb7b1c5b07e897b99b7
-    pristine_git_object: 38b1af48a7f438d5ad8ae47f4a3d3825a4aa8636
+    last_write_checksum: sha1:23ef32c96da1cb7a12b1c9498523f25f3bb9a318
+    pristine_git_object: c695089eeb065ce8bb2f14e81e781804e8ebf60b
   src/main/java/com/cloudinary/account/provisioning/operations/CreateUser.java:
     id: 43c87b1ad8b6
-    last_write_checksum: sha1:ae3ea4d0504fcdbb9ea3053284190967df804e19
-    pristine_git_object: 1a2d55144a3ab4837e148f2bdcb47d9e419a5ee1
+    last_write_checksum: sha1:dc3a677c72026ff3dc61a423e37cacd69616d4d3
+    pristine_git_object: ca601d29fc8a52f139e9944d3218c305a48b1677
   src/main/java/com/cloudinary/account/provisioning/operations/CreateUserGroup.java:
     id: 6c8ef4b40306
-    last_write_checksum: sha1:118ab92769ab6f9591da0fa94f97a4ab498c4977
-    pristine_git_object: 88d13fff8c53282f24a375b1eb6b1b01978c4910
+    last_write_checksum: sha1:80a8b155998d2a671025495cd7392dd6040cc6a9
+    pristine_git_object: e842eb6401582d2f0ac9f74b4fc51681a2042659
   src/main/java/com/cloudinary/account/provisioning/operations/DeleteAccessKey.java:
     id: 06499d136b19
-    last_write_checksum: sha1:1ba36018032aa3be400e25b8c427d76db7ceab16
-    pristine_git_object: 9bf428870a25b3fa475b806eb6952b582007904c
+    last_write_checksum: sha1:bf65775686f6983ed12d1c7a0ab9096222774f23
+    pristine_git_object: 32a9961c395c615d0ffe7640247b2cc460907f2d
   src/main/java/com/cloudinary/account/provisioning/operations/DeleteAccessKeyByName.java:
     id: c19165fa672c
-    last_write_checksum: sha1:67227cc66b7c92dc930f5d011f4e984518b606dc
-    pristine_git_object: 6f2d02275979986924f79ea931b0f0759fd8a9f1
+    last_write_checksum: sha1:b941680e38959408bf055df5353340ec968bc9ab
+    pristine_git_object: a187a5df316bb19a23878ec45a5b656fb24d2a3b
   src/main/java/com/cloudinary/account/provisioning/operations/DeleteCustomPolicy.java:
     id: 3f119455ea80
-    last_write_checksum: sha1:d0bd751a3e1198596df8c4780dbdd896d5ba0eda
-    pristine_git_object: 7a2c2e5bed105714573470a90ae3616f7193b9a5
+    last_write_checksum: sha1:e03c57cebb8541fcbc8aa3e12d7017f66cdbadf2
+    pristine_git_object: 49b1ac6ae10b679eb347a72938bda9accfb8499b
   src/main/java/com/cloudinary/account/provisioning/operations/DeleteProductEnvironment.java:
     id: d4270bcfa53d
-    last_write_checksum: sha1:cde5993e99b1358c2c083680d6c3462f967607bc
-    pristine_git_object: 98e1c88fcda76653858003bfc2cda8b5e607bf6d
+    last_write_checksum: sha1:6ae6c5ffd40e2e8c160397db8dded4b998581cd1
+    pristine_git_object: 9a283350678bdcdf83c034bc102392ec3abe5fe8
   src/main/java/com/cloudinary/account/provisioning/operations/DeleteRole.java:
     id: 8d526643e5d5
-    last_write_checksum: sha1:22fd20051967f0e131f006c38989a0edbfc94ac3
-    pristine_git_object: 4a99c32a69a54b8c4c252524dd827b7ead4d79c0
+    last_write_checksum: sha1:35b2a15f8340cef30578259fc90bb1353b62d4e3
+    pristine_git_object: d8977738dffd501d54bc13bb35f645f53a10fa05
   src/main/java/com/cloudinary/account/provisioning/operations/DeleteUser.java:
     id: 43b2fb0383cc
-    last_write_checksum: sha1:4d51972e2cc3b0c8321f3fd6685fac1e2ed5ea09
-    pristine_git_object: f24f9ea29cdfd41969cddad55d244b71c8b3e61e
+    last_write_checksum: sha1:9a13f0ed2e696d5af1314e387f59620d00634671
+    pristine_git_object: a369fd67e4e321e5b7c68c6266b367684173ee40
   src/main/java/com/cloudinary/account/provisioning/operations/DeleteUserGroup.java:
     id: 704d47bb5c8d
-    last_write_checksum: sha1:deaca2303eaab7784fe0a6f766fa9a9c85ba9609
-    pristine_git_object: f888e09cc043e8855f5665cdca0eeda45b087cd9
+    last_write_checksum: sha1:0087bbfe583338f655596358584861b73ccae0de
+    pristine_git_object: e1c040440ffd8baef305f3a6e7159d18d4ce6496
   src/main/java/com/cloudinary/account/provisioning/operations/GenerateAccessKey.java:
     id: cda78aab5a27
-    last_write_checksum: sha1:d7853c0ee81a475aa0d1b0c3af9c42819e77f867
-    pristine_git_object: 555cdcb552372807aa9f88b1f0a7854b204ae279
+    last_write_checksum: sha1:9236295017297f443ee797994cb13b272280d479
+    pristine_git_object: c143a4f2fd5f2a14f47b6a4b0f7cfd4f3cdd7fc2
   src/main/java/com/cloudinary/account/provisioning/operations/GetAccessKeys.java:
     id: d6fbdd5efad1
-    last_write_checksum: sha1:161f9c4b5057849d513c2639f0487d843f6307d3
-    pristine_git_object: 7a7bdbe476490e26a456c08b485f5c4d454dca2b
+    last_write_checksum: sha1:ac83a57e8c92dcce2f0893296e3da18091332a67
+    pristine_git_object: 711ec33d3f1bcacaf3b176548bd0fa97dd111f11
   src/main/java/com/cloudinary/account/provisioning/operations/GetBillingUsage.java:
     id: 16c1bce36570
-    last_write_checksum: sha1:d8973d08af31fd765d4771050d57f1d192e28408
-    pristine_git_object: fbaf937c963a07aa2b89b6d6d3e129099f4d83f0
+    last_write_checksum: sha1:6f233e5bf40570a12f3182c1c5d7e3fb4e016af9
+    pristine_git_object: b92da4bd02c20f66d28e43b50e6ad414af2a09c0
   src/main/java/com/cloudinary/account/provisioning/operations/GetCedarSchema.java:
     id: 2b7c2d3adef0
-    last_write_checksum: sha1:3762a19689963ade93e61a5d1fc82bd9020e699b
-    pristine_git_object: 28180136e71a586009779c2d0e024e3f7ff04385
+    last_write_checksum: sha1:97adcbc1357ee64a373ecc6ffffe4e96bed686c3
+    pristine_git_object: 45eb1121327bfa6f63320cad66f927feac58d78f
   src/main/java/com/cloudinary/account/provisioning/operations/GetCustomPolicies.java:
     id: 5e7016af9daf
-    last_write_checksum: sha1:3413a901389dbdb590f10583ca6b15b074ff4c92
-    pristine_git_object: c91b6bcd4b1144c1bd922ad8d108f3cffeb48028
+    last_write_checksum: sha1:6565b965a6bea02092fd3e2b447bc2e9192b4a60
+    pristine_git_object: 8c1e7e1706f75c102de6b1977c9d4a3b9220a4c7
   src/main/java/com/cloudinary/account/provisioning/operations/GetCustomPolicy.java:
     id: bda0e352d3c8
-    last_write_checksum: sha1:fd9b1816beb50aaa01be4d1d358208588567f163
-    pristine_git_object: 4ec05e47352c45f832b739340d834528a7d0c180
+    last_write_checksum: sha1:95e86ef097d95569f6ce2b82dff04b885f5fdb28
+    pristine_git_object: 1ecd2511ac02bdd6e31b87e742c3c8c52c25602d
   src/main/java/com/cloudinary/account/provisioning/operations/GetEffectivePolicies.java:
     id: aeb4fc6e620c
-    last_write_checksum: sha1:444041635a017da706dc94bd38540273fe23fd41
-    pristine_git_object: cce7d03ffe3128fecf08d47098c2e7f98f4e797d
+    last_write_checksum: sha1:52a69eeaf982a3cd5d0d7b569f356a34e782bcfc
+    pristine_git_object: 5e2d3d3f0f40adee8c53eca78d0a0152ba3e75ef
   src/main/java/com/cloudinary/account/provisioning/operations/GetGroupsForUser.java:
     id: 49e6757bdfd1
-    last_write_checksum: sha1:2a8ad96074bde80909ae866fe24e50e6c25d8afe
-    pristine_git_object: 111853e7de4cce92fdc98d98a88e41dbc444e081
+    last_write_checksum: sha1:b939d069c4fe01d43175f6e03266d23fd0072d78
+    pristine_git_object: 542178ddcd29a73577482743f11c425869d497d8
   src/main/java/com/cloudinary/account/provisioning/operations/GetPrincipalRoles.java:
     id: dce3b504be2b
-    last_write_checksum: sha1:0429808417ace93302615667d99634f383c2d9ee
-    pristine_git_object: 9d567f45cdd32155f2a4187954419618d52dc2d6
+    last_write_checksum: sha1:634eb6a0ddb8d000493c8cc77a47664db5066847
+    pristine_git_object: 3f7b76901268dfc4086ab20c3b4ae427c496161c
   src/main/java/com/cloudinary/account/provisioning/operations/GetProductEnvironment.java:
     id: c4d46d72b136
-    last_write_checksum: sha1:b5b294b9da07b5f8b6355e7ae0739b9887e78d1c
-    pristine_git_object: 40736f6e99f755115512c2be604f773674fc327a
+    last_write_checksum: sha1:6e0f1fe148cc860da1adc387734503266e7f8a42
+    pristine_git_object: 626cb1f11587bb1b2746423e865626f5ae4b35a5
   src/main/java/com/cloudinary/account/provisioning/operations/GetProductEnvironments.java:
     id: 9a6e7dd6d700
-    last_write_checksum: sha1:2d56a1769169cfe84eee7ed1024283b05c473dbb
-    pristine_git_object: 9a307e8368e9ba877cc7240579a5443389f73954
+    last_write_checksum: sha1:26861d2de9c0ed7e8ab2ee17ec19aba1e460f7b1
+    pristine_git_object: 949e2eaf2592f4f8f8d151fb84bf880ee0d5df57
   src/main/java/com/cloudinary/account/provisioning/operations/GetRole.java:
     id: d233e2267038
-    last_write_checksum: sha1:ee7939eea80a22be6599d29bf90cd044979d9a23
-    pristine_git_object: 0f1d208f30a907f6962c8dce36dcf30c05a812c6
+    last_write_checksum: sha1:1158b30c1a625feaea0bb778a897988f734cbb3a
+    pristine_git_object: f8e30355c585d8b2dc398865525f51594e165423
   src/main/java/com/cloudinary/account/provisioning/operations/GetRolePrincipals.java:
     id: 3340f783b340
-    last_write_checksum: sha1:900ab4b70b53dd0a9e6af1b8aebae3f00dd977f6
-    pristine_git_object: f077ef6fa0c6c8aae65afeb1f61557d169c7e942
+    last_write_checksum: sha1:783db75f63b2b44e3bb8d0d98fb77ae181eee719
+    pristine_git_object: da82b1f921ac04500bac43a86ae5aa6a45d6ac46
   src/main/java/com/cloudinary/account/provisioning/operations/GetRoles.java:
     id: 1774cf020c3e
-    last_write_checksum: sha1:df2ecca8e736a38e7c3da1028c505744d84ebf83
-    pristine_git_object: 5918399bd3ba5a63edceeff2fe73fcf5eaf62b94
+    last_write_checksum: sha1:461cdd74b4fd214f0aab3b60d6cfdeaf7a4fb331
+    pristine_git_object: 3f31d767c4953cc915d20b840b93c38ac6fd6f61
   src/main/java/com/cloudinary/account/provisioning/operations/GetSubAccountsForUser.java:
     id: 16e14f4726b8
-    last_write_checksum: sha1:ea0154362d94e16e1b871c206cb6b7a29ad5dd33
-    pristine_git_object: 7514604fe108eeaad8edbc31b8aa4939ea75d118
+    last_write_checksum: sha1:52d492a2b7c689bb88afd066fe1e2ba0adf4d754
+    pristine_git_object: bdae08fbc3614e224c140cfbfb294834c656da43
   src/main/java/com/cloudinary/account/provisioning/operations/GetSystemPolicies.java:
     id: 2c2ec9969091
-    last_write_checksum: sha1:e251d6861445a16dcebacf8148b9ac809bc04236
-    pristine_git_object: fbf2fc934fe745ce59e8249be1230ae297acafb3
+    last_write_checksum: sha1:16460a0b99c9733a4c64d5c9d8903d0b92839ddc
+    pristine_git_object: 8bbc0cbd868e665d8a343194f55d6ec3c5597fbc
   src/main/java/com/cloudinary/account/provisioning/operations/GetSystemRolesAndPoliciesCatalog.java:
     id: 584cb4e9089e
-    last_write_checksum: sha1:d1a683d27b48256198d703ede9d4b1ff56143a63
-    pristine_git_object: 107586c8c22b6ac8cc5fc4dc326487e47c35d255
+    last_write_checksum: sha1:3bf19e56705199db5c5c4ca8ab95ec755a564df6
+    pristine_git_object: 3cea956ac9bf6fc50d2765c6f40664c25d258d03
   src/main/java/com/cloudinary/account/provisioning/operations/GetUser.java:
     id: 3703b2078447
-    last_write_checksum: sha1:30b857a4d4975d217fc742afe659718c69ce0e87
-    pristine_git_object: 5be7174cf6efb0412f0a30b4d2ab953813d38fdd
+    last_write_checksum: sha1:70991dd187a2ca465db1784b1e4b448f92a5a13e
+    pristine_git_object: 65b18cadc78d47e96711f1913725b8d65b4bebec
   src/main/java/com/cloudinary/account/provisioning/operations/GetUserGroup.java:
     id: 7eaef6aed545
-    last_write_checksum: sha1:cae45ea723a92b7170213eeb80e56f81eec8b619
-    pristine_git_object: c4cede0c512da11db2c5142239aa27ac9c053cd7
+    last_write_checksum: sha1:c7a123031a1399e85f7eda89e30ea120b974f380
+    pristine_git_object: 1d41294ddd48b07a27974fe1d99a8d70944c65dc
   src/main/java/com/cloudinary/account/provisioning/operations/GetUserGroups.java:
     id: ae04fed89b80
-    last_write_checksum: sha1:2590676c40dd09c01ff85d80377aac8fd8d61cff
-    pristine_git_object: 32e6ed417ef11e5fb02087694101abdc61590380
+    last_write_checksum: sha1:2fcbfba8874791547d8323b72f6bad3f3411e211
+    pristine_git_object: 47dfd24b1cddd1e123c388e9aa13ddd329bfc857
   src/main/java/com/cloudinary/account/provisioning/operations/GetUsers.java:
     id: 56af0e2337c6
-    last_write_checksum: sha1:9d88db47a56d55f2f11ac83d60bba9c98e2e8efe
-    pristine_git_object: 8326230703d7aa11f0e3ec098d162743601faf18
+    last_write_checksum: sha1:23fe21b24c2d865dd03f8ac3238c95fcbe747efc
+    pristine_git_object: a7b0cdff0e3022b22f2a86a787ad262c22bb8a08
   src/main/java/com/cloudinary/account/provisioning/operations/GetUsersInUserGroup.java:
     id: 26db10cf274c
-    last_write_checksum: sha1:c2551031f7bd27b293bfc367b077f8ccac459242
-    pristine_git_object: 75f7eb2bf134ce1881768a4b437ac609e35da344
+    last_write_checksum: sha1:ee65ca129a4001a66a84088113c32eeb01d7b574
+    pristine_git_object: 5fbaadd7f06fa0bc7ba161107f973de531a5982f
   src/main/java/com/cloudinary/account/provisioning/operations/Inspect.java:
     id: df2c931334ff
-    last_write_checksum: sha1:df93ae462fa6ca4de218ec75b4221424ead7be34
-    pristine_git_object: 1b5e32c70e66c61bd5ede9b50ad39aff9316829e
+    last_write_checksum: sha1:b99b0db09f25a03d0e7e188650490e9d77acff5e
+    pristine_git_object: 29c5849d41aea114eab26f4db313a2073dbe3df4
   src/main/java/com/cloudinary/account/provisioning/operations/InspectMultiple.java:
     id: a6b28b1c1441
-    last_write_checksum: sha1:1ddcdce69646129150dcbebd2e508eda9cab5d89
-    pristine_git_object: 0cc95cc784e48550bfaedb136f5057bd077dc904
+    last_write_checksum: sha1:44652a6fadd0ca4d3eea4b855d7920421c3b4a8d
+    pristine_git_object: 4b573ad44d18472572dc3af98c273020f0406d87
   src/main/java/com/cloudinary/account/provisioning/operations/Operations.java:
     id: 9dee20deb86a
     last_write_checksum: sha1:d9195e78879e07786ac2df948e0770667c5c4f8a
     pristine_git_object: eb9f010151cdc535cabfc3f57e7786900a85b993
   src/main/java/com/cloudinary/account/provisioning/operations/RemoveUserFromUserGroup.java:
     id: a83ab2bbf691
-    last_write_checksum: sha1:0dd75d981cb1d8d7a853e5acd9e31efc0201659f
-    pristine_git_object: 22908311a2e49b3ae101044fe7901a57703c0866
+    last_write_checksum: sha1:666a15d3772f6d398fed4aa039cf5d0a07a8db95
+    pristine_git_object: 31d8a267e299911c71a54adcc01af7f21eeba160
   src/main/java/com/cloudinary/account/provisioning/operations/UpdateAccessKey.java:
     id: d18cea59d472
-    last_write_checksum: sha1:c58b67871220282272823dfe803c750c804bff25
-    pristine_git_object: 2031793b3e808830c26b0d8e7c2ccea12339ef7e
+    last_write_checksum: sha1:474a2c090027466650479798fdf346b09587e93d
+    pristine_git_object: c665e93b87b69c85c6060164078da77a4bcb0e0f
   src/main/java/com/cloudinary/account/provisioning/operations/UpdateCustomPolicy.java:
     id: ade98c7de353
-    last_write_checksum: sha1:af67e12c5bd851dfad2e77e5ef1061a01d0fa52a
-    pristine_git_object: 8ca1cff5d4ed54f21bc0a903ae4511b9c0dcea50
+    last_write_checksum: sha1:8f7e69de2338909979ec79bd11a93df495e079e4
+    pristine_git_object: cd8d49798388f2c622764449704e300822af21e5
   src/main/java/com/cloudinary/account/provisioning/operations/UpdatePrincipalRoles.java:
     id: 40e664c3184a
-    last_write_checksum: sha1:a4801b6085682ab7a842edfb5f2c36540e8acaed
-    pristine_git_object: fc93719fe24ba754ab16d667d65a4aeaacb5a680
+    last_write_checksum: sha1:842fcb7bc1d9dd6988ee6353122f677ea55839d5
+    pristine_git_object: 42e386091d1eecaef616ef7932e12505e0c997cb
   src/main/java/com/cloudinary/account/provisioning/operations/UpdateProductEnvironment.java:
     id: 5fec9d9cbb69
-    last_write_checksum: sha1:c8f122d04dd78415757e43f31bb0d08f85faeefe
-    pristine_git_object: 26609b8bbb4f30a3306ebd100626674e1f116b77
+    last_write_checksum: sha1:dfe3873f7990889dcc7716affcb1ee6dd48b9220
+    pristine_git_object: 5d96f9ba7bb3975b6249af075fde044d0e8bb18c
   src/main/java/com/cloudinary/account/provisioning/operations/UpdateRole.java:
     id: 802e2b526713
-    last_write_checksum: sha1:2b4d04c41c8b60fa342ad5a4f9b8973fe3d11b0a
-    pristine_git_object: b31b01244a0bbd30789743fa7b336bbedf7231de
+    last_write_checksum: sha1:4e3abbfc78ba0f51a98aee341f80a4f41cac747e
+    pristine_git_object: 6ab49f5b7dae985a8450517dad23e4b773b6cf4e
   src/main/java/com/cloudinary/account/provisioning/operations/UpdateRolePrincipals.java:
     id: ec4ec4381240
-    last_write_checksum: sha1:efd2f365cf967bdbb3e595fbcdf8a3a105f316e3
-    pristine_git_object: ec3aeca108128df39569381f90f08e02efd4605c
+    last_write_checksum: sha1:8f7857d3d6363a486a2822ebfb950a27814d6a3c
+    pristine_git_object: b3f7888dd44046bc14b9cab5592e9e0ed6a7f52e
   src/main/java/com/cloudinary/account/provisioning/operations/UpdateUser.java:
     id: 37850a06bae6
-    last_write_checksum: sha1:a783fd4893de2bc82d6c6f6d1e0a38c1bb8e8676
-    pristine_git_object: 3f41a0c2c0bf8f7f3bc5a550c2072035ccfafc51
+    last_write_checksum: sha1:dccf510f05dd1d0a87bf3ed417804aaeffb89d3a
+    pristine_git_object: 5b6cc8f7af6cedc202bb63ebbb5afb1d69fcb352
   src/main/java/com/cloudinary/account/provisioning/operations/UpdateUserGroup.java:
     id: 68f36d6518c5
-    last_write_checksum: sha1:84c99dc0a75358e44fd25f7b4981c3b63caa6b6e
-    pristine_git_object: 0d5b7e6377b44343824dce426a0e647291e27106
+    last_write_checksum: sha1:67224b14efa5291f2234676798f796641bbc6dbb
+    pristine_git_object: 527c24d63d120ed217f81e9fbfc7b695308575ca
   src/main/java/com/cloudinary/account/provisioning/operations/ValidateCedarPolicy.java:
     id: c416f1090111
-    last_write_checksum: sha1:ace7574655886f68d3e2c53ceaca21a08b34b41f
-    pristine_git_object: 7dccb89dd0dd1ab522b8604018a4da0c4e5baf16
+    last_write_checksum: sha1:44299c0dd281945d735885e063371232d3a1580b
+    pristine_git_object: 86c6a646ecfd5026f4da5827e7be41acf88b184e
   src/main/java/com/cloudinary/account/provisioning/utils/AsyncHook.java:
     id: eef7fe771e30
     last_write_checksum: sha1:857539f8d0c7089e3862e9d0dd73c73fb8706fcb
@@ -2451,8 +2411,8 @@ trackedFiles:
     pristine_git_object: 08330062b437570dbe16606d5f5701bebf2114e4
   src/main/java/com/cloudinary/account/provisioning/utils/AsyncRetries.java:
     id: d25189262842
-    last_write_checksum: sha1:0ff5b3f26a0583f7a93be885a1a25a03e2d8380b
-    pristine_git_object: 26887f12adb2f55c43349c05540d629044469211
+    last_write_checksum: sha1:48d8067a973f29a53df997f7570e8dbf90becaf2
+    pristine_git_object: 02e4915ffc6eeee5d81fb1e9657d1117a3c88d32
   src/main/java/com/cloudinary/account/provisioning/utils/AsyncRetryableException.java:
     id: 265949bd569d
     last_write_checksum: sha1:f657c3e3ac2a07114387b238d4ed90c13afb280e
@@ -2567,8 +2527,8 @@ trackedFiles:
     pristine_git_object: 2658f4004aabc9a0c6d37136e4e3336544c9dd45
   src/main/java/com/cloudinary/account/provisioning/utils/Multipart.java:
     id: d5ed233d2354
-    last_write_checksum: sha1:d69f9ab68689c7897c42b97e479477d9ffbcdb4a
-    pristine_git_object: b7800466333e1c1765f1c65fe8b4faac45ead006
+    last_write_checksum: sha1:659d4f32a2322418f7b3af6d608254620c9a83c1
+    pristine_git_object: fd5ee1fd19dbb98bea4d2fecd62fd19a33591eff
   src/main/java/com/cloudinary/account/provisioning/utils/MultipartFormMetadata.java:
     id: f74e082cc905
     last_write_checksum: sha1:cc7fd9e9789116913d0406b67f766501ed6d1175
@@ -2583,8 +2543,8 @@ trackedFiles:
     pristine_git_object: f853efb5a95e4ada61bb6f989d90027edbaafd25
   src/main/java/com/cloudinary/account/provisioning/utils/OneOfDeserializer.java:
     id: 3920549a45ad
-    last_write_checksum: sha1:b0806bf15a2a86e5f2e5601d5c2aceae46042acf
-    pristine_git_object: 251822005a827bc179af1e46d0002b1f1e5c6932
+    last_write_checksum: sha1:24d703c01ec56a42b8c67c4c50000afd7184ce38
+    pristine_git_object: 871295d5cac636e038d161567177c2b623c08a21
   src/main/java/com/cloudinary/account/provisioning/utils/Options.java:
     id: 0df51f9190cb
     last_write_checksum: sha1:504172d8575a5a6893e6b65263df73e0610b4662
@@ -2635,8 +2595,8 @@ trackedFiles:
     pristine_git_object: 9b46821aba7efb51395109b1bdc05666ba6b3bbe
   src/main/java/com/cloudinary/account/provisioning/utils/Retries.java:
     id: 33cce84e654c
-    last_write_checksum: sha1:1de2a48b7a9f1b4faa4e760b4dd74aa21a845de5
-    pristine_git_object: b5c843a7430b4ce9188e731dcd8de9dcf45fd827
+    last_write_checksum: sha1:22fe2eddc950fe5979ce21d96c765c767b82119d
+    pristine_git_object: 91f4369ebea22e3cab47e5b7b5a639167ee30a62
   src/main/java/com/cloudinary/account/provisioning/utils/RetryConfig.java:
     id: 42ed7e7cdc1e
     last_write_checksum: sha1:37b671a2aa77b79ff2caeb0351ff48361e219dc9
@@ -2663,8 +2623,8 @@ trackedFiles:
     pristine_git_object: c284a814f3e5b5680fabb48459f67cfd3d44bd9e
   src/main/java/com/cloudinary/account/provisioning/utils/SpeakeasyHTTPClient.java:
     id: 024960783efa
-    last_write_checksum: sha1:13b327c2e1818c7c1e0035aaaf50bd62a2174775
-    pristine_git_object: d5b155640cb7037cbe1c51d521ad6d81eb9226e2
+    last_write_checksum: sha1:f4a5d1b421e09e10d17c10dd6e41325fb47119b1
+    pristine_git_object: b3afc4cc4cbacedef2e8838c3cb7b5809055b932
   src/main/java/com/cloudinary/account/provisioning/utils/SpeakeasyLogger.java:
     id: e81f0b7cda31
     last_write_checksum: sha1:947c3d4fbc20be8ec8f68fbe95b88016b29dcefa
@@ -2675,8 +2635,8 @@ trackedFiles:
     pristine_git_object: bc3e6300634d7924a6d97b0b87ed429fe23a7147
   src/main/java/com/cloudinary/account/provisioning/utils/StreamingParser.java:
     id: 2942fcb30289
-    last_write_checksum: sha1:eb59bfa2bd67efe03f3c382cc9be8ea48624f4a1
-    pristine_git_object: 18bf2c5545119e812bd9070ea337f72b827b2eb5
+    last_write_checksum: sha1:70d5c35752517bd560eb2e3823d4182dea8ae908
+    pristine_git_object: 96090be70705b05497f57039bf8c648698ed0766
   src/main/java/com/cloudinary/account/provisioning/utils/TypedObject.java:
     id: 2a111794b76d
     last_write_checksum: sha1:4bbc09ebe66f5dbd43d073e46bf00bed15764609
@@ -2942,7 +2902,7 @@ examples:
         path:
           account_id: "<id>"
       requestBody:
-        application/json: {"name": "John", "email": "john@example.com", "role": "technical_admin", "enabled": true}
+        application/json: {"name": "John", "email": "john@example.com", "enabled": true, "roles": [{"id": "media_library_admin"}]}
       responses:
         "200":
           application/json: {"id": "7f08f1f1fc910bf1f25274aef11d27", "name": "jenny_bar", "role": "master_admin", "email": "jenny_bar@example.com", "pending": true, "enabled": true, "created_at": "2019-09-12T11:53:57Z", "updated_at": "2019-09-12T11:53:57Z", "last_login": "2022-01-11T15:11:04Z", "all_sub_accounts": true}
@@ -2972,7 +2932,7 @@ examples:
           account_id: "<id>"
           user_id: "0abed8dfcc039ea05e2a1d494fd442"
       requestBody:
-        application/json: {"name": "John", "email": "john@example.com", "role": "technical_admin", "enabled": true}
+        application/json: {"name": "John", "email": "john@example.com", "enabled": true, "role_management": {"operation": "add", "roles": []}}
       responses:
         "200":
           application/json: {}
@@ -2984,7 +2944,7 @@ examples:
           account_id: "<id>"
           user_id: "0abed8dfcc039ea05e2a1d494fd442"
       requestBody:
-        application/json: {"name": "John", "email": "john@example.com", "role": "technical_admin", "enabled": true}
+        application/json: {"name": "John", "email": "john@example.com", "enabled": true, "role_management": {"operation": "add", "roles": []}}
       responses:
         "200":
           application/json: {"id": "0abed8dfcc039ea05e2a1d494fd442", "name": "John", "role": "technical_admin", "email": "john@example.com", "pending": true, "enabled": true, "created_at": "2020-09-03T13:33:25Z", "updated_at": "2020-09-03T13:33:25Z", "all_sub_accounts": true}
@@ -3366,9 +3326,9 @@ examples:
         application/json: {"policy_statement": "permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n", "description": "Permit read access to the Clothing folder with external ID asdfjkl12347890.", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "name": "Read access to Clothing folder", "enabled": true}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["name"]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["name"]}}}
     invalidFieldErrorExample:
       parameters:
         path:
@@ -3377,9 +3337,9 @@ examples:
         application/json: {"policy_statement": "permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n", "description": "Permit read access to the Clothing folder with external ID asdfjkl12347890.", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "name": "Read access to Clothing folder", "enabled": true}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"scope_type": "account"}]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"scope_type": "account"}]}}}
     cedarErrorExample:
       parameters:
         path:
@@ -3388,9 +3348,9 @@ examples:
         application/json: {"policy_statement": "permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n", "description": "Permit read access to the Clothing folder with external ID asdfjkl12347890.", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "name": "Read access to Clothing folder", "enabled": true}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00002", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00002", "message": "invalid request", "details": {"fields": [{"policy_statement": "permit(principal == Cloudinary::APIKy::\"1234\", action == Cloudinary::Action::\"read\", resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\"asdfjkl12347890\")} ;"}, {"cedar_errors": [{"cedar_message": "invalid_principal"}]}]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00002", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00002", "message": "invalid request", "details": {"fields": [{"policy_statement": "permit(principal == Cloudinary::APIKy::\"1234\", action == Cloudinary::Action::\"read\", resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\"asdfjkl12347890\")} ;"}, {"cedar_errors": [{"cedar_message": "invalid_principal"}]}]}}}
   getCustomPolicy:
     CustomPolicyExample:
       parameters:
@@ -3442,9 +3402,9 @@ examples:
         application/json: {"policy_statement": "permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n", "description": "Permit read access to the Clothing folder with external ID asdfjkl12347890.", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "name": "Read access to Clothing folder", "enabled": true}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["name"]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["name"]}}}
     invalidFieldErrorExample:
       parameters:
         path:
@@ -3454,9 +3414,9 @@ examples:
         application/json: {"policy_statement": "permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n", "description": "Permit read access to the Clothing folder with external ID asdfjkl12347890.", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "name": "Read access to Clothing folder", "enabled": true}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"scope_type": "account"}]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"scope_type": "account"}]}}}
     cedarErrorExample:
       parameters:
         path:
@@ -3466,9 +3426,9 @@ examples:
         application/json: {"policy_statement": "permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n", "description": "Permit read access to the Clothing folder with external ID asdfjkl12347890.", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "name": "Read access to Clothing folder", "enabled": true}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00002", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00002", "message": "invalid request", "details": {"fields": [{"policy_statement": "permit(principal == Cloudinary::APIKy::\"1234\", action == Cloudinary::Action::\"read\", resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\"asdfjkl12347890\")} ;"}, {"cedar_errors": [{"cedar_message": "invalid_principal"}]}]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00002", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00002", "message": "invalid request", "details": {"fields": [{"policy_statement": "permit(principal == Cloudinary::APIKy::\"1234\", action == Cloudinary::Action::\"read\", resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\"asdfjkl12347890\")} ;"}, {"cedar_errors": [{"cedar_message": "invalid_principal"}]}]}}}
   deleteCustomPolicy:
     authorizationErrorExample:
       parameters:
@@ -3506,9 +3466,9 @@ examples:
           principal_type: "user"
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"scope_type": "account"}]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"scope_type": "account"}]}}}
   getRoles:
     GetRolesExample:
       parameters:
@@ -3609,9 +3569,9 @@ examples:
         application/json: {"id": "upload_manager_12334565", "permission_type": "global", "scope_type": "prodenv", "name": "Upload manager", "description": "Responsible for managing upload presets and uploading new assets.", "system_policy_ids": ["cld::policy::global::upload_presets::manage", "cld::policy::global::folder_and_asset_management::create_asset"]}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["name"]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["name"]}}}
     invalidFieldErrorExample:
       parameters:
         path:
@@ -3620,9 +3580,9 @@ examples:
         application/json: {"id": "upload_manager_12334565", "permission_type": "global", "scope_type": "prodenv", "name": "Upload manager", "description": "Responsible for managing upload presets and uploading new assets.", "system_policy_ids": ["cld::policy::global::upload_presets::manage", "cld::policy::global::folder_and_asset_management::create_asset"]}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"scope_type": "account"}]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"scope_type": "account"}]}}}
   getRole:
     GetRoleExample:
       parameters:
@@ -3680,9 +3640,9 @@ examples:
         application/json: {"name": "Upload manager", "description": "Responsible for managing upload presets and uploading new assets.", "system_policy_ids": ["cld::policy::global::upload_presets::manage", "cld::policy::global::folder_and_asset_management::create_asset"]}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["name"]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["name"]}}}
     invalidPolicyIDFieldErrorExample:
       parameters:
         path:
@@ -3692,9 +3652,9 @@ examples:
         application/json: {"name": "Upload manager", "description": "Responsible for managing upload presets and uploading new assets.", "system_policy_ids": ["cld::policy::global::upload_presets::manage", "cld::policy::global::folder_and_asset_management::create_asset"]}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"system_policy_ids": "cld::global::upload_presets::sample"}]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"system_policy_ids": "cld::global::upload_presets::sample"}]}}}
   deleteRole:
     authorizationErrorExample:
       parameters:
@@ -3724,7 +3684,7 @@ examples:
           param_value: ["asdfjkl12347890"]
       responses:
         "200":
-          application/json: {"data": [{"id": "1234abc", "type": "user", "role_id": "marketing_content_contributor_1357fhe", "policy_parameters": {}, "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475216, "updated_at": 1719475216}, {"id": "akwut728390anvy52sxgti", "type": "apiKey", "role_id": "marketing_content_contributor_1357fhe", "policy_parameters": {}, "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475216, "updated_at": 1719475216}]}
+          application/json: {"data": [{"id": "1234abc", "type": "user", "role_id": "marketing_content_contributor_1357fhe", "policy_parameters": {"folder_id": "asdfjkl12347890"}, "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475216, "updated_at": 1719475216}, {"id": "akwut728390anvy52sxgti", "type": "apiKey", "role_id": "marketing_content_contributor_1357fhe", "policy_parameters": {"folder_id": "asdfjkl12347890"}, "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475216, "updated_at": 1719475216}]}
     GetRolePrincipalsWithParamKeyValueExample:
       parameters:
         path:
@@ -3736,7 +3696,7 @@ examples:
           param_value: ["asdfjkl12347890"]
       responses:
         "200":
-          application/json: {"data": [{"id": "1234abc", "type": "user", "role_id": "marketing_content_contributor_1357fhe", "policy_parameters": {}, "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475216, "updated_at": 1719475216}]}
+          application/json: {"data": [{"id": "1234abc", "type": "user", "role_id": "marketing_content_contributor_1357fhe", "policy_parameters": {"folder_id": "asdfjkl12347890"}, "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475216, "updated_at": 1719475216}]}
     authorizationErrorExample:
       parameters:
         path:
@@ -3759,7 +3719,7 @@ examples:
         application/json: {"operation": "add", "principals": [{"principal_type": "user", "principal_id": "1234abc", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}}]}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["role_id"]}}}
     invalidOperationFieldErrorExample:
       parameters:
         path:
@@ -3769,7 +3729,7 @@ examples:
         application/json: {"operation": "add", "principals": [{"principal_type": "user", "principal_id": "1234abc", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}}]}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"operation": "subtract"}]}}}
     speakeasy-default-update-role-principals:
       parameters:
         path:
@@ -3795,7 +3755,7 @@ examples:
           param_value: ["asdfjkl12347890"]
       responses:
         "200":
-          application/json: {"data": [{"id": "cld::role::account::reports", "name": "Reports", "description": "View account-level reports and usage metrics, including audit logs, dashboard usage summaries, and account-wide activity reports.", "management_type": "system", "permission_type": "global", "scope_type": "account", "created_at": 1719475216, "updated_at": 1719475216}, {"id": "upload_manager_12334565", "name": "Upload manager", "description": "Responsible for managing upload presets and uploading new assets.", "management_type": "custom", "permission_type": "global", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475216, "updated_at": 1719475216}, {"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}, "created_at": 1719475215, "updated_at": 1719475215}]}
+          application/json: {"data": [{"id": "cld::role::account::reports", "name": "Reports", "description": "View account-level reports and usage metrics, including audit logs, dashboard usage summaries, and account-wide activity reports.", "management_type": "system", "permission_type": "global", "scope_type": "account", "created_at": 1719475216, "updated_at": 1719475216}, {"id": "upload_manager_12334565", "name": "Upload manager", "description": "Responsible for managing upload presets and uploading new assets.", "management_type": "custom", "permission_type": "global", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475216, "updated_at": 1719475216}, {"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {"folder_id": "asdfjkl12347890"}, "created_at": 1719475215, "updated_at": 1719475215}]}
     GetPrincipalRolesWithParamKeyValueExample:
       parameters:
         path:
@@ -3810,7 +3770,7 @@ examples:
           param_value: ["asdfjkl12347890"]
       responses:
         "200":
-          application/json: {"data": [{"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "policy_parameters": {}, "created_at": 1719475215, "updated_at": 1719475215}]}
+          application/json: {"data": [{"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "policy_parameters": {"folder_id": "asdfjkl12347890"}, "created_at": 1719475215, "updated_at": 1719475215}]}
     missingPrincipalFieldsErrorExample:
       parameters:
         path:
@@ -3825,9 +3785,9 @@ examples:
           param_value: ["asdfjkl12347890"]
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["principal_type"]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["principal_type"]}}}
     invalidFieldErrorExample:
       parameters:
         path:
@@ -3842,9 +3802,9 @@ examples:
           param_value: ["asdfjkl12347890"]
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"scope_type": "account"}]}}}
         "500":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"scope_type": "account"}]}}}
   updatePrincipalRoles:
     missingPrincipalFieldsErrorExample:
       parameters:
@@ -3854,7 +3814,7 @@ examples:
         application/json: {"operation": "add", "principal": {"type": "user", "id": "1234abc"}, "roles": [{"id": "marketing_content_contributor_1357fhe", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}}]}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "missing fields", "details": {"fields": ["principal_type"]}}}
     InvalidOperationFieldErrorExample:
       parameters:
         path:
@@ -3863,7 +3823,7 @@ examples:
         application/json: {"operation": "add", "principal": {"type": "user", "id": "1234abc"}, "roles": [{"id": "marketing_content_contributor_1357fhe", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}}]}
       responses:
         "400":
-          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {}}}
+          application/json: {"error": {"category": "user_error", "code": "ACCOUNTS_00005", "message": "invalid request", "details": {"fields": [{"operation": "subtract"}]}}}
     speakeasy-default-update-principal-roles:
       parameters:
         path:
@@ -3885,7 +3845,7 @@ examples:
           param_value: ["asdfjkl12347890"]
       responses:
         "200":
-          application/json: {"data": {"principals": [{"type": "user", "id": "1234abc", "roles": [{"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}, "created_at": 1719475215, "updated_at": 1719475215}]}, {"type": "user", "id": "4567xyz", "roles": [{"id": "campaign_organizer_351766dt", "name": "Campaign organizer", "description": "Share and download permissions on folders.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}, "created_at": 1719475215, "updated_at": 1719475215}]}]}}
+          application/json: {"data": {"principals": [{"type": "user", "id": "1234abc", "roles": [{"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {"folder_id": "asdfjkl12347890"}, "created_at": 1719475215, "updated_at": 1719475215}]}, {"type": "user", "id": "4567xyz", "roles": [{"id": "campaign_organizer_351766dt", "name": "Campaign organizer", "description": "Share and download permissions on folders.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {"folder_id": "asdfjkl12347890"}, "created_at": 1719475215, "updated_at": 1719475215}]}]}}
     InspectExampleAllFolders:
       parameters:
         path:
@@ -3897,7 +3857,7 @@ examples:
           param_value: ["asdfjkl12347890"]
       responses:
         "200":
-          application/json: {"data": {"principals": [{"type": "user", "id": "1234abc", "roles": [{"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}, "created_at": 1719475215, "updated_at": 1719475215}]}, {"type": "user", "id": "4567xyz", "roles": [{"id": "campaign_organizer_351766dt", "name": "Campaign organizer", "description": "View and download access to folders containing marketing campaign images and videos.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}, "created_at": 1719475215, "updated_at": 1719475215}, {"id": "website_admin_2523512", "name": "Website administrator", "description": "Manage assets delivered on the website.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}, "created_at": 1719475215, "updated_at": 1719475215}]}]}}
+          application/json: {"data": {"principals": [{"type": "user", "id": "1234abc", "roles": [{"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {"folder_id": "asdfjkl12347890"}, "created_at": 1719475215, "updated_at": 1719475215}]}, {"type": "user", "id": "4567xyz", "roles": [{"id": "campaign_organizer_351766dt", "name": "Campaign organizer", "description": "View and download access to folders containing marketing campaign images and videos.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {"folder_id": "asdfjkl12347890"}, "created_at": 1719475215, "updated_at": 1719475215}, {"id": "website_admin_2523512", "name": "Website administrator", "description": "Manage assets delivered on the website.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {"folder_id": "bgxf992356125643"}, "created_at": 1719475215, "updated_at": 1719475215}]}]}}
     InspectExampleProdEnv:
       parameters:
         path:
@@ -3909,14 +3869,14 @@ examples:
           param_value: ["asdfjkl12347890"]
       responses:
         "200":
-          application/json: {"data": {"principals": [{"type": "user", "id": "1234abc", "roles": [{"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}, "created_at": 1719475215, "updated_at": 1719475215}, {"id": "manage_portals_238haspw", "name": "Brand portal manager", "description": "Manage the curation and sharing of brand portals.", "management_type": "custom", "permission_type": "global", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475215, "updated_at": 1719475215}]}, {"type": "apiKey", "id": "a382ltieo893jhioqpg8urp", "roles": [{"id": "upload_manager_351766dt", "name": "Manage upload settings", "description": "Manage settings related to upload management.", "management_type": "custom", "permission_type": "global", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475215, "updated_at": 1719475215}]}]}}
+          application/json: {"data": {"principals": [{"type": "user", "id": "1234abc", "roles": [{"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {"folder_id": "asdfjkl12347890"}, "created_at": 1719475215, "updated_at": 1719475215}, {"id": "manage_portals_238haspw", "name": "Brand portal manager", "description": "Manage the curation and sharing of brand portals.", "management_type": "custom", "permission_type": "global", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475215, "updated_at": 1719475215}]}, {"type": "apiKey", "id": "a382ltieo893jhioqpg8urp", "roles": [{"id": "upload_manager_351766dt", "name": "Manage upload settings", "description": "Manage settings related to upload management.", "management_type": "custom", "permission_type": "global", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475215, "updated_at": 1719475215}]}]}}
   inspectMultiple:
     InspectMultipleRequestExample:
       parameters:
         path:
           account_id: "<id>"
       requestBody:
-        application/json: {"scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "principals": [{"type": "user", "id": "1234abc"}, {"type": "user", "id": "4567xyz"}, {"type": "apiKey", "id": "a382ltieo893jhioqpg8urp"}], "policy_parameters": {}}
+        application/json: {"scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "principals": [{"type": "user", "id": "1234abc"}, {"type": "user", "id": "4567xyz"}, {"type": "apiKey", "id": "a382ltieo893jhioqpg8urp"}], "policy_parameters": {"folder_id": "asdfjkl12347890"}}
       responses:
         "200":
           application/json: {"data": {"principals": [{"type": "user", "id": "<id>", "roles": []}]}}
@@ -3932,6 +3892,7 @@ examples:
         application/json: {"scope_type": "prodenv", "principals": [{"type": "user", "id": "1234abc"}]}
       responses:
         "200":
-          application/json: {"data": {"principals": [{"type": "user", "id": "1234abc", "roles": [{"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}, "created_at": 1719475215, "updated_at": 1719475215}]}, {"type": "user", "id": "4567xyz", "roles": [{"id": "campaign_organizer_351766dt", "name": "Campaign organizer", "description": "Share and download permissions on folders.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {}, "created_at": 1719475215, "updated_at": 1719475215}, {"id": "cld::role::prodenv::reports", "name": "Reports", "description": "View product environment reports and usage metrics.", "management_type": "system", "permission_type": "global", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475216, "updated_at": 1719475216}]}, {"type": "apiKey", "id": "a382ltieo893jhioqpg8urp", "roles": [{"id": "upload_manager_351766dt", "name": "Upload manager", "description": "Responsible for managing upload presets and uploading new assets.", "management_type": "custom", "permission_type": "global", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475215, "updated_at": 1719475215}]}]}}
+          application/json: {"data": {"principals": [{"type": "user", "id": "1234abc", "roles": [{"id": "marketing_content_contributor_1357fhe", "name": "Marketing content contributor", "description": "View all assets in selected folders and contribute to those folders, without permission to download.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {"folder_id": "asdfjkl12347890"}, "created_at": 1719475215, "updated_at": 1719475215}]}, {"type": "user", "id": "4567xyz", "roles": [{"id": "campaign_organizer_351766dt", "name": "Campaign organizer", "description": "Share and download permissions on folders.", "management_type": "custom", "permission_type": "content", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "policy_parameters": {"folder_id": "<folder_id>"}, "created_at": 1719475215, "updated_at": 1719475215}, {"id": "cld::role::prodenv::reports", "name": "Reports", "description": "View product environment reports and usage metrics.", "management_type": "system", "permission_type": "global", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475216, "updated_at": 1719475216}]}, {"type": "apiKey", "id": "a382ltieo893jhioqpg8urp", "roles": [{"id": "upload_manager_351766dt", "name": "Upload manager", "description": "Responsible for managing upload presets and uploading new assets.", "management_type": "custom", "permission_type": "global", "scope_type": "prodenv", "scope_id": "975l29lz02jt0836fhwi", "created_at": 1719475215, "updated_at": 1719475215}]}]}}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Java SDK Changes:\n* `cldprovisioning.roles.create()`:  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.users.update()`:  `request` **Changed** (Breaking ⚠️)\n* `cldprovisioning.systemPolicies.list()`:  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.customPolicies.list()`:  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.customPolicies.create()`:  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.customPolicies.get()`:  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.customPolicies.update()`:  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.customPolicies.delete()`:  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.roles.list()`:  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.effectivePolicies.list()`:  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.roles.update()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.roles.get()`:  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.principals.inspectMultiple()`: \n  *  `request.policyParameters` **Changed** (Breaking ⚠️)\n  *  `response.data.principals[].roles[].policyParameters` **Changed** (Breaking ⚠️)\n  *  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.roles.delete()`:  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.roles.listPrincipals()`: \n  *  `response.data[].policyParameters` **Changed** (Breaking ⚠️)\n  *  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.roles.updatePrincipals()`: \n  *  `request.updateRolePrincipalsRequest.principals[].policyParameters` **Changed** (Breaking ⚠️)\n  *  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.principals.listRoles()`: \n  *  `response.data[].policyParameters` **Changed** (Breaking ⚠️)\n  *  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.principals.updateRoles()`: \n  *  `request.roles[].policyParameters` **Changed** (Breaking ⚠️)\n  *  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.principals.inspect()`: \n  *  `response.data.principals[].roles[].policyParameters` **Changed** (Breaking ⚠️)\n  *  `error.details` **Changed** (Breaking ⚠️)\n* `cldprovisioning.users.create()`:  `request` **Changed**\n"

@@ -5,27 +5,106 @@ package com.cloudinary.account.provisioning.models.components;
 
 import com.cloudinary.account.provisioning.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.lang.Override;
 import java.lang.String;
+import java.util.Optional;
 
 /**
  * PolicyParameters
  * 
- * <p>For roles with `permission_type` set to `content`, this defines the type of content the role's
- * policies apply to:
- * - The content type can be: `folder_id` or `collection_id`.
- * - When assigning the role, provide the instance, e.g. `{"folder_id":"asdfjkl12347890"}`. This
- * specification is passed to the `policy_statement` (Cedar).
+ * <p>Optional content-scope policy parameters.
  */
 public class PolicyParameters {
+    /**
+     * The folder ID the role is scoped to.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("folder_id")
+    private Optional<String> folderId;
+
+    /**
+     * The collection ID the role is scoped to.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("collection_id")
+    private Optional<String> collectionId;
+
     @JsonCreator
+    public PolicyParameters(
+            @JsonProperty("folder_id") Optional<String> folderId,
+            @JsonProperty("collection_id") Optional<String> collectionId) {
+        Utils.checkNotNull(folderId, "folderId");
+        Utils.checkNotNull(collectionId, "collectionId");
+        this.folderId = folderId;
+        this.collectionId = collectionId;
+    }
+    
     public PolicyParameters() {
+        this(Optional.empty(), Optional.empty());
+    }
+
+    /**
+     * The folder ID the role is scoped to.
+     */
+    @JsonIgnore
+    public Optional<String> folderId() {
+        return folderId;
+    }
+
+    /**
+     * The collection ID the role is scoped to.
+     */
+    @JsonIgnore
+    public Optional<String> collectionId() {
+        return collectionId;
     }
 
     public static Builder builder() {
         return new Builder();
     }
 
+
+    /**
+     * The folder ID the role is scoped to.
+     */
+    public PolicyParameters withFolderId(String folderId) {
+        Utils.checkNotNull(folderId, "folderId");
+        this.folderId = Optional.ofNullable(folderId);
+        return this;
+    }
+
+
+    /**
+     * The folder ID the role is scoped to.
+     */
+    public PolicyParameters withFolderId(Optional<String> folderId) {
+        Utils.checkNotNull(folderId, "folderId");
+        this.folderId = folderId;
+        return this;
+    }
+
+    /**
+     * The collection ID the role is scoped to.
+     */
+    public PolicyParameters withCollectionId(String collectionId) {
+        Utils.checkNotNull(collectionId, "collectionId");
+        this.collectionId = Optional.ofNullable(collectionId);
+        return this;
+    }
+
+
+    /**
+     * The collection ID the role is scoped to.
+     */
+    public PolicyParameters withCollectionId(Optional<String> collectionId) {
+        Utils.checkNotNull(collectionId, "collectionId");
+        this.collectionId = collectionId;
+        return this;
+    }
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -35,31 +114,78 @@ public class PolicyParameters {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        return true;
+        PolicyParameters other = (PolicyParameters) o;
+        return 
+            Utils.enhancedDeepEquals(this.folderId, other.folderId) &&
+            Utils.enhancedDeepEquals(this.collectionId, other.collectionId);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            );
+            folderId, collectionId);
     }
     
     @Override
     public String toString() {
-        return Utils.toString(PolicyParameters.class);
+        return Utils.toString(PolicyParameters.class,
+                "folderId", folderId,
+                "collectionId", collectionId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public final static class Builder {
 
+        private Optional<String> folderId = Optional.empty();
+
+        private Optional<String> collectionId = Optional.empty();
+
         private Builder() {
           // force use of static builder() method
+        }
+
+
+        /**
+         * The folder ID the role is scoped to.
+         */
+        public Builder folderId(String folderId) {
+            Utils.checkNotNull(folderId, "folderId");
+            this.folderId = Optional.ofNullable(folderId);
+            return this;
+        }
+
+        /**
+         * The folder ID the role is scoped to.
+         */
+        public Builder folderId(Optional<String> folderId) {
+            Utils.checkNotNull(folderId, "folderId");
+            this.folderId = folderId;
+            return this;
+        }
+
+
+        /**
+         * The collection ID the role is scoped to.
+         */
+        public Builder collectionId(String collectionId) {
+            Utils.checkNotNull(collectionId, "collectionId");
+            this.collectionId = Optional.ofNullable(collectionId);
+            return this;
+        }
+
+        /**
+         * The collection ID the role is scoped to.
+         */
+        public Builder collectionId(Optional<String> collectionId) {
+            Utils.checkNotNull(collectionId, "collectionId");
+            this.collectionId = collectionId;
+            return this;
         }
 
         public PolicyParameters build() {
 
             return new PolicyParameters(
-                );
+                folderId, collectionId);
         }
 
     }

@@ -110,7 +110,7 @@ public class Application {
                     .build())
             .build();
 
-        CustomPolicy req = CustomPolicy.builder()
+        CreateCustomPolicy req = CreateCustomPolicy.builder()
                 .policyStatement("permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n")
                 .scopeType(ScopeTypeEnum.PRODENV)
                 .name("Read access to Clothing folder")
@@ -152,7 +152,7 @@ public class Application {
                     .build())
             .build();
 
-        CustomPolicy req = CustomPolicy.builder()
+        CreateCustomPolicy req = CreateCustomPolicy.builder()
                 .policyStatement("permit(principal == Cloudinary::APIKey::\"1234\",action==Cloudinary::Action::\"read\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\"asdfjkl12347890\")} ;")
                 .scopeType(ScopeTypeEnum.PRODENV)
                 .name("Read access to Clothing folder")
@@ -194,7 +194,7 @@ public class Application {
                     .build())
             .build();
 
-        CustomPolicy req = CustomPolicy.builder()
+        CreateCustomPolicy req = CreateCustomPolicy.builder()
                 .policyStatement("permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n")
                 .scopeType(ScopeTypeEnum.PRODENV)
                 .name("Read access to Clothing folder")
@@ -236,7 +236,7 @@ public class Application {
                     .build())
             .build();
 
-        CustomPolicy req = CustomPolicy.builder()
+        CreateCustomPolicy req = CreateCustomPolicy.builder()
                 .policyStatement("permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n")
                 .scopeType(ScopeTypeEnum.PRODENV)
                 .name("Read access to Clothing folder")
@@ -278,7 +278,7 @@ public class Application {
                     .build())
             .build();
 
-        CustomPolicy req = CustomPolicy.builder()
+        CreateCustomPolicy req = CreateCustomPolicy.builder()
                 .policyStatement("permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n")
                 .scopeType(ScopeTypeEnum.PRODENV)
                 .name("Read access to Clothing folder")
@@ -299,9 +299,9 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                           | Type                                                | Required                                            | Description                                         |
-| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `request`                                           | [CustomPolicy](../../models/shared/CustomPolicy.md) | :heavy_check_mark:                                  | The request object to use for the request.          |
+| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `request`                                                       | [CreateCustomPolicy](../../models/shared/CreateCustomPolicy.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
 ### Response
 

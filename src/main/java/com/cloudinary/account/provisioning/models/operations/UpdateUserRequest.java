@@ -3,7 +3,6 @@
  */
 package com.cloudinary.account.provisioning.models.operations;
 
-import com.cloudinary.account.provisioning.models.components.UserRequest;
 import com.cloudinary.account.provisioning.utils.SpeakeasyMetadata;
 import com.cloudinary.account.provisioning.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,16 +22,16 @@ public class UpdateUserRequest {
      * User details to update.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private UserRequest userRequest;
+    private UpdateUserRequestBody requestBody;
 
     @JsonCreator
     public UpdateUserRequest(
             String userId,
-            UserRequest userRequest) {
+            UpdateUserRequestBody requestBody) {
         Utils.checkNotNull(userId, "userId");
-        Utils.checkNotNull(userRequest, "userRequest");
+        Utils.checkNotNull(requestBody, "requestBody");
         this.userId = userId;
-        this.userRequest = userRequest;
+        this.requestBody = requestBody;
     }
 
     /**
@@ -47,8 +46,8 @@ public class UpdateUserRequest {
      * User details to update.
      */
     @JsonIgnore
-    public UserRequest userRequest() {
-        return userRequest;
+    public UpdateUserRequestBody requestBody() {
+        return requestBody;
     }
 
     public static Builder builder() {
@@ -68,9 +67,9 @@ public class UpdateUserRequest {
     /**
      * User details to update.
      */
-    public UpdateUserRequest withUserRequest(UserRequest userRequest) {
-        Utils.checkNotNull(userRequest, "userRequest");
-        this.userRequest = userRequest;
+    public UpdateUserRequest withRequestBody(UpdateUserRequestBody requestBody) {
+        Utils.checkNotNull(requestBody, "requestBody");
+        this.requestBody = requestBody;
         return this;
     }
 
@@ -85,20 +84,20 @@ public class UpdateUserRequest {
         UpdateUserRequest other = (UpdateUserRequest) o;
         return 
             Utils.enhancedDeepEquals(this.userId, other.userId) &&
-            Utils.enhancedDeepEquals(this.userRequest, other.userRequest);
+            Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            userId, userRequest);
+            userId, requestBody);
     }
     
     @Override
     public String toString() {
         return Utils.toString(UpdateUserRequest.class,
                 "userId", userId,
-                "userRequest", userRequest);
+                "requestBody", requestBody);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -106,7 +105,7 @@ public class UpdateUserRequest {
 
         private String userId;
 
-        private UserRequest userRequest;
+        private UpdateUserRequestBody requestBody;
 
         private Builder() {
           // force use of static builder() method
@@ -126,16 +125,16 @@ public class UpdateUserRequest {
         /**
          * User details to update.
          */
-        public Builder userRequest(UserRequest userRequest) {
-            Utils.checkNotNull(userRequest, "userRequest");
-            this.userRequest = userRequest;
+        public Builder requestBody(UpdateUserRequestBody requestBody) {
+            Utils.checkNotNull(requestBody, "requestBody");
+            this.requestBody = requestBody;
             return this;
         }
 
         public UpdateUserRequest build() {
 
             return new UpdateUserRequest(
-                userId, userRequest);
+                userId, requestBody);
         }
 
     }

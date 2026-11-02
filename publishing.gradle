@@ -48,7 +48,7 @@ afterEvaluate {
                     url = 'https://github.com/cloudinary/account-provisioning-java'
                     scm {
                         url = 'https://github.com/cloudinary/account-provisioning-java'
-                        connection = 'scm:git:ssh://git@https://github.com/cloudinary/account-provisioning-java.git'
+                        connection = 'scm:git:ssh://git@github.com/cloudinary/account-provisioning-java.git'
                     }
                     licenses {
                         license {

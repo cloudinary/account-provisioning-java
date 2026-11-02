@@ -6,14 +6,13 @@ package com.cloudinary.account.provisioning.models.operations;
 import static com.cloudinary.account.provisioning.operations.Operations.RequestOperation;
 
 import com.cloudinary.account.provisioning.SDKConfiguration;
-import com.cloudinary.account.provisioning.models.components.CustomPolicy;
-import com.cloudinary.account.provisioning.operations.CreateCustomPolicy;
+import com.cloudinary.account.provisioning.models.components.CreateCustomPolicy;
 import com.cloudinary.account.provisioning.utils.Headers;
 import com.cloudinary.account.provisioning.utils.Utils;
 
 public class CreateCustomPolicyRequestBuilder {
 
-    private CustomPolicy request;
+    private CreateCustomPolicy request;
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers(); 
 
@@ -21,7 +20,7 @@ public class CreateCustomPolicyRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public CreateCustomPolicyRequestBuilder request(CustomPolicy request) {
+    public CreateCustomPolicyRequestBuilder request(CreateCustomPolicy request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;
@@ -29,8 +28,8 @@ public class CreateCustomPolicyRequestBuilder {
 
     public CreateCustomPolicyResponse call() {
         
-        RequestOperation<CustomPolicy, CreateCustomPolicyResponse> operation
-              = new CreateCustomPolicy.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateCustomPolicy, CreateCustomPolicyResponse> operation
+              = new com.cloudinary.account.provisioning.operations.CreateCustomPolicy.Sync(sdkConfiguration, _headers);
 
         return operation.handleResponse(operation.doRequest(request));
     }

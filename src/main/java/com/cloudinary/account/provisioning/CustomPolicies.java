@@ -5,7 +5,7 @@ package com.cloudinary.account.provisioning;
 
 import static com.cloudinary.account.provisioning.operations.Operations.RequestOperation;
 
-import com.cloudinary.account.provisioning.models.components.CustomPolicy;
+import com.cloudinary.account.provisioning.models.components.CreateCustomPolicy;
 import com.cloudinary.account.provisioning.models.operations.CreateCustomPolicyRequestBuilder;
 import com.cloudinary.account.provisioning.models.operations.CreateCustomPolicyResponse;
 import com.cloudinary.account.provisioning.models.operations.DeleteCustomPolicyRequest;
@@ -20,7 +20,6 @@ import com.cloudinary.account.provisioning.models.operations.GetCustomPolicyResp
 import com.cloudinary.account.provisioning.models.operations.UpdateCustomPolicyRequest;
 import com.cloudinary.account.provisioning.models.operations.UpdateCustomPolicyRequestBuilder;
 import com.cloudinary.account.provisioning.models.operations.UpdateCustomPolicyResponse;
-import com.cloudinary.account.provisioning.operations.CreateCustomPolicy;
 import com.cloudinary.account.provisioning.operations.DeleteCustomPolicy;
 import com.cloudinary.account.provisioning.operations.GetCustomPolicies;
 import com.cloudinary.account.provisioning.operations.GetCustomPolicy;
@@ -112,9 +111,9 @@ public class CustomPolicies {
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateCustomPolicyResponse create(CustomPolicy request) {
-        RequestOperation<CustomPolicy, CreateCustomPolicyResponse> operation
-              = new CreateCustomPolicy.Sync(sdkConfiguration, _headers);
+    public CreateCustomPolicyResponse create(CreateCustomPolicy request) {
+        RequestOperation<CreateCustomPolicy, CreateCustomPolicyResponse> operation
+              = new com.cloudinary.account.provisioning.operations.CreateCustomPolicy.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 

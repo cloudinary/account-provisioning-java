@@ -9,7 +9,6 @@ import static com.cloudinary.account.provisioning.operations.Operations.AsyncReq
 
 import com.cloudinary.account.provisioning.SDKConfiguration;
 import com.cloudinary.account.provisioning.SecuritySource;
-import com.cloudinary.account.provisioning.models.components.CustomPolicy;
 import com.cloudinary.account.provisioning.models.components.CustomPolicyResponse;
 import com.cloudinary.account.provisioning.models.errors.PermissionsErrorResponse;
 import com.cloudinary.account.provisioning.models.errors.SDKException;
@@ -121,13 +120,13 @@ public class CreateCustomPolicy {
     }
 
     public static class Sync extends Base
-            implements RequestOperation<CustomPolicy, CreateCustomPolicyResponse> {
+            implements RequestOperation<com.cloudinary.account.provisioning.models.components.CreateCustomPolicy, CreateCustomPolicyResponse> {
         public Sync(SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
-        private HttpRequest onBuildRequest(CustomPolicy request) throws Exception {
-            HttpRequest req = buildRequest(request, CustomPolicy.class, new TypeReference<CustomPolicy>() {});
+        private HttpRequest onBuildRequest(com.cloudinary.account.provisioning.models.components.CreateCustomPolicy request) throws Exception {
+            HttpRequest req = buildRequest(request, com.cloudinary.account.provisioning.models.components.CreateCustomPolicy.class, new TypeReference<com.cloudinary.account.provisioning.models.components.CreateCustomPolicy>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -143,12 +142,12 @@ public class CreateCustomPolicy {
         }
 
         @Override
-        public HttpResponse<InputStream> doRequest(CustomPolicy request) {
+        public HttpResponse<InputStream> doRequest(com.cloudinary.account.provisioning.models.components.CreateCustomPolicy request) {
             HttpRequest r = unchecked(() -> onBuildRequest(request)).get();
             HttpResponse<InputStream> httpRes;
             try {
                 httpRes = client.send(r);
-                if (Utils.statusCodeMatches(httpRes.statusCode(), "400", "401", "403", "409", "4XX", "500", "5XX")) {
+                if (Utils.statusCodeMatches(httpRes.statusCode(), "4XX", "5XX")) {
                     httpRes = onError(httpRes, null);
                 } else {
                     httpRes = onSuccess(httpRes);
@@ -209,14 +208,14 @@ public class CreateCustomPolicy {
         }
     }
     public static class Async extends Base
-            implements AsyncRequestOperation<CustomPolicy, com.cloudinary.account.provisioning.models.operations.async.CreateCustomPolicyResponse> {
+            implements AsyncRequestOperation<com.cloudinary.account.provisioning.models.components.CreateCustomPolicy, com.cloudinary.account.provisioning.models.operations.async.CreateCustomPolicyResponse> {
 
         public Async(SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(CustomPolicy request) throws Exception {
-            HttpRequest req = buildRequest(request, CustomPolicy.class, new TypeReference<CustomPolicy>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(com.cloudinary.account.provisioning.models.components.CreateCustomPolicy request) throws Exception {
+            HttpRequest req = buildRequest(request, com.cloudinary.account.provisioning.models.components.CreateCustomPolicy.class, new TypeReference<com.cloudinary.account.provisioning.models.components.CreateCustomPolicy>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -229,13 +228,13 @@ public class CreateCustomPolicy {
         }
 
         @Override
-        public CompletableFuture<HttpResponse<Blob>> doRequest(CustomPolicy request) {
+        public CompletableFuture<HttpResponse<Blob>> doRequest(com.cloudinary.account.provisioning.models.components.CreateCustomPolicy request) {
             return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
                         }
-                        if (Utils.statusCodeMatches(resp.statusCode(), "400", "401", "403", "409", "4XX", "500", "5XX")) {
+                        if (Utils.statusCodeMatches(resp.statusCode(), "4XX", "5XX")) {
                             return onError(resp, null);
                         }
                         return CompletableFuture.completedFuture(resp);

@@ -10,9 +10,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.lang.Long;
+import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
+import java.util.Map;
 import java.util.Optional;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -38,7 +40,7 @@ public class PrincipalResponseData {
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("policy_parameters")
-    private Optional<? extends PrincipalResponseDataPolicyParameters> policyParameters;
+    private Optional<? extends Map<String, Object>> policyParameters;
 
     /**
      * Specifies where the role/policy is applied, either at the account level or within product
@@ -68,7 +70,7 @@ public class PrincipalResponseData {
             @JsonProperty("id") String id,
             @JsonProperty("type") PrincipalTypeEnum type,
             @JsonProperty("role_id") Optional<String> roleId,
-            @JsonProperty("policy_parameters") Optional<? extends PrincipalResponseDataPolicyParameters> policyParameters,
+            @JsonProperty("policy_parameters") Optional<? extends Map<String, Object>> policyParameters,
             @JsonProperty("scope_type") Optional<? extends ScopeTypeEnum> scopeType,
             @JsonProperty("scope_id") JsonNullable<String> scopeId,
             @JsonProperty("created_at") Optional<Long> createdAt,
@@ -122,8 +124,8 @@ public class PrincipalResponseData {
 
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<PrincipalResponseDataPolicyParameters> policyParameters() {
-        return (Optional<PrincipalResponseDataPolicyParameters>) policyParameters;
+    public Optional<Map<String, Object>> policyParameters() {
+        return (Optional<Map<String, Object>>) policyParameters;
     }
 
     /**
@@ -187,14 +189,14 @@ public class PrincipalResponseData {
         return this;
     }
 
-    public PrincipalResponseData withPolicyParameters(PrincipalResponseDataPolicyParameters policyParameters) {
+    public PrincipalResponseData withPolicyParameters(Map<String, Object> policyParameters) {
         Utils.checkNotNull(policyParameters, "policyParameters");
         this.policyParameters = Optional.ofNullable(policyParameters);
         return this;
     }
 
 
-    public PrincipalResponseData withPolicyParameters(Optional<? extends PrincipalResponseDataPolicyParameters> policyParameters) {
+    public PrincipalResponseData withPolicyParameters(Optional<? extends Map<String, Object>> policyParameters) {
         Utils.checkNotNull(policyParameters, "policyParameters");
         this.policyParameters = policyParameters;
         return this;
@@ -309,7 +311,7 @@ public class PrincipalResponseData {
 
         private Optional<String> roleId = Optional.empty();
 
-        private Optional<? extends PrincipalResponseDataPolicyParameters> policyParameters = Optional.empty();
+        private Optional<? extends Map<String, Object>> policyParameters = Optional.empty();
 
         private Optional<? extends ScopeTypeEnum> scopeType = Optional.empty();
 
@@ -357,13 +359,13 @@ public class PrincipalResponseData {
         }
 
 
-        public Builder policyParameters(PrincipalResponseDataPolicyParameters policyParameters) {
+        public Builder policyParameters(Map<String, Object> policyParameters) {
             Utils.checkNotNull(policyParameters, "policyParameters");
             this.policyParameters = Optional.ofNullable(policyParameters);
             return this;
         }
 
-        public Builder policyParameters(Optional<? extends PrincipalResponseDataPolicyParameters> policyParameters) {
+        public Builder policyParameters(Optional<? extends Map<String, Object>> policyParameters) {
             Utils.checkNotNull(policyParameters, "policyParameters");
             this.policyParameters = policyParameters;
             return this;

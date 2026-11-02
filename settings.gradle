@@ -9,12 +9,6 @@
 
 rootProject.name = 'cloudinary-account-provisioning'
 
-include 'cloudinary-account-provisioning-spring-boot-autoconfigure'
-include 'cloudinary-account-provisioning-spring-boot-starter'
-
-project(':cloudinary-account-provisioning-spring-boot-autoconfigure').projectDir = file('spring/cloudinary-account-provisioning-spring-boot-autoconfigure')
-project(':cloudinary-account-provisioning-spring-boot-starter').projectDir = file('spring/cloudinary-account-provisioning-spring-boot-starter')
-
 // Apply additional settings if the file exists
 if (file('settings-extra.gradle').exists()) {
     apply from: 'settings-extra.gradle'

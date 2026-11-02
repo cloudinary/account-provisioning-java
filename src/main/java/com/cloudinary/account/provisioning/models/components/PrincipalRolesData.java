@@ -10,9 +10,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.lang.Long;
+import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
+import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 
@@ -73,7 +75,7 @@ public class PrincipalRolesData {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("policy_parameters")
-    private JsonNullable<? extends PolicyParameters> policyParameters;
+    private JsonNullable<? extends Map<String, Object>> policyParameters;
 
     /**
      * Creation time of the policy in epoch time.
@@ -96,7 +98,7 @@ public class PrincipalRolesData {
             @JsonProperty("permission_type") PermissionTypeEnum permissionType,
             @JsonProperty("scope_type") ScopeTypeEnum scopeType,
             @JsonProperty("scope_id") JsonNullable<String> scopeId,
-            @JsonProperty("policy_parameters") JsonNullable<? extends PolicyParameters> policyParameters,
+            @JsonProperty("policy_parameters") JsonNullable<? extends Map<String, Object>> policyParameters,
             @JsonProperty("created_at") long createdAt,
             @JsonProperty("updated_at") long updatedAt) {
         Utils.checkNotNull(id, "id");
@@ -203,8 +205,8 @@ public class PrincipalRolesData {
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public JsonNullable<PolicyParameters> policyParameters() {
-        return (JsonNullable<PolicyParameters>) policyParameters;
+    public JsonNullable<Map<String, Object>> policyParameters() {
+        return (JsonNullable<Map<String, Object>>) policyParameters;
     }
 
     /**
@@ -320,7 +322,7 @@ public class PrincipalRolesData {
      * - When assigning the role, provide the instance, e.g. `{"folder_id":"asdfjkl12347890"}`. This
      * specification is passed to the `policy_statement` (Cedar).
      */
-    public PrincipalRolesData withPolicyParameters(PolicyParameters policyParameters) {
+    public PrincipalRolesData withPolicyParameters(Map<String, Object> policyParameters) {
         Utils.checkNotNull(policyParameters, "policyParameters");
         this.policyParameters = JsonNullable.of(policyParameters);
         return this;
@@ -333,7 +335,7 @@ public class PrincipalRolesData {
      * - When assigning the role, provide the instance, e.g. `{"folder_id":"asdfjkl12347890"}`. This
      * specification is passed to the `policy_statement` (Cedar).
      */
-    public PrincipalRolesData withPolicyParameters(JsonNullable<? extends PolicyParameters> policyParameters) {
+    public PrincipalRolesData withPolicyParameters(JsonNullable<? extends Map<String, Object>> policyParameters) {
         Utils.checkNotNull(policyParameters, "policyParameters");
         this.policyParameters = policyParameters;
         return this;
@@ -420,7 +422,7 @@ public class PrincipalRolesData {
 
         private JsonNullable<String> scopeId = JsonNullable.undefined();
 
-        private JsonNullable<? extends PolicyParameters> policyParameters = JsonNullable.undefined();
+        private JsonNullable<? extends Map<String, Object>> policyParameters = JsonNullable.undefined();
 
         private Long createdAt;
 
@@ -530,7 +532,7 @@ public class PrincipalRolesData {
          * - When assigning the role, provide the instance, e.g. `{"folder_id":"asdfjkl12347890"}`. This
          * specification is passed to the `policy_statement` (Cedar).
          */
-        public Builder policyParameters(PolicyParameters policyParameters) {
+        public Builder policyParameters(Map<String, Object> policyParameters) {
             Utils.checkNotNull(policyParameters, "policyParameters");
             this.policyParameters = JsonNullable.of(policyParameters);
             return this;
@@ -543,7 +545,7 @@ public class PrincipalRolesData {
          * - When assigning the role, provide the instance, e.g. `{"folder_id":"asdfjkl12347890"}`. This
          * specification is passed to the `policy_statement` (Cedar).
          */
-        public Builder policyParameters(JsonNullable<? extends PolicyParameters> policyParameters) {
+        public Builder policyParameters(JsonNullable<? extends Map<String, Object>> policyParameters) {
             Utils.checkNotNull(policyParameters, "policyParameters");
             this.policyParameters = policyParameters;
             return this;

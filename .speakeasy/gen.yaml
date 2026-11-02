@@ -15,6 +15,7 @@ generation:
     sharedErrorComponentsApr2025: true
     sharedNestedComponentsJan2026: true
     nameOverrideFeb2026: true
+    openSingleValueEnumsOct2026: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
@@ -30,7 +31,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 java:
-  version: 0.2.0
+  version: 0.3.0
   additionalDependencies: []
   additionalPlugins: []
   artifactID: cloudinary-account-provisioning
@@ -50,12 +51,14 @@ java:
   explicitDocImports: false
   flattenGlobalSecurity: true
   forwardCompatibleEnumsByDefault: false
-  forwardCompatibleUnionsByDefault: "false"
+  forwardCompatibleUnionsByDefault: true
   generateOptionalUnionAccessors: false
   generateSpringBootStarter: true
   generateUnionDocs: false
+  getterStyle: presence-aware
   githubURL: https://github.com/cloudinary/account-provisioning-java
   groupID: com.cloudinary.account.provisioning
+  httpClient: jdk
   imports:
     option: openapi
     paths:
