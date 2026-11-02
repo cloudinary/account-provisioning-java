@@ -8,7 +8,7 @@ Developer-friendly & type-safe Java SDK for the [Cloudinary Account Provisioning
 <!-- Start Summary [summary] -->
 ## Summary
 
-Cloudinary Account Provisioning API: Accounts with provisioning API access can create and manage their **product environments**, **users** and **user groups** using the RESTful Provisioning API.
+Cloudinary Account Provisioning API: Accounts with provisioning API access can create and manage their **product environments**, **users** and **user groups** using the RESTful Provisioning API. 
 
 Provisioning API access is available [upon request](https://cloudinary.com/contact?plan=enterprise) for accounts on an [Enterprise plan](https://cloudinary.com/pricing#pricing-enterprise).
 
@@ -74,7 +74,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cloudinary.account.provisioning:cloudinary-account-provisioning:0.2.0'
+implementation 'com.cloudinary.account.provisioning:cloudinary-account-provisioning:0.3.0'
 ```
 
 Maven:
@@ -82,7 +82,7 @@ Maven:
 <dependency>
     <groupId>com.cloudinary.account.provisioning</groupId>
     <artifactId>cloudinary-account-provisioning</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
 </dependency>
 ```
 
@@ -481,10 +481,8 @@ import com.cloudinary.account.provisioning.models.errors.CldProvisioningExceptio
 import com.cloudinary.account.provisioning.models.errors.ErrorResponse;
 import com.cloudinary.account.provisioning.models.operations.GetProductEnvironmentsRequest;
 import com.cloudinary.account.provisioning.models.operations.GetProductEnvironmentsResponse;
-import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.lang.Exception;
-import java.net.http.HttpResponse;
 import java.util.Optional;
 
 public class Application {
@@ -532,7 +530,6 @@ public class Application {
                 // Check error data fields
                 e.data().ifPresent(payload -> {
                       Optional<Error> error = payload.error();
-                      Optional<HttpResponse<InputStream>> rawResponse = payload.rawResponse();
                 });
             }
 

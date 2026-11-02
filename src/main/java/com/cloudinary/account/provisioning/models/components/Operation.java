@@ -9,23 +9,18 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * UserRequestRole
+ * Operation
  * 
- * <p>The role to assign.
+ * <p>Whether to add or remove the listed roles.
  */
-public enum UserRequestRole {
-    MASTER_ADMIN("master_admin"),
-    ADMIN("admin"),
-    BILLING("billing"),
-    TECHNICAL_ADMIN("technical_admin"),
-    REPORTS("reports"),
-    MEDIA_LIBRARY_ADMIN("media_library_admin"),
-    MEDIA_LIBRARY_USER("media_library_user");
+public enum Operation {
+    ADD("add"),
+    REMOVE("remove");
 
     @JsonValue
     private final String value;
 
-    UserRequestRole(String value) {
+    Operation(String value) {
         this.value = value;
     }
     
@@ -33,8 +28,8 @@ public enum UserRequestRole {
         return value;
     }
     
-    public static Optional<UserRequestRole> fromValue(String value) {
-        for (UserRequestRole o: UserRequestRole.values()) {
+    public static Optional<Operation> fromValue(String value) {
+        for (Operation o: Operation.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }

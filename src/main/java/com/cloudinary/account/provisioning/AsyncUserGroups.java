@@ -97,7 +97,7 @@ public class AsyncUserGroups {
      * 
      * <p><a href="https://cloudinary.com/documentation/provisioning_api#get_user_groups">Learn more about retrieving user groups.</a>
      * 
-     * @param extendedDetails Whether to only return extended (true) or basic information about the group (false).
+     * @param extendedDetails Whether to only return extended (true) or basic information about the group (false). 
      *         **Default**: false.
      *         
      * @return {@code CompletableFuture<GetUserGroupsResponse>} - The async response

@@ -17,7 +17,7 @@ import java.lang.String;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 
-public class CustomPolicy {
+public class CreateCustomPolicy {
     /**
      * A Cedar statement that permits or forbids a principal to perform an action on a resource. Refer to
      * the [Permissions API guide](permissions_api_guide) for more information.
@@ -64,7 +64,7 @@ public class CustomPolicy {
     private JsonNullable<Boolean> enabled;
 
     @JsonCreator
-    public CustomPolicy(
+    public CreateCustomPolicy(
             @JsonProperty("policy_statement") String policyStatement,
             @JsonProperty("description") JsonNullable<String> description,
             @JsonProperty("scope_type") ScopeTypeEnum scopeType,
@@ -85,7 +85,7 @@ public class CustomPolicy {
         this.enabled = enabled;
     }
     
-    public CustomPolicy(
+    public CreateCustomPolicy(
             String policyStatement,
             ScopeTypeEnum scopeType,
             String name) {
@@ -156,7 +156,7 @@ public class CustomPolicy {
      * A Cedar statement that permits or forbids a principal to perform an action on a resource. Refer to
      * the [Permissions API guide](permissions_api_guide) for more information.
      */
-    public CustomPolicy withPolicyStatement(String policyStatement) {
+    public CreateCustomPolicy withPolicyStatement(String policyStatement) {
         Utils.checkNotNull(policyStatement, "policyStatement");
         this.policyStatement = policyStatement;
         return this;
@@ -165,7 +165,7 @@ public class CustomPolicy {
     /**
      * A short description of the policy.
      */
-    public CustomPolicy withDescription(String description) {
+    public CreateCustomPolicy withDescription(String description) {
         Utils.checkNotNull(description, "description");
         this.description = JsonNullable.of(description);
         return this;
@@ -174,7 +174,7 @@ public class CustomPolicy {
     /**
      * A short description of the policy.
      */
-    public CustomPolicy withDescription(JsonNullable<String> description) {
+    public CreateCustomPolicy withDescription(JsonNullable<String> description) {
         Utils.checkNotNull(description, "description");
         this.description = description;
         return this;
@@ -184,7 +184,7 @@ public class CustomPolicy {
      * Specifies where the role/policy is applied, either at the account level or within product
      * environments.
      */
-    public CustomPolicy withScopeType(ScopeTypeEnum scopeType) {
+    public CreateCustomPolicy withScopeType(ScopeTypeEnum scopeType) {
         Utils.checkNotNull(scopeType, "scopeType");
         this.scopeType = scopeType;
         return this;
@@ -197,7 +197,7 @@ public class CustomPolicy {
      * - all
      * *Note:* The "all" specification is relevant only when creating or updating a policy.
      */
-    public CustomPolicy withScopeId(String scopeId) {
+    public CreateCustomPolicy withScopeId(String scopeId) {
         Utils.checkNotNull(scopeId, "scopeId");
         this.scopeId = JsonNullable.of(scopeId);
         return this;
@@ -210,7 +210,7 @@ public class CustomPolicy {
      * - all
      * *Note:* The "all" specification is relevant only when creating or updating a policy.
      */
-    public CustomPolicy withScopeId(JsonNullable<String> scopeId) {
+    public CreateCustomPolicy withScopeId(JsonNullable<String> scopeId) {
         Utils.checkNotNull(scopeId, "scopeId");
         this.scopeId = scopeId;
         return this;
@@ -219,7 +219,7 @@ public class CustomPolicy {
     /**
      * The name assigned to the policy.
      */
-    public CustomPolicy withName(String name) {
+    public CreateCustomPolicy withName(String name) {
         Utils.checkNotNull(name, "name");
         this.name = name;
         return this;
@@ -228,7 +228,7 @@ public class CustomPolicy {
     /**
      * Indicates whether the policy is currently active. Can be "true" (enabled) or "false" (disabled).
      */
-    public CustomPolicy withEnabled(boolean enabled) {
+    public CreateCustomPolicy withEnabled(boolean enabled) {
         Utils.checkNotNull(enabled, "enabled");
         this.enabled = JsonNullable.of(enabled);
         return this;
@@ -237,7 +237,7 @@ public class CustomPolicy {
     /**
      * Indicates whether the policy is currently active. Can be "true" (enabled) or "false" (disabled).
      */
-    public CustomPolicy withEnabled(JsonNullable<Boolean> enabled) {
+    public CreateCustomPolicy withEnabled(JsonNullable<Boolean> enabled) {
         Utils.checkNotNull(enabled, "enabled");
         this.enabled = enabled;
         return this;
@@ -251,7 +251,7 @@ public class CustomPolicy {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CustomPolicy other = (CustomPolicy) o;
+        CreateCustomPolicy other = (CreateCustomPolicy) o;
         return 
             Utils.enhancedDeepEquals(this.policyStatement, other.policyStatement) &&
             Utils.enhancedDeepEquals(this.description, other.description) &&
@@ -270,7 +270,7 @@ public class CustomPolicy {
     
     @Override
     public String toString() {
-        return Utils.toString(CustomPolicy.class,
+        return Utils.toString(CreateCustomPolicy.class,
                 "policyStatement", policyStatement,
                 "description", description,
                 "scopeType", scopeType,
@@ -395,12 +395,12 @@ public class CustomPolicy {
             return this;
         }
 
-        public CustomPolicy build() {
+        public CreateCustomPolicy build() {
             if (enabled == null) {
                 enabled = _SINGLETON_VALUE_Enabled.value();
             }
 
-            return new CustomPolicy(
+            return new CreateCustomPolicy(
                 policyStatement, description, scopeType,
                 scopeId, name, enabled);
         }

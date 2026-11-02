@@ -9,10 +9,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -36,7 +38,7 @@ public class InspectRequest {
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("policy_parameters")
-    private Optional<? extends InspectRequestPolicyParameters> policyParameters;
+    private Optional<? extends Map<String, Object>> policyParameters;
 
 
     @JsonInclude(Include.NON_ABSENT)
@@ -48,7 +50,7 @@ public class InspectRequest {
             @JsonProperty("scope_type") ScopeTypeEnum scopeType,
             @JsonProperty("scope_id") Optional<String> scopeId,
             @JsonProperty("principals") List<Principal> principals,
-            @JsonProperty("policy_parameters") Optional<? extends InspectRequestPolicyParameters> policyParameters,
+            @JsonProperty("policy_parameters") Optional<? extends Map<String, Object>> policyParameters,
             @JsonProperty("cursor") Optional<String> cursor) {
         Utils.checkNotNull(scopeType, "scopeType");
         Utils.checkNotNull(scopeId, "scopeId");
@@ -90,8 +92,8 @@ public class InspectRequest {
 
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<InspectRequestPolicyParameters> policyParameters() {
-        return (Optional<InspectRequestPolicyParameters>) policyParameters;
+    public Optional<Map<String, Object>> policyParameters() {
+        return (Optional<Map<String, Object>>) policyParameters;
     }
 
     @JsonIgnore
@@ -133,14 +135,14 @@ public class InspectRequest {
         return this;
     }
 
-    public InspectRequest withPolicyParameters(InspectRequestPolicyParameters policyParameters) {
+    public InspectRequest withPolicyParameters(Map<String, Object> policyParameters) {
         Utils.checkNotNull(policyParameters, "policyParameters");
         this.policyParameters = Optional.ofNullable(policyParameters);
         return this;
     }
 
 
-    public InspectRequest withPolicyParameters(Optional<? extends InspectRequestPolicyParameters> policyParameters) {
+    public InspectRequest withPolicyParameters(Optional<? extends Map<String, Object>> policyParameters) {
         Utils.checkNotNull(policyParameters, "policyParameters");
         this.policyParameters = policyParameters;
         return this;
@@ -202,7 +204,7 @@ public class InspectRequest {
 
         private List<Principal> principals;
 
-        private Optional<? extends InspectRequestPolicyParameters> policyParameters = Optional.empty();
+        private Optional<? extends Map<String, Object>> policyParameters = Optional.empty();
 
         private Optional<String> cursor = Optional.empty();
 
@@ -242,13 +244,13 @@ public class InspectRequest {
         }
 
 
-        public Builder policyParameters(InspectRequestPolicyParameters policyParameters) {
+        public Builder policyParameters(Map<String, Object> policyParameters) {
             Utils.checkNotNull(policyParameters, "policyParameters");
             this.policyParameters = Optional.ofNullable(policyParameters);
             return this;
         }
 
-        public Builder policyParameters(Optional<? extends InspectRequestPolicyParameters> policyParameters) {
+        public Builder policyParameters(Optional<? extends Map<String, Object>> policyParameters) {
             Utils.checkNotNull(policyParameters, "policyParameters");
             this.policyParameters = policyParameters;
             return this;

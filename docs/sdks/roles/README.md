@@ -4,7 +4,7 @@
 
 All roles include one or more predefined **system policies**, and can be applied to principals to enforce these policies.
 
-You can **manage custom roles**, where you select the system policies.
+You can **manage custom roles**, where you select the system policies. 
 
 You can **view system roles**, which contain a fixed set of system policies and are provided by Cloudinary.
 
@@ -555,8 +555,8 @@ Update a specific custom role by providing all relevant details, including those
 package hello.world;
 
 import com.cloudinary.account.provisioning.CldProvisioning;
-import com.cloudinary.account.provisioning.models.components.Role;
 import com.cloudinary.account.provisioning.models.components.Security;
+import com.cloudinary.account.provisioning.models.components.UpdateRole;
 import com.cloudinary.account.provisioning.models.errors.PermissionsErrorResponse;
 import com.cloudinary.account.provisioning.models.operations.UpdateRoleRequest;
 import com.cloudinary.account.provisioning.models.operations.UpdateRoleResponse;
@@ -577,7 +577,7 @@ public class Application {
 
         UpdateRoleRequest req = UpdateRoleRequest.builder()
                 .roleId("<id>")
-                .role(Role.builder()
+                .updateRole(UpdateRole.builder()
                     .name("Upload manager")
                     .description("Responsible for managing upload presets and uploading new assets.")
                     .systemPolicyIds(List.of(
@@ -603,8 +603,8 @@ public class Application {
 package hello.world;
 
 import com.cloudinary.account.provisioning.CldProvisioning;
-import com.cloudinary.account.provisioning.models.components.Role;
 import com.cloudinary.account.provisioning.models.components.Security;
+import com.cloudinary.account.provisioning.models.components.UpdateRole;
 import com.cloudinary.account.provisioning.models.errors.PermissionsErrorResponse;
 import com.cloudinary.account.provisioning.models.operations.UpdateRoleRequest;
 import com.cloudinary.account.provisioning.models.operations.UpdateRoleResponse;
@@ -625,7 +625,7 @@ public class Application {
 
         UpdateRoleRequest req = UpdateRoleRequest.builder()
                 .roleId("<id>")
-                .role(Role.builder()
+                .updateRole(UpdateRole.builder()
                     .name("Upload manager")
                     .description("Responsible for managing upload presets and uploading new assets.")
                     .systemPolicyIds(List.of(
@@ -651,8 +651,8 @@ public class Application {
 package hello.world;
 
 import com.cloudinary.account.provisioning.CldProvisioning;
-import com.cloudinary.account.provisioning.models.components.Role;
 import com.cloudinary.account.provisioning.models.components.Security;
+import com.cloudinary.account.provisioning.models.components.UpdateRole;
 import com.cloudinary.account.provisioning.models.errors.PermissionsErrorResponse;
 import com.cloudinary.account.provisioning.models.operations.UpdateRoleRequest;
 import com.cloudinary.account.provisioning.models.operations.UpdateRoleResponse;
@@ -673,7 +673,7 @@ public class Application {
 
         UpdateRoleRequest req = UpdateRoleRequest.builder()
                 .roleId("<id>")
-                .role(Role.builder()
+                .updateRole(UpdateRole.builder()
                     .name("Upload manager")
                     .description("Responsible for managing upload presets and uploading new assets.")
                     .systemPolicyIds(List.of(
@@ -699,8 +699,8 @@ public class Application {
 package hello.world;
 
 import com.cloudinary.account.provisioning.CldProvisioning;
-import com.cloudinary.account.provisioning.models.components.Role;
 import com.cloudinary.account.provisioning.models.components.Security;
+import com.cloudinary.account.provisioning.models.components.UpdateRole;
 import com.cloudinary.account.provisioning.models.errors.PermissionsErrorResponse;
 import com.cloudinary.account.provisioning.models.operations.UpdateRoleRequest;
 import com.cloudinary.account.provisioning.models.operations.UpdateRoleResponse;
@@ -721,7 +721,7 @@ public class Application {
 
         UpdateRoleRequest req = UpdateRoleRequest.builder()
                 .roleId("<id>")
-                .role(Role.builder()
+                .updateRole(UpdateRole.builder()
                     .name("Upload manager")
                     .description("Responsible for managing uploads and uploading new assets.")
                     .systemPolicyIds(List.of(
@@ -948,6 +948,7 @@ import com.cloudinary.account.provisioning.models.errors.PermissionsErrorRespons
 import com.cloudinary.account.provisioning.models.operations.UpdateRolePrincipalsResponse;
 import java.lang.Exception;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
 
@@ -970,8 +971,8 @@ public class Application {
                             .principalType(PrincipalTypeEnum.USER)
                             .principalId("1234abc")
                             .scopeId("975l29lz02jt0836fhwi")
-                            .policyParameters(UpdateRolePrincipalPolicyParameters.builder()
-                                .build())
+                            .policyParameters(Map.ofEntries(
+                            ))
                             .build()))
                     .build())
                 .build();
@@ -996,6 +997,7 @@ import com.cloudinary.account.provisioning.models.errors.PermissionsErrorRespons
 import com.cloudinary.account.provisioning.models.operations.UpdateRolePrincipalsResponse;
 import java.lang.Exception;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
 
@@ -1018,8 +1020,8 @@ public class Application {
                             .principalType(PrincipalTypeEnum.USER)
                             .principalId("1234abc")
                             .scopeId("975l29lz02jt0836fhwi")
-                            .policyParameters(UpdateRolePrincipalPolicyParameters.builder()
-                                .build())
+                            .policyParameters(Map.ofEntries(
+                            ))
                             .build()))
                     .build())
                 .build();

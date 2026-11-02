@@ -3,7 +3,7 @@
  */
 package com.cloudinary.account.provisioning.models.operations;
 
-import com.cloudinary.account.provisioning.models.components.Role;
+import com.cloudinary.account.provisioning.models.components.UpdateRole;
 import com.cloudinary.account.provisioning.utils.SpeakeasyMetadata;
 import com.cloudinary.account.provisioning.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,16 +23,16 @@ public class UpdateRoleRequest {
      * Role details
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private Role role;
+    private UpdateRole updateRole;
 
     @JsonCreator
     public UpdateRoleRequest(
             String roleId,
-            Role role) {
+            UpdateRole updateRole) {
         Utils.checkNotNull(roleId, "roleId");
-        Utils.checkNotNull(role, "role");
+        Utils.checkNotNull(updateRole, "updateRole");
         this.roleId = roleId;
-        this.role = role;
+        this.updateRole = updateRole;
     }
 
     /**
@@ -47,8 +47,8 @@ public class UpdateRoleRequest {
      * Role details
      */
     @JsonIgnore
-    public Role role() {
-        return role;
+    public UpdateRole updateRole() {
+        return updateRole;
     }
 
     public static Builder builder() {
@@ -68,9 +68,9 @@ public class UpdateRoleRequest {
     /**
      * Role details
      */
-    public UpdateRoleRequest withRole(Role role) {
-        Utils.checkNotNull(role, "role");
-        this.role = role;
+    public UpdateRoleRequest withUpdateRole(UpdateRole updateRole) {
+        Utils.checkNotNull(updateRole, "updateRole");
+        this.updateRole = updateRole;
         return this;
     }
 
@@ -85,20 +85,20 @@ public class UpdateRoleRequest {
         UpdateRoleRequest other = (UpdateRoleRequest) o;
         return 
             Utils.enhancedDeepEquals(this.roleId, other.roleId) &&
-            Utils.enhancedDeepEquals(this.role, other.role);
+            Utils.enhancedDeepEquals(this.updateRole, other.updateRole);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            roleId, role);
+            roleId, updateRole);
     }
     
     @Override
     public String toString() {
         return Utils.toString(UpdateRoleRequest.class,
                 "roleId", roleId,
-                "role", role);
+                "updateRole", updateRole);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -106,7 +106,7 @@ public class UpdateRoleRequest {
 
         private String roleId;
 
-        private Role role;
+        private UpdateRole updateRole;
 
         private Builder() {
           // force use of static builder() method
@@ -126,16 +126,16 @@ public class UpdateRoleRequest {
         /**
          * Role details
          */
-        public Builder role(Role role) {
-            Utils.checkNotNull(role, "role");
-            this.role = role;
+        public Builder updateRole(UpdateRole updateRole) {
+            Utils.checkNotNull(updateRole, "updateRole");
+            this.updateRole = updateRole;
             return this;
         }
 
         public UpdateRoleRequest build() {
 
             return new UpdateRoleRequest(
-                roleId, role);
+                roleId, updateRole);
         }
 
     }

@@ -3,6 +3,7 @@
  */
 package com.cloudinary.account.provisioning.models.operations;
 
+import com.cloudinary.account.provisioning.models.components.RoleAssignment;
 import com.cloudinary.account.provisioning.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -10,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.lang.Boolean;
+import java.lang.Deprecated;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
@@ -35,10 +37,14 @@ public class CreateUserRequestBody {
     private String email;
 
     /**
-     * The role to assign.
+     * The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead.
+     * Can't be combined with `roles` or `role_management`.
+     * 
+     * @deprecated field: Use `roles` (create) or `role_management` (update) instead..
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("role")
+    @Deprecated
     private Optional<? extends Role> role;
 
     /**
@@ -56,30 +62,40 @@ public class CreateUserRequestBody {
     @JsonProperty("enabled")
     private Optional<Boolean> enabled;
 
+    /**
+     * The roles to assign. Can't be sent together with `role`.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("roles")
+    private Optional<? extends List<RoleAssignment>> roles;
+
     @JsonCreator
     public CreateUserRequestBody(
             @JsonProperty("name") String name,
             @JsonProperty("email") String email,
             @JsonProperty("role") Optional<? extends Role> role,
             @JsonProperty("sub_account_ids") Optional<? extends List<String>> subAccountIds,
-            @JsonProperty("enabled") Optional<Boolean> enabled) {
+            @JsonProperty("enabled") Optional<Boolean> enabled,
+            @JsonProperty("roles") Optional<? extends List<RoleAssignment>> roles) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(email, "email");
         Utils.checkNotNull(role, "role");
         Utils.checkNotNull(subAccountIds, "subAccountIds");
         Utils.checkNotNull(enabled, "enabled");
+        Utils.checkNotNull(roles, "roles");
         this.name = name;
         this.email = email;
         this.role = role;
         this.subAccountIds = subAccountIds;
         this.enabled = enabled;
+        this.roles = roles;
     }
     
     public CreateUserRequestBody(
             String name,
             String email) {
         this(name, email, Optional.empty(),
-            Optional.empty(), Optional.empty());
+            Optional.empty(), Optional.empty(), Optional.empty());
     }
 
     /**
@@ -99,8 +115,12 @@ public class CreateUserRequestBody {
     }
 
     /**
-     * The role to assign.
+     * The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead.
+     * Can't be combined with `roles` or `role_management`.
+     * 
+     * @deprecated field: Use `roles` (create) or `role_management` (update) instead..
      */
+    @Deprecated
     @SuppressWarnings("unchecked")
     @JsonIgnore
     public Optional<Role> role() {
@@ -123,6 +143,15 @@ public class CreateUserRequestBody {
     @JsonIgnore
     public Optional<Boolean> enabled() {
         return enabled;
+    }
+
+    /**
+     * The roles to assign. Can't be sent together with `role`.
+     */
+    @SuppressWarnings("unchecked")
+    @JsonIgnore
+    public Optional<List<RoleAssignment>> roles() {
+        return (Optional<List<RoleAssignment>>) roles;
     }
 
     public static Builder builder() {
@@ -149,8 +178,12 @@ public class CreateUserRequestBody {
     }
 
     /**
-     * The role to assign.
+     * The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead.
+     * Can't be combined with `roles` or `role_management`.
+     * 
+     * @deprecated field: Use `roles` (create) or `role_management` (update) instead..
      */
+    @Deprecated
     public CreateUserRequestBody withRole(Role role) {
         Utils.checkNotNull(role, "role");
         this.role = Optional.ofNullable(role);
@@ -159,8 +192,12 @@ public class CreateUserRequestBody {
 
 
     /**
-     * The role to assign.
+     * The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead.
+     * Can't be combined with `roles` or `role_management`.
+     * 
+     * @deprecated field: Use `roles` (create) or `role_management` (update) instead..
      */
+    @Deprecated
     public CreateUserRequestBody withRole(Optional<? extends Role> role) {
         Utils.checkNotNull(role, "role");
         this.role = role;
@@ -207,6 +244,25 @@ public class CreateUserRequestBody {
         return this;
     }
 
+    /**
+     * The roles to assign. Can't be sent together with `role`.
+     */
+    public CreateUserRequestBody withRoles(List<RoleAssignment> roles) {
+        Utils.checkNotNull(roles, "roles");
+        this.roles = Optional.ofNullable(roles);
+        return this;
+    }
+
+
+    /**
+     * The roles to assign. Can't be sent together with `role`.
+     */
+    public CreateUserRequestBody withRoles(Optional<? extends List<RoleAssignment>> roles) {
+        Utils.checkNotNull(roles, "roles");
+        this.roles = roles;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -221,14 +277,15 @@ public class CreateUserRequestBody {
             Utils.enhancedDeepEquals(this.email, other.email) &&
             Utils.enhancedDeepEquals(this.role, other.role) &&
             Utils.enhancedDeepEquals(this.subAccountIds, other.subAccountIds) &&
-            Utils.enhancedDeepEquals(this.enabled, other.enabled);
+            Utils.enhancedDeepEquals(this.enabled, other.enabled) &&
+            Utils.enhancedDeepEquals(this.roles, other.roles);
     }
     
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
             name, email, role,
-            subAccountIds, enabled);
+            subAccountIds, enabled, roles);
     }
     
     @Override
@@ -238,7 +295,8 @@ public class CreateUserRequestBody {
                 "email", email,
                 "role", role,
                 "subAccountIds", subAccountIds,
-                "enabled", enabled);
+                "enabled", enabled,
+                "roles", roles);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -248,11 +306,14 @@ public class CreateUserRequestBody {
 
         private String email;
 
+        @Deprecated
         private Optional<? extends Role> role = Optional.empty();
 
         private Optional<? extends List<String>> subAccountIds = Optional.empty();
 
         private Optional<Boolean> enabled = Optional.empty();
+
+        private Optional<? extends List<RoleAssignment>> roles = Optional.empty();
 
         private Builder() {
           // force use of static builder() method
@@ -280,8 +341,12 @@ public class CreateUserRequestBody {
 
 
         /**
-         * The role to assign.
+         * The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead.
+         * Can't be combined with `roles` or `role_management`.
+         * 
+         * @deprecated field: Use `roles` (create) or `role_management` (update) instead..
          */
+        @Deprecated
         public Builder role(Role role) {
             Utils.checkNotNull(role, "role");
             this.role = Optional.ofNullable(role);
@@ -289,8 +354,12 @@ public class CreateUserRequestBody {
         }
 
         /**
-         * The role to assign.
+         * The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead.
+         * Can't be combined with `roles` or `role_management`.
+         * 
+         * @deprecated field: Use `roles` (create) or `role_management` (update) instead..
          */
+        @Deprecated
         public Builder role(Optional<? extends Role> role) {
             Utils.checkNotNull(role, "role");
             this.role = role;
@@ -337,11 +406,30 @@ public class CreateUserRequestBody {
             return this;
         }
 
+
+        /**
+         * The roles to assign. Can't be sent together with `role`.
+         */
+        public Builder roles(List<RoleAssignment> roles) {
+            Utils.checkNotNull(roles, "roles");
+            this.roles = Optional.ofNullable(roles);
+            return this;
+        }
+
+        /**
+         * The roles to assign. Can't be sent together with `role`.
+         */
+        public Builder roles(Optional<? extends List<RoleAssignment>> roles) {
+            Utils.checkNotNull(roles, "roles");
+            this.roles = roles;
+            return this;
+        }
+
         public CreateUserRequestBody build() {
 
             return new CreateUserRequestBody(
                 name, email, role,
-                subAccountIds, enabled);
+                subAccountIds, enabled, roles);
         }
 
     }

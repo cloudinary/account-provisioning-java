@@ -1,20 +1,20 @@
-speakeasyVersion: 1.761.1
+speakeasyVersion: 1.805.0
 sources:
     Cloudinary-Provisioning-OAS:
         sourceNamespace: cloudinary-provisioning
-        sourceRevisionDigest: sha256:e2fd5f6aa6b9fa1e5db8e0b8730ab4ba03eab339533987917f9fcd1b17b98d27
-        sourceBlobDigest: sha256:ab6edeae93ec2d1ec61d5a5e88231cc8c57e93b249c107c193b82f7f750f8808
+        sourceRevisionDigest: sha256:9a636fa6742c3e9f8ca38502330053b2551aff80a6a8225de22a418282179637
+        sourceBlobDigest: sha256:b8e0d0049e58dacb9002274e8c7b55b1be9bf34f95dc44f40ece34d80afcb753
         tags:
             - latest
-            - 0.2.1
+            - 0.2.2
 targets:
     cloudinary:
         source: Cloudinary-Provisioning-OAS
         sourceNamespace: cloudinary-provisioning
-        sourceRevisionDigest: sha256:e2fd5f6aa6b9fa1e5db8e0b8730ab4ba03eab339533987917f9fcd1b17b98d27
-        sourceBlobDigest: sha256:ab6edeae93ec2d1ec61d5a5e88231cc8c57e93b249c107c193b82f7f750f8808
+        sourceRevisionDigest: sha256:9a636fa6742c3e9f8ca38502330053b2551aff80a6a8225de22a418282179637
+        sourceBlobDigest: sha256:b8e0d0049e58dacb9002274e8c7b55b1be9bf34f95dc44f40ece34d80afcb753
         codeSamplesNamespace: cloudinary-provisioning-java-code-samples
-        codeSamplesRevisionDigest: sha256:52be39236b8c664c2f35f07c8651979aec76a54d33f99421712a34009f6d3c69
+        codeSamplesRevisionDigest: sha256:132d321623ca398b9c0114709547b67a746d1c23bc46184b43e739b77bf5d920
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

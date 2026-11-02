@@ -96,7 +96,7 @@ public class UserGroups {
      * 
      * <p><a href="https://cloudinary.com/documentation/provisioning_api#get_user_groups">Learn more about retrieving user groups.</a>
      * 
-     * @param extendedDetails Whether to only return extended (true) or basic information about the group (false).
+     * @param extendedDetails Whether to only return extended (true) or basic information about the group (false). 
      *         **Default**: false.
      *         
      * @return The response from the API call

@@ -9,9 +9,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -38,13 +40,13 @@ public class RoleToManage {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("policy_parameters")
-    private Optional<? extends RoleToManagePolicyParameters> policyParameters;
+    private Optional<? extends Map<String, Object>> policyParameters;
 
     @JsonCreator
     public RoleToManage(
             @JsonProperty("id") String id,
             @JsonProperty("scope_id") Optional<String> scopeId,
-            @JsonProperty("policy_parameters") Optional<? extends RoleToManagePolicyParameters> policyParameters) {
+            @JsonProperty("policy_parameters") Optional<? extends Map<String, Object>> policyParameters) {
         Utils.checkNotNull(id, "id");
         Utils.checkNotNull(scopeId, "scopeId");
         Utils.checkNotNull(policyParameters, "policyParameters");
@@ -83,8 +85,8 @@ public class RoleToManage {
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<RoleToManagePolicyParameters> policyParameters() {
-        return (Optional<RoleToManagePolicyParameters>) policyParameters;
+    public Optional<Map<String, Object>> policyParameters() {
+        return (Optional<Map<String, Object>>) policyParameters;
     }
 
     public static Builder builder() {
@@ -128,7 +130,7 @@ public class RoleToManage {
      * 
      * <p>This specification is passed to the `policy_statement` (Cedar).
      */
-    public RoleToManage withPolicyParameters(RoleToManagePolicyParameters policyParameters) {
+    public RoleToManage withPolicyParameters(Map<String, Object> policyParameters) {
         Utils.checkNotNull(policyParameters, "policyParameters");
         this.policyParameters = Optional.ofNullable(policyParameters);
         return this;
@@ -141,7 +143,7 @@ public class RoleToManage {
      * 
      * <p>This specification is passed to the `policy_statement` (Cedar).
      */
-    public RoleToManage withPolicyParameters(Optional<? extends RoleToManagePolicyParameters> policyParameters) {
+    public RoleToManage withPolicyParameters(Optional<? extends Map<String, Object>> policyParameters) {
         Utils.checkNotNull(policyParameters, "policyParameters");
         this.policyParameters = policyParameters;
         return this;
@@ -183,7 +185,7 @@ public class RoleToManage {
 
         private Optional<String> scopeId = Optional.empty();
 
-        private Optional<? extends RoleToManagePolicyParameters> policyParameters = Optional.empty();
+        private Optional<? extends Map<String, Object>> policyParameters = Optional.empty();
 
         private Builder() {
           // force use of static builder() method
@@ -227,7 +229,7 @@ public class RoleToManage {
          * 
          * <p>This specification is passed to the `policy_statement` (Cedar).
          */
-        public Builder policyParameters(RoleToManagePolicyParameters policyParameters) {
+        public Builder policyParameters(Map<String, Object> policyParameters) {
             Utils.checkNotNull(policyParameters, "policyParameters");
             this.policyParameters = Optional.ofNullable(policyParameters);
             return this;
@@ -239,7 +241,7 @@ public class RoleToManage {
          * 
          * <p>This specification is passed to the `policy_statement` (Cedar).
          */
-        public Builder policyParameters(Optional<? extends RoleToManagePolicyParameters> policyParameters) {
+        public Builder policyParameters(Optional<? extends Map<String, Object>> policyParameters) {
             Utils.checkNotNull(policyParameters, "policyParameters");
             this.policyParameters = policyParameters;
             return this;

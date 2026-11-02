@@ -9,9 +9,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -42,14 +44,14 @@ public class PermissionsError {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("details")
-    private Optional<? extends Details> details;
+    private Optional<? extends Map<String, Object>> details;
 
     @JsonCreator
     public PermissionsError(
             @JsonProperty("category") Optional<String> category,
             @JsonProperty("code") Optional<String> code,
             @JsonProperty("message") Optional<String> message,
-            @JsonProperty("details") Optional<? extends Details> details) {
+            @JsonProperty("details") Optional<? extends Map<String, Object>> details) {
         Utils.checkNotNull(category, "category");
         Utils.checkNotNull(code, "code");
         Utils.checkNotNull(message, "message");
@@ -94,8 +96,8 @@ public class PermissionsError {
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<Details> details() {
-        return (Optional<Details>) details;
+    public Optional<Map<String, Object>> details() {
+        return (Optional<Map<String, Object>>) details;
     }
 
     public static Builder builder() {
@@ -163,7 +165,7 @@ public class PermissionsError {
     /**
      * Additional contextual information about the error, which may include relevant data.
      */
-    public PermissionsError withDetails(Details details) {
+    public PermissionsError withDetails(Map<String, Object> details) {
         Utils.checkNotNull(details, "details");
         this.details = Optional.ofNullable(details);
         return this;
@@ -173,7 +175,7 @@ public class PermissionsError {
     /**
      * Additional contextual information about the error, which may include relevant data.
      */
-    public PermissionsError withDetails(Optional<? extends Details> details) {
+    public PermissionsError withDetails(Optional<? extends Map<String, Object>> details) {
         Utils.checkNotNull(details, "details");
         this.details = details;
         return this;
@@ -220,7 +222,7 @@ public class PermissionsError {
 
         private Optional<String> message = Optional.empty();
 
-        private Optional<? extends Details> details = Optional.empty();
+        private Optional<? extends Map<String, Object>> details = Optional.empty();
 
         private Builder() {
           // force use of static builder() method
@@ -287,7 +289,7 @@ public class PermissionsError {
         /**
          * Additional contextual information about the error, which may include relevant data.
          */
-        public Builder details(Details details) {
+        public Builder details(Map<String, Object> details) {
             Utils.checkNotNull(details, "details");
             this.details = Optional.ofNullable(details);
             return this;
@@ -296,7 +298,7 @@ public class PermissionsError {
         /**
          * Additional contextual information about the error, which may include relevant data.
          */
-        public Builder details(Optional<? extends Details> details) {
+        public Builder details(Optional<? extends Map<String, Object>> details) {
             Utils.checkNotNull(details, "details");
             this.details = details;
             return this;

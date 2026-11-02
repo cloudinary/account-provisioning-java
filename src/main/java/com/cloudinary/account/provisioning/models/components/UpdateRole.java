@@ -17,7 +17,7 @@ import java.util.Optional;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 
-public class Role {
+public class UpdateRole {
     /**
      * The name of the role.
      */
@@ -42,7 +42,7 @@ public class Role {
     private Optional<? extends List<String>> systemPolicyIds;
 
     @JsonCreator
-    public Role(
+    public UpdateRole(
             @JsonProperty("name") String name,
             @JsonProperty("description") JsonNullable<String> description,
             @JsonProperty("system_policy_ids") Optional<? extends List<String>> systemPolicyIds) {
@@ -54,7 +54,7 @@ public class Role {
         this.systemPolicyIds = systemPolicyIds;
     }
     
-    public Role(
+    public UpdateRole(
             String name) {
         this(name, JsonNullable.undefined(), Optional.empty());
     }
@@ -95,7 +95,7 @@ public class Role {
     /**
      * The name of the role.
      */
-    public Role withName(String name) {
+    public UpdateRole withName(String name) {
         Utils.checkNotNull(name, "name");
         this.name = name;
         return this;
@@ -104,7 +104,7 @@ public class Role {
     /**
      * A short description of the role.
      */
-    public Role withDescription(String description) {
+    public UpdateRole withDescription(String description) {
         Utils.checkNotNull(description, "description");
         this.description = JsonNullable.of(description);
         return this;
@@ -113,7 +113,7 @@ public class Role {
     /**
      * A short description of the role.
      */
-    public Role withDescription(JsonNullable<String> description) {
+    public UpdateRole withDescription(JsonNullable<String> description) {
         Utils.checkNotNull(description, "description");
         this.description = description;
         return this;
@@ -125,7 +125,7 @@ public class Role {
      * <p>**Tip:** Get the list of all available predefined policies using the [Get system
      * policies](#tag/policies/get/policies) method.
      */
-    public Role withSystemPolicyIds(List<String> systemPolicyIds) {
+    public UpdateRole withSystemPolicyIds(List<String> systemPolicyIds) {
         Utils.checkNotNull(systemPolicyIds, "systemPolicyIds");
         this.systemPolicyIds = Optional.ofNullable(systemPolicyIds);
         return this;
@@ -138,7 +138,7 @@ public class Role {
      * <p>**Tip:** Get the list of all available predefined policies using the [Get system
      * policies](#tag/policies/get/policies) method.
      */
-    public Role withSystemPolicyIds(Optional<? extends List<String>> systemPolicyIds) {
+    public UpdateRole withSystemPolicyIds(Optional<? extends List<String>> systemPolicyIds) {
         Utils.checkNotNull(systemPolicyIds, "systemPolicyIds");
         this.systemPolicyIds = systemPolicyIds;
         return this;
@@ -152,7 +152,7 @@ public class Role {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Role other = (Role) o;
+        UpdateRole other = (UpdateRole) o;
         return 
             Utils.enhancedDeepEquals(this.name, other.name) &&
             Utils.enhancedDeepEquals(this.description, other.description) &&
@@ -167,7 +167,7 @@ public class Role {
     
     @Override
     public String toString() {
-        return Utils.toString(Role.class,
+        return Utils.toString(UpdateRole.class,
                 "name", name,
                 "description", description,
                 "systemPolicyIds", systemPolicyIds);
@@ -240,9 +240,9 @@ public class Role {
             return this;
         }
 
-        public Role build() {
+        public UpdateRole build() {
 
-            return new Role(
+            return new UpdateRole(
                 name, description, systemPolicyIds);
         }
 

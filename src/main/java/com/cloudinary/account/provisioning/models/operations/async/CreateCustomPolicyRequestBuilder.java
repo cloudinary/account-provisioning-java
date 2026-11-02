@@ -6,15 +6,14 @@ package com.cloudinary.account.provisioning.models.operations.async;
 import static com.cloudinary.account.provisioning.operations.Operations.AsyncRequestOperation;
 
 import com.cloudinary.account.provisioning.SDKConfiguration;
-import com.cloudinary.account.provisioning.models.components.CustomPolicy;
-import com.cloudinary.account.provisioning.operations.CreateCustomPolicy;
+import com.cloudinary.account.provisioning.models.components.CreateCustomPolicy;
 import com.cloudinary.account.provisioning.utils.Headers;
 import com.cloudinary.account.provisioning.utils.Utils;
 import java.util.concurrent.CompletableFuture;
 
 public class CreateCustomPolicyRequestBuilder {
 
-    private CustomPolicy request;
+    private CreateCustomPolicy request;
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers(); 
 
@@ -22,7 +21,7 @@ public class CreateCustomPolicyRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public CreateCustomPolicyRequestBuilder request(CustomPolicy request) {
+    public CreateCustomPolicyRequestBuilder request(CreateCustomPolicy request) {
         Utils.checkNotNull(request, "request");
         this.request = request;
         return this;
@@ -30,8 +29,8 @@ public class CreateCustomPolicyRequestBuilder {
 
     public CompletableFuture<CreateCustomPolicyResponse> call() {
         
-        AsyncRequestOperation<CustomPolicy, CreateCustomPolicyResponse> operation
-              = new CreateCustomPolicy.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<CreateCustomPolicy, CreateCustomPolicyResponse> operation
+              = new com.cloudinary.account.provisioning.operations.CreateCustomPolicy.Async(sdkConfiguration, _headers);
 
         return operation.doRequest(request)
             .thenCompose(operation::handleResponse);

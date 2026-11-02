@@ -433,7 +433,7 @@ public class CldProvisioning {
         return new Builder();
     }
 
-    public CldProvisioning(SDKConfiguration sdkConfiguration) {
+    private CldProvisioning(SDKConfiguration sdkConfiguration) {
         sdkConfiguration.initialize();
         this.productEnvironments = new ProductEnvironments(sdkConfiguration);
         this.accessKeys = new AccessKeys(sdkConfiguration);

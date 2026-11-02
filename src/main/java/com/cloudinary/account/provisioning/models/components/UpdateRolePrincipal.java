@@ -9,9 +9,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
+import java.util.Map;
 import java.util.Optional;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -44,14 +46,14 @@ public class UpdateRolePrincipal {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("policy_parameters")
-    private Optional<? extends UpdateRolePrincipalPolicyParameters> policyParameters;
+    private Optional<? extends Map<String, Object>> policyParameters;
 
     @JsonCreator
     public UpdateRolePrincipal(
             @JsonProperty("principal_type") PrincipalTypeEnum principalType,
             @JsonProperty("principal_id") String principalId,
             @JsonProperty("scope_id") JsonNullable<String> scopeId,
-            @JsonProperty("policy_parameters") Optional<? extends UpdateRolePrincipalPolicyParameters> policyParameters) {
+            @JsonProperty("policy_parameters") Optional<? extends Map<String, Object>> policyParameters) {
         Utils.checkNotNull(principalType, "principalType");
         Utils.checkNotNull(principalId, "principalId");
         Utils.checkNotNull(scopeId, "scopeId");
@@ -101,8 +103,8 @@ public class UpdateRolePrincipal {
      */
     @SuppressWarnings("unchecked")
     @JsonIgnore
-    public Optional<UpdateRolePrincipalPolicyParameters> policyParameters() {
-        return (Optional<UpdateRolePrincipalPolicyParameters>) policyParameters;
+    public Optional<Map<String, Object>> policyParameters() {
+        return (Optional<Map<String, Object>>) policyParameters;
     }
 
     public static Builder builder() {
@@ -153,7 +155,7 @@ public class UpdateRolePrincipal {
      * collection you want the role to apply to, for example, `{"folder_id":"asdfjkl12347890"}`. This
      * specification is passed to the `policy_statement`, written in Cedar language.
      */
-    public UpdateRolePrincipal withPolicyParameters(UpdateRolePrincipalPolicyParameters policyParameters) {
+    public UpdateRolePrincipal withPolicyParameters(Map<String, Object> policyParameters) {
         Utils.checkNotNull(policyParameters, "policyParameters");
         this.policyParameters = Optional.ofNullable(policyParameters);
         return this;
@@ -165,7 +167,7 @@ public class UpdateRolePrincipal {
      * collection you want the role to apply to, for example, `{"folder_id":"asdfjkl12347890"}`. This
      * specification is passed to the `policy_statement`, written in Cedar language.
      */
-    public UpdateRolePrincipal withPolicyParameters(Optional<? extends UpdateRolePrincipalPolicyParameters> policyParameters) {
+    public UpdateRolePrincipal withPolicyParameters(Optional<? extends Map<String, Object>> policyParameters) {
         Utils.checkNotNull(policyParameters, "policyParameters");
         this.policyParameters = policyParameters;
         return this;
@@ -212,7 +214,7 @@ public class UpdateRolePrincipal {
 
         private JsonNullable<String> scopeId = JsonNullable.undefined();
 
-        private Optional<? extends UpdateRolePrincipalPolicyParameters> policyParameters = Optional.empty();
+        private Optional<? extends Map<String, Object>> policyParameters = Optional.empty();
 
         private Builder() {
           // force use of static builder() method
@@ -265,7 +267,7 @@ public class UpdateRolePrincipal {
          * collection you want the role to apply to, for example, `{"folder_id":"asdfjkl12347890"}`. This
          * specification is passed to the `policy_statement`, written in Cedar language.
          */
-        public Builder policyParameters(UpdateRolePrincipalPolicyParameters policyParameters) {
+        public Builder policyParameters(Map<String, Object> policyParameters) {
             Utils.checkNotNull(policyParameters, "policyParameters");
             this.policyParameters = Optional.ofNullable(policyParameters);
             return this;
@@ -276,7 +278,7 @@ public class UpdateRolePrincipal {
          * collection you want the role to apply to, for example, `{"folder_id":"asdfjkl12347890"}`. This
          * specification is passed to the `policy_statement`, written in Cedar language.
          */
-        public Builder policyParameters(Optional<? extends UpdateRolePrincipalPolicyParameters> policyParameters) {
+        public Builder policyParameters(Optional<? extends Map<String, Object>> policyParameters) {
             Utils.checkNotNull(policyParameters, "policyParameters");
             this.policyParameters = policyParameters;
             return this;

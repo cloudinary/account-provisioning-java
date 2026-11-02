@@ -4,6 +4,7 @@
 package com.cloudinary.account.provisioning.models.operations;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.lang.Deprecated;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -11,8 +12,12 @@ import java.util.Optional;
 /**
  * Role
  * 
- * <p>The role to assign.
+ * <p>The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead.
+ * Can't be combined with `roles` or `role_management`.
+ * 
+ * @deprecated enum: Use `roles` (create) or `role_management` (update) instead..
  */
+@Deprecated
 public enum Role {
     MASTER_ADMIN("master_admin"),
     ADMIN("admin"),

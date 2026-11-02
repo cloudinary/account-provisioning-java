@@ -5,7 +5,7 @@ package com.cloudinary.account.provisioning;
 
 import static com.cloudinary.account.provisioning.operations.Operations.AsyncRequestOperation;
 
-import com.cloudinary.account.provisioning.models.components.CustomPolicy;
+import com.cloudinary.account.provisioning.models.components.CreateCustomPolicy;
 import com.cloudinary.account.provisioning.models.operations.DeleteCustomPolicyRequest;
 import com.cloudinary.account.provisioning.models.operations.GetCustomPoliciesRequest;
 import com.cloudinary.account.provisioning.models.operations.GetCustomPolicyRequest;
@@ -20,7 +20,6 @@ import com.cloudinary.account.provisioning.models.operations.async.GetCustomPoli
 import com.cloudinary.account.provisioning.models.operations.async.GetCustomPolicyResponse;
 import com.cloudinary.account.provisioning.models.operations.async.UpdateCustomPolicyRequestBuilder;
 import com.cloudinary.account.provisioning.models.operations.async.UpdateCustomPolicyResponse;
-import com.cloudinary.account.provisioning.operations.CreateCustomPolicy;
 import com.cloudinary.account.provisioning.operations.DeleteCustomPolicy;
 import com.cloudinary.account.provisioning.operations.GetCustomPolicies;
 import com.cloudinary.account.provisioning.operations.GetCustomPolicy;
@@ -114,9 +113,9 @@ public class AsyncCustomPolicies {
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateCustomPolicyResponse>} - The async response
      */
-    public CompletableFuture<CreateCustomPolicyResponse> create(CustomPolicy request) {
-        AsyncRequestOperation<CustomPolicy, CreateCustomPolicyResponse> operation
-              = new CreateCustomPolicy.Async(sdkConfiguration, _headers);
+    public CompletableFuture<CreateCustomPolicyResponse> create(CreateCustomPolicy request) {
+        AsyncRequestOperation<CreateCustomPolicy, CreateCustomPolicyResponse> operation
+              = new com.cloudinary.account.provisioning.operations.CreateCustomPolicy.Async(sdkConfiguration, _headers);
         return operation.doRequest(request)
             .thenCompose(operation::handleResponse);
     }

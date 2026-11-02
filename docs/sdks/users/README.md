@@ -141,10 +141,13 @@ public class Application {
 package hello.world;
 
 import com.cloudinary.account.provisioning.CldProvisioning;
+import com.cloudinary.account.provisioning.models.components.RoleAssignment;
 import com.cloudinary.account.provisioning.models.components.Security;
 import com.cloudinary.account.provisioning.models.errors.ErrorResponse;
-import com.cloudinary.account.provisioning.models.operations.*;
+import com.cloudinary.account.provisioning.models.operations.CreateUserRequestBody;
+import com.cloudinary.account.provisioning.models.operations.CreateUserResponse;
 import java.lang.Exception;
+import java.util.List;
 
 public class Application {
 
@@ -161,8 +164,11 @@ public class Application {
         CreateUserRequestBody req = CreateUserRequestBody.builder()
                 .name("John")
                 .email("john@example.com")
-                .role(Role.TECHNICAL_ADMIN)
                 .enabled(true)
+                .roles(List.of(
+                    RoleAssignment.builder()
+                        .id("media_library_admin")
+                        .build()))
                 .build();
 
         CreateUserResponse res = sdk.users().create()
@@ -268,9 +274,9 @@ package hello.world;
 import com.cloudinary.account.provisioning.CldProvisioning;
 import com.cloudinary.account.provisioning.models.components.*;
 import com.cloudinary.account.provisioning.models.errors.ErrorResponse;
-import com.cloudinary.account.provisioning.models.operations.UpdateUserRequest;
-import com.cloudinary.account.provisioning.models.operations.UpdateUserResponse;
+import com.cloudinary.account.provisioning.models.operations.*;
 import java.lang.Exception;
+import java.util.List;
 
 public class Application {
 
@@ -286,11 +292,14 @@ public class Application {
 
         UpdateUserRequest req = UpdateUserRequest.builder()
                 .userId("0abed8dfcc039ea05e2a1d494fd442")
-                .userRequest(UserRequest.builder()
+                .requestBody(UpdateUserRequestBody.builder()
                     .name("John")
                     .email("john@example.com")
-                    .role(UserRequestRole.TECHNICAL_ADMIN)
                     .enabled(true)
+                    .roleManagement(RoleManagementRequest.builder()
+                        .operation(Operation.ADD)
+                        .roles(List.of())
+                        .build())
                     .build())
                 .build();
 

@@ -1,13 +1,15 @@
-# UserRequestRole
+# ~~UpdateUserRole~~
 
-The role to assign.
+The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead. Can't be combined with `roles` or `role_management`.
+
+> :warning: **DEPRECATED**: Use `roles` (create) or `role_management` (update) instead..
 
 ## Example Usage
 
 ```java
-import com.cloudinary.account.provisioning.models.components.UserRequestRole;
+import com.cloudinary.account.provisioning.models.operations.UpdateUserRole;
 
-UserRequestRole value = UserRequestRole.MASTER_ADMIN;
+UpdateUserRole value = UpdateUserRole.MASTER_ADMIN;
 ```
 
 
